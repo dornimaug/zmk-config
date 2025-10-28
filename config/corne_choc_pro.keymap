@@ -30,7 +30,7 @@
             sequence = <&kp LGUI &kp LALT &kp K>;
         };
     };
-}
+};
 
 / {
     keymap {
