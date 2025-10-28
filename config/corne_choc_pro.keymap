@@ -41,10 +41,10 @@
         default_layer {
             display-name = "QWERTZ";
             // --------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E   |  R  |  T  |  MUTE |  PP   |  Z  |  U   |  I   |  O  |  P  |  Ü  |
-            // | RALT |  A  |  S  |  D   |  F  |  G  |  LALT |  RALT |  H  |  J   |  K   |  L  |  Ö  |  Ä  |
-            // | SHFT |  Y  |  X  |  C   |  V  |  B  |               |  N  |  M   |  ,   |  .  |  -  |  ß  |
-            //                    | CTRL | LWR | SPC |               | ENT | RSE  | BSPC |
+            // |  TAB     |  Q  |  W  |  E   |  R  |  T  | MUTE | PP   |  Z  |  U   |  I   |  O  |  P  |  Ü  |
+            // | RALT+RSE |  A  |  S  |  D   |  F  |  G  | LALT | RALT |  H  |  J   |  K   |  L  |  Ö  |  Ä  |
+            // | SHIFT    |  Y  |  X  |  C   |  V  |  B  |             |  N  |  M   |  ,   |  .  |  -  |  ß  |
+            //                        | CTRL | LWR | SPC |             | ENT | RSE  | BSPC |
             bindings = <
                 &kp TAB    &kp DE_Q &kp DE_W &kp DE_E  &kp DE_R &kp DE_T &mute_mic  &kp C_PP &kp DE_Z &kp DE_U  &kp DE_I     &kp DE_O   &kp DE_P        &kp DE_U_UMLAUT
                 &altgr_rse &kp DE_A &kp DE_S &kp DE_D  &kp DE_F &kp DE_G &kp LALT   &kp RALT &kp DE_H &kp DE_J  &kp DE_K     &kp DE_L   &kp DE_O_UMLAUT &kp DE_A_UMLAUT
@@ -55,42 +55,49 @@
         };
 
         lower_layer {
-            display-name = "NUMBER";
+            display-name = "NAV";
             // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5    |  LCTRL | RCTRL |  6  |  7  |  8  |  9  |  0  | BSPC |
-            // | CTRL | BT1 | BT2 | BT3 | BT4 | BT5   |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT | BTCR| RGB | RST | BOOT| Unlock|        |       |     |     |     |     |     |      |
-            //                    | GUI |     | SPC   |        | ENT   |     | ALT |
+            // |  ESC | BT1 | BT2 | BT3 | BT4 | BT5   |  LALT  | BSPC  |      | PGUP |  UP  | PGDN |     | BSPC |
+            // | CTRL | BTCR| RGB | RST | BOOT| Unlock|  F4    | F5    | HOME | LEFT | DOWN |  RGT | END | F12  |
+            // | SHFT |     | DEL | F1  | F2  | F3    |                |  F6  |  F7  |  F8  |  F9  | F10 | F11  |
+            //                    | GUI |     | ESC   |                | SHFT |      | DEL  |
             bindings = <
-                &kp TAB   &kp N1       &kp N2          &kp N3       &kp N4       &kp N5       &kp LCTRL &kp RCTRL &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-                &kp LCTRL &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp LALT  &kp RALT  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-                &kp LSHFT &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock                   &trans   &trans   &trans &trans    &trans &trans
-                                                       &kp LGUI     &trans       &kp SPACE                        &kp LGUI &trans   &kp SPACE
+                &kp ESC   &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LALT  &kp BSPC &kp N6    &kp PG_UP &kp UP   &kp PG_DN &kp N0  &kp BSPC
+                &kp LCTRL &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock &kp F4    &kp F5   &kp HOME  &kp LEFT  &kp DOWN &kp RIGHT &kp END &kp F12
+                &kp LSHFT &trans       &kp DEL         &kp F1       &kp F2       &kp F3                            &kp F6    &kp F7    &kp F8   &kp F9    &kp F10 &kp F11
+                                                       &kp LGUI     &trans       &kp ESC                           &kp RSHFT &trans    &kp DEL
             >;
         };
 
         raise_layer {
             display-name = "SYMBOL";
             // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  | LCTRL | RCTRL |  ^  |  &  |  *  |  (  |  )  | BSPC |
-            // | CTRL |  @  |     |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |               |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |               | ENT |     | ALT |
+            // | ^°   | 1 ! | 2 " | 3 § | 4 $ | 5 % | LCTRL | RCTRL | 6 & | 7/{ | 8([ | 9)] | 0=} | ´`\ |
+            // | RALT |  @  |     |  €  |     |     | RALT  | LALT  |  -  |  {  |  (  |  )  |  }  | +*~ |
+            // | SHFT | <>  | DEL |     |     |     |               |  _  |  +  |  [  |  ]  |  \  |  #' |
+            //                    | CTRL|     | SHFT|               | ENT |     | LALT|
             bindings = <
-                &kp  TAB  &kp DE_EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &kp LCTRL &kp RCTRL &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-                &kp LCTRL &trans   &trans &trans   &trans   &trans    &kp LALT  &kp RALT  &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
-                &kp LSHFT &trans   &trans &trans   &trans   &trans                        &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE &kp TILDE
-                                          &kp LGUI &trans   &kp SPACE                     &kp RET   &trans    &kp RALT
+                &kp DE_CARET &kp DE_N1 &kp DE_N2 &kp DE_N3   &kp DE_N4 &kp DE_N5 &kp LCTRL &kp RCTRL &kp DE_N6    &kp DE_N7   &kp DE_N8   &kp DE_N9   &kp DE_N0   &kp DE_ACUTE
+                &kp RALT     &kp DE_AT &trans    &kp DE_EURO &trans    &trans    &kp RALT  &kp LALT  &kp DE_MINUS &kp DE_LBRC &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC &kp DE_PLUS
+                &kp LSHFT    &kp DE_LT &kp DEL   &trans      &trans    &trans                        &kp DE_UNDER &kp DE_PLUS &kp DE_LBKT &kp DE_RBKT &kp DE_BSLH &kp DE_HASH
+                                                 &kp LCTRL   &trans    &kp LSHFT                     &kp RET      &trans      &kp LALT
             >;
         };
 
-        extra_layer_1 {
-            display-name = "EXTRA 1";
+        colemak_dh_layer {
+            // this is currently unused
+            display-name = "Colemak DH";
+
+            // --------------------------------------------------------------------------------
+            // |  TAB     |  Q  |  W  |  F   |  P  |  B  | MUTE | PP   |  J  |  L   |  U   |  Y  |  Ü  |  ß  |
+            // | RALT+RSE |  A  |  R  |  S   |  T  |  G  | LALT | RALT |  M  |  N   |  E   |  I  |  O  |  Ö  |
+            // | SHIFT    |  X  |  C  |  D   |  V  |  Z  |             |  K  |  H   |  ,   |  .  |  -  |  Ä  |
+            //                        | CTRL | LWR | SPC |             | ENT | RSE  | BSPC |
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                &kp TAB    &kp DE_Q &kp DE_W &kp DE_F  &kp DE_P &kp DE_B &mute_mic  &kp C_PP &kp DE_J &kp DE_L  &kp DE_U     &kp DE_Y   &kp DE_U_UMLAUT &kp DE_SHARP_S
+                &altgr_rse &kp DE_A &kp DE_R &kp DE_S  &kp DE_T &kp DE_G &kp LALT   &kp RALT &kp DE_M &kp DE_N  &kp DE_E     &kp DE_I   &kp DE_O        &kp DE_O_UMLAUT
+                &kp LSHFT  &kp DE_X &kp DE_C &kp DE_D  &kp DE_V &kp DE_Z                     &kp DE_K &kp DE_H  &kp DE_COMMA &kp DE_DOT &kp DE_MINUS    &kp DE_A_UMLAUT
+                                             &kp LCTRL &mo 1    &kp SPACE                    &kp RET  &mo 2     &kp BSPC
             >;
         };
 
