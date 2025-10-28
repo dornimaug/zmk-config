@@ -21,13 +21,15 @@
     macros {
         altgr_rse: altgr_rse {
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             label = "AltGr + Raise Layer";
-            sequence = <&kp RALT &mo 2>;
+            bindings = <&kp RALT &mo 2>;
         };
         mute_mic: mute_mic {
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             label = "Mute Microphone";
-            sequence = <&kp LGUI &kp LALT &kp K>;
+            bindings = <&kp LGUI &kp LALT &kp K>;
         };
     };
 };
