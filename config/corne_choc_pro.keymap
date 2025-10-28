@@ -27,7 +27,7 @@
         mute_mic: mute_mic {
             compatible = "zmk,behavior-macro";
             label = "Mute Microphone";
-            sequence = <&kp LGUI &kp ALT &kp K>;
+            sequence = <&kp LGUI &kp LALT &kp K>;
         };
     };
 }
