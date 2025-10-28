@@ -17,13 +17,59 @@
     };
 };
 
+// see https://github.com/urob/zmk-config#timeless-homerow-mods
+#define KEYS_L      0  1  2  3  4  5  6 /**/ 14 15 16 17 18 19 20 /**/ 28 29 30 31 32 33
+#define KEYS_R      7  8  9 10 11 12 13 /**/ 21 22 23 24 25 26 27 /**/ 34 35 36 37 38 39
+#define THUMBS      40 41 42 /**/ 43 44 45
+
+#define MAKE_HRM(NAME, LABEL, TRIGGER_POS)                     \
+    NAME: NAME {                                               \
+        compatible = "zmk,behavior-hold-tap";                  \
+        label = LABEL;                                         \
+        #binding-cells = <2>;                                  \
+        bindings = <&kp>, <&kp>;                               \
+        flavor = "balanced";                                   \
+        tapping-term-ms = <280>;                               \
+        quick-tap-ms = <175>;                                  \
+        require-prior-idle-ms = <150>;                         \
+        hold-trigger-on-release;                               \
+        hold-trigger-key-positions = <TRIGGER_POS>;            \
+    };
+
+#define MAKE_MORPH(NAME, LABEL, FROM_KEY, TO_KEY, MODS)        \
+    NAME: NAME {                                        \
+        compatible = "zmk,behavior-mod-morph";          \
+        label = LABEL;                                  \
+        #binding-cells = <0>;                           \
+        bindings = <&kp FROM_KEY>, <&kp TO_KEY>;        \
+        mods = <MODS>;                                  \
+    };
+
+#define MAKE_CTRL_SHFT_MORPH(NAME, LABEL, FROM_KEY, TO_KEY)    \
+    MAKE_MORPH(NAME, LABEL, FROM_KEY, TO_KEY, (MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL))
+
+/ {
+    behaviors {
+        MAKE_HRM(hml, "Left-handed home row mod",  KEYS_R THUMBS)
+        MAKE_HRM(hmr, "Right-handed home row mod", KEYS_L THUMBS)
+
+        MAKE_CTRL_SHFT_MORPH(lt_up, "Left -> Up by Shift/Ctrl",     LEFT,  UP)
+        MAKE_CTRL_SHFT_MORPH(rt_dn, "Right -> Down by Shift/Ctrl",  RIGHT, DOWN)
+
+        MAKE_CTRL_SHFT_MORPH(bspc_del, "Backspace -> Del by Shift/Ctrl", BSPC, DEL)
+    };
+};
+
+#define LOWER 1
+#define RAISE 2
+
 / {
     macros {
         altgr_rse: altgr_rse {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             label = "AltGr + Raise Layer";
-            bindings = <&kp RALT &mo 2>;
+            bindings = <&kp RALT &mo RAISE>;
         };
         mute_mic: mute_mic {
             compatible = "zmk,behavior-macro";
@@ -41,15 +87,15 @@
         default_layer {
             display-name = "QWERTZ";
             // --------------------------------------------------------------------------------
-            // |  TAB     |  Q  |  W  |  E   |  R  |  T  | MUTE | PP   |  Z  |  U   |  I   |  O  |  P  |  Ü  |
-            // | RALT+RSE |  A  |  S  |  D   |  F  |  G  | LALT | RALT |  H  |  J   |  K   |  L  |  Ö  |  Ä  |
-            // | SHIFT    |  Y  |  X  |  C   |  V  |  B  |             |  N  |  M   |  ,   |  .  |  -  |  ß  |
-            //                        | CTRL | LWR | SPC |             | ENT | RSE  | BSPC |
+            // |  TAB     |  Q  |  W  |  E   |  R  |  T  | MUTE  | PP    |  Z  |  U   |  I   |  O  |  P  |  Ü  |
+            // | RALT+RSE |  A  |  S  |  D   |  F  |  G  | LT/UP | RT/DN |  H  |  J   |  K   |  L  |  Ö  |  Ä  |
+            // | SHIFT    |  Y  |  X  |  C   |  V  |  B  |               |  N  |  M   |  ,   |  .  |  -  |  ß  |
+            //                        | CTRL | LWR | SPC |               | ENT | RSE  | BSPC |
             bindings = <
-                &kp TAB    &kp DE_Q &kp DE_W &kp DE_E  &kp DE_R &kp DE_T &mute_mic  &kp C_PP &kp DE_Z &kp DE_U  &kp DE_I     &kp DE_O   &kp DE_P        &kp DE_U_UMLAUT
-                &altgr_rse &kp DE_A &kp DE_S &kp DE_D  &kp DE_F &kp DE_G &kp LALT   &kp RALT &kp DE_H &kp DE_J  &kp DE_K     &kp DE_L   &kp DE_O_UMLAUT &kp DE_A_UMLAUT
-                &kp LSHFT  &kp DE_Y &kp DE_X &kp DE_C  &kp DE_V &kp DE_B                     &kp DE_N &kp DE_M  &kp DE_COMMA &kp DE_DOT &kp DE_MINUS    &kp DE_SHARP_S
-                                             &kp LCTRL &mo 1    &kp SPACE                    &kp RET  &mo 2     &kp BSPC
+                &kp TAB    &kp DE_Q       &kp DE_W       &kp DE_E         &kp DE_R        &kp DE_T &mute_mic &kp C_PP &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P              &kp DE_U_UMLAUT
+                &altgr_rse &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D  &hml LCTRL DE_F &kp DE_G &lt_up    &rt_dn   &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &hmr RGUI DE_O_UMLAUT &kp DE_A_UMLAUT
+                &kp LSHFT  &kp DE_Y       &kp DE_X       &kp DE_C         &kp DE_V        &kp DE_B                    &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS          &kp DE_SHARP_S
+                                                         &kp LCTRL        &mo LOWER       &kp SPACE                   &kp RET  &mo RAISE       &bspc_del
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
@@ -62,10 +108,10 @@
             // | SHFT |     | DEL | F1  | F2  | F3    |                |  F6  |  F7  |  F8  |  F9  | F10 | F11  |
             //                    | GUI |     | ESC   |                | SHFT |      | DEL  |
             bindings = <
-                &kp ESC   &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LALT  &kp BSPC &kp N6    &kp PG_UP &kp UP   &kp PG_DN &kp N0  &kp BSPC
-                &kp LCTRL &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock &kp F4    &kp F5   &kp HOME  &kp LEFT  &kp DOWN &kp RIGHT &kp END &kp F12
-                &kp LSHFT &trans       &kp DEL         &kp F1       &kp F2       &kp F3                            &kp F6    &kp F7    &kp F8   &kp F9    &kp F10 &kp F11
-                                                       &kp LGUI     &trans       &kp ESC                           &kp RSHFT &trans    &kp DEL
+                &kp ESC   &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LALT  &bspc_del &kp N6    &kp PG_UP &kp UP   &kp PG_DN &kp N0  &kp BSPC
+                &kp LCTRL &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock &kp F4    &kp F5    &kp HOME  &kp LEFT  &kp DOWN &kp RIGHT &kp END &kp F12
+                &kp LSHFT &trans       &kp DEL         &kp F1       &kp F2       &kp F3                             &kp F6    &kp F7    &kp F8   &kp F9    &kp F10 &kp F11
+                                                       &kp LGUI     &trans       &kp ESC                            &kp RSHFT &trans    &kp DEL
             >;
         };
 
@@ -73,14 +119,14 @@
             display-name = "SYMBOL";
             // -----------------------------------------------------------------------------------------
             // | ^°   | 1 ! | 2 " | 3 § | 4 $ | 5 % | LCTRL | RCTRL | 6 & | 7/{ | 8([ | 9)] | 0=} | ´`\ |
-            // | RALT |  @  |     |  €  |     |     | RALT  | LALT  |  -  |  {  |  (  |  )  |  }  | +*~ |
-            // | SHFT | <>  | DEL |     |     |     |               |  _  |  +  |  [  |  ]  |  \  |  #' |
+            // | RALT |  @  |  {  |  (  |  )  |  }  | RALT  | LALT  |  -  |  {  |  (  |  )  |  }  | +*~ |
+            // | SHFT | <>  | +*~ |  [  |  ]  |  #' |               |  €  |  =  |  [  |  ]  |  \  |  #' |
             //                    | CTRL|     | SHFT|               | ENT |     | LALT|
             bindings = <
-                &kp DE_CARET &kp DE_N1 &kp DE_N2 &kp DE_N3   &kp DE_N4 &kp DE_N5 &kp LCTRL &kp RCTRL &kp DE_N6    &kp DE_N7   &kp DE_N8   &kp DE_N9   &kp DE_N0   &kp DE_ACUTE
-                &kp RALT     &kp DE_AT &trans    &kp DE_EURO &trans    &trans    &kp RALT  &kp LALT  &kp DE_MINUS &kp DE_LBRC &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC &kp DE_PLUS
-                &kp LSHFT    &kp DE_LT &kp DEL   &trans      &trans    &trans                        &kp DE_UNDER &kp DE_PLUS &kp DE_LBKT &kp DE_RBKT &kp DE_BSLH &kp DE_HASH
-                                                 &kp LCTRL   &trans    &kp LSHFT                     &kp RET      &trans      &kp LALT
+                &kp DE_CARET &kp DE_N1 &kp DE_N2   &kp DE_N3   &kp DE_N4   &kp DE_N5   &kp LCTRL &kp RCTRL &kp DE_N6    &kp DE_N7    &kp DE_N8   &kp DE_N9   &kp DE_N0   &kp DE_ACUTE
+                &kp RALT     &kp DE_AT &kp DE_LBRC &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC &kp RALT  &kp LALT  &kp DE_MINUS &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC &kp DE_PLUS
+                &kp LSHFT    &kp DE_LT &kp DE_PLUS &kp DE_LBKT &kp DE_RBKT &kp DE_HASH                     &kp DE_EURO  &kp DE_ACUTE &kp DE_LBKT &kp DE_RBKT &kp DE_BSLH &kp DE_HASH
+                                                   &kp LCTRL   &trans      &kp LSHFT                       &kp RET      &trans      &kp LALT
             >;
         };
 
@@ -89,15 +135,15 @@
             display-name = "Colemak DH";
 
             // --------------------------------------------------------------------------------
-            // |  TAB     |  Q  |  W  |  F   |  P  |  B  | MUTE | PP   |  J  |  L   |  U   |  Y  |  Ü  |  ß  |
-            // | RALT+RSE |  A  |  R  |  S   |  T  |  G  | LALT | RALT |  M  |  N   |  E   |  I  |  O  |  Ö  |
-            // | SHIFT    |  X  |  C  |  D   |  V  |  Z  |             |  K  |  H   |  ,   |  .  |  -  |  Ä  |
-            //                        | CTRL | LWR | SPC |             | ENT | RSE  | BSPC |
+            // |  TAB     |  Q  |  W  |  F   |  P  |  B  | MUTE  | PP    |  J  |  L   |  U   |  Y  |  Ü  |  ß  |
+            // | RALT+RSE |  A  |  R  |  S   |  T  |  G  | LT/UP | RT/DN |  M  |  N   |  E   |  I  |  O  |  Ö  |
+            // | SHIFT    |  X  |  C  |  D   |  V  |  Z  |               |  K  |  H   |  ,   |  .  |  -  |  Ä  |
+            //                        | CTRL | LWR | SPC |               | ENT | RSE  | BSPC |
             bindings = <
-                &kp TAB    &kp DE_Q &kp DE_W &kp DE_F  &kp DE_P &kp DE_B &mute_mic  &kp C_PP &kp DE_J &kp DE_L  &kp DE_U     &kp DE_Y   &kp DE_U_UMLAUT &kp DE_SHARP_S
-                &altgr_rse &kp DE_A &kp DE_R &kp DE_S  &kp DE_T &kp DE_G &kp LALT   &kp RALT &kp DE_M &kp DE_N  &kp DE_E     &kp DE_I   &kp DE_O        &kp DE_O_UMLAUT
-                &kp LSHFT  &kp DE_X &kp DE_C &kp DE_D  &kp DE_V &kp DE_Z                     &kp DE_K &kp DE_H  &kp DE_COMMA &kp DE_DOT &kp DE_MINUS    &kp DE_A_UMLAUT
-                                             &kp LCTRL &mo 1    &kp SPACE                    &kp RET  &mo 2     &kp BSPC
+                &kp TAB    &kp DE_Q       &kp DE_W       &kp DE_F         &kp DE_P        &kp DE_B &mute_mic &kp C_PP &kp DE_J &kp DE_L        &kp DE_U        &kp DE_Y       &kp DE_U_UMLAUT &kp DE_SHARP_S
+                &altgr_rse &hml LGUI DE_A &hml LALT DE_R &hml LSHFT DE_S  &hml LCTRL DE_T &kp DE_G &lt_up    &rt_dn   &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr RALT DE_I &hmr RGUI DE_O  &kp DE_O_UMLAUT
+                &kp LSHFT  &kp DE_X       &kp DE_C       &kp DE_D         &kp DE_V        &kp DE_Z                    &kp DE_K &kp DE_H        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS    &kp DE_A_UMLAUT
+                                                         &kp LCTRL        &mo LOWER       &kp SPACE                   &kp RET  &mo RAISE       &kp BSPC
             >;
         };
 
