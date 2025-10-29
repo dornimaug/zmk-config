@@ -17,6 +17,15 @@
     };
 };
 
+&lt {
+    tapping-term-ms = <280>; // default 200
+};
+
+&mt {
+    tapping-term-ms = <280>; // default 200
+    flavor = "balanced";
+};
+
 #define STRINGIFY(x) #x
 
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
@@ -38,7 +47,7 @@
         hold-trigger-key-positions = <TRIGGER_POS>;            \
     };
 
-#define MORPH(NAME, LABEL, FROM_KEY, TO_KEY, MODS)        \
+#define MORPH(NAME, LABEL, FROM_KEY, TO_KEY, MODS)      \
     NAME: NAME {                                        \
         compatible = "zmk,behavior-mod-morph";          \
         label = LABEL;                                  \
@@ -59,6 +68,8 @@
         CTRL_SHIFT_MORPH(rt_dn, "Right -> Down by Shift/Ctrl",  RIGHT, DOWN)
 
         CTRL_SHIFT_MORPH(bspc_del, "Backspace -> Del by Shift/Ctrl", BSPC, DEL)
+        CTRL_SHIFT_MORPH(del_bspc, "Del -> Backspace by Shift/Ctrl", DEL, BSPC)
+
         CTRL_SHIFT_MORPH(prev_next, "Prev -> Next by Shift/Ctrl", C_PREV, C_NEXT)
         CTRL_SHIFT_MORPH(vol_up_dn, "Vol Up -> Vol Down by Shift/Ctrl", C_VOL_UP, C_VOL_DN)
     };
@@ -72,17 +83,41 @@
 
 / {
     macros {
-        altgr_rse: altgr_rse {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            label = "AltGr + Raise Layer";
-            bindings = <&kp RALT &mo RAISE>;
-        };
         mute_mic: mute_mic {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             label = "Mute Microphone";
             bindings = <&kp LGUI &kp LALT &kp K>;
+        };
+
+        // see https://zmk.dev/docs/keymaps/behaviors/macros#layer--modifier
+        /**
+         * Temporarily switches to a layer (`&mo`) while a modifier is held.
+         * Analogous to QMK's `LM()`, using a parameterized macro.
+         *
+         * Params:
+         *  1. Layer to switch to
+         *  2. Modifier to press while layer is active
+         *
+         * Example:
+         *  `&lm NUM_LAYER LSHIFT`
+         */
+        lm: lm {
+            compatible = "zmk,behavior-macro-two-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <2>;
+            bindings
+                = <&macro_param_1to1>
+                , <&macro_press &mo MACRO_PLACEHOLDER>
+                , <&macro_param_2to1>
+                , <&macro_press &kp MACRO_PLACEHOLDER>
+                , <&macro_pause_for_release>
+                , <&macro_param_2to1>
+                , <&macro_release &kp MACRO_PLACEHOLDER>
+                , <&macro_param_1to1>
+                , <&macro_release &mo MACRO_PLACEHOLDER>
+                ;
         };
     };
 };
@@ -95,25 +130,25 @@
 
 // GASC left home row
 #define BASE_ROW_LH(K0, K1, K2, K3, K4) \
-    &kp DE_##K0 &hml LGUI DE_##K1 &hml LALT DE_##K2 &hml LSHFT DE_##K3 &hml LCTRL DE_##K4
+    &hml LGUI DE_##K0 &hml LALT DE_##K1 &hml LSHFT DE_##K2 &hml LCTRL DE_##K3 &kp DE_##K4
 
 // CASG right home row
 #define BASE_ROW_RH(K0, K1, K2, K3, K4, K5) \
     &kp DE_##K0 &hmr RCTRL DE_##K1 &hmr RSHFT DE_##K2 &hmr RALT DE_##K3 &hmr RGUI DE_##K4 &kp DE_##K5
 
 // --------------------------------------------------------------------------------
-// |  TAB     |     |     |      |     |     | MICOFF| PREV/NEXT|     |      |      |     |     |     |
-// | RALT+RSE |     |     |      |     |     | LT/UP | RT/DN    |     |      |      |     |     |     |
-// | SHIFT    |     |     |      |     |     |                  |     |      |      |     |     |     |
-//                        | CTRL | LWR | SPC |                  | ENT | RSE  | BSPC |
+// |  TAB     |     |     |           |          |          | DEL   | TAB   |          |           |           |     |     |     |
+// | RALT+RSE |     |     |           |          |          | LT/UP | RT/DN |          |           |           |     |     |     |
+// | SHIFT    |     |     |           |          |          |               |          |           |           |     |     |     |
+//                        | DEL->CTRL | SPC->LWR | ENT->SHFT|               |SPC->SHFT | SPC->RSE  | BPSC->ALT |
 #define BASE_LAYER(NAME, ROW1_L, ROW1_R, ROW2_L, ROW2_R, ROW3_L, ROW3_R) \
     NAME ## _layer { \
         display-name = STRINGIFY(NAME); \
         bindings = < \
-            &kp TAB    ROW1_L     &mute_mic /**/ &prev_next  ROW1_R \
-            &altgr_rse ROW2_L     &lt_up    /**/ &rt_dn      ROW2_R \
-            &kp LSHFT  ROW3_L                                ROW3_R \
-            &kp LCTRL  &mo LOWER  &kp SPACE /**/ &kp RET     &mo RAISE  &bspc_del \
+            &kp TAB        ROW1_L           &del_bspc       /**/ &kp TAB          ROW1_R \
+            &lm RAISE RALT ROW2_L           &lt_up          /**/ &rt_dn           ROW2_R \
+            &kp LSHFT      ROW3_L                                                 ROW3_R \
+            &mt LCTRL DEL  &lt LOWER SPACE  &mt LSHFT RET   /**/ &mt RSHFT SPACE  &lt RAISE SPACE  &mt RALT BSPC \
         >; \
     };
 
@@ -138,15 +173,15 @@
         lower_layer {
             display-name = "NAV";
             // -----------------------------------------------------------------------------------------
-            // |  ESC | BT1 | BT2 | BT3 | BT4 | BT5   | PP   | TOGLAY | ALT  | PGUP |  UP  | PGDN | BSPC | BSPC |
-            // | CTRL | BTCR| RGB | RST | BOOT| Unlock| F4   | F5     | HOME | LEFT | DOWN |  RGT | END  | F12  |
-            // | SHFT | ALT | DEL | F1  | F2  | F3    |               |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
-            //                    | ESC |     | SPC   |               | SHFT | CTRL | DEL  |
+            // | MICOFF| BT1 | BT2 | BT3       | BT4 | BT5     | MICOFF | TAB     | DEL  | PGUP      |  UP  | PGDN | BSPC | TOGLAY |
+            // |   PP  | F1  | F2  | F3        | F4  | F5      | MUTE   | PRV/NXT | HOME | LEFT      | DOWN |  RGT | END  | F12    |
+            // |  CTRL | BTCR| RGB | RST       | BOOT| Unlock  |                  |  F6  |  F7       |  F8  |  F9  | F10  | F11    |
+            //                     | ESC->CTRL |     | ENT->GUI|                  |      | SPC->SHFT |      |
             bindings = <
-                &kp ESC   &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp C_PP &tog COLEMAK_DH &kp RALT   &kp PG_UP  &kp UP   &kp PG_DN &bspc_del &bspc_del
-                &kp LCTRL &bt BT_CLR    &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock  &kp F4   &kp F5          &kp HOME   &kp LEFT   &kp DOWN &kp RIGHT &kp END   &kp F12
-                &kp LSHFT &kp LALT      &kp DEL         &kp F1       &kp F2       &kp F3                                   &kp F6     &kp F7     &kp F8   &kp F9    &kp F10   &kp F11
-                                                        &kp ESC      &trans       &kp SPACE                                &kp RSHFT  &kp RCTRL  &kp DEL
+                &mute_mic &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3 &bt BT_SEL 4    &mute_mic  &kp TAB    &del_bspc  &kp PG_UP        &kp UP   &kp PG_DN &bspc_del &tog COLEMAK_DH
+                &kp C_PP  &kp F1        &kp F2          &kp F3         &kp F4       &kp F5          &kp C_MUTE &prev_next &kp HOME   &kp LEFT         &kp DOWN &kp RIGHT &kp END   &kp F12
+                &kp LCTRL &bt BT_CLR    &rgb_ug RGB_TOG &sys_reset     &bootloader  &studio_unlock                        &kp F6     &kp F7           &kp F8   &kp F9    &kp F10   &kp F11
+                                                        &mt LCTRL ESC  &trans       &mt LGUI RET                          &trans     &mt RSHFT SPACE  &trans
             >;
         };
 
@@ -154,14 +189,14 @@
             display-name = "SYMBOL";
             // -----------------------------------------------------------------------------------------
             // |  ^°  | 1 ! | 2 " | 3 § | 4 $ | 5 % |  >  |  °  | 6 & | 7/{ | 8([ | 9)] | 0=} |  ´  |
-            // | RALT | +*~ |  !  |  =  |  "  |  '  |  *  |  @  | "|" |  {  |  (  |  )  |  }  |  ~  |
+            // |      | +*~ |  !  |  =  |  "  |  '  |  *  |  @  | "|" |  {  |  (  |  )  |  }  |  ~  |
             // | SHFT | <>  |  ?  |  &  |  /  |  $  |           |  #' |  \  |  [  |  ]  |  `  |  €  |
-            //                    | CTRL| ALT | SHFT|           | ENT |     | ALT |
+            //                    |     | ALT | SHFT|           | ENT |     |     |
             bindings = <
                 &kp DE_CARET &kp DE_N1   &kp DE_N2    &kp DE_N3    &kp DE_N4   &kp DE_N5   &kp DE_GT   &kp DE_DEG &kp DE_N6   &kp DE_N7    &kp DE_N8   &kp DE_N9   &kp DE_N0    &kp DE_ACUTE
-                &kp RALT     &kp DE_PLUS &kp DE_EXCL  &kp DE_EQUAL &kp DE_DQT  &kp DE_SQT  &kp DE_STAR &kp DE_AT  &kp DE_PIPE &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC  &kp DE_TILDE
+                &trans       &kp DE_PLUS &kp DE_EXCL  &kp DE_EQUAL &kp DE_DQT  &kp DE_SQT  &kp DE_STAR &kp DE_AT  &kp DE_PIPE &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC  &kp DE_TILDE
                 &kp LSHFT    &kp DE_LT   &kp DE_QMARK &kp DE_AMPS  &kp DE_FSLH &kp DE_DLLR                        &kp DE_HASH &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_GRAVE &kp DE_EURO
-                                                      &kp LCTRL    &kp LALT    &kp LSHFT                          &kp RET     &trans       &kp RALT
+                                                      &trans       &kp LALT    &kp LSHFT                          &kp RET     &trans       &trans
             >;
         };
 
