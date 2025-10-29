@@ -17,6 +17,8 @@
     };
 };
 
+#define STRINGIFY(x) #x
+
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
 #define KEYS_L      0  1  2  3  4  5  6 /**/ 14 15 16 17 18 19 20 /**/ 28 29 30 31 32 33
 #define KEYS_R      7  8  9 10 11 12 13 /**/ 21 22 23 24 25 26 27 /**/ 34 35 36 37 38 39
@@ -80,25 +82,44 @@
     };
 };
 
+#define MAKE_LEFT_ROW(K0, K1, K2, K3, K4) \
+    &kp DE_##K0 &kp DE_##K1 &kp DE_##K2 &kp DE_##K3 &kp DE_##K4
+
+#define MAKE_RIGHT_ROW(K0, K1, K2, K3, K4, K5) \
+    &kp DE_##K0 &kp DE_##K1 &kp DE_##K2 &kp DE_##K3 &kp DE_##K4 &kp DE_##K5
+
+#define MAKE_LEFT_HOME(K0, K1, K2, K3, K4) \
+    &kp DE_##K0 &hml LGUI DE_##K1 &hml LALT DE_##K2 &hml LSHFT DE_##K3 &hml LCTRL DE_##K4
+
+#define MAKE_RIGHT_HOME(K0, K1, K2, K3, K4, K5) \
+    &kp DE_##K0 &hmr RCTRL DE_##K1 &hmr RSHFT DE_##K2 &hmr RALT DE_##K3 &hmr RGUI DE_##K4 &kp DE_##K5
+
+// --------------------------------------------------------------------------------
+// |  TAB     |     |     |      |     |     | MUTE  | PP    |     |      |      |     |     |     |
+// | RALT+RSE |     |     |      |     |     | LT/UP | RT/DN |     |      |      |     |     |     |
+// | SHIFT    |     |     |      |     |     |               |     |      |      |     |     |     |
+//                        | CTRL | LWR | SPC |               | ENT | RSE  | BSPC |
+#define MAKE_BASE_LAYER(NAME, ROW1_L, ROW1_R, ROW2_L, ROW2_R, ROW3_L, ROW3_R) \
+    NAME ## _layer { \
+        display-name = STRINGIFY(NAME); \
+        bindings = < \
+            &kp TAB    ROW1_L     &mute_mic /**/ &kp C_PP ROW1_R \
+            &altgr_rse ROW2_L     &lt_up    /**/ &rt_dn   ROW2_R \
+            &kp LSHFT  ROW3_L                             ROW3_R \
+            &kp LCTRL  &mo LOWER  &kp SPACE /**/ &kp RET  &mo RAISE &bspc_del \
+        >; \
+    };
+
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "QWERTZ";
-            // --------------------------------------------------------------------------------
-            // |  TAB     |  Q  |  W  |  E   |  R  |  T  | MUTE  | PP    |  Z  |  U   |  I   |  O  |  P  |  Ü  |
-            // | RALT+RSE |  A  |  S  |  D   |  F  |  G  | LT/UP | RT/DN |  H  |  J   |  K   |  L  |  Ö  |  Ä  |
-            // | SHIFT    |  Y  |  X  |  C   |  V  |  B  |               |  N  |  M   |  ,   |  .  |  -  |  ß  |
-            //                        | CTRL | LWR | SPC |               | ENT | RSE  | BSPC |
-            bindings = <
-                &kp TAB    &kp DE_Q       &kp DE_W       &kp DE_E         &kp DE_R        &kp DE_T &mute_mic &kp C_PP &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P              &kp DE_U_UMLAUT
-                &altgr_rse &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D  &hml LCTRL DE_F &kp DE_G &lt_up    &rt_dn   &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &hmr RGUI DE_O_UMLAUT &kp DE_A_UMLAUT
-                &kp LSHFT  &kp DE_Y       &kp DE_X       &kp DE_C         &kp DE_V        &kp DE_B                    &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS          &kp DE_SHARP_S
-                                                         &kp LCTRL        &mo LOWER       &kp SPACE                   &kp RET  &mo RAISE       &bspc_del
-            >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
-        };
+        MAKE_BASE_LAYER(
+            qwertz,
+            MAKE_LEFT_ROW (Q, W, E, R, T), MAKE_RIGHT_ROW (Z, U, I,     O,   P,        U_UMLAUT),
+            MAKE_LEFT_HOME(A, S, D, F, G), MAKE_RIGHT_HOME(H, J, K,     L,   O_UMLAUT, A_UMLAUT),
+            MAKE_LEFT_ROW (Y, X, C, V, B), MAKE_RIGHT_ROW (N, M, COMMA, DOT, MINUS,    SHARP_S)
+        )
 
         lower_layer {
             display-name = "NAV";
@@ -130,22 +151,12 @@
             >;
         };
 
-        colemak_dh_layer {
-            // this is currently unused
-            display-name = "Colemak DH";
-
-            // --------------------------------------------------------------------------------
-            // |  TAB     |  Q  |  W  |  F   |  P  |  B  | MUTE  | PP    |  J  |  L   |  U   |  Y  |  Ü  |  ß  |
-            // | RALT+RSE |  A  |  R  |  S   |  T  |  G  | LT/UP | RT/DN |  M  |  N   |  E   |  I  |  O  |  Ö  |
-            // | SHIFT    |  X  |  C  |  D   |  V  |  Z  |               |  K  |  H   |  ,   |  .  |  -  |  Ä  |
-            //                        | CTRL | LWR | SPC |               | ENT | RSE  | BSPC |
-            bindings = <
-                &kp TAB    &kp DE_Q       &kp DE_W       &kp DE_F         &kp DE_P        &kp DE_B &mute_mic &kp C_PP &kp DE_J &kp DE_L        &kp DE_U        &kp DE_Y       &kp DE_U_UMLAUT &kp DE_SHARP_S
-                &altgr_rse &hml LGUI DE_A &hml LALT DE_R &hml LSHFT DE_S  &hml LCTRL DE_T &kp DE_G &lt_up    &rt_dn   &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr RALT DE_I &hmr RGUI DE_O  &kp DE_O_UMLAUT
-                &kp LSHFT  &kp DE_X       &kp DE_C       &kp DE_D         &kp DE_V        &kp DE_Z                    &kp DE_K &kp DE_H        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS    &kp DE_A_UMLAUT
-                                                         &kp LCTRL        &mo LOWER       &kp SPACE                   &kp RET  &mo RAISE       &kp BSPC
-            >;
-        };
+        MAKE_BASE_LAYER(
+            colemak_dh,
+            MAKE_LEFT_ROW (Q, W, F, P, B), MAKE_RIGHT_ROW (J, L, U,     Y,   U_UMLAUT, SHARP_S),
+            MAKE_LEFT_HOME(A, R, S, T, G), MAKE_RIGHT_HOME(M, N, E,     I,   O,        O_UMLAUT),
+            MAKE_LEFT_ROW (X, C, D, V, Z), MAKE_RIGHT_ROW (K, H, COMMA, DOT, MINUS,    A_UMLAUT)
+        )
 
         extra_layer_2 {
             display-name = "EXTRA 2";
