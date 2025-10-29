@@ -153,15 +153,15 @@
         raise_layer {
             display-name = "SYMBOL";
             // -----------------------------------------------------------------------------------------
-            // | ^°   | 1 ! | 2 " | 3 § | 4 $ | 5 % | LCTRL | RCTRL | 6 & | 7/{ | 8([ | 9)] | 0=} | ´`\ |
-            // | RALT |  @  |  !  |  =  |  "  |  '  | RALT  | LALT  |  *  |  {  |  (  |  )  |  }  | +*~ |
-            // | SHFT | <>  |  ?  |  &  |  /  |  $  |               |  €  |  =  |  [  |  ]  |  \  |  #' |
-            //                    | CTRL| ALT | SHFT|               | ENT |     | ALT |
+            // |  ^°  | 1 ! | 2 " | 3 § | 4 $ | 5 % |  >  |  °  | 6 & | 7/{ | 8([ | 9)] | 0=} |  ´  |
+            // | RALT | +*~ |  !  |  =  |  "  |  '  |  *  |  @  | "|" |  {  |  (  |  )  |  }  |  ~  |
+            // | SHFT | <>  |  ?  |  &  |  /  |  $  |           |  #' |  \  |  [  |  ]  |  `  |  €  |
+            //                    | CTRL| ALT | SHFT|           | ENT |     | ALT |
             bindings = <
-                &kp DE_CARET &kp DE_N1 &kp DE_N2    &kp DE_N3    &kp DE_N4   &kp DE_N5   &kp LCTRL &kp RCTRL &kp DE_N6   &kp DE_N7    &kp DE_N8   &kp DE_N9   &kp DE_N0   &kp DE_ACUTE
-                &kp RALT     &kp DE_AT &kp DE_EXCL  &kp DE_EQUAL &kp DE_DQT  &kp DE_SQT  &kp RALT  &kp LALT  &kp DE_STAR &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC &kp DE_PLUS
-                &kp LSHFT    &kp DE_LT &kp DE_QMARK &kp DE_AMPS  &kp DE_FSLH &kp DE_DLLR                     &kp DE_EURO &kp DE_EQUAL &kp DE_LBKT &kp DE_RBKT &kp DE_BSLH &kp DE_HASH
-                                                    &kp LCTRL    &kp LALT    &kp LSHFT                       &kp RET     &trans       &kp LALT
+                &kp DE_CARET &kp DE_N1   &kp DE_N2    &kp DE_N3    &kp DE_N4   &kp DE_N5   &kp DE_GT   &kp DE_DEG &kp DE_N6   &kp DE_N7    &kp DE_N8   &kp DE_N9   &kp DE_N0    &kp DE_ACUTE
+                &kp RALT     &kp DE_PLUS &kp DE_EXCL  &kp DE_EQUAL &kp DE_DQT  &kp DE_SQT  &kp DE_STAR &kp DE_AT  &kp DE_PIPE &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC  &kp DE_TILDE
+                &kp LSHFT    &kp DE_LT   &kp DE_QMARK &kp DE_AMPS  &kp DE_FSLH &kp DE_DLLR                        &kp DE_HASH &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_GRAVE &kp DE_EURO
+                                                      &kp LCTRL    &kp LALT    &kp LSHFT                          &kp RET     &trans       &kp RALT
             >;
         };
 
