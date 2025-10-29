@@ -24,7 +24,7 @@
 #define KEYS_R      7  8  9 10 11 12 13 /**/ 21 22 23 24 25 26 27 /**/ 34 35 36 37 38 39
 #define THUMBS      40 41 42 /**/ 43 44 45
 
-#define MAKE_HRM(NAME, LABEL, TRIGGER_POS)                     \
+#define HOME_ROW_MOD(NAME, LABEL, TRIGGER_POS)                     \
     NAME: NAME {                                               \
         compatible = "zmk,behavior-hold-tap";                  \
         label = LABEL;                                         \
@@ -38,7 +38,7 @@
         hold-trigger-key-positions = <TRIGGER_POS>;            \
     };
 
-#define MAKE_MORPH(NAME, LABEL, FROM_KEY, TO_KEY, MODS)        \
+#define MORPH(NAME, LABEL, FROM_KEY, TO_KEY, MODS)        \
     NAME: NAME {                                        \
         compatible = "zmk,behavior-mod-morph";          \
         label = LABEL;                                  \
@@ -47,23 +47,28 @@
         mods = <MODS>;                                  \
     };
 
-#define MAKE_CTRL_SHFT_MORPH(NAME, LABEL, FROM_KEY, TO_KEY)    \
-    MAKE_MORPH(NAME, LABEL, FROM_KEY, TO_KEY, (MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL))
+#define CTRL_SHIFT_MORPH(NAME, LABEL, FROM_KEY, TO_KEY)    \
+    MORPH(NAME, LABEL, FROM_KEY, TO_KEY, (MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL))
 
 / {
     behaviors {
-        MAKE_HRM(hml, "Left-handed home row mod",  KEYS_R THUMBS)
-        MAKE_HRM(hmr, "Right-handed home row mod", KEYS_L THUMBS)
+        HOME_ROW_MOD(hml, "Left-handed home row mod",  KEYS_R THUMBS)
+        HOME_ROW_MOD(hmr, "Right-handed home row mod", KEYS_L THUMBS)
 
-        MAKE_CTRL_SHFT_MORPH(lt_up, "Left -> Up by Shift/Ctrl",     LEFT,  UP)
-        MAKE_CTRL_SHFT_MORPH(rt_dn, "Right -> Down by Shift/Ctrl",  RIGHT, DOWN)
+        CTRL_SHIFT_MORPH(lt_up, "Left -> Up by Shift/Ctrl",     LEFT,  UP)
+        CTRL_SHIFT_MORPH(rt_dn, "Right -> Down by Shift/Ctrl",  RIGHT, DOWN)
 
-        MAKE_CTRL_SHFT_MORPH(bspc_del, "Backspace -> Del by Shift/Ctrl", BSPC, DEL)
+        CTRL_SHIFT_MORPH(bspc_del, "Backspace -> Del by Shift/Ctrl", BSPC, DEL)
+        CTRL_SHIFT_MORPH(prev_next, "Prev -> Next by Shift/Ctrl", C_PREV, C_NEXT)
+        CTRL_SHIFT_MORPH(vol_up_dn, "Vol Up -> Vol Down by Shift/Ctrl", C_VOL_UP, C_VOL_DN)
     };
 };
 
-#define LOWER 1
-#define RAISE 2
+
+#define QWERTZ     0
+#define COLEMAK_DH 1
+#define LOWER      2
+#define RAISE      3
 
 / {
     macros {
@@ -82,31 +87,33 @@
     };
 };
 
-#define MAKE_LEFT_ROW(K0, K1, K2, K3, K4) \
+#define BASE_ROW_L(K0, K1, K2, K3, K4) \
     &kp DE_##K0 &kp DE_##K1 &kp DE_##K2 &kp DE_##K3 &kp DE_##K4
 
-#define MAKE_RIGHT_ROW(K0, K1, K2, K3, K4, K5) \
+#define BASE_ROW_R(K0, K1, K2, K3, K4, K5) \
     &kp DE_##K0 &kp DE_##K1 &kp DE_##K2 &kp DE_##K3 &kp DE_##K4 &kp DE_##K5
 
-#define MAKE_LEFT_HOME(K0, K1, K2, K3, K4) \
+// GASC left home row
+#define BASE_ROW_LH(K0, K1, K2, K3, K4) \
     &kp DE_##K0 &hml LGUI DE_##K1 &hml LALT DE_##K2 &hml LSHFT DE_##K3 &hml LCTRL DE_##K4
 
-#define MAKE_RIGHT_HOME(K0, K1, K2, K3, K4, K5) \
+// CASG right home row
+#define BASE_ROW_RH(K0, K1, K2, K3, K4, K5) \
     &kp DE_##K0 &hmr RCTRL DE_##K1 &hmr RSHFT DE_##K2 &hmr RALT DE_##K3 &hmr RGUI DE_##K4 &kp DE_##K5
 
 // --------------------------------------------------------------------------------
-// |  TAB     |     |     |      |     |     | MUTE  | PP    |     |      |      |     |     |     |
-// | RALT+RSE |     |     |      |     |     | LT/UP | RT/DN |     |      |      |     |     |     |
-// | SHIFT    |     |     |      |     |     |               |     |      |      |     |     |     |
-//                        | CTRL | LWR | SPC |               | ENT | RSE  | BSPC |
-#define MAKE_BASE_LAYER(NAME, ROW1_L, ROW1_R, ROW2_L, ROW2_R, ROW3_L, ROW3_R) \
+// |  TAB     |     |     |      |     |     | MICOFF| PREV/NEXT|     |      |      |     |     |     |
+// | RALT+RSE |     |     |      |     |     | LT/UP | RT/DN    |     |      |      |     |     |     |
+// | SHIFT    |     |     |      |     |     |                  |     |      |      |     |     |     |
+//                        | CTRL | LWR | SPC |                  | ENT | RSE  | BSPC |
+#define BASE_LAYER(NAME, ROW1_L, ROW1_R, ROW2_L, ROW2_R, ROW3_L, ROW3_R) \
     NAME ## _layer { \
         display-name = STRINGIFY(NAME); \
         bindings = < \
-            &kp TAB    ROW1_L     &mute_mic /**/ &kp C_PP ROW1_R \
-            &altgr_rse ROW2_L     &lt_up    /**/ &rt_dn   ROW2_R \
-            &kp LSHFT  ROW3_L                             ROW3_R \
-            &kp LCTRL  &mo LOWER  &kp SPACE /**/ &kp RET  &mo RAISE &bspc_del \
+            &kp TAB    ROW1_L     &mute_mic /**/ &prev_next  ROW1_R \
+            &altgr_rse ROW2_L     &lt_up    /**/ &rt_dn      ROW2_R \
+            &kp LSHFT  ROW3_L                                ROW3_R \
+            &kp LCTRL  &mo LOWER  &kp SPACE /**/ &kp RET     &mo RAISE  &bspc_del \
         >; \
     };
 
@@ -114,25 +121,32 @@
     keymap {
         compatible = "zmk,keymap";
 
-        MAKE_BASE_LAYER(
+        BASE_LAYER(
             qwertz,
-            MAKE_LEFT_ROW (Q, W, E, R, T), MAKE_RIGHT_ROW (Z, U, I,     O,   P,        U_UMLAUT),
-            MAKE_LEFT_HOME(A, S, D, F, G), MAKE_RIGHT_HOME(H, J, K,     L,   O_UMLAUT, A_UMLAUT),
-            MAKE_LEFT_ROW (Y, X, C, V, B), MAKE_RIGHT_ROW (N, M, COMMA, DOT, MINUS,    SHARP_S)
+            BASE_ROW_L (Q, W, E, R, T), BASE_ROW_R (Z, U, I,     O,   P,        U_UMLAUT),
+            BASE_ROW_LH(A, S, D, F, G), BASE_ROW_RH(H, J, K,     L,   O_UMLAUT, A_UMLAUT),
+            BASE_ROW_L (Y, X, C, V, B), BASE_ROW_R (N, M, COMMA, DOT, MINUS,    SHARP_S)
+        )
+
+        BASE_LAYER(
+            colemak_dh,
+            BASE_ROW_L (Q, W, F, P, B), BASE_ROW_R (J, L, U,     Y,   A_UMLAUT, O_UMLAUT),
+            BASE_ROW_LH(A, R, S, T, G), BASE_ROW_RH(M, N, E,     I,   O,        U_UMLAUT),
+            BASE_ROW_L (X, C, D, V, Z), BASE_ROW_R (K, H, COMMA, DOT, MINUS,    SHARP_S)
         )
 
         lower_layer {
             display-name = "NAV";
             // -----------------------------------------------------------------------------------------
-            // |  ESC | BT1 | BT2 | BT3 | BT4 | BT5   |  LALT  | BSPC  |      | PGUP |  UP  | PGDN |     | BSPC |
-            // | CTRL | BTCR| RGB | RST | BOOT| Unlock|  F4    | F5    | HOME | LEFT | DOWN |  RGT | END | F12  |
-            // | SHFT |     | DEL | F1  | F2  | F3    |                |  F6  |  F7  |  F8  |  F9  | F10 | F11  |
-            //                    | GUI |     | ESC   |                | SHFT |      | DEL  |
+            // |  ESC | BT1 | BT2 | BT3 | BT4 | BT5   | PP   | TOGLAY | ALT  | PGUP |  UP  | PGDN | BSPC | BSPC |
+            // | CTRL | BTCR| RGB | RST | BOOT| Unlock| F4   | F5     | HOME | LEFT | DOWN |  RGT | END  | F12  |
+            // | SHFT | ALT | DEL | F1  | F2  | F3    |               |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
+            //                    | ESC |     | SPC   |               | SHFT | CTRL | DEL  |
             bindings = <
-                &kp ESC   &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LALT  &bspc_del &kp N6    &kp PG_UP &kp UP   &kp PG_DN &kp N0  &kp BSPC
-                &kp LCTRL &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock &kp F4    &kp F5    &kp HOME  &kp LEFT  &kp DOWN &kp RIGHT &kp END &kp F12
-                &kp LSHFT &trans       &kp DEL         &kp F1       &kp F2       &kp F3                             &kp F6    &kp F7    &kp F8   &kp F9    &kp F10 &kp F11
-                                                       &kp LGUI     &trans       &kp ESC                            &kp RSHFT &trans    &kp DEL
+                &kp ESC   &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp C_PP &tog COLEMAK_DH &kp RALT   &kp PG_UP  &kp UP   &kp PG_DN &bspc_del &bspc_del
+                &kp LCTRL &bt BT_CLR    &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock  &kp F4   &kp F5          &kp HOME   &kp LEFT   &kp DOWN &kp RIGHT &kp END   &kp F12
+                &kp LSHFT &kp LALT      &kp DEL         &kp F1       &kp F2       &kp F3                                   &kp F6     &kp F7     &kp F8   &kp F9    &kp F10   &kp F11
+                                                        &kp ESC      &trans       &kp SPACE                                &kp RSHFT  &kp RCTRL  &kp DEL
             >;
         };
 
@@ -140,23 +154,16 @@
             display-name = "SYMBOL";
             // -----------------------------------------------------------------------------------------
             // | ^°   | 1 ! | 2 " | 3 § | 4 $ | 5 % | LCTRL | RCTRL | 6 & | 7/{ | 8([ | 9)] | 0=} | ´`\ |
-            // | RALT |  @  |  {  |  (  |  )  |  }  | RALT  | LALT  |  -  |  {  |  (  |  )  |  }  | +*~ |
-            // | SHFT | <>  | +*~ |  [  |  ]  |  #' |               |  €  |  =  |  [  |  ]  |  \  |  #' |
-            //                    | CTRL|     | SHFT|               | ENT |     | LALT|
+            // | RALT |  @  |  !  |  =  |  "  |  '  | RALT  | LALT  |  *  |  {  |  (  |  )  |  }  | +*~ |
+            // | SHFT | <>  |  ?  |  &  |  /  |  $  |               |  €  |  =  |  [  |  ]  |  \  |  #' |
+            //                    | CTRL| ALT | SHFT|               | ENT |     | ALT |
             bindings = <
-                &kp DE_CARET &kp DE_N1 &kp DE_N2   &kp DE_N3   &kp DE_N4   &kp DE_N5   &kp LCTRL &kp RCTRL &kp DE_N6    &kp DE_N7    &kp DE_N8   &kp DE_N9   &kp DE_N0   &kp DE_ACUTE
-                &kp RALT     &kp DE_AT &kp DE_LBRC &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC &kp RALT  &kp LALT  &kp DE_MINUS &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC &kp DE_PLUS
-                &kp LSHFT    &kp DE_LT &kp DE_PLUS &kp DE_LBKT &kp DE_RBKT &kp DE_HASH                     &kp DE_EURO  &kp DE_ACUTE &kp DE_LBKT &kp DE_RBKT &kp DE_BSLH &kp DE_HASH
-                                                   &kp LCTRL   &trans      &kp LSHFT                       &kp RET      &trans      &kp LALT
+                &kp DE_CARET &kp DE_N1 &kp DE_N2    &kp DE_N3    &kp DE_N4   &kp DE_N5   &kp LCTRL &kp RCTRL &kp DE_N6   &kp DE_N7    &kp DE_N8   &kp DE_N9   &kp DE_N0   &kp DE_ACUTE
+                &kp RALT     &kp DE_AT &kp DE_EXCL  &kp DE_EQUAL &kp DE_DQT  &kp DE_SQT  &kp RALT  &kp LALT  &kp DE_STAR &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC &kp DE_PLUS
+                &kp LSHFT    &kp DE_LT &kp DE_QMARK &kp DE_AMPS  &kp DE_FSLH &kp DE_DLLR                     &kp DE_EURO &kp DE_EQUAL &kp DE_LBKT &kp DE_RBKT &kp DE_BSLH &kp DE_HASH
+                                                    &kp LCTRL    &kp LALT    &kp LSHFT                       &kp RET     &trans       &kp LALT
             >;
         };
-
-        MAKE_BASE_LAYER(
-            colemak_dh,
-            MAKE_LEFT_ROW (Q, W, F, P, B), MAKE_RIGHT_ROW (J, L, U,     Y,   U_UMLAUT, SHARP_S),
-            MAKE_LEFT_HOME(A, R, S, T, G), MAKE_RIGHT_HOME(M, N, E,     I,   O,        O_UMLAUT),
-            MAKE_LEFT_ROW (X, C, D, V, Z), MAKE_RIGHT_ROW (K, H, COMMA, DOT, MINUS,    A_UMLAUT)
-        )
 
         extra_layer_2 {
             display-name = "EXTRA 2";
