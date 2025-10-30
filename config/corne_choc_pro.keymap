@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #include "keys_de.h"
+#include "corne_choc_pro-labels.h"
 
 / {
     chosen {
@@ -26,12 +27,19 @@
     flavor = "balanced";
 };
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS DE_O_UMLAUT DE_A_UMLAUT DE_U_UMLAUT DE_SHARP_S>;
+};
+
 #define STRINGIFY(x) #x
 
+// layers
+#define QWERTZ     0
+#define COLEMAK_DH 1
+#define LOWER      2
+#define RAISE      3
+
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
-#define KEYS_L      0  1  2  3  4  5  6 /**/ 14 15 16 17 18 19 20 /**/ 28 29 30 31 32 33
-#define KEYS_R      7  8  9 10 11 12 13 /**/ 21 22 23 24 25 26 27 /**/ 34 35 36 37 38 39
-#define THUMBS      40 41 42 /**/ 43 44 45
 
 #define HOME_ROW_MOD(NAME, LABEL, TRIGGER_POS)                     \
     NAME: NAME {                                               \
@@ -59,27 +67,28 @@
 #define CTRL_SHIFT_MORPH(NAME, LABEL, FROM_KEY, TO_KEY)    \
     MORPH(NAME, LABEL, FROM_KEY, TO_KEY, (MOD_LSFT|MOD_LCTL|MOD_RSFT|MOD_RCTL))
 
+#define TAP_DANCE_3(NAME, K1, K2, K3) \
+    NAME: NAME {                                        \
+        compatible = "zmk,behavior-tap-dance";          \
+        #binding-cells = <0>;                           \
+        tapping-term-ms = <200>;                        \
+        bindings = <K1>, <K2>, <K3>;                    \
+    };
+
 / {
     behaviors {
-        HOME_ROW_MOD(hml, "Left-handed home row mod",  KEYS_R THUMBS)
-        HOME_ROW_MOD(hmr, "Right-handed home row mod", KEYS_L THUMBS)
+        HOME_ROW_MOD(hml, "Left-handed home row mod",  KEYS_RIGHT KEYS_THUMB)
+        HOME_ROW_MOD(hmr, "Right-handed home row mod", KEYS_LEFT KEYS_THUMB)
 
-        CTRL_SHIFT_MORPH(lt_up, "Left -> Up by Shift/Ctrl",     LEFT,  UP)
-        CTRL_SHIFT_MORPH(rt_dn, "Right -> Down by Shift/Ctrl",  RIGHT, DOWN)
-
-        CTRL_SHIFT_MORPH(bspc_del, "Backspace -> Del by Shift/Ctrl", BSPC, DEL)
         CTRL_SHIFT_MORPH(del_bspc, "Del -> Backspace by Shift/Ctrl", DEL, BSPC)
-
         CTRL_SHIFT_MORPH(prev_next, "Prev -> Next by Shift/Ctrl", C_PREV, C_NEXT)
-        CTRL_SHIFT_MORPH(vol_up_dn, "Vol Up -> Vol Down by Shift/Ctrl", C_VOL_UP, C_VOL_DN)
+
+        TAP_DANCE_3(td_sys_reset, &none, &none, &sys_reset)
+        TAP_DANCE_3(td_bt_clr, &none, &none, &bt BT_CLR)
+        TAP_DANCE_3(td_tog_colemak, &none, &none, &tog COLEMAK_DH)
+        TAP_DANCE_3(td_bootloader, &none, &none, &bootloader)
     };
 };
-
-
-#define QWERTZ     0
-#define COLEMAK_DH 1
-#define LOWER      2
-#define RAISE      3
 
 / {
     macros {
@@ -137,18 +146,18 @@
     &kp DE_##K0 &hmr RCTRL DE_##K1 &hmr RSHFT DE_##K2 &hmr RALT DE_##K3 &hmr RGUI DE_##K4 &kp DE_##K5
 
 // --------------------------------------------------------------------------------
-// |  TAB     |     |     |           |          |          | DEL   | TAB   |          |           |           |     |     |     |
-// | RALT+RSE |     |     |           |          |          | LT/UP | RT/DN |          |           |           |     |     |     |
-// | SHIFT    |     |     |           |          |          |               |          |           |           |     |     |     |
-//                        | DEL->CTRL | SPC->LWR | ENT->SHFT|               |SPC->SHFT | SPC->RSE  | BPSC->ALT |
+// |  TAB     |  |  |     |          |     | UP | DN |     |           |      |  |  |  |
+// | RALT+RSE |  |  |     |          |     | LT | RT |     |           |      |  |  |  |
+// | SHIFT    |  |  |     |          |     |         |     |           |      |  |  |  |
+//                  | TAB | SPC->LWR | ENT |         | SPC | SPC->RSE  | BPSC |
 #define BASE_LAYER(NAME, ROW1_L, ROW1_R, ROW2_L, ROW2_R, ROW3_L, ROW3_R) \
     NAME ## _layer { \
         display-name = STRINGIFY(NAME); \
         bindings = < \
-            &kp TAB        ROW1_L           &del_bspc       /**/ &kp TAB          ROW1_R \
-            &lm RAISE RALT ROW2_L           &lt_up          /**/ &rt_dn           ROW2_R \
-            &kp LSHFT      ROW3_L                                                 ROW3_R \
-            &mt LCTRL DEL  &lt LOWER SPACE  &mt LSHFT RET   /**/ &mt RSHFT SPACE  &lt RAISE SPACE  &mt RALT BSPC \
+            &kp TAB         ROW1_L                    &kp UP   /**/ &kp DOWN   ROW1_R \
+            &lm RAISE RALT  ROW2_L                    &kp LEFT /**/ &kp RIGHT  ROW2_R \
+            &kp LSHFT       ROW3_L                                             ROW3_R \
+                            &kp TAB  &lt LOWER SPACE  &kp RET  /**/ &kp SPACE  &lt RAISE SPACE  &kp BSPC \
         >; \
     };
 
@@ -173,30 +182,30 @@
         lower_layer {
             display-name = "NAV";
             // -----------------------------------------------------------------------------------------
-            // |  BTCR | BT1     | BT2 | BT3 | BT4 | BT5    | MICOFF | TAB     | DEL  | PGUP      |  UP  | PGDN | BSPC | TOGLAY |
-            // |   PP  | F1      | F2  | F3  | F4  | F5     | MUTE   | PRV/NXT | HOME | LEFT      | DOWN |  RGT | END  | F12    |
-            // |  CTRL | ENT->GUI| RGB | ESC | DEL | Unlock |                  |  F6  |  F7       |  F8  |  F9  | F10  | F11    |
-            //                         | RST |     | BOOT   |                  |      | SPC->SHFT |      |
+            // | 3xBTCR     | BT1     | BT2 | BT3  | BT4 | BT5    | MICOFF | TAB     | DEL  | PGUP      |  UP  | PGDN | BSPC | 3xTOGCOL |
+            // |     PP     | F1      | F2  | F3   | F4  | F5     | MUTE   | PRV/NXT | HOME | LEFT      | DOWN |  RGT | END  | F12      |
+            // | CAPSW->CTRL| ENT->GUI| RGB | ESC  | DEL | Unlock |                  |  F6  |  F7       |  F8  |  F9  | F10  | F11      |
+            //                              | 3xRST|     | 3xBOOT |                  | BSPC | SPC->SHFT | ALT  |
             bindings = <
-                &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3 &bt BT_SEL 4    &mute_mic  &kp TAB    &del_bspc  &kp PG_UP        &kp UP   &kp PG_DN &bspc_del &tog COLEMAK_DH
-                &kp C_PP   &kp F1        &kp F2          &kp F3         &kp F4       &kp F5          &kp C_MUTE &prev_next &kp HOME   &kp LEFT         &kp DOWN &kp RIGHT &kp END   &kp F12
-                &kp LCTRL  &mt LGUI RET  &rgb_ug RGB_TOG &kp ESC        &del_bspc    &studio_unlock                        &kp F6     &kp F7           &kp F8   &kp F9    &kp F10   &kp F11
-                                                         &sys_reset     &trans       &bootloader                          &trans     &mt RSHFT SPACE  &trans
+                &td_bt_clr            &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3 &bt BT_SEL 4    &mute_mic  &kp TAB    &kp DEL    &kp PG_UP        &kp UP        &kp PG_DN &kp BSPC  &td_tog_colemak
+                &kp C_PP              &kp F1        &kp F2          &kp F3         &kp F4       &kp F5          &kp C_MUTE &prev_next &kp HOME   &kp LEFT         &kp DOWN      &kp RIGHT &kp END   &kp F12
+                &mt LCTRL &caps_word  &mt LGUI RET  &rgb_ug RGB_TOG &kp ESC        &del_bspc    &studio_unlock                        &kp F6     &kp F7           &kp F8        &kp F9    &kp F10   &kp F11
+                                                                    &td_sys_reset  &trans       &td_bootloader                        &kp BSPC   &mt RSHFT SPACE  &kp LALT
             >;
         };
 
         raise_layer {
             display-name = "SYMBOL";
             // -----------------------------------------------------------------------------------------
-            // |  ^°  | 1 ! | 2 " | 3 § | 4 $ | 5 % |  >  |  °  | 6 & | 7/{ | 8([ | 9)] | 0=} |  ´  |
-            // |      | +*~ |  !  |  =  |  "  |  '  |  *  |  @  | "|" |  {  |  (  |  )  |  }  |  ~  |
-            // | SHFT | <>  |  ?  |  &  |  /  |  $  |           |  #' |  \  |  [  |  ]  |  `  |  €  |
-            //                    |     | ALT | SHFT|           | ENT |     |     |
+            // |  ^°  | 1 ! | 2 " | 3 § | 4 $ | 5 % |  %  |  >  | 6 & | 7/{ | 8([ | 9)] | 0=} |  ´  |
+            // |      |  !  |  "  |  =  |  /  |  '  |  *  |  @  | "|" |  {  |  (  |  )  |  }  |  ~  |
+            // | SHFT | <>  |  ?  | +*~ |  $  |  #' |           |  &  |  \  |  [  |  ]  |  `  |  €  |
+            //                    | DEL | SHFT| DEL |           | ENT |     |RALT |
             bindings = <
-                &kp DE_CARET &kp DE_N1   &kp DE_N2    &kp DE_N3    &kp DE_N4   &kp DE_N5   &kp DE_GT   &kp DE_DEG &kp DE_N6   &kp DE_N7    &kp DE_N8   &kp DE_N9   &kp DE_N0    &kp DE_ACUTE
-                &trans       &kp DE_PLUS &kp DE_EXCL  &kp DE_EQUAL &kp DE_DQT  &kp DE_SQT  &kp DE_STAR &kp DE_AT  &kp DE_PIPE &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC  &kp DE_TILDE
-                &kp LSHFT    &kp DE_LT   &kp DE_QMARK &kp DE_AMPS  &kp DE_FSLH &kp DE_DLLR                        &kp DE_HASH &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_GRAVE &kp DE_EURO
-                                                      &trans       &kp LALT    &kp LSHFT                          &kp RET     &trans       &trans
+                &kp DE_CARET &kp DE_N1   &kp DE_N2    &kp DE_N3    &kp DE_N4   &kp DE_N5   &kp DE_PRCNT &kp DE_GT &kp DE_N6   &kp DE_N7    &kp DE_N8   &kp DE_N9   &kp DE_N0    &kp DE_ACUTE
+                &trans       &kp DE_EXCL &kp DE_DQT   &kp DE_EQUAL &kp DE_FSLH &kp DE_SQT  &kp DE_STAR  &kp DE_AT &kp DE_PIPE &kp DE_LBRC  &kp DE_LPAR &kp DE_RPAR &kp DE_RBRC  &kp DE_TILDE
+                &kp LSHFT    &kp DE_LT   &kp DE_QMARK &kp DE_PLUS  &kp DE_DLLR &kp DE_HASH                        &kp DE_AMPS &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_GRAVE &kp DE_EURO
+                                                      &trans       &kp LSHFT   &kp DEL                            &kp RET     &trans       &kp RALT
             >;
         };
 
