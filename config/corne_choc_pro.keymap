@@ -80,7 +80,6 @@
         HOME_ROW_MOD(hml, "Left-handed home row mod",  KEYS_RIGHT KEYS_THUMB)
         HOME_ROW_MOD(hmr, "Right-handed home row mod", KEYS_LEFT KEYS_THUMB)
 
-        CTRL_SHIFT_MORPH(del_bspc, "Del -> Backspace by Shift/Ctrl", DEL, BSPC)
         CTRL_SHIFT_MORPH(prev_next, "Prev -> Next by Shift/Ctrl", C_PREV, C_NEXT)
 
         TAP_DANCE_3(td_sys_reset, &none, &none, &sys_reset)
@@ -182,15 +181,15 @@
         lower_layer {
             display-name = "NAV";
             // -----------------------------------------------------------------------------------------
-            // | 3xBTCR     | BT1     | BT2 | BT3  | BT4 | BT5    | MICOFF | TAB     | DEL  | PGUP      |  UP  | PGDN | BSPC | 3xTOGCOL |
-            // |     PP     | F1      | F2  | F3   | F4  | F5     | MUTE   | PRV/NXT | HOME | LEFT      | DOWN |  RGT | END  | F12      |
-            // | CAPSW->CTRL| ENT->GUI| RGB | ESC  | DEL | Unlock |                  |  F6  |  F7       |  F8  |  F9  | F10  | F11      |
-            //                              | 3xRST|     | 3xBOOT |                  | BSPC | SPC->SHFT | ALT  |
+            // | 3xBTCR | BT1     | BT2 | BT3  | BT4 | BT5    | Unlock | TAB     | DEL  | PGUP      |  UP  | PGDN | BSPC | 3xTOGCOL |
+            // |  CAPSW | F1      | F2  | F3   | F4  | F5     | PP     | PRV/NXT | HOME | LEFT      | DOWN |  RGT | END  | F12      |
+            // |  CTRL  | ENT->GUI| RGB | ESC  | DEL | MICOFF |                  |  F6  |  F7       |  F8  |  F9  | F10  | F11      |
+            //                          | 3xRST|     | 3xBOOT |                  | BSPC | SPC->SHFT | ALT  |
             bindings = <
-                &td_bt_clr            &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3 &bt BT_SEL 4    &mute_mic  &kp TAB    &kp DEL    &kp PG_UP        &kp UP        &kp PG_DN &kp BSPC  &td_tog_colemak
-                &kp C_PP              &kp F1        &kp F2          &kp F3         &kp F4       &kp F5          &kp C_MUTE &prev_next &kp HOME   &kp LEFT         &kp DOWN      &kp RIGHT &kp END   &kp F12
-                &mt LCTRL &caps_word  &mt LGUI RET  &rgb_ug RGB_TOG &kp ESC        &del_bspc    &studio_unlock                        &kp F6     &kp F7           &kp F8        &kp F9    &kp F10   &kp F11
-                                                                    &td_sys_reset  &trans       &td_bootloader                        &kp BSPC   &mt RSHFT SPACE  &kp LALT
+                &td_bt_clr  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3 &bt BT_SEL 4   &studio_unlock &kp TAB    &kp DEL    &kp PG_UP       &kp UP        &kp PG_DN &kp BSPC  &td_tog_colemak
+                &caps_word  &kp F1        &kp F2          &kp F3         &kp F4       &kp F5         &kp C_PP       &prev_next &kp HOME   &kp LEFT        &kp DOWN      &kp RIGHT &kp END   &kp F12
+                &kp LCTRL   &mt LGUI RET  &rgb_ug RGB_TOG &kp ESC        &kp DEL      &mute_mic                                &kp F6     &kp F7          &kp F8        &kp F9    &kp F10   &kp F11
+                                                          &td_sys_reset  &trans       &td_bootloader                           &kp BSPC   &mt RSHFT SPACE &kp LALT
             >;
         };
 
