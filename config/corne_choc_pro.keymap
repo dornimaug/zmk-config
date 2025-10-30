@@ -173,15 +173,15 @@
         lower_layer {
             display-name = "NAV";
             // -----------------------------------------------------------------------------------------
-            // | MICOFF| BT1 | BT2 | BT3       | BT4 | BT5     | MICOFF | TAB     | DEL  | PGUP      |  UP  | PGDN | BSPC | TOGLAY |
-            // |   PP  | F1  | F2  | F3        | F4  | F5      | MUTE   | PRV/NXT | HOME | LEFT      | DOWN |  RGT | END  | F12    |
-            // |  CTRL | BTCR| RGB | RST       | BOOT| Unlock  |                  |  F6  |  F7       |  F8  |  F9  | F10  | F11    |
-            //                     | ESC->CTRL |     | ENT->GUI|                  |      | SPC->SHFT |      |
+            // |  BTCR | BT1     | BT2 | BT3 | BT4 | BT5    | MICOFF | TAB     | DEL  | PGUP      |  UP  | PGDN | BSPC | TOGLAY |
+            // |   PP  | F1      | F2  | F3  | F4  | F5     | MUTE   | PRV/NXT | HOME | LEFT      | DOWN |  RGT | END  | F12    |
+            // |  CTRL | ENT->GUI| RGB | ESC | DEL | Unlock |                  |  F6  |  F7       |  F8  |  F9  | F10  | F11    |
+            //                         | RST |     | BOOT   |                  |      | SPC->SHFT |      |
             bindings = <
-                &mute_mic &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3 &bt BT_SEL 4    &mute_mic  &kp TAB    &del_bspc  &kp PG_UP        &kp UP   &kp PG_DN &bspc_del &tog COLEMAK_DH
-                &kp C_PP  &kp F1        &kp F2          &kp F3         &kp F4       &kp F5          &kp C_MUTE &prev_next &kp HOME   &kp LEFT         &kp DOWN &kp RIGHT &kp END   &kp F12
-                &kp LCTRL &bt BT_CLR    &rgb_ug RGB_TOG &sys_reset     &bootloader  &studio_unlock                        &kp F6     &kp F7           &kp F8   &kp F9    &kp F10   &kp F11
-                                                        &mt LCTRL ESC  &trans       &mt LGUI RET                          &trans     &mt RSHFT SPACE  &trans
+                &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3 &bt BT_SEL 4    &mute_mic  &kp TAB    &del_bspc  &kp PG_UP        &kp UP   &kp PG_DN &bspc_del &tog COLEMAK_DH
+                &kp C_PP   &kp F1        &kp F2          &kp F3         &kp F4       &kp F5          &kp C_MUTE &prev_next &kp HOME   &kp LEFT         &kp DOWN &kp RIGHT &kp END   &kp F12
+                &kp LCTRL  &mt LGUI RET  &rgb_ug RGB_TOG &kp ESC        &del_bspc    &studio_unlock                        &kp F6     &kp F7           &kp F8   &kp F9    &kp F10   &kp F11
+                                                         &sys_reset     &trans       &bootloader                          &trans     &mt RSHFT SPACE  &trans
             >;
         };
 
