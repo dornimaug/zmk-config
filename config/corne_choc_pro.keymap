@@ -32,8 +32,8 @@
 #define COLEMAK_DH 1
 #define LOWER      2
 #define RAISE      3
-#define SYSTEM     4
-#define FUNCTION   5
+#define FUNCTION   4
+#define SYSTEM     5
 
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
 
@@ -70,6 +70,7 @@
         bindings = <K1>, <K2>, <K3>;                    \
     };
 
+
 / {
     behaviors {
         HOME_ROW_MOD(hml, KEYS_RIGHT KEYS_THUMB)
@@ -78,6 +79,7 @@
         MORPH(prev_next, C_PREV, C_NEXT, MOD_ANY)
         MORPH(spc_bspc, SPACE, BSPC, MOD_ANY)
         MORPH(ret_del, RET, DEL, MOD_ANY)
+        MORPH(bspc_del, BSPC, DEL, MOD_ANY)
 
         TAP_DANCE_3(td_sys_reset, &none, &none, &sys_reset)
         TAP_DANCE_3(td_bt_clr, &none, &none, &bt BT_CLR)
@@ -144,34 +146,40 @@
     };
 };
 
-#define BASE_ROW_L(K0, K1, K2, K3, K4) \
-    &kp DE_##K0 &kp DE_##K1 &kp DE_##K2 &kp DE_##K3 &kp DE_##K4
-
-#define BASE_ROW_R(K0, K1, K2, K3, K4, K5) \
-    &kp DE_##K0 &kp DE_##K1 &kp DE_##K2 &kp DE_##K3 &kp DE_##K4 &kp DE_##K5
-
 // GASC left home row
-#define BASE_ROW_LH(K0, K1, K2, K3, K4) \
-    &hml LGUI DE_##K0 &hml LALT DE_##K1 &hml LSHFT DE_##K2 &hml LCTRL DE_##K3 &kp DE_##K4
+#define HML(K0, K1, K2, K3, K4) \
+    &hml LGUI K0 &hml LALT K1 &hml LSHFT K2 &hml LCTRL K3 &kp K4
 
 // CASG right home row
-#define BASE_ROW_RH(K0, K1, K2, K3, K4, K5) \
-    &kp DE_##K0 &hmr RCTRL DE_##K1 &hmr RSHFT DE_##K2 &hmr RALT DE_##K3 &hmr RGUI DE_##K4 &kp DE_##K5
+#define HMR(K0, K1, K2, K3, K4, K5) \
+    &kp K0 &hmr RCTRL K1 &hmr RSHFT K2 &hmr RALT K3 &hmr RGUI K4 &kp K5
 
-// ╭------------┬-----┬-----┬-----------┬----------┬---------┬------┬------┬----------┬----------┬------┬-----┬-----┬-----╮
-// |     ESC    | ... | ... |    ...    |   ...    |   ...   | DEL  |  DEL |    ...   |   ...    | ...  | ... | ... | ... |
-// |  TAB->RSE  | ... | ... |    ...    |   ...    |   ...   | BPSC | BPSC |    ...   |   ...    | ...  | ... | ... | ... |
-// | SSHFT->CTRL| ... | ... |    ...    |   ...    |   ...   ├------┴------┤    ...   |   ...    | ...  | ... | ... | ... |
-// ╰------------┴-----┴-----┤ DEL->FUNC | SPC->LWR | ENT/DEL |             | SPC/BPSC | SPC->RSE | BSPC ├-----┴-----┴-----╯
-//                          ╰-----------┴----------┴---------╯             ╰----------┴----------┴------╯
+#define DE_ROW_L(K0, K1, K2, K3, K4) \
+    &kp DE_##K0 &kp DE_##K1 &kp DE_##K2 &kp DE_##K3 &kp DE_##K4
+
+#define DE_ROW_R(K0, K1, K2, K3, K4, K5) \
+    &kp DE_##K0 &kp DE_##K1 &kp DE_##K2 &kp DE_##K3 &kp DE_##K4 &kp DE_##K5
+
+#define DE_HOME_ROW_L(K0, K1, K2, K3, K4) \
+    HML(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4)
+
+#define DE_HOME_ROW_R(K0, K1, K2, K3, K4, K5) \
+    HMR(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4, DE_##K5)
+
+// ╭------------┬-----┬-----┬-----------┬----------┬----------┬----┬----┬----------┬----------┬-----------┬-----┬-----┬-----╮
+// |     ESC    | ... | ... |    ...    |   ...    |    ...   |    |    |    ...   |   ...    |    ...    | ... | ... | ... |
+// |  TAB->RSE  | ... | ... |    ...    |   ...    |    ...   |    |    |    ...   |   ...    |    ...    | ... | ... | ... |
+// | SSHFT->CTRL| ... | ... |    ...    |   ...    |    ...   ├----┴----┤    ...   |   ...    |    ...    | ... | ... | ... |
+// ╰------------┴-----┴-----┤ RET->CTRL | SPC->LWR | BSPC/DEL |         | SPC/BPSC | SPC->RSE | RET->FUNC ├-----┴-----┴-----╯
+//                          ╰-----------┴----------┴----------╯         ╰----------┴----------┴-----------╯
 #define BASE_LAYER(NAME, DISPLAY_NAME, ROW1_L, ROW1_R, ROW2_L, ROW2_R, ROW3_L, ROW3_R) \
     NAME ## _layer { \
         display-name = DISPLAY_NAME; \
         bindings = < \
-            &kp ESC            ROW1_L                                              &kp DEL  /**/ &kp DEL   ROW1_R \
-            &lt RAISE TAB      ROW2_L                                              &kp BSPC /**/ &kp BSPC  ROW2_R \
-            &mt_sk LCTRL LSHFT ROW3_L                                                                      ROW3_R \
-                                       &lt FUNCTION DEL  &lt LOWER SPACE  &ret_del          /**/           &spc_bspc  &lt RAISE SPACE  &kp BSPC \
+            &kp ESC            ROW1_L                                             &none /**/ &none ROW1_R \
+            &lt RAISE TAB      ROW2_L                                             &none /**/ &none ROW2_R \
+            &mt_sk LSHFT LSHFT ROW3_L                                                              ROW3_R \
+                                      &mt LCTRL RET  &lt LOWER SPACE  &bspc_del      /**/       &spc_bspc  &lt RAISE SPACE  &lt FUNCTION RET \
         >; \
     };
 
@@ -188,32 +196,32 @@
         BASE_LAYER(
             qwertz,
             "QWERTZ",
-            BASE_ROW_L (Q, W, E, R, T), BASE_ROW_R (Z, U, I,     O,   P,        U_UMLAUT),
-            BASE_ROW_LH(A, S, D, F, G), BASE_ROW_RH(H, J, K,     L,   O_UMLAUT, A_UMLAUT),
-            BASE_ROW_L (Y, X, C, V, B), BASE_ROW_R (N, M, COMMA, DOT, MINUS,    SHARP_S)
+            DE_ROW_L     (Q, W, E, R, T), DE_ROW_R     (Z, U, I,     O,   P,        U_UMLAUT),
+            DE_HOME_ROW_L(A, S, D, F, G), DE_HOME_ROW_R(H, J, K,     L,   O_UMLAUT, A_UMLAUT),
+            DE_ROW_L     (Y, X, C, V, B), DE_ROW_R     (N, M, COMMA, DOT, MINUS,    SHARP_S)
         )
 
         BASE_LAYER(
             colemak_dh,
             "colemakd",
-            BASE_ROW_L (Q, W, F, P, B), BASE_ROW_R (J, L, U,     Y,   A_UMLAUT, O_UMLAUT),
-            BASE_ROW_LH(A, R, S, T, G), BASE_ROW_RH(M, N, E,     I,   O,        U_UMLAUT),
-            BASE_ROW_L (X, C, D, V, Z), BASE_ROW_R (K, H, COMMA, DOT, MINUS,    SHARP_S)
+            DE_ROW_L     (Q, W, F, P, B), DE_ROW_R     (J, L, U,     Y,   A_UMLAUT, O_UMLAUT),
+            DE_HOME_ROW_L(A, R, S, T, G), DE_HOME_ROW_R(M, N, E,     I,   O,        U_UMLAUT),
+            DE_ROW_L     (X, C, D, V, Z), DE_ROW_R     (K, H, COMMA, DOT, MINUS,    SHARP_S)
         )
 
         lower_layer {
             display-name = "navi";
-            // ╭------┬-----┬---┬-----┬---┬--------┬------┬------┬-------┬----------┬------┬------┬------┬--------╮
-            // | SYS  | PP  | 7 |  8  | 9 | MUTEMIC| DEL  | DEL  | PR/NX | PGUP     |  UP  | PGDN | BSPC | MUTEMIC|
-            // | TAB  |BSPC | 4 |  5  | 6 |  DEL   | BSPC | BSPC | HOME  | LEFT     | DOWN |  RGT | END  |  ENT   |
-            // | CTRL |  0  | 1 |  2  | 3 |  ESC   ├------┴------┤  DEL  | HOME     | ESC  |  END |  _   |        |
-            // ╰------┴-----┴---┤ GUI |   |        |             | BSPC  | SPC->SHFT| ALT  ├------┴------┴--------╯  
-            //                  ╰-----┴---┴--------╯             ╰-------┴----------┴------╯
+            // ╭----------┬-----┬-----┬-----┬-----┬-----┬-------┬-----┬------┬----------┬----------┬------┬------┬---------╮
+            // | ESC->SYS |  /  |  7  |  8  |  9  |  *  |  ENT  |     | ESC  |   PGUP   |    UP    | PGDN | BSPC | MUTEMIC |
+            // |   TAB    |  .  |  4  |  5  |  6  |  +  |MUTEMIC|     | HOME |   LEFT   |   DOWN   |  RGT | END  |   PP    |
+            // |   CTRL   |  0  |  1  |  2  |  3  |  -  ├-------┴-----┤ GUI  |   HOME   |    DEL   |  END |  _   |  MUTE   |
+            // ╰----------┴-----┴-----┤ DEL |     | NUM |             | BSPC | SPC->SHFT| RET->ALT ├------┴------┴---------╯  
+            //                        ╰-----┴-----┴-----╯             ╰------┴----------┴----------╯
             bindings = <
-&mo SYSTEM &kp C_PP  &kp DE_N7 &kp DE_N8  &kp DE_N9 &mute_mic &kp C_PP   &kp CAPS   &prev_next &kp PG_UP       &kp UP     &kp PG_DN &kp BSPC     &mute_mic
-&kp TAB    &kp BSPC  &kp DE_N4 &kp DE_N5  &kp DE_N6 &kp DEL   &kp C_PREV &kp C_NEXT &kp HOME   &kp LEFT        &kp DOWN   &kp RIGHT &kp END      &kp RET
-&kp LCTRL  &kp DE_N0 &kp DE_N1 &kp DE_N2  &kp DE_N3 &kp ESC                         &kp DEL    &kp HOME        &kp ESC    &kp END   &kp DE_UNDER &none
-                               &kp LGUI   &none     &none                           &kp BSPC   &mt RSHFT SPACE &kp LALT
+&lt SYSTEM ESC &kp KP_DIVIDE &kp DE_N7 &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &none &kp ESC  &kp PG_UP       &kp UP       &kp PG_DN &kp BSPC     &mute_mic
+&kp TAB        &kp KP_DOT    &kp DE_N4 &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &mute_mic    &none &kp HOME &kp LEFT        &kp DOWN     &kp RIGHT &kp END      &kp C_PP
+&kp LCTRL      &kp DE_N0     &kp DE_N1 &kp DE_N2  &kp DE_N3  &kp KP_MINUS                       &kp RGUI &kp HOME        &kp DEL      &kp END   &kp DE_UNDER &kp C_MUTE
+                             &kp DEL   &none      &kp KP_NUM                                    &kp BSPC &mt RSHFT SPACE &mt LALT RET
             >;
         };
 
@@ -222,14 +230,30 @@
             // ╭------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----╮
             // |  §   |  ^  |  '  |  ?  |  $  |  %  |  -  |  .  |  @  | "|" |  {  |  }  |  ´  |  °  |
             // | GUI  |  !  |  "  |  :  |  =  |  #  |  _  |  ,  |  &  |  /  |  (  |  )  |  ?  |  ~  |
-            // | CTRL |  <  |  `  |  +  |  *  |  >  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
-            // ╰------┴-----┴-----┤ ALT | SHFT| DEL |           |     |     |FUNC ├-----┴-----┴-----╯
+            // | CTRL |  <  |  `  |  >  |  +  |  *  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
+            // ╰------┴-----┴-----┤ ALT | SHFT| RET |           |     |     |FUNC ├-----┴-----┴-----╯
             //                    ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
             bindings = <
-&kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_QMARK &kp DE_DLLR  &kp DE_PRCNT &kp DE_MINUS &kp DE_DOT   &kp DE_AT    &kp DE_PIPE  &kp DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
-&kp LGUI     &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON &kp DE_EQUAL &kp DE_HASH  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS  &kp DE_FSLH  &kp DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
-&kp LCTRL    &kp DE_LT    &kp DE_GRAVE &kp DE_PLUS  &kp DE_STAR  &kp DE_GT                              &kp DE_EURO  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-                                       &kp LALT     &kp LSHFT    &kp DEL                                &none        &none        &mo FUNCTION 
+&kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_QMARK &kp DE_DLLR   &kp DE_PRCNT &kp DE_MINUS &kp DE_DOT   &kp DE_AT    &kp DE_PIPE  &kp DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
+&kp LGUI     &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON &kp DE_EQUAL  &kp DE_HASH  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS  &kp DE_FSLH  &kp DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
+&kp LCTRL    &kp DE_LT    &kp DE_GRAVE &kp DE_GT    &kp DE_PLUS   &kp DE_STAR                            &kp DE_EURO  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
+                                       &kp LALT     &mt LSHFT RET &kp RET                                &none        &none        &mo FUNCTION 
+            >;
+        };
+
+        function_layer {
+            display-name = "function";
+            // ╭-------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-------╮
+            // |  ESC  | F12 | F7  | F8  | F9  | F12 |     |     |     |     |     |     |     |MUTEMIC|
+            // | CAPS  | F11 | F4  | F5  | F6  | F11 |     |     |     | CTRL| ALT | SHFT| GUI | GLOBE |
+            // | CAPSW | F10 | F1  | F2  | F3  | F10 ├-----┴-----┤     |     |     |     |     |MUTEMIC|
+            // ╰-------┴-----┴-----┤     |     |     |           | RALT|     |     ├-----┴-----┴-------╯
+            //                     ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
+            bindings = <
+&kp ESC    &kp F12  &kp F7  &kp F8  &kp F9  &kp F12  &none &none  &none    &none     &none    &none     &none    &mute_mic
+&kp CAPS   &kp F11  &kp F2  &kp F3  &kp F6  &kp F11  &none &none  &none    &kp RCTRL &kp LALT &kp RSHFT &kp RGUI &kp GLOBE
+&caps_word &kp F10  &kp F1  &kp F2  &kp F3  &kp F10               &none    &none     &none    &none     &none    &mute_mic 
+                            &none   &none   &none                 &kp RALT &none     &none 
             >;
         };
         
@@ -246,22 +270,6 @@
 &none  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3  &bt BT_DISC 4  &none  &none &rgb_ug RGB_EFR &rgb_ug RGB_SAD   &rgb_ug RGB_BRD     &rgb_ug RGB_HUD    &rgb_ug RGB_TOG &none
 &none  &td_sys_reset &none         &td_bt_clr    &studio_unlock &td_bootloader              &none           &rgb_ug COLOR_RED &rgb_ug COLOR_GREEN &rgb_ug COLOR_BLUE &none           &none
                                    &none         &none          &none                       &none           &none             &none
-            >;
-        };
-
-        function_layer {
-            display-name = "function";
-            // ╭-------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-------╮
-            // |  ESC  | F12 | F7  | F8  | F9  | F12 |     |     |     |     |     |     |     |MUTEMIC|
-            // | CAPSW | F11 | F4  | F5  | F6  | F11 |     |     |     | CTRL| ALT | SHFT| GUI | GLOBE |
-            // | CAPS  | F10 | F1  | F2  | F3  | F10 ├-----┴-----┤     |     |     |     |     |MUTEMIC|
-            // ╰-------┴-----┴-----┤     |     |     |           | RALT|     |     ├-----┴-----┴-------╯
-            //                     ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
-            bindings = <
-&kp ESC    &kp F12  &kp F7  &kp F8  &kp F9  &kp F12  &none &none  &none    &none     &none    &none     &none    &mute_mic
-&caps_word &kp F11  &kp F2  &kp F3  &kp F6  &kp F11  &none &none  &none    &kp RCTRL &kp LALT &kp RSHFT &kp RGUI &kp GLOBE
-&kp CAPS   &kp F10  &kp F1  &kp F2  &kp F3  &kp F10               &none    &none     &none    &none     &none    &mute_mic 
-                            &none   &none   &none                 &kp RALT &none     &none 
             >;
         };
     };
