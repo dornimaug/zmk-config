@@ -1,0 +1,25 @@
+name: Draw ZMK keymaps
+on:
+  workflow_call: {}
+  workflow_dispatch: {}
+  push:
+    paths:
+      - "config/*.keymap"
+      - "config/*.json"
+      - "config/*.h"
+      - "dts/*.dtsi"
+      - "dts/*.h"
+      - "keymap_drawer.config.yaml"
+    inputs:
+      destination:
+
+jobs:
+  draw:
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    permissions:
+      contents: write
+    with:
+      keymap_patterns: "config/corne_choc_pro.keymap"
+      config_path: 'keymap_drawer.config.yaml'
+      destination: 'commit'
+      west_config_path: './config/'

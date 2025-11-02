@@ -4,7 +4,10 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#include "keys_de.h"
+// custom dts hidden from keymap-drawer in dts_root
+#include <keys_de.h>
+#include <rgb.h>
+
 #include "corne_choc_pro-labels.h"
 
 / {
@@ -27,9 +30,6 @@
 };
 
 #define STRINGIFY(x) #x
-#define COLOR_RED   RGB_COLOR_HSB(0,100,66)
-#define COLOR_GREEN RGB_COLOR_HSB(100,100,66)
-#define COLOR_BLUE  RGB_COLOR_HSB(190,100,66)
 
 // layers
 #define QWERTZ     0
@@ -228,13 +228,13 @@
             // |  §   |  ^  |  '  |  -  |  *  |  #  |  -  |  .  |  @  | "|" |  {  |  }  |  ´  |  °  |
             // | GUI  |  !  |  "  |  :  |  =  |  $  |  _  |  ,  |  &  |  /  |  (  |  )  |  ?  |  ~  |
             // | CTRL |  <  |  `  |  >  |  +  |  %  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
-            // ╰------┴-----┴-----┤ ALT | SHFT|BSPC |           |     |     |MOUSE├-----┴-----┴-----╯
+            // ╰------┴-----┴-----┤ ALT | SHFT|BSPC |           | LWR |     |MOUSE├-----┴-----┴-----╯
             //                    ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
             bindings = <
 &kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH  &kp DE_MINUS &kp DE_DOT   &kp DE_AT    &kp DE_PIPE  &kp DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
 &kp LGUI     &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS  &kp DE_FSLH  &kp DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
 &kp LCTRL    &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                           &kp DE_EURO  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-                                       &mt LALT RET  &mt LSHFT SPC &kp BSPC                               &none        &none        &mo MOUSE 
+                                       &mt LALT RET  &mt LSHFT SPC &kp BSPC                               &mo LOWER    &none        &mo MOUSE 
             >;
         };
 
