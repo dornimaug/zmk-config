@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Pre commit hook to generate keymap-drawer files for corne_choc_pro
+
+set -eou pipefail
+
+keymap -c ./keymap-drawer.config.yaml parse -z ./config/corne_choc_pro.keymap >keymap-drawer/corne_choc_pro.yaml
+keymap -c ./keymap-drawer.config.yaml draw -j config/corne_choc_pro.json keymap-drawer/corne_choc_pro.yaml >keymap-drawer/corne_choc_pro.svg
+
+git add keymap-drawer/corne_choc_pro.yaml keymap-drawer/corne_choc_pro.svg

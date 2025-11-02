@@ -10,8 +10,6 @@ on:
       - "dts/*.dtsi"
       - "dts/*.h"
       - "keymap_drawer.config.yaml"
-    inputs:
-      destination:
 
 jobs:
   draw:
