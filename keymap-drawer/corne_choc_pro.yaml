@@ -1,0 +1,331 @@
+layout: {zmk_keyboard: corne_choc_pro, layout_name: default_layout}
+layers:
+  QWERTZ:
+  - {t: ESC, h: LALT}
+  - DE Q
+  - DE W
+  - DE E
+  - DE R
+  - DE T
+  - ''
+  - function
+  - DE Z
+  - DE U
+  - DE I
+  - DE O
+  - DE P
+  - DE U UMLAUT
+  - {t: TAB, h: symbol}
+  - {t: DE A, h: LGUI}
+  - {t: DE S, h: LALT}
+  - {t: DE D, h: LSHFT}
+  - {t: DE F, h: LCTRL}
+  - DE G
+  - ''
+  - mouse
+  - DE H
+  - {t: DE J, h: RCTRL}
+  - {t: DE K, h: RSHFT}
+  - {t: DE L, h: RALT}
+  - {t: DE O UMLAUT, h: RGUI}
+  - {t: DE A UMLAUT, h: navi}
+  - {t: LSHFT, h: LSHFT}
+  - DE Y
+  - DE X
+  - DE C
+  - DE V
+  - DE B
+  - DE N
+  - DE M
+  - DE COMMA
+  - DE DOT
+  - DE MINUS
+  - {t: DE SHARP S, h: mouse}
+  - {t: RET, h: LCTRL}
+  - {t: SPACE, h: navi}
+  - {t: BSPC, s: DEL}
+  - {t: SPACE, s: BSPC}
+  - {t: RET, h: symbol}
+  - {t: TAB, h: function}
+  colemakd:
+  - {t: ESC, h: LALT}
+  - DE Q
+  - DE W
+  - DE F
+  - DE P
+  - DE B
+  - ''
+  - function
+  - DE J
+  - DE L
+  - DE U
+  - DE Y
+  - DE A UMLAUT
+  - DE O UMLAUT
+  - {t: TAB, h: symbol}
+  - {t: DE A, h: LGUI}
+  - {t: DE R, h: LALT}
+  - {t: DE S, h: LSHFT}
+  - {t: DE T, h: LCTRL}
+  - DE G
+  - ''
+  - mouse
+  - DE M
+  - {t: DE N, h: RCTRL}
+  - {t: DE E, h: RSHFT}
+  - {t: DE I, h: RALT}
+  - {t: DE O, h: RGUI}
+  - {t: DE U UMLAUT, h: navi}
+  - {t: LSHFT, h: LSHFT}
+  - DE X
+  - DE C
+  - DE D
+  - DE V
+  - DE Z
+  - DE K
+  - DE H
+  - DE COMMA
+  - DE DOT
+  - DE MINUS
+  - {t: DE SHARP S, h: mouse}
+  - {t: RET, h: LCTRL}
+  - {t: SPACE, h: navi}
+  - {t: BSPC, s: DEL}
+  - {t: SPACE, s: BSPC}
+  - {t: RET, h: symbol}
+  - {t: TAB, h: function}
+  navi:
+  - {t: ESC, h: system}
+  - KP DIVIDE
+  - DE 7
+  - DE 8
+  - DE 9
+  - KP MULTIPLY
+  - KP ENTER
+  - PG UP
+  - ESC
+  - PG UP
+  - UP
+  - PG DN
+  - BSPC
+  - '&mute_mic'
+  - {t: TAB, h: LGUI}
+  - KP DOT
+  - DE 4
+  - DE 5
+  - DE 6
+  - KP PLUS
+  - '&mute_mic'
+  - PG DN
+  - HOME
+  - LEFT
+  - DOWN
+  - RIGHT
+  - END
+  - {t: PP, type: held}
+  - LCTRL
+  - DE 0
+  - DE 1
+  - DE 2
+  - DE 3
+  - KP MINUS
+  - DEL
+  - HOME
+  - DEL
+  - END
+  - DE UNDER
+  - MUTE
+  - DEL
+  - ''
+  - KP NUM
+  - BSPC
+  - {t: RET, h: RSHFT}
+  - {t: SPACE, h: LALT}
+  symbol:
+  - DE SECT
+  - DE CARET
+  - DE SQT
+  - DE MINUS
+  - DE STAR
+  - DE HASH
+  - DE MINUS
+  - DE DOT
+  - DE AT
+  - DE PIPE
+  - DE LBRC
+  - DE RBRC
+  - DE ACUTE
+  - DE DEGREE
+  - {t: LGUI, type: held}
+  - DE EXCL
+  - DE DQT
+  - DE COLON
+  - DE EQUAL
+  - DE DLLR
+  - DE UNDER
+  - DE COMMA
+  - DE AMPS
+  - DE FSLH
+  - DE LPAR
+  - DE RPAR
+  - DE QMARK
+  - DE TILDE
+  - LCTRL
+  - DE LT
+  - DE GRAVE
+  - DE GT
+  - DE PLUS
+  - DE PRCNT
+  - DE EURO
+  - DE BSLH
+  - DE LBKT
+  - DE RBKT
+  - DE UNDER
+  - DE SEMI
+  - {t: RET, h: LALT}
+  - {t: SPC, h: LSHFT}
+  - BSPC
+  - navi
+  - ''
+  - mouse
+  function:
+  - ESC
+  - F12
+  - F7
+  - F8
+  - F9
+  - F12
+  - ''
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - '&mute_mic'
+  - CAPS
+  - F11
+  - F2
+  - F3
+  - F6
+  - F11
+  - ''
+  - ''
+  - ''
+  - RCTRL
+  - LALT
+  - RSHFT
+  - RGUI
+  - GLOBE
+  - '&caps_word'
+  - F10
+  - F1
+  - F2
+  - F3
+  - F10
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - '&mute_mic'
+  - ''
+  - ''
+  - ''
+  - RALT
+  - ''
+  - ''
+  mouse:
+  - ''
+  - ''
+  - '&msc SCRL_UP'
+  - '&mmv MOVE_UP'
+  - '&msc SCRL_DOWN'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - '&mkp MB1'
+  - '&mmv MOVE_LEFT'
+  - '&mmv MOVE_DOWN'
+  - '&mmv MOVE_RIGHT'
+  - '&msc SCRL_RIGHT'
+  - ''
+  - {type: held}
+  - ''
+  - RCTRL
+  - LALT
+  - RSHFT
+  - RGUI
+  - ''
+  - ''
+  - '&mkp MB4'
+  - '&mkp MB5'
+  - '&mkp MB3'
+  - '&mkp MB2'
+  - '&msc SCRL_LEFT'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - RALT
+  - ''
+  - ''
+  system:
+  - {type: held}
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - ''
+  - ''
+  - RGB EFF
+  - RGB SAI
+  - RGB BRI
+  - RGB HUI
+  - ''
+  - '&td_tog_colemak'
+  - ''
+  - {t: BT DISC, h: '0'}
+  - {t: BT DISC, h: '1'}
+  - {t: BT DISC, h: '2'}
+  - {t: BT DISC, h: '3'}
+  - {t: BT DISC, h: '4'}
+  - ''
+  - ''
+  - RGB EFR
+  - RGB SAD
+  - RGB BRD
+  - RGB HUD
+  - RGB TOG
+  - {type: held}
+  - ''
+  - '&td_sys_reset'
+  - ''
+  - '&td_bt_clr'
+  - '&studio_unlock'
+  - '&td_bootloader'
+  - ''
+  - COLOR RED
+  - COLOR GREEN
+  - COLOR BLUE
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
