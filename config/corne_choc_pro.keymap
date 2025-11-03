@@ -35,8 +35,8 @@
 // layers
 #define QWERTZ     0
 #define COLEMAK_DH 1
-#define LOWER      2
-#define RAISE      3
+#define NUM_NAV    2
+#define SYMBOL     3
 #define FUNCTION   4
 #define MOUSE      5
 #define SYSTEM     6
@@ -84,6 +84,7 @@
 
         MORPH(prev_next, C_PREV, C_NEXT, MOD_ANY)
         MORPH(spc_bspc, SPACE, BSPC, MOD_ANY)
+        MORPH(bspc_spc, BSPC, SPACE, MOD_ANY)
         MORPH(ret_del, RET, DEL, MOD_ANY)
         MORPH(bspc_del, BSPC, DEL, MOD_ANY)
 
@@ -109,10 +110,17 @@
             flavor = "hold-preferred";
             bindings = <&kp>, <&sk>;
         };
-    };
-};
 
-/ {
+        /omit-if-no-ref/ mt_kt: toggle_or_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <QUICK_TAP_MS>;
+            flavor = "hold-preferred";
+            bindings = <&mt>, <&kt>;
+        };
+    };
+
     macros {
         mute_mic: mute_mic {
             compatible = "zmk,behavior-macro";
@@ -143,20 +151,26 @@
 // CASG right home row
 #define HMR(K0, K1, K2, K3, K4) &kp K0 &hmr RCTRL K1 &hmr RSHFT K2 &hmr RALT K3 &hmr RGUI K4
 
-// ╭------------┬-----┬-----┬-----------┬----------┬----------┬-----┬-------┬----------┬----------┬-----------┬-----┬-----┬----------╮
-// |  ESC->ALT  | ... | ... |    ...    |   ...    |    ...   |     | FUNC  |    ...   |   ...    |    ...    | ... | ... |    ...   |
-// |  TAB->RSE  | ... | ... |    ...    |   ...    |    ...   |     | MOUSE |    ...   |   ...    |    ...    | ... | ... | ...->LWR |
-// | SSHFT->SHFT| ... | ... |    ...    |   ...    |    ...   ├-----┴-------┤    ...   |   ...    |    ...    | ... | ... |    ...   |
-// ╰------------┴-----┴-----┤ RET->CTRL | SPC->LWR | BSPC/DEL |             | SPC/BPSC | RET->RSE | TAB->FUNC ├-----┴-----┴----------╯
-//                          ╰-----------┴----------┴----------╯             ╰----------┴----------┴-----------╯
+// the default definitions for COPY, PASTE, CUT, UNDO are useless in anything but Linux
+#define COPY_  LC(DE_C)
+#define PASTE_ LC(DE_V)
+#define CUT_   LC(DE_X)
+#define UNDO_  LC(DE_Z)
+
+// ╭------------┬-----┬-----┬-----------┬----------┬------┬-----┬-------┬----------┬----------┬-----------┬-----┬-----┬----------╮
+// |  ESC->ALT  | ... | ... |    ...    |   ...    | ...  |     | FUNC  |    ...   |   ...    |    ...    | ... | ... |    ...   |
+// |  TAB->RSE  | ... | ... |    ...    |   ...    | ...  |     | MOUSE |    ...   |   ...    |    ...    | ... | ... | ...->LWR |
+// | SSHFT->SHFT| ... | ... |    ...    |   ...    | ...  ├-----┴-------┤    ...   |   ...    |    ...    | ... | ... |    ...   |
+// ╰------------┴-----┴-----┤ RET->CTRL | SPC->LWR | BSPC |             | SPC/BPSC | RET->RSE | TAB->FUNC ├-----┴-----┴----------╯
+//                          ╰-----------┴----------┴------╯             ╰----------┴----------┴-----------╯
 #define BASE_LAYER(NAME, DISPLAY_NAME, ROW_LT, ROW_RT, ROW_LM, ROW_RM, ROW_LB, ROW_RB) \
     NAME ## _layer { \
         display-name = DISPLAY_NAME; \
         bindings = < \
-            &mt LALT ESC       ROW_LT                                           &none /**/ &mo FUNCTION ROW_RT \
-            &lt RAISE TAB      ROW_LM                                           &none /**/ &mo MOUSE    ROW_RM \
-            &mt_sk LSHFT LSHFT ROW_LB                                                                   ROW_RB \
-                                      &mt LCTRL RET  &lt LOWER SPACE  &bspc_del       /**/              &spc_bspc  &lt RAISE RET  &lt FUNCTION TAB \
+            &mt LALT ESC       ROW_LT                                            &none /**/ &mo FUNCTION ROW_RT \
+            &lt SYMBOL TAB     ROW_LM                                            &none /**/ &mo MOUSE    ROW_RM \
+            &mt_sk LSHFT LSHFT ROW_LB                                                                    ROW_RB \
+                                      &mt LCTRL RET  &lt NUM_NAV SPACE  &kp BSPC       /**/              &spc_bspc  &lt SYMBOL RET  &lt FUNCTION TAB \
         >; \
     };
 
@@ -167,7 +181,7 @@
 #define BASE_ROW_LB(K0, K1, K2, K3, K4) _BASE_ROW(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4)
 
 #define BASE_ROW_RT(K0, K1, K2, K3, K4, K5) _BASE_ROW(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4) &kp DE_##K5
-#define BASE_ROW_RM(K0, K1, K2, K3, K4, K5) HMR      (DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4) &lt LOWER DE_##K5
+#define BASE_ROW_RM(K0, K1, K2, K3, K4, K5) HMR      (DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4) &lt NUM_NAV DE_##K5
 #define BASE_ROW_RB(K0, K1, K2, K3, K4, K5) _BASE_ROW(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4) &lt MOUSE DE_##K5
 
 / {
@@ -178,7 +192,7 @@
 
         BASE_LAYER(
             qwertz,
-            "QWERTZ",
+            "qwertz",
             BASE_ROW_LT(Q, W, E, R, T), BASE_ROW_RT(Z, U, I,     O,   P,        U_UMLAUT),
             BASE_ROW_LM(A, S, D, F, G), BASE_ROW_RM(H, J, K,     L,   O_UMLAUT, A_UMLAUT),
             BASE_ROW_LB(Y, X, C, V, B), BASE_ROW_RB(N, M, COMMA, DOT, MINUS,    SHARP_S)
@@ -186,73 +200,73 @@
 
         BASE_LAYER(
             colemak_dh,
-            "colemakd",
+            "colemak-dh",
             BASE_ROW_LT(Q, W, F, P, B), BASE_ROW_RT(J, L, U,     Y,   A_UMLAUT, O_UMLAUT),
             BASE_ROW_LM(A, R, S, T, G), BASE_ROW_RM(M, N, E,     I,   O,        U_UMLAUT),
             BASE_ROW_LB(X, C, D, V, Z), BASE_ROW_RB(K, H, COMMA, DOT, MINUS,    SHARP_S)
         )
 
-        lower_layer {
-            display-name = "numnav";
-            // ╭----------┬-----┬-----┬-----┬-----┬-----┬-------┬------┬------┬----------┬----------┬------┬------┬---------╮
-            // | ESC->SYS |  /  |  7  |  8  |  9  |  *  |  ENT  | PGUP | ESC  |   PGUP   |    UP    | PGDN | BSPC | MUTEMIC |
-            // | TAB->GUI |  .  |  4  |  5  |  6  |  +  |MUTEMIC| PGDN | HOME |   LEFT   |   DOWN   |  RGT | END  |   PP    |
-            // |   CTRL   |  0  |  1  |  2  |  3  |  -  ├-------┴------┤ DEL  |   HOME   |    DEL   |  END |  _   |  MUTE   |
-            // ╰----------┴-----┴-----┤ DEL |     | NUM |              | BSPC | RET->SHFT| SPC->ALT ├------┴------┴---------╯  
-            //                        ╰-----┴-----┴-----╯              ╰------┴----------┴----------╯
+        num_nav_layer {
+            display-name = "num_nav";
+            // ╭----------┬-----┬-----┬-----┬-----┬-----┬-----┬------┬----------┬----------┬----------┬------┬------┬---------╮
+            // | ESC->SYS |  /  |  7  |  8  |  9  |  *  | ENT | PGUP |   ESC    |   PGUP   |    UP    | PGDN | BSPC | MUTEMIC |
+            // | TAB->GUI |  .  |  4  |  5  |  6  |  +  |  ,  | PGDN |   HOME   |   LEFT   |   DOWN   |  RGT | END  |   PP    |
+            // | tg SHFT  |  0  |  1  |  2  |  3  |  -  ├-----┴------┤   SPC    |   HOME   |    DEL   |  END |  _   |  MUTE   |
+            // ╰----------┴-----┴-----┤ DEL |     | NUM |            | BSPC/SPC | RET->CTRL| TAB->ALT ├------┴------┴---------╯  
+            //                        ╰-----┴-----┴-----╯            ╰----------┴----------┴----------╯
             bindings = <
-&lt SYSTEM ESC &kp KP_DIVIDE &kp DE_N7 &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC  &kp PG_UP     &kp UP         &kp PG_DN &kp BSPC     &mute_mic
-&mt LGUI TAB   &kp KP_DOT    &kp DE_N4 &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &mute_mic    &kp PG_DN &kp HOME &kp LEFT      &kp DOWN       &kp RIGHT &kp END      &kp C_PP
-&kp LCTRL      &kp DE_N0     &kp DE_N1 &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp DEL  &kp HOME      &kp DEL        &kp END   &kp DE_UNDER &kp C_MUTE
-                             &kp DEL   &none      &kp KP_NUM                                        &kp BSPC &mt RSHFT RET &mt LALT SPACE
+&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP     &kp UP        &kp PG_DN &kp BSPC     &mute_mic
+&mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT      &kp DOWN      &kp RIGHT &kp END      &kp C_PP
+&mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp SPACE &kp HOME      &kp DEL       &kp END   &kp DE_UNDER &kp C_MUTE
+                                 &mt LSHFT DEL &none      &kp KP_NUM                                        &bspc_spc &mt RCTRL RET &mt LALT TAB
             >;
         };
 
-        raise_layer {
+        symbol_layer {
             display-name = "symbol";
             // ╭------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----╮
             // |  §   |  ^  |  '  |  -  |  *  |  #  |  -  |  .  |  @  | "|" |  {  |  }  |  ´  |  °  |
             // | GUI  |  !  |  "  |  :  |  =  |  $  |  _  |  ,  |  &  |  /  |  (  |  )  |  ?  |  ~  |
-            // | CTRL |  <  |  `  |  >  |  +  |  %  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
-            // ╰------┴-----┴-----┤ ALT | SHFT|BSPC |           |     |     |MOUSE├-----┴-----┴-----╯
+            // | SHFT |  <  |  `  |  >  |  +  |  %  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
+            // ╰------┴-----┴-----┤ ALT | CTRL|BSPC |           |     |     |MOUSE├-----┴-----┴-----╯
             //                    ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
             bindings = <
 &kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH  &kp DE_MINUS &kp DE_DOT   &kp DE_AT    &kp DE_PIPE  &kp DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
 &kp LGUI     &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS  &kp DE_FSLH  &kp DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
-&kp LCTRL    &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                           &kp DE_EURO  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-                                       &mt LALT RET  &mt LSHFT SPC &kp BSPC                               &none        &none        &mo MOUSE 
+&kp LSHFT    &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                           &kp DE_EURO  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
+                                       &mt LALT RET  &mt LCTRL SPC &kp BSPC                               &none        &none        &mo MOUSE 
             >;
         };
 
         function_layer {
             display-name = "func";
             // ╭-------┬-----┬-----┬-----┬-----┬-------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-------╮
-            // |  ESC  | F12 | F7  | F8  | F9  | SSWIN |     |     |     |     |     |     |     |MUTEMIC|
+            // |  ESC  | F12 | F7  | F8  | F9  | SSWIN |     |     | UNDO|     |     |     |     |MUTEMIC|
             // | CAPS  | F11 | F4  | F5  | F6  | SSSWIN|     |     |     | CTRL| ALT | SHFT| GUI | GLOBE |
-            // | CAPSW | F10 | F1  | F2  | F3  | CSRWIN├-----┴-----┤     |     |     |     |     |MUTEMIC|
+            // | CAPSW | F10 | F1  | F2  | F3  | CSRWIN├-----┴-----┤     | PAST| COPY| CUT |     |MUTEMIC|
             // ╰-------┴-----┴-----┤     |     |       |           | RALT|     |     ├-----┴-----┴-------╯
             //                     ╰-----┴-----┴-------╯           ╰-----┴-----┴-----╯
             bindings = <
-&kp ESC    &kp F12  &kp F7  &kp F8  &kp F9  &ss_win  &none &none  &none    &none     &none    &none     &none    &mute_mic
-&kp CAPS   &kp F11  &kp F2  &kp F3  &kp F6  &sss_win &none &none  &none    &kp RCTRL &kp LALT &kp RSHFT &kp RGUI &kp GLOBE
-&caps_word &kp F10  &kp F1  &kp F2  &kp F3  &csr_win              &none    &none     &none    &none     &none    &mute_mic 
-                            &none   &none   &none                 &kp RALT &none     &none 
+&kp ESC    &kp F12  &kp F7  &kp F8  &kp F9  &ss_win  &none &none  &kp UNDO_ &none      &none     &none     &none    &mute_mic
+&kp CAPS   &kp F11  &kp F2  &kp F3  &kp F6  &sss_win &none &none  &none     &kp RCTRL  &kp LALT  &kp RSHFT &kp RGUI &kp GLOBE
+&caps_word &kp F10  &kp F1  &kp F2  &kp F3  &csr_win              &none     &kp PASTE_ &kp COPY_ &kp CUT_  &none    &mute_mic 
+                            &none   &none   &none                 &kp RALT  &none      &none 
             >;
         };
 
         mouse_layer {
             display-name = "mouse";
             // ╭-----┬------┬-------┬------┬-------┬------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----╮
-            // |     |      | SCRUP |  UP  | SCRDN |      |     |     |     |     |     |     |     |     |
+            // |     |      | SCRUP |  UP  | SCRDN |      |     |     | UNDO|     |     |     |     |     |
             // |     |  MB1 |  LEFT | DOWN | RIGHT | SCRR |     |     | CTRL| ALT | SHFT| GUI |     |     |
-            // |     |  MB4 |  MB5  |  MB3 |  MB2  | SCRL ├-----┴-----┤     |     |     |     |     |     |
+            // |     |  MB4 |  MB5  |  MB3 |  MB2  | SCRL ├-----┴-----┤     | PAST| COPY| CUT |     |     |
             // ╰-----┴------┴-------┤      |       |      |           | RALT|     |     ├-----┴-----┴-----╯
             //                      ╰------┴-------┴------╯           ╰-----┴-----┴-----╯
             bindings = <
-&none &none    &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &none            &none &none  &none    &none     &none    &none     &none    &none
-&none &mkp MB1 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT  &none &none  &none    &kp RCTRL &kp LALT &kp RSHFT &kp RGUI &none
-&none &mkp MB4 &mkp MB5       &mkp MB3       &mkp MB2        &msc SCRL_LEFT                &none    &none     &none    &none     &none    &none 
-                              &none          &none           &none                         &kp RALT &none     &none 
+&none &none    &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &none            &none &none  &kp UNDO_ &none      &none     &none     &none    &none
+&none &mkp MB1 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT  &none &none  &none     &kp RCTRL  &kp LALT  &kp RSHFT &kp RGUI &none
+&none &mkp MB4 &mkp MB5       &mkp MB3       &mkp MB2        &msc SCRL_LEFT                &none     &kp PASTE_ &kp COPY_ &kp CUT_  &none    &none 
+                              &none          &none           &none                         &kp RALT  &none      &none 
             >;
         };
         

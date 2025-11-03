@@ -87,8 +87,15 @@ parse_config:
   preprocess: true
   skip_binding_parsing: false
   raw_binding_map:
+    '&studio_unlock':
+      shifted: Studio
+      tap: $$mdi:lock-open-outline$$
+    '&caps_word':
+      tap: Word
+      shifted: $$mdi:apple-keyboard-caps$$
+    
     '&td_sys_reset':
-      shifted: RESET
+      shifted: Reset
       tap: $$mdi:flash-alert$$ 
       hold: tap 3x
     '&td_bt_clr':
@@ -101,21 +108,15 @@ parse_config:
       tap: $$mdi:flash$$
       hold: tap 3x
       type: sym_by_sym
-    '&studio_unlock':
-      shifted: $$mdi:monitor-edit$$
-      tap: Studio Unlock
-    '&studio_unlock': Unlock
     '&td_tog_colemak':
       shifted: $$mdi:toggle-switch-outline$$
-      tap: COLEMAK
+      tap: Colemak-DH
       hold: tap 3x
+    
     '&mute_mic': 
       tap: $$mdi:microphone-off$$
       shifted: $$mdi:microsoft-windows$$
       type: sym_by_sym
-    '&caps_word':
-      tap: Word
-      shifted: $$mdi:apple-keyboard-caps$$
     '&ss_win':
       tap:  $$mdi:camera$$
       shifted: $$mdi:monitor-screenshot$$
@@ -130,6 +131,17 @@ parse_config:
       tap: $$mdi:video-outline$$
       shifted: $$mdi:monitor$$
       hold: $$mdi:microsoft-windows$$
+      type: sym_by_sym
+
+    '&mt_sk LSHFT LSHFT':
+      tap: $$mdi:apple-keyboard-shift$$
+      shifted: $$mdi:numeric-1$$
+      hold: $$mdi:apple-keyboard-shift$$
+      type: sym_by_sym
+    '&mt_kt LSHFT LSHFT':
+      tap: $$mdi:apple-keyboard-shift$$
+      shifted: $$mdi:toggle-switch-outline$$
+      hold: $$mdi:apple-keyboard-shift$$
       type: sym_by_sym
 
     "&mmv MOVE_UP":
@@ -253,12 +265,12 @@ parse_config:
   modifier_fn_map:
     left_ctrl: Ctrl
     right_ctrl: Ctrl
-    left_shift: Shift
-    right_shift: Shift
+    left_shift: Shft
+    right_shift: Shft
     left_alt: Alt
     right_alt: AltGr
-    left_gui: Super
-    right_gui: Super
+    left_gui: GUI
+    right_gui: GUI
     keycode_combiner: '{mods}+{key}'
     mod_combiner: '{mod_1}+{mod_2}'
     special_combinations:
