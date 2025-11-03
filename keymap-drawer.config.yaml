@@ -112,26 +112,6 @@ parse_config:
       shifted: $$mdi:toggle-switch-outline$$
       tap: Colemak-DH
       hold: tap 3x
-    
-    '&mute_mic': 
-      tap: $$mdi:microphone-off$$
-      shifted: $$mdi:microsoft-windows$$
-      type: sym_by_sym
-    '&ss_win':
-      tap:  $$mdi:camera$$
-      shifted: $$mdi:monitor-screenshot$$
-      hold: $$mdi:microsoft-windows$$
-      type: sym_by_sym
-    '&sss_win':
-      tap: $$mdi:camera$$
-      shifted: $$mdi:select-drag$$
-      hold: $$mdi:microsoft-windows$$
-      type: sym_by_sym
-    '&csr_win':
-      tap: $$mdi:video-outline$$
-      shifted: $$mdi:monitor$$
-      hold: $$mdi:microsoft-windows$$
-      type: sym_by_sym
 
     '&mt_sk LSHFT LSHFT':
       tap: $$mdi:apple-keyboard-shift$$
@@ -254,8 +234,8 @@ parse_config:
       shifted: $$mdi:palette$$
       hold:    Blue
       type:    sym_by_sym
-  sticky_label: sticky
-  toggle_label: toggle
+  sticky_label: st
+  toggle_label: tog
   tap_toggle_label: tap-toggle
   trans_legend:
     t: ▽
@@ -273,78 +253,10 @@ parse_config:
     right_gui: GUI
     keycode_combiner: '{mods}+{key}'
     mod_combiner: '{mod_1}+{mod_2}'
+    label: modifier-combo
     special_combinations:
       left_ctrl+left_alt+left_gui+left_shift: Hyper
       left_ctrl+left_alt+left_shift: Meh
-  qmk_remove_keycode_prefix:
-  - KC_
-  qmk_keycode_map:
-    XXXXXXX: ''
-    'NO': ''
-    MINUS: '-'
-    MINS: '-'
-    EQUAL: '='
-    EQL: '='
-    LEFT_BRACKET: '['
-    LBRC: '['
-    RIGHT_BRACKET: ']'
-    RBRC: ']'
-    BACKSLASH: \
-    BSLS: \
-    NONUS_HASH: '#'
-    NUHS: '#'
-    SEMICOLON: ;
-    SCLN: ;
-    QUOTE: ''''
-    QUOT: ''''
-    GRAVE: '`'
-    GRV: '`'
-    COMMA: ','
-    COMM: ','
-    DOT: .
-    SLASH: /
-    SLSH: /
-    TILDE: '~'
-    TILD: '~'
-    EXCLAIM: '!'
-    EXLM: '!'
-    AT: '@'
-    HASH: '#'
-    DOLLAR: $
-    DLR: $
-    PERCENT: '%'
-    PERC: '%'
-    CIRCUMFLEX: ^
-    CIRC: ^
-    AMPERSAND: '&'
-    AMPR: '&'
-    ASTERISK: '*'
-    ASTR: '*'
-    LEFT_PAREN: (
-    LPRN: (
-    RIGHT_PAREN: )
-    RPRN: )
-    UNDERSCORE: _
-    UNDS: _
-    PLUS: +
-    LEFT_CURLY_BRACE: '{'
-    LCBR: '{'
-    RIGHT_CURLY_BRACE: '}'
-    RCBR: '}'
-    PIPE: '|'
-    COLON: ':'
-    COLN: ':'
-    DOUBLE_QUOTE: '"'
-    DQUO: '"'
-    DQT: '"'
-    LEFT_ANGLE_BRACKET: <
-    LABK: <
-    LT: <
-    RIGHT_ANGLE_BRACKET: '>'
-    RABK: '>'
-    GT: '>'
-    QUESTION: '?'
-    QUES: '?'
   zmk_remove_keycode_prefix:
   - 'DE_'
   zmk_keycode_map:
@@ -374,12 +286,12 @@ parse_config:
     LALT: Alt
     LSHIFT: $$mdi:apple-keyboard-shift$$
     LSHFT: $$mdi:apple-keyboard-shift$$
-    LGUI: Super
+    LGUI: GUI
     RCTRL: Ctrl
     RALT: AltGr
     RSHIFT: $$mdi:apple-keyboard-shift$$
     RSHFT: $$mdi:apple-keyboard-shift$$
-    RGUI: Super
+    RGUI: GUI
 
     C_MUTE: $$mdi:volume-off$$
     C_VOL_UP: $$mdi:volume-high$$
@@ -413,6 +325,29 @@ parse_config:
     O_UMLAUT: 'Ö'
     U_UMLAUT: 'Ü'
     SHARP_S: 'ß'
+
+    MUTE_MIC: 
+      tap: $$mdi:microphone-off$$
+      shifted: $$mdi:microsoft-windows$$
+      type: sym_by_sym
+    SS_WIN:
+      tap: $$mdi:monitor-screenshot$$
+      hold: $$mdi:microsoft-windows$$
+    SSS_WIN:
+      tap: $$mdi:monitor-screenshot$$
+      shifted: $$mdi:select-drag$$
+      hold: $$mdi:microsoft-windows$$
+      type: sym_by_sym
+    CSR_WIN:
+      tap: $$mdi:monitor-screenshot$$
+      shifted: $$mdi:video-outline$$
+      hold: $$mdi:microsoft-windows$$
+      type: sym_by_sym
+    COPILOT:
+      tap: $$mdi:robot-confused-outline$$
+      shifted: $$mdi:microsoft-windows$$
+      type: sym_by_sym
+
     ACUTE: '´'
     DEGREE: '°'
     SECT: '§'

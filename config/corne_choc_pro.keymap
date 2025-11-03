@@ -7,7 +7,21 @@
 #ifndef KEYMAP_DRAWER
 #include "keys_de.h"
 #include "rgb.h"
-#endif
+
+#define MUTE_MIC LG(LA(DE_K))
+
+#define SCREENSHOT_WIN LG(PRINTSCREEN)
+#define SS_WIN SCREENSHOT_WIN
+
+#define SCREENSHOT_SELECT_WIN LG(LS(DE_S))
+#define SSS_WIN SCREENSHOT_SELECT_WIN
+
+#define CAPTURE_SCREEN_RECORDING_WIN LG(LS(DE_R))
+#define CSR_WIN CAPTURE_SCREEN_RECORDING_WIN
+
+#define COPILOT LG(LS(F23))
+
+#endif // KEYMAP_DRAWER
 
 #include "corne_choc_pro-labels.h"
 
@@ -120,36 +134,8 @@
             bindings = <&mt>, <&kt>;
         };
     };
-
-    macros {
-        mute_mic: mute_mic {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LGUI &kp LALT &kp K>;
-        };
-        ss_win: screenshot_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LG(PRINTSCREEN)>;
-        };
-        sss_win: screenshot_select_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LG(LS(DE_S))>;
-        };
-        csr_win: capture_screen_recording_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LG(LS(DE_R))>;
-        };
-    };
 };
 
-// GASC left home row
-#define HML(K0, K1, K2, K3, K4) &hml LGUI K0 &hml LALT K1 &hml LSHFT K2 &hml LCTRL K3 &kp K4
-
-// CASG right home row
-#define HMR(K0, K1, K2, K3, K4) &kp K0 &hmr RCTRL K1 &hmr RSHFT K2 &hmr RALT K3 &hmr RGUI K4
 
 // the default definitions for COPY, PASTE, CUT, UNDO are useless in anything but Linux
 #define COPY_  LC(DE_C)
@@ -157,32 +143,34 @@
 #define CUT_   LC(DE_X)
 #define UNDO_  LC(DE_Z)
 
-// ╭------------┬-----┬-----┬-----------┬----------┬------┬-----┬-------┬----------┬----------┬-----------┬-----┬-----┬----------╮
-// |  ESC->ALT  | ... | ... |    ...    |   ...    | ...  |     | FUNC  |    ...   |   ...    |    ...    | ... | ... |    ...   |
-// |  TAB->RSE  | ... | ... |    ...    |   ...    | ...  |     | MOUSE |    ...   |   ...    |    ...    | ... | ... | ...->LWR |
-// | SSHFT->SHFT| ... | ... |    ...    |   ...    | ...  ├-----┴-------┤    ...   |   ...    |    ...    | ... | ... |    ...   |
-// ╰------------┴-----┴-----┤ RET->CTRL | SPC->LWR | BSPC |             | SPC/BPSC | RET->RSE | TAB->FUNC ├-----┴-----┴----------╯
-//                          ╰-----------┴----------┴------╯             ╰----------┴----------┴-----------╯
-#define BASE_LAYER(NAME, DISPLAY_NAME, ROW_LT, ROW_RT, ROW_LM, ROW_RM, ROW_LB, ROW_RB) \
+// Base layers with different layouts, GASC/CASG home row mods and layer switches on the outside and thumbs
+// 
+// ╭-------------┬----------┬----------┬-----------┬-----------┬------┬----┬----┬-----┬-----------┬------------┬----------┬----------┬------------╮
+// |   ESC->ALT  |    ...   |    ...   |    ...    |    ...    | ...  |    |    | ... |    ...    |     ...    |   ...    |    ...   |     ...    |
+// |  TAB->SYMB  | ...->GUI | ...->ALT | ...->SHFT | ...->CTRL | ...  |    |    | ... | ...->CTRL |  ...->SHFT | ...->ALT | ...->GUI | ...->NUNA  |
+// | SSHFT->SHFT |    ...   |    ...   |    ...    |    ...    | ...  ├----┴----┤ ... |    ...    |     ...    |   ...    |    ...   | ...->MOUSE |
+// ╰-------------┴----------┴----------┤ RET->CTRL | SPC->NUNA | BSPC |         | SPC | RET->SYMB | BSPC->FUNC ├----------┴----------┴------------╯
+//                                     ╰-----------┴-----------┴------╯         ╰-----┴-----------┴------------╯
+// GASC left home row
+#define HML(K0, K1, K2, K3, K4) &hml LGUI K0 &hml LALT K1 &hml LSHFT K2 &hml LCTRL K3 &kp K4
+// CASG right home row
+#define HMR(K0, K1, K2, K3, K4) &kp K0 &hmr RCTRL K1 &hmr RSHFT K2 &hmr RALT K3 &hmr RGUI K4
+#define _BASE_ROW(K0, K1, K2, K3, K4) &kp K0 &kp K1 &kp K2 &kp K3 &kp K4
+
+#define BASE_LAYER(NAME, DISPLAY_NAME, \
+    LT5, LT4, LT3, LT2, LT1,  RT1, RT2, RT3, RT4, RT5, RT6, \
+    LM5, LM4, LM3, LM2, LM1,  RM1, RM2, RM3, RM4, RM5, RM6, \
+    LB5, LB4, LB3, LB2, LB1,  RB1, RB2, RB3, RB4, RB5, RB6  \
+) \
     NAME ## _layer { \
         display-name = DISPLAY_NAME; \
         bindings = < \
-            &mt LALT ESC       ROW_LT                                            &none /**/ &mo FUNCTION ROW_RT \
-            &lt SYMBOL TAB     ROW_LM                                            &none /**/ &mo MOUSE    ROW_RM \
-            &mt_sk LSHFT LSHFT ROW_LB                                                                    ROW_RB \
-                                      &mt LCTRL RET  &lt NUM_NAV SPACE  &kp BSPC       /**/              &spc_bspc  &lt SYMBOL RET  &lt FUNCTION TAB \
+            &mt LALT ESC       _BASE_ROW(DE_##LT5, DE_##LT4, DE_##LT3,      DE_##LT2,          DE_##LT1) &none /**/ &none _BASE_ROW(DE_##RT1, DE_##RT2, DE_##RT3, DE_##RT4, DE_##RT5) &kp DE_##RT6 \
+            &lt SYMBOL TAB     HML      (DE_##LM5, DE_##LM4, DE_##LM3,      DE_##LM2,          DE_##LM1) &none /**/ &none HMR      (DE_##RM1, DE_##RM2, DE_##RM3, DE_##RM4, DE_##RM5) &lt NUM_NAV DE_##RM6 \
+            &mt_sk LSHFT LSHFT _BASE_ROW(DE_##LB5, DE_##LB4, DE_##LB3,      DE_##LB2,          DE_##LB1)                  _BASE_ROW(DE_##RB1, DE_##RB2, DE_##RB3, DE_##RB4, DE_##RB5) &lt MOUSE DE_##RB6 \
+                                                             &mt LCTRL RET  &lt NUM_NAV SPACE  &kp BSPC        /**/       &kp SPC  &lt SYMBOL RET  &lt FUNCTION BSPC \
         >; \
     };
-
-#define _BASE_ROW(K0, K1, K2, K3, K4) &kp K0 &kp K1 &kp K2 &kp K3 &kp K4
-
-#define BASE_ROW_LT(K0, K1, K2, K3, K4) _BASE_ROW(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4)
-#define BASE_ROW_LM(K0, K1, K2, K3, K4) HML      (DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4)
-#define BASE_ROW_LB(K0, K1, K2, K3, K4) _BASE_ROW(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4)
-
-#define BASE_ROW_RT(K0, K1, K2, K3, K4, K5) _BASE_ROW(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4) &kp DE_##K5
-#define BASE_ROW_RM(K0, K1, K2, K3, K4, K5) HMR      (DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4) &lt NUM_NAV DE_##K5
-#define BASE_ROW_RB(K0, K1, K2, K3, K4, K5) _BASE_ROW(DE_##K0, DE_##K1, DE_##K2, DE_##K3, DE_##K4) &lt MOUSE DE_##K5
 
 / {
     keymap {
@@ -193,32 +181,32 @@
         BASE_LAYER(
             qwertz,
             "qwertz",
-            BASE_ROW_LT(Q, W, E, R, T), BASE_ROW_RT(Z, U, I,     O,   P,        U_UMLAUT),
-            BASE_ROW_LM(A, S, D, F, G), BASE_ROW_RM(H, J, K,     L,   O_UMLAUT, A_UMLAUT),
-            BASE_ROW_LB(Y, X, C, V, B), BASE_ROW_RB(N, M, COMMA, DOT, MINUS,    SHARP_S)
+            Q, W, E, R, T,   Z, U, I,     O,   P,        U_UMLAUT,
+            A, S, D, F, G,   H, J, K,     L,   O_UMLAUT, A_UMLAUT,
+            Y, X, C, V, B,   N, M, COMMA, DOT, MINUS,    SHARP_S
         )
 
         BASE_LAYER(
             colemak_dh,
             "colemak-dh",
-            BASE_ROW_LT(Q, W, F, P, B), BASE_ROW_RT(J, L, U,     Y,   A_UMLAUT, O_UMLAUT),
-            BASE_ROW_LM(A, R, S, T, G), BASE_ROW_RM(M, N, E,     I,   O,        U_UMLAUT),
-            BASE_ROW_LB(X, C, D, V, Z), BASE_ROW_RB(K, H, COMMA, DOT, MINUS,    SHARP_S)
+            Q, W, F, P, B,   J, L, U,     Y,   A_UMLAUT, O_UMLAUT,
+            A, R, S, T, G,   M, N, E,     I,   O,        U_UMLAUT,
+            X, C, D, V, Z,   K, H, COMMA, DOT, MINUS,    SHARP_S
         )
 
         num_nav_layer {
             display-name = "num_nav";
-            // ╭----------┬-----┬-----┬-----┬-----┬-----┬-----┬------┬----------┬----------┬----------┬------┬------┬---------╮
-            // | ESC->SYS |  /  |  7  |  8  |  9  |  *  | ENT | PGUP |   ESC    |   PGUP   |    UP    | PGDN | BSPC | MUTEMIC |
-            // | TAB->GUI |  .  |  4  |  5  |  6  |  +  |  ,  | PGDN |   HOME   |   LEFT   |   DOWN   |  RGT | END  |   PP    |
-            // | tg SHFT  |  0  |  1  |  2  |  3  |  -  ├-----┴------┤   SPC    |   HOME   |    DEL   |  END |  _   |  MUTE   |
-            // ╰----------┴-----┴-----┤ DEL |     | NUM |            | BSPC/SPC | RET->CTRL| SPC->ALT ├------┴------┴---------╯  
-            //                        ╰-----┴-----┴-----╯            ╰----------┴----------┴----------╯
+            // ╭----------┬-----┬-----┬-----┬-----┬-----┬-----┬------┬------┬----------┬----------┬------┬------┬---------╮
+            // | ESC->SYS |  /  |  7  |  8  |  9  |  *  | ENT | PGUP | ESC  |   PGUP   |    UP    | PGDN | BSPC | MUTEMIC |
+            // | TAB->GUI |  .  |  4  |  5  |  6  |  +  |  ,  | PGDN | HOME |   LEFT   |   DOWN   |  RGT | END  |   PP    |
+            // | tg SHFT  |  0  |  1  |  2  |  3  |  -  ├-----┴------┤ SPC  |   HOME   |    DEL   |  END |  _   |  MUTE   |
+            // ╰----------┴-----┴-----┤ DEL |     | NUM |            | BSPC | RET->CTRL| SPC->ALT ├------┴------┴---------╯  
+            //                        ╰-----┴-----┴-----╯            ╰------┴----------┴----------╯
             bindings = <
-&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP     &kp UP     &kp PG_DN &kp BSPC     &mute_mic
+&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP     &kp UP     &kp PG_DN &kp BSPC     &kp MUTE_MIC
 &mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT      &kp DOWN   &kp RIGHT &kp END      &kp C_PP
 &mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp SPACE &kp HOME      &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
-                                 &mt LSHFT DEL &none      &kp KP_NUM                                        &bspc_spc &mt RCTRL RET &mt LALT SPC
+                                 &mt LCTRL DEL &none      &kp KP_NUM                                        &kp BSPC  &mt RCTRL RET &mt LALT SPC
             >;
         };
 
@@ -241,16 +229,16 @@
         function_layer {
             display-name = "func";
             // ╭-------┬-----┬-----┬-----┬-----┬-------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-------╮
-            // |  ESC  | F12 | F7  | F8  | F9  | SSWIN |     |     | UNDO|     |     |     |     |MUTEMIC|
+            // |  ESC  | F12 | F7  | F8  | F9  | SSWIN |     |     | UNDO|     |COPIL|     |     |MUTEMIC|
             // | CAPS  | F11 | F4  | F5  | F6  | SSSWIN|     |     |     | CTRL| ALT | SHFT| GUI | GLOBE |
             // | CAPSW | F10 | F1  | F2  | F3  | CSRWIN├-----┴-----┤     | PAST| COPY| CUT |     |MUTEMIC|
             // ╰-------┴-----┴-----┤     |     |       |           | RALT|     |     ├-----┴-----┴-------╯
             //                     ╰-----┴-----┴-------╯           ╰-----┴-----┴-----╯
             bindings = <
-&kp ESC    &kp F12  &kp F7  &kp F8  &kp F9  &ss_win  &none &none  &kp UNDO_ &none      &none     &none     &none    &mute_mic
-&kp CAPS   &kp F11  &kp F2  &kp F3  &kp F6  &sss_win &none &none  &none     &kp RCTRL  &kp LALT  &kp RSHFT &kp RGUI &kp GLOBE
-&caps_word &kp F10  &kp F1  &kp F2  &kp F3  &csr_win              &none     &kp PASTE_ &kp COPY_ &kp CUT_  &none    &mute_mic 
-                            &none   &none   &none                 &kp RALT  &none      &none 
+&kp ESC    &kp F12  &kp F7  &kp F8  &kp F9  &kp SS_WIN  &none &none  &kp UNDO_ &none      &kp COPILOT &none     &none    &kp MUTE_MIC
+&kp CAPS   &kp F11  &kp F2  &kp F3  &kp F6  &kp SSS_WIN &none &none  &none     &kp RCTRL  &kp LALT    &kp RSHFT &kp RGUI &kp GLOBE
+&caps_word &kp F10  &kp F1  &kp F2  &kp F3  &kp CSR_WIN              &none     &kp PASTE_ &kp COPY_   &kp CUT_  &none    &kp MUTE_MIC 
+                            &none   &none   &none                    &kp RALT  &none      &none 
             >;
         };
 
