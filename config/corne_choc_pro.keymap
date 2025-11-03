@@ -212,29 +212,29 @@
             // | ESC->SYS |  /  |  7  |  8  |  9  |  *  | ENT | PGUP |   ESC    |   PGUP   |    UP    | PGDN | BSPC | MUTEMIC |
             // | TAB->GUI |  .  |  4  |  5  |  6  |  +  |  ,  | PGDN |   HOME   |   LEFT   |   DOWN   |  RGT | END  |   PP    |
             // | tg SHFT  |  0  |  1  |  2  |  3  |  -  ├-----┴------┤   SPC    |   HOME   |    DEL   |  END |  _   |  MUTE   |
-            // ╰----------┴-----┴-----┤ DEL |     | NUM |            | BSPC/SPC | RET->CTRL| TAB->ALT ├------┴------┴---------╯  
+            // ╰----------┴-----┴-----┤ DEL |     | NUM |            | BSPC/SPC | RET->CTRL| SPC->ALT ├------┴------┴---------╯  
             //                        ╰-----┴-----┴-----╯            ╰----------┴----------┴----------╯
             bindings = <
-&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP     &kp UP        &kp PG_DN &kp BSPC     &mute_mic
-&mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT      &kp DOWN      &kp RIGHT &kp END      &kp C_PP
-&mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp SPACE &kp HOME      &kp DEL       &kp END   &kp DE_UNDER &kp C_MUTE
-                                 &mt LSHFT DEL &none      &kp KP_NUM                                        &bspc_spc &mt RCTRL RET &mt LALT TAB
+&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP     &kp UP     &kp PG_DN &kp BSPC     &mute_mic
+&mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT      &kp DOWN   &kp RIGHT &kp END      &kp C_PP
+&mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp SPACE &kp HOME      &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
+                                 &mt LSHFT DEL &none      &kp KP_NUM                                        &bspc_spc &mt RCTRL RET &mt LALT SPC
             >;
         };
 
         symbol_layer {
             display-name = "symbol";
-            // ╭------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----╮
-            // |  §   |  ^  |  '  |  -  |  *  |  #  |  -  |  .  |  @  | "|" |  {  |  }  |  ´  |  °  |
-            // | GUI  |  !  |  "  |  :  |  =  |  $  |  _  |  ,  |  &  |  /  |  (  |  )  |  ?  |  ~  |
-            // | SHFT |  <  |  `  |  >  |  +  |  %  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
-            // ╰------┴-----┴-----┤ ALT | CTRL|BSPC |           |     |     |MOUSE├-----┴-----┴-----╯
-            //                    ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
+            // ╭----------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----╮
+            // |     §    |  ^  |  '  |  -  |  *  |  #  |  -  |  .  |  @  | "|" |  {  |  }  |  ´  |  °  |
+            // | TAB->GUI |  !  |  "  |  :  |  =  |  $  |  _  |  ,  |  &  |  /  |  (  |  )  |  ?  |  ~  |
+            // |   SHFT   |  <  |  `  |  >  |  +  |  %  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
+            // ╰----------┴-----┴-----┤ ALT | CTRL| BSPC|           | TAB |     |MOUSE├-----┴-----┴-----╯
+            //                        ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
             bindings = <
-&kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH  &kp DE_MINUS &kp DE_DOT   &kp DE_AT    &kp DE_PIPE  &kp DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
-&kp LGUI     &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS  &kp DE_FSLH  &kp DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
-&kp LSHFT    &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                           &kp DE_EURO  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-                                       &mt LALT RET  &mt LCTRL SPC &kp BSPC                               &none        &none        &mo MOUSE 
+&kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH  &kp DE_MINUS &kp DE_DOT   &kp DE_AT   &kp DE_PIPE &kp DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
+&mt LGUI TAB &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS &kp DE_FSLH &kp DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
+&kp LSHFT    &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                           &kp DE_EURO &kp DE_BSLH &kp DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
+                                       &mt LALT RET  &mt LCTRL SPC &kp BSPC                               &kp TAB     &none       &lt MOUSE SPC 
             >;
         };
 

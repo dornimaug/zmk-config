@@ -140,7 +140,7 @@ layers:
   - NUML
   - {t: '$$mdi:backspace-outline$$', s: '$$mdi:keyboard-space$$'}
   - {t: '$$mdi:keyboard-return$$', h: Ctrl}
-  - {t: '$$mdi:keyboard-tab$$', h: Alt}
+  - {t: '$$mdi:keyboard-space$$', h: Alt}
   symbol:
   - §
   - ^
@@ -156,7 +156,7 @@ layers:
   - '}'
   - ´
   - °
-  - {t: Super, type: held}
+  - {t: '$$mdi:keyboard-tab$$', h: Super, type: held}
   - '!'
   - '"'
   - ':'
@@ -185,9 +185,9 @@ layers:
   - {t: '$$mdi:keyboard-return$$', h: Alt}
   - {t: '$$mdi:keyboard-space$$', h: Ctrl}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - ''
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {type: held alternate}
-  - mouse
+  - {t: '$$mdi:keyboard-space$$', h: mouse}
   func:
   - Esc
   - F12
