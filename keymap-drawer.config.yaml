@@ -28,62 +28,134 @@ draw_config:
     rel_h: 12.0
     rx: 4.0
     ry: 4.0
-  svg_extra_style: ''
+  svg_extra_style: |
+    svg.keymap {
+      font-family: Ubuntu Mono, Inconsolata, Liberation Mono, Menlo, monospace;
+      font-size: 14px;
+      font-weight: 600;
+      text-rendering: optimizeLegibility;
+    }
+
+    // borrowed from https://github.com/SethMilliken/zmk-config/blob/main/keymap_drawer.config.yaml
+    .sym_sub_text.tap {
+      translate: -5px 2px;
+      font-size: 20px;
+    }
+    .sym_sub_text.shifted {
+      translate: 10px 13px;
+      font-size: 10px;
+      opacity: 1.0;
+    }
+    .combo.sym_sub_text.tap {
+      translate: -1px 1px;
+    }
+    .combo.sym_sub_text.shifted {
+      translate: 7px 5px;
+      font-size: 10px;
+      opacity: 1.0;
+    }
+
+    /* Variant for symbol next to symbol */
+    .sym_by_sym.tap {
+      translate: -6px 0px;
+    }
+    .sym_by_sym.shifted {
+      translate: 10px 16px;
+      opacity: 1.0;
+    }
+
+    .combo.sym_by_sym.tap {
+      translate: -35px 0px;
+    }
+    .combo.sym_by_sym.shifted {
+      translate: 35px 20px;
+      opacity: 1.0;
+    }
+
+    .combo.sym_by_sym.hold {
+      visibility: hidden;
+    }
+
   footer_text: 'Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a>'
-  shrink_wide_legends: 7
+  shrink_wide_legends: 5
   style_layer_activators: true
-  glyph_tap_size: 14
-  glyph_hold_size: 12
-  glyph_shifted_size: 10
+  glyph_tap_size: 18
+  glyph_hold_size: 15
+  glyph_shifted_size: 15
   glyphs: {}
 parse_config:
   preprocess: true
   skip_binding_parsing: false
   raw_binding_map:
     '&td_sys_reset':
-      shifted: $$mdi:flash-alert$$ 
-      tap: RESET
+      shifted: RESET
+      tap: $$mdi:flash-alert$$ 
       hold: tap 3x
     '&td_bt_clr':
-      shifted: $$mdi:bluetooth$$ 
-      tap: CLEAR
+      tap: $$mdi:bluetooth-settings$$
+      shifted: $$mdi:close-thick$$
       hold: tap 3x
+      type: sym_by_sym
     '&td_bootloader':
       shifted: $$mdi:usb-flash-drive$$
-      tap: BOOT
+      tap: $$mdi:flash$$
       hold: tap 3x
+      type: sym_by_sym
     '&studio_unlock':
       shifted: $$mdi:monitor-edit$$
       tap: Studio Unlock
     '&studio_unlock': Unlock
-    '&td_tog_colemak': 
-      tap: TGL COLEMAK
+    '&td_tog_colemak':
+      shifted: $$mdi:toggle-switch-outline$$
+      tap: COLEMAK
       hold: tap 3x
-    '&mute_mic': $$mdi:microphone-off$$
-    '&caps_word': CAPS WORD
+    '&mute_mic': 
+      tap: $$mdi:microphone-off$$
+      shifted: $$mdi:microsoft-windows$$
+      type: sym_by_sym
+    '&caps_word':
+      tap: Word
+      shifted: $$mdi:apple-keyboard-caps$$
+    '&ss_win':
+      tap:  $$mdi:camera$$
+      shifted: $$mdi:monitor-screenshot$$
+      hold: $$mdi:microsoft-windows$$
+      type: sym_by_sym
+    '&sss_win':
+      tap: $$mdi:camera$$
+      shifted: $$mdi:select-drag$$
+      hold: $$mdi:microsoft-windows$$
+      type: sym_by_sym
+    '&csr_win':
+      tap: $$mdi:video-outline$$
+      shifted: $$mdi:monitor$$
+      hold: $$mdi:microsoft-windows$$
+      type: sym_by_sym
 
     "&mmv MOVE_UP":
-      shifted: $$mdi:mouse$$
-      tap: $$mdi:arrow-up-bold$$
+      tap: $$mdi:mouse$$
+      shifted: $$mdi:arrow-up-bold$$
+      type: sym_by_sym
     "&mmv MOVE_LEFT":
-      shifted: $$mdi:mouse$$
-      tap: $$mdi:arrow-left-bold$$
+      tap: $$mdi:mouse$$
+      shifted: $$mdi:arrow-left-bold$$
+      type: sym_by_sym
     "&mmv MOVE_DOWN":
-      shifted: $$mdi:mouse$$
-      tap: $$mdi:arrow-down-bold$$
+      tap: $$mdi:mouse$$
+      shifted: $$mdi:arrow-down-bold$$
+      type: sym_by_sym
     "&mmv MOVE_RIGHT":
-      shifted: $$mdi:mouse$$
-      tap: $$mdi:arrow-right-bold$$
+      tap: $$mdi:mouse$$
+      shifted: $$mdi:arrow-right-bold$$
+      type: sym_by_sym
 
     "&mkp MB1":
-      shifted: $$mdi:mouse$$
-      tap: MB1
+      tap: $$mdi:mouse-left-click-outline$$
     "&mkp MB2":
-      shifted: $$mdi:mouse$$
-      tap: MB1
+      tap: $$mdi:mouse-right-click-outline$$
     "&mkp MB3":
       shifted: $$mdi:mouse$$
-      tap: MB1
+      tap: MB3
     "&mkp MB4":
       shifted: $$mdi:mouse$$
       tap: MB4
@@ -92,17 +164,84 @@ parse_config:
       tap: MB5
 
     "&msc SCRL_UP":
-      shifted: $$mdi:mouse-scroll-wheel$$
-      tap: $$mdi:transfer-up$$
+      tap: $$mdi:mouse-scroll-wheel$$
+      shifted: $$mdi:transfer-up$$
+      type: sym_by_sym
     "&msc SCRL_DOWN":
-      shifted: $$mdi:mouse-scroll-wheel$$
-      tap: $$mdi:transfer-down$$
+      tap: $$mdi:mouse-scroll-wheel$$
+      shifted: $$mdi:transfer-down$$
+      type: sym_by_sym
     "&msc SCRL_LEFT":
-      shifted: $$mdi:mouse-scroll-wheel$$
-      tap: $$mdi:transfer-left$$
+      tap: $$mdi:mouse-scroll-wheel$$
+      shifted: $$mdi:transfer-left$$
+      type: sym_by_sym
     "&msc SCRL_RIGHT":
-      shifted: $$mdi:mouse-scroll-wheel$$
-      tap: $$mdi:transfer-right$$
+      tap: $$mdi:mouse-scroll-wheel$$
+      shifted: $$mdi:transfer-right$$
+      type: sym_by_sym
+
+    '&rgb_ug RGB_TOG':
+      tap: $$mdi:toggle-switch-outline$$
+      hold: $$mdi:led-on$$
+      shifted: $$mdi:led-off$$
+      type: toggle
+    '&rgb_ug RGB_BRI':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:white-balance-sunny$$
+      hold:    $$mdi:arrow-up$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_SAI':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:eyedropper$$
+      hold:    $$mdi:arrow-up$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_HUI':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:palette$$
+      hold:    $$mdi:arrow-up$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_BRD':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:white-balance-sunny$$
+      hold:    $$mdi:arrow-down$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_SAD':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:eyedropper$$
+      hold:    $$mdi:arrow-down$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_HUD':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:palette$$
+      hold:    $$mdi:arrow-down$$
+      type:    sym_by_sym
+
+    '&rgb_ug RGB_EFF':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:animation-play$$
+      hold:    $$mdi:arrow-up$$
+      type:    sym_by_sym
+    '&rgb_ug RGB_EFR':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:animation-play$$
+      hold:    $$mdi:arrow-down$$
+      type:    sym_by_sym
+    
+    '&rgb_ug COLOR_RED':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:palette$$
+      hold:    Red
+      type:    sym_by_sym
+    '&rgb_ug COLOR_GREEN':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:palette$$
+      hold:    Green
+      type:    sym_by_sym
+    '&rgb_ug COLOR_BLUE':
+      tap:     $$mdi:led-variant-outline$$
+      shifted: $$mdi:palette$$
+      hold:    Blue
+      type:    sym_by_sym
   sticky_label: sticky
   toggle_label: toggle
   tap_toggle_label: tap-toggle
@@ -112,14 +251,14 @@ parse_config:
   layer_legend_map: {}
   mark_alternate_layer_activators: true
   modifier_fn_map:
-    left_ctrl: Ctl
-    right_ctrl: Ctl
-    left_shift: Sft
-    right_shift: Sft
+    left_ctrl: Ctrl
+    right_ctrl: Ctrl
+    left_shift: Shift
+    right_shift: Shift
     left_alt: Alt
     right_alt: AltGr
-    left_gui: Gui
-    right_gui: Gui
+    left_gui: Super
+    right_gui: Super
     keycode_combiner: '{mods}+{key}'
     mod_combiner: '{mod_1}+{mod_2}'
     special_combinations:
@@ -214,17 +353,21 @@ parse_config:
       tap: $$mdi:keyboard-tab$$
     CAPS: $$mdi:apple-keyboard-caps$$
     DEL: $$mdi:backspace-reverse-outline$$
+    GLOBE:
+      tap: $$mdi:web$$
+      shifted: $$mdi:apple$$
+      type: sym_by_sym
 
-    LCTRL: LCtrl
+    LCTRL: Ctrl
     LALT: Alt
     LSHIFT: $$mdi:apple-keyboard-shift$$
     LSHFT: $$mdi:apple-keyboard-shift$$
-    LGUI: LSuper
-    RCTRL: RCtrl
+    LGUI: Super
+    RCTRL: Ctrl
     RALT: AltGr
     RSHIFT: $$mdi:apple-keyboard-shift$$
     RSHFT: $$mdi:apple-keyboard-shift$$
-    RGUI: RSuper
+    RGUI: Super
 
     C_MUTE: $$mdi:volume-off$$
     C_VOL_UP: $$mdi:volume-high$$
@@ -238,13 +381,21 @@ parse_config:
     BT_SEL: $$mdi:bluetooth-connect$$
     BT_DISC: $$mdi:bluetooth-off$$
 
-    PG_UP: $$mdi:transfer-up$$
-    PG_DN: $$mdi:transfer-down$$
+    PG_UP: 
+      tap: Page
+      hold: $$mdi:arrow-up$$
+    PG_DN:
+      tap: Page
+      hold: $$mdi:arrow-down$$
 
     UP: $$mdi:arrow-up-bold$$
     DOWN: $$mdi:arrow-down-bold$$
     LEFT: $$mdi:arrow-left-bold$$
     RIGHT: $$mdi:arrow-right-bold$$
+
+    ESC: Esc
+    HOME: Home
+    END: End
 
     A_UMLAUT: 'Ä'
     O_UMLAUT: 'Ö'
@@ -254,12 +405,25 @@ parse_config:
     DEGREE: '°'
     SECT: '§'
     EURO: '€'
-    KP_DIVIDE: 'KP /'
-    KP_MULTIPLY: 'KP *'
-    KP_MINUS: 'KP -'
-    KP_PLUS: 'KP +'
-    KP_ENTER: 'KP Enter'
-    KP_DOT: 'KP .'
+    KP_DIVIDE:
+      tap: '/'
+      shifted: KP
+    KP_MULTIPLY:
+      tap: '*'
+      shifted: KP
+    KP_MINUS:
+      tap: '-'
+      shifted: KP
+    KP_PLUS:
+      tap: +
+      shifted: KP
+    KP_ENTER:
+      type: return
+      tap: $$mdi:keyboard-return$$
+      shifted: KP
+    KP_DOT:
+      tap: ','
+      shifted: KP
     KP_NUM: 'NUML'
     EXCLAMATION: '!'
     EXCL: '!'

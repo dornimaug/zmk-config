@@ -1,14 +1,14 @@
 layout: {zmk_keyboard: corne_choc_pro, layout_name: default_layout}
 layers:
   QWERTZ:
-  - {t: ESC, h: Alt}
+  - {t: Esc, h: Alt}
   - Q
   - W
   - E
   - R
   - T
   - ''
-  - function
+  - func
   - Z
   - U
   - I
@@ -16,19 +16,19 @@ layers:
   - P
   - Ü
   - {t: '$$mdi:keyboard-tab$$', h: symbol}
-  - {t: A, h: LSuper}
+  - {t: A, h: Super}
   - {t: S, h: Alt}
   - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: F, h: LCtrl}
+  - {t: F, h: Ctrl}
   - G
   - ''
   - mouse
   - H
-  - {t: J, h: RCtrl}
+  - {t: J, h: Ctrl}
   - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: L, h: AltGr}
-  - {t: Ö, h: RSuper}
-  - {t: Ä, h: navi}
+  - {t: Ö, h: Super}
+  - {t: Ä, h: numnav}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$'}
   - Y
   - X
@@ -41,21 +41,21 @@ layers:
   - .
   - '-'
   - {t: ß, h: mouse}
-  - {t: '$$mdi:keyboard-return$$', h: LCtrl}
-  - {t: '$$mdi:keyboard-space$$', h: navi}
+  - {t: '$$mdi:keyboard-return$$', h: Ctrl}
+  - {t: '$$mdi:keyboard-space$$', h: numnav}
   - {t: '$$mdi:backspace-outline$$', s: '$$mdi:backspace-reverse-outline$$'}
   - {t: '$$mdi:keyboard-space$$', s: '$$mdi:backspace-outline$$'}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
-  - {t: '$$mdi:keyboard-tab$$', h: function}
+  - {t: '$$mdi:keyboard-tab$$', h: func}
   colemakd:
-  - {t: ESC, h: Alt}
+  - {t: Esc, h: Alt}
   - Q
   - W
   - F
   - P
   - B
   - ''
-  - function
+  - func
   - J
   - L
   - U
@@ -63,19 +63,19 @@ layers:
   - Ä
   - Ö
   - {t: '$$mdi:keyboard-tab$$', h: symbol}
-  - {t: A, h: LSuper}
+  - {t: A, h: Super}
   - {t: R, h: Alt}
   - {t: S, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: T, h: LCtrl}
+  - {t: T, h: Ctrl}
   - G
   - ''
   - mouse
   - M
-  - {t: N, h: RCtrl}
+  - {t: N, h: Ctrl}
   - {t: E, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: I, h: AltGr}
-  - {t: O, h: RSuper}
-  - {t: Ü, h: navi}
+  - {t: O, h: Super}
+  - {t: Ü, h: numnav}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$'}
   - X
   - C
@@ -88,51 +88,51 @@ layers:
   - .
   - '-'
   - {t: ß, h: mouse}
-  - {t: '$$mdi:keyboard-return$$', h: LCtrl}
-  - {t: '$$mdi:keyboard-space$$', h: navi}
+  - {t: '$$mdi:keyboard-return$$', h: Ctrl}
+  - {t: '$$mdi:keyboard-space$$', h: numnav}
   - {t: '$$mdi:backspace-outline$$', s: '$$mdi:backspace-reverse-outline$$'}
   - {t: '$$mdi:keyboard-space$$', s: '$$mdi:backspace-outline$$'}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
-  - {t: '$$mdi:keyboard-tab$$', h: function}
-  navi:
-  - {t: ESC, h: system}
-  - KP /
+  - {t: '$$mdi:keyboard-tab$$', h: func}
+  numnav:
+  - {t: Esc, h: system}
+  - {t: /, s: KP}
   - '7'
   - '8'
   - '9'
-  - KP *
-  - KP Enter
-  - $$mdi:transfer-up$$
-  - ESC
-  - $$mdi:transfer-up$$
+  - {t: '*', s: KP}
+  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: Page, h: '$$mdi:arrow-up$$'}
+  - Esc
+  - {t: Page, h: '$$mdi:arrow-up$$'}
   - $$mdi:arrow-up-bold$$
-  - $$mdi:transfer-down$$
+  - {t: Page, h: '$$mdi:arrow-down$$'}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - $$mdi:microphone-off$$
-  - {t: '$$mdi:keyboard-tab$$', h: LSuper}
-  - KP .
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
+  - {t: '$$mdi:keyboard-tab$$', h: Super}
+  - {t: ',', s: KP}
   - '4'
   - '5'
   - '6'
-  - KP +
-  - $$mdi:microphone-off$$
-  - $$mdi:transfer-down$$
-  - HOME
+  - {t: +, s: KP}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
+  - {t: Page, h: '$$mdi:arrow-down$$'}
+  - Home
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
-  - END
+  - End
   - {t: '$$mdi:play-pause$$', type: held}
-  - LCtrl
+  - Ctrl
   - '0'
   - '1'
   - '2'
   - '3'
-  - KP -
+  - {t: '-', s: KP}
   - $$mdi:backspace-reverse-outline$$
-  - HOME
+  - Home
   - $$mdi:backspace-reverse-outline$$
-  - END
+  - End
   - _
   - $$mdi:volume-off$$
   - $$mdi:backspace-reverse-outline$$
@@ -156,7 +156,7 @@ layers:
   - '}'
   - ´
   - °
-  - {t: LSuper, type: held}
+  - {t: Super, type: held}
   - '!'
   - '"'
   - ':'
@@ -170,7 +170,7 @@ layers:
   - )
   - '?'
   - '~'
-  - LCtrl
+  - Ctrl
   - <
   - '`'
   - '>'
@@ -188,13 +188,13 @@ layers:
   - ''
   - {type: held alternate}
   - mouse
-  function:
-  - ESC
+  func:
+  - Esc
   - F12
   - F7
   - F8
   - F9
-  - F12
+  - {t: '$$mdi:camera$$', h: '$$mdi:microsoft-windows$$', s: '$$mdi:monitor-screenshot$$', type: sym_by_sym}
   - ''
   - {type: held}
   - ''
@@ -202,33 +202,33 @@ layers:
   - ''
   - ''
   - ''
-  - $$mdi:microphone-off$$
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - $$mdi:apple-keyboard-caps$$
   - F11
   - F2
   - F3
   - F6
-  - F11
+  - {t: '$$mdi:camera$$', h: '$$mdi:microsoft-windows$$', s: '$$mdi:select-drag$$', type: sym_by_sym}
   - ''
   - ''
   - ''
-  - RCtrl
+  - Ctrl
   - Alt
   - $$mdi:apple-keyboard-shift$$
-  - RSuper
-  - GLOBE
-  - CAPS WORD
+  - Super
+  - {t: '$$mdi:web$$', s: '$$mdi:apple$$', type: sym_by_sym}
+  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - F10
   - F1
   - F2
   - F3
-  - F10
+  - {t: '$$mdi:video-outline$$', h: '$$mdi:microsoft-windows$$', s: '$$mdi:monitor$$', type: sym_by_sym}
   - ''
   - ''
   - ''
   - ''
   - ''
-  - $$mdi:microphone-off$$
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ''
   - ''
   - ''
@@ -238,9 +238,9 @@ layers:
   mouse:
   - ''
   - ''
-  - {t: '$$mdi:transfer-up$$', s: '$$mdi:mouse-scroll-wheel$$'}
-  - {t: '$$mdi:arrow-up-bold$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer-down$$', s: '$$mdi:mouse-scroll-wheel$$'}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-up-bold$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
   - ''
   - ''
   - ''
@@ -251,25 +251,25 @@ layers:
   - ''
   - ''
   - {type: held alternate}
-  - {t: MB1, s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:arrow-left-bold$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:arrow-down-bold$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:arrow-right-bold$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer-right$$', s: '$$mdi:mouse-scroll-wheel$$'}
+  - $$mdi:mouse-left-click-outline$$
+  - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-left-bold$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-down-bold$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-right-bold$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}
   - ''
   - {type: held}
   - ''
-  - RCtrl
+  - Ctrl
   - Alt
   - $$mdi:apple-keyboard-shift$$
-  - RSuper
+  - Super
   - ''
   - ''
   - {t: MB4, s: '$$mdi:mouse$$'}
   - {t: MB5, s: '$$mdi:mouse$$'}
-  - {t: MB1, s: '$$mdi:mouse$$'}
-  - {t: MB1, s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer-left$$', s: '$$mdi:mouse-scroll-wheel$$'}
+  - {t: MB3, s: '$$mdi:mouse$$'}
+  - $$mdi:mouse-right-click-outline$$
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
   - ''
   - ''
   - ''
@@ -291,12 +291,12 @@ layers:
   - {t: '$$mdi:bluetooth-connect$$', h: '4'}
   - ''
   - ''
-  - RGB EFF
-  - RGB SAI
-  - RGB BRI
-  - RGB HUI
+  - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-up$$', s: '$$mdi:animation-play$$', type: sym_by_sym}
+  - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-up$$', s: '$$mdi:eyedropper$$', type: sym_by_sym}
+  - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-up$$', s: '$$mdi:white-balance-sunny$$', type: sym_by_sym}
+  - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-up$$', s: '$$mdi:palette$$', type: sym_by_sym}
   - ''
-  - {t: TGL COLEMAK, h: tap 3x}
+  - {t: COLEMAK, h: tap 3x, s: '$$mdi:toggle-switch-outline$$'}
   - ''
   - {t: '$$mdi:bluetooth-off$$', h: '0'}
   - {t: '$$mdi:bluetooth-off$$', h: '1'}
@@ -305,22 +305,22 @@ layers:
   - {t: '$$mdi:bluetooth-off$$', h: '4'}
   - ''
   - ''
-  - RGB EFR
-  - RGB SAD
-  - RGB BRD
-  - RGB HUD
-  - RGB TOG
+  - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:animation-play$$', type: sym_by_sym}
+  - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:eyedropper$$', type: sym_by_sym}
+  - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:white-balance-sunny$$', type: sym_by_sym}
+  - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:palette$$', type: sym_by_sym}
+  - {t: '$$mdi:toggle-switch-outline$$', h: '$$mdi:led-on$$', s: '$$mdi:led-off$$', type: toggle}
   - {type: held}
   - ''
-  - {t: RESET, h: tap 3x, s: '$$mdi:flash-alert$$'}
+  - {t: '$$mdi:flash-alert$$', h: tap 3x, s: RESET}
   - ''
-  - {t: CLEAR, h: tap 3x, s: '$$mdi:bluetooth$$'}
+  - {t: '$$mdi:bluetooth-settings$$', h: tap 3x, s: '$$mdi:close-thick$$', type: sym_by_sym}
   - Unlock
-  - {t: BOOT, h: tap 3x, s: '$$mdi:usb-flash-drive$$'}
+  - {t: '$$mdi:flash$$', h: tap 3x, s: '$$mdi:usb-flash-drive$$', type: sym_by_sym}
   - ''
-  - COLOR RED
-  - COLOR GREEN
-  - COLOR BLUE
+  - {t: '$$mdi:led-variant-outline$$', h: Red, s: '$$mdi:palette$$', type: sym_by_sym}
+  - {t: '$$mdi:led-variant-outline$$', h: Green, s: '$$mdi:palette$$', type: sym_by_sym}
+  - {t: '$$mdi:led-variant-outline$$', h: Blue, s: '$$mdi:palette$$', type: sym_by_sym}
   - ''
   - ''
   - ''

@@ -2,9 +2,22 @@
 #
 # Pre commit hook to generate keymap-drawer files for corne_choc_pro
 
-set -eou pipefail
+HAS_KEYMAP=`which keymap 2> /dev/null`
 
-keymap -c ./keymap-drawer.config.yaml parse -z ./config/corne_choc_pro.keymap >keymap-drawer/corne_choc_pro.yaml
-keymap -c ./keymap-drawer.config.yaml draw -j config/corne_choc_pro.json keymap-drawer/corne_choc_pro.yaml >keymap-drawer/corne_choc_pro.svg
+function source_home_file {
+  file="$HOME/$1"
+  [ -f "${file}" ] && source "${file}"
+}
+
+if [ -z "$HAS_KEYMAP" ]; then
+  source_home_file ".bash_profile" || source_home_file ".zshrc" || source_home_file ".bashrc" || true
+fi
+
+KEYMAP=`which keymap 2> /dev/null`
+
+set -euo pipefail
+
+"$KEYMAP" -c ./keymap-drawer.config.yaml parse -z ./config/corne_choc_pro.keymap >keymap-drawer/corne_choc_pro.yaml
+"$KEYMAP" -c ./keymap-drawer.config.yaml draw -j config/corne_choc_pro.json keymap-drawer/corne_choc_pro.yaml >keymap-drawer/corne_choc_pro.svg
 
 git add keymap-drawer/corne_choc_pro.yaml keymap-drawer/corne_choc_pro.svg
