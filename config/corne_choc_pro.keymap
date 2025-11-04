@@ -5,6 +5,7 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #ifndef KEYMAP_DRAWER
+
 #include "keys_de.h"
 #include "rgb.h"
 
@@ -20,6 +21,13 @@
 #define CSR_WIN CAPTURE_SCREEN_RECORDING_WIN
 
 #define COPILOT LG(LS(F23))
+
+// intellij idea shortcuts
+#define IJ_COMMIT_PUSH LC(LA(DE_K))
+#define IJ_PUSH_MENU   LA(DE_P)
+#define IJ_FORMAT      LC(LS(DE_F))
+#define IJ_REPLACE     LC(LS(DE_H))
+#define IJ_OPTIM_IMP   LC(LS(DE_O))
 
 #endif // KEYMAP_DRAWER
 
@@ -49,11 +57,12 @@
 // layers
 #define QWERTZ     0
 #define COLEMAK_DH 1
-#define NUM_NAV    2
-#define SYMBOL     3
-#define FUNCTION   4
-#define MOUSE      5
-#define SYSTEM     6
+#define BUT        2
+#define NUM_NAV    3
+#define SYMBOL     4
+#define FUNCTION   5
+#define MOUSE      6
+#define SYSTEM     7
 
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
 
@@ -105,6 +114,7 @@
         TAP_DANCE_3(td_sys_reset, &none, &none, &sys_reset)
         TAP_DANCE_3(td_bt_clr, &none, &none, &bt BT_CLR)
         TAP_DANCE_3(td_tog_colemak, &none, &none, &tog COLEMAK_DH)
+        TAP_DANCE_3(td_tog_but, &none, &none, &tog BUT)
         TAP_DANCE_3(td_bootloader, &none, &none, &bootloader)
 
         /omit-if-no-ref/ mo_sl: momentary_sticky_layer {
@@ -133,6 +143,70 @@
             flavor = "hold-preferred";
             bindings = <&mt>, <&kt>;
         };
+
+        /omit-if-no-ref/ kt_off: toggle_off {
+            compatible = "zmk,behavior-key-toggle";
+            #binding-cells = <1>;
+            display-name = "Key Toggle Off";
+            toggle-mode = "off";
+        };
+    };
+
+    macros {
+        // Used by layer-listener to ensure toggled shift is turned off when leaving NAV layer
+        reset_num_nav: reset_num_nav {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kt_off LSHFT>;
+        };
+    };
+
+    layer_listeners {
+        // see https://github.com/ssbb/zmk-listeners/tree/v1
+        compatible = "zmk,layer-listeners";
+
+        num_nav_reset {
+            layers = <NUM_NAV>;
+            bindings = <&none &reset_num_nav>;
+        };
+    };
+
+
+#define COMBO_TIMEOUT_NEXT   38
+#define COMBO_TIMEOUT_SAME   50
+    combos {
+        compatible = "zmk,combos";
+
+        combo_sz_left {
+            key-positions = <LM3 LM4>; // qwertz s + d
+            bindings = <&kp DE_SZ>;
+            timeout-ms = <COMBO_TIMEOUT_NEXT>;
+            layers = <QWERTZ COLEMAK_DH>;
+        };
+        combo_ue_qwertz {
+            key-positions = <RT4 RT5>; // qwertz o + p
+            bindings = <&kp DE_U_UMLAUT>;
+            timeout-ms = <COMBO_TIMEOUT_NEXT>;
+            layers = <QWERTZ>;
+        };
+        combo_oe_colemak {
+            key-positions = <RM3 RM5>; // qwertz o + e
+            bindings = <&kp DE_O_UMLAUT>;
+            timeout-ms = <COMBO_TIMEOUT_SAME>;
+            layers = <COLEMAK_DH>;
+        };
+        combo_qmark {
+            key-positions = <RB4 RB5>; // qwertz . + -
+            bindings = <&kp DE_QMARK>;
+            timeout-ms = <COMBO_TIMEOUT_NEXT>;
+            layers = <QWERTZ COLEMAK_DH BUT>;
+        };
+        combo_mouse_tog {
+            key-positions = <RH1 RH2>; // right 2 thumb keys
+            bindings = <&tog MOUSE>;
+            timeout-ms = <COMBO_TIMEOUT_SAME>;
+            layers = <QWERTZ COLEMAK_DH>;
+        };
     };
 };
 
@@ -145,12 +219,12 @@
 
 // Base layers with different layouts, GASC/CASG home row mods and layer switches on the outside and thumbs
 // 
-// ╭-------------┬----------┬----------┬-----------┬-----------┬------┬----┬----┬-----┬-----------┬------------┬----------┬----------┬------------╮
-// |   ESC->ALT  |    ...   |    ...   |    ...    |    ...    | ...  |    |    | ... |    ...    |     ...    |   ...    |    ...   |     ...    |
-// |  TAB->SYMB  | ...->GUI | ...->ALT | ...->SHFT | ...->CTRL | ...  |    |    | ... | ...->CTRL |  ...->SHFT | ...->ALT | ...->GUI | ...->NUNA  |
-// | SSHFT->SHFT |    ...   |    ...   |    ...    |    ...    | ...  ├----┴----┤ ... |    ...    |     ...    |   ...    |    ...   | ...->MOUSE |
-// ╰-------------┴----------┴----------┤ RET->CTRL | SPC->NUNA | BSPC |         | SPC | RET->SYMB | BSPC->FUNC ├----------┴----------┴------------╯
-//                                     ╰-----------┴-----------┴------╯         ╰-----┴-----------┴------------╯
+// ╭-------------┬----------┬----------┬-----------┬-----------┬------┬-----┬-----┬-----┬-----------┬------------┬----------┬----------┬------------╮
+// |   ESC->ALT  |    ...   |    ...   |    ...    |    ...    | ...  |  ß  |  ß  | ... |    ...    |     ...    |   ...    |    ...   |     ...    |
+// |   TAB->SYMB | ...->GUI | ...->ALT | ...->SHFT | ...->CTRL | ...  |     |     | ... | ...->CTRL |  ...->SHFT | ...->ALT | ...->GUI | ...->NUNA  |
+// | SSHFT->SHFT |    ...   |    ...   |    ...    |    ...    | ...  ├-----┴-----┤ ... |    ...    |     ...    |   ...    |    ...   |     ...    |
+// ╰-------------┴----------┴----------┤ RET->CTRL | SPC->NUNA | BSPC |           | SPC | RET->SYMB | BSPC->FUNC ├----------┴----------┴------------╯
+//                                     ╰-----------┴-----------┴------╯           ╰-----┴-----------┴------------╯
 // GASC left home row
 #define HML(K0, K1, K2, K3, K4) &hml LGUI K0 &hml LALT K1 &hml LSHFT K2 &hml LCTRL K3 &kp K4
 // CASG right home row
@@ -165,18 +239,16 @@
     NAME ## _layer { \
         display-name = DISPLAY_NAME; \
         bindings = < \
-            &mt LALT ESC       _BASE_ROW(DE_##LT5, DE_##LT4, DE_##LT3,      DE_##LT2,          DE_##LT1) &none /**/ &none _BASE_ROW(DE_##RT1, DE_##RT2, DE_##RT3, DE_##RT4, DE_##RT5) &kp DE_##RT6 \
-            &lt SYMBOL TAB     HML      (DE_##LM5, DE_##LM4, DE_##LM3,      DE_##LM2,          DE_##LM1) &none /**/ &none HMR      (DE_##RM1, DE_##RM2, DE_##RM3, DE_##RM4, DE_##RM5) &lt NUM_NAV DE_##RM6 \
-            &mt_sk LSHFT LSHFT _BASE_ROW(DE_##LB5, DE_##LB4, DE_##LB3,      DE_##LB2,          DE_##LB1)                  _BASE_ROW(DE_##RB1, DE_##RB2, DE_##RB3, DE_##RB4, DE_##RB5) &lt MOUSE DE_##RB6 \
-                                                             &mt LCTRL RET  &lt NUM_NAV SPACE  &kp BSPC        /**/       &kp SPC  &lt SYMBOL RET  &lt FUNCTION BSPC \
+            &mt LALT ESC       _BASE_ROW(DE_##LT5, DE_##LT4, DE_##LT3,      DE_##LT2,          DE_##LT1) &kp DE_SZ /**/ &kp DE_SZ _BASE_ROW(DE_##RT1, DE_##RT2, DE_##RT3, DE_##RT4, DE_##RT5) &kp DE_##RT6 \
+            &lt SYMBOL TAB     HML      (DE_##LM5, DE_##LM4, DE_##LM3,      DE_##LM2,          DE_##LM1) &none     /**/ &none     HMR      (DE_##RM1, DE_##RM2, DE_##RM3, DE_##RM4, DE_##RM5) &lt NUM_NAV DE_##RM6 \
+            &mt_sk LSHFT LSHFT _BASE_ROW(DE_##LB5, DE_##LB4, DE_##LB3,      DE_##LB2,          DE_##LB1)                          _BASE_ROW(DE_##RB1, DE_##RB2, DE_##RB3, DE_##RB4, DE_##RB5) &kp DE_##RB6 \
+                                                             &mt LCTRL ESC  &lt NUM_NAV SPACE  &kp BSPC            /**/           &kp SPC  &lt SYMBOL RET  &lt FUNCTION BSPC \
         >; \
     };
 
 / {
     keymap {
         compatible = "zmk,keymap";
-
-        // display names are 8 chars tops
 
         BASE_LAYER(
             qwertz,
@@ -194,16 +266,19 @@
             X, C, D, V, Z,   K, H, COMMA, DOT, MINUS,    SHARP_S
         )
 
+        // http://www.adnw.de/index.php?n=Main.OptimierungF%c3%bcrDieGeradeTastaturMitDaumen-Shift
+        BASE_LAYER(
+            but,
+            "but",
+            B, U, DOT,      COMMA,   U_UMLAUT,   P, C, L, M, F, X,
+            H, I, E,        A,       O,          D, T, R, N, S, SHARP_S,
+            K, Y, O_UMLAUT, A_UMLAUT,Q,          J, G, W, V, Z, MINUS  
+        )
+
         num_nav_layer {
             display-name = "num_nav";
-            // ╭----------┬-----┬-----┬-----┬-----┬-----┬-----┬------┬------┬----------┬----------┬------┬------┬---------╮
-            // | ESC->SYS |  /  |  7  |  8  |  9  |  *  | ENT | PGUP | ESC  |   PGUP   |    UP    | PGDN | BSPC | MUTEMIC |
-            // | TAB->GUI |  .  |  4  |  5  |  6  |  +  |  ,  | PGDN | HOME |   LEFT   |   DOWN   |  RGT | END  |   PP    |
-            // | tg SHFT  |  0  |  1  |  2  |  3  |  -  ├-----┴------┤ SPC  |   HOME   |    DEL   |  END |  _   |  MUTE   |
-            // ╰----------┴-----┴-----┤ DEL |     | NUM |            | BSPC | RET->CTRL| SPC->ALT ├------┴------┴---------╯  
-            //                        ╰-----┴-----┴-----╯            ╰------┴----------┴----------╯
             bindings = <
-&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP     &kp UP     &kp PG_DN &kp BSPC     &kp MUTE_MIC
+&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP     &kp UP     &kp PG_DN &kp DE_SZ    &kp MUTE_MIC
 &mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT      &kp DOWN   &kp RIGHT &kp END      &kp C_PP
 &mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp SPACE &kp HOME      &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
                                  &mt LCTRL DEL &none      &kp KP_NUM                                        &kp BSPC  &mt RCTRL RET &mt LALT SPC
@@ -219,21 +294,15 @@
             // ╰----------┴-----┴-----┤ ALT | CTRL| BSPC|           | TAB |     |MOUSE├-----┴-----┴-----╯
             //                        ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
             bindings = <
-&kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH  &kp DE_MINUS &kp DE_DOT   &kp DE_AT   &kp DE_PIPE &kp DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
-&mt LGUI TAB &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS &kp DE_FSLH &kp DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
-&kp LSHFT    &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                           &kp DE_EURO &kp DE_BSLH &kp DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-                                       &mt LALT RET  &mt LCTRL SPC &kp BSPC                               &kp TAB     &none       &lt MOUSE SPC 
+&kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH  &kp DE_MINUS &kp DE_DOT   &kp DE_AT   &kp DE_PIPE &kp  DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
+&mt LGUI TAB &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS &kp DE_FSLH &kp  DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
+&kp LSHFT    &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                           &kp DE_EURO &kp DE_BSLH &kp  DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
+                                       &mt LALT RET  &mt LCTRL SPC &kp BSPC                               &kp TAB     &none       &tog MOUSE
             >;
         };
 
         function_layer {
             display-name = "func";
-            // ╭-------┬-----┬-----┬-----┬-----┬-------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-------╮
-            // |  ESC  | F12 | F7  | F8  | F9  | SSWIN |     |     | UNDO|     |COPIL|     |     |MUTEMIC|
-            // | CAPS  | F11 | F4  | F5  | F6  | SSSWIN|     |     |     | CTRL| ALT | SHFT| GUI | GLOBE |
-            // | CAPSW | F10 | F1  | F2  | F3  | CSRWIN├-----┴-----┤     | PAST| COPY| CUT |     |MUTEMIC|
-            // ╰-------┴-----┴-----┤     |     |       |           | RALT|     |     ├-----┴-----┴-------╯
-            //                     ╰-----┴-----┴-------╯           ╰-----┴-----┴-----╯
             bindings = <
 &kp ESC    &kp F12  &kp F7  &kp F8  &kp F9  &kp SS_WIN  &none &none  &kp UNDO_ &none      &kp COPILOT &none     &none    &kp MUTE_MIC
 &kp CAPS   &kp F11  &kp F2  &kp F3  &kp F6  &kp SSS_WIN &none &none  &none     &kp RCTRL  &kp LALT    &kp RSHFT &kp RGUI &kp GLOBE
@@ -244,31 +313,19 @@
 
         mouse_layer {
             display-name = "mouse";
-            // ╭-----┬------┬-------┬------┬-------┬------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----╮
-            // |     |      | SCRUP |  UP  | SCRDN |      |     |     | UNDO|     |     |     |     |     |
-            // |     |  MB1 |  LEFT | DOWN | RIGHT | SCRR |     |     | CTRL| ALT | SHFT| GUI |     |     |
-            // |     |  MB4 |  MB5  |  MB3 |  MB2  | SCRL ├-----┴-----┤     | PAST| COPY| CUT |     |     |
-            // ╰-----┴------┴-------┤      |       |      |           | RALT|     |     ├-----┴-----┴-----╯
-            //                      ╰------┴-------┴------╯           ╰-----┴-----┴-----╯
             bindings = <
-&none &none    &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &none            &none &none  &kp UNDO_ &none      &none     &none     &none    &none
-&none &mkp MB1 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT  &none &none  &none     &kp RCTRL  &kp LALT  &kp RSHFT &kp RGUI &none
-&none &mkp MB4 &mkp MB5       &mkp MB3       &mkp MB2        &msc SCRL_LEFT                &none     &kp PASTE_ &kp COPY_ &kp CUT_  &none    &none 
-                              &none          &none           &none                         &kp RALT  &none      &none 
+&none &none    &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &none            &none &none  &kp UNDO_ &none       &none      &none     &none    &none
+&none &mkp MB2 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT  &none &none  &none     &kp RCTRL   &kp LALT   &kp RSHFT &kp RGUI &none
+&none &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT                &kp RALT  &kp PASTE_  &kp COPY_  &kp CUT_  &none    &none 
+                              &none          &mkp MB4        &mkp MB1                      &mkp MB2  &tog MOUSE  &tog MOUSE 
             >;
         };
         
         system_layer {
             display-name = "system";
-            // ╭----┬-------┬------┬--------┬--------┬--------┬---┬---┬----------┬----------┬---------┬----------┬---------┬-----------╮
-            // |    | BT1   | BT2  | BT3    |  BT4   | BT5    |   |   | RGB EFF+ | RGB SAT+ | RGB BR+ | RGB HUE+ |         | 3xTOG COL |
-            // |    | BT-1  | BT-2 | BT-3   |  BT-4  | BT-5   |   |   | RGB EFF- | RGB SAT- | RGB BR- | RGB HUE- | RGB TOG |           |
-            // |    | 3xRST |      | 3xBTCR | Unlock | 3xBOOT ├---┴---┤          | RGB red  | RGB gre | RGB blue |         |           |
-            // ╰----┴-------┴------┤        |        |        |       |          |          |         ├----------┴---------┴-----------╯
-            //                     ╰--------┴--------┴--------╯       ╰----------┴----------┴---------╯
             bindings = <
 &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4   &none  &none &rgb_ug RGB_EFF &rgb_ug RGB_SAI   &rgb_ug RGB_BRI     &rgb_ug RGB_HUI    &none           &td_tog_colemak
-&none  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3  &bt BT_DISC 4  &none  &none &rgb_ug RGB_EFR &rgb_ug RGB_SAD   &rgb_ug RGB_BRD     &rgb_ug RGB_HUD    &rgb_ug RGB_TOG &none
+&none  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3  &bt BT_DISC 4  &none  &none &rgb_ug RGB_EFR &rgb_ug RGB_SAD   &rgb_ug RGB_BRD     &rgb_ug RGB_HUD    &rgb_ug RGB_TOG &td_tog_but
 &none  &td_sys_reset &none         &td_bt_clr    &studio_unlock &td_bootloader              &none           &rgb_ug COLOR_RED &rgb_ug COLOR_GREEN &rgb_ug COLOR_BLUE &none           &none
                                    &none         &none          &none                       &none           &none             &none
             >;

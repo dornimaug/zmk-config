@@ -7,8 +7,8 @@ layers:
   - E
   - R
   - T
-  - ''
-  - ''
+  - ß
+  - ß
   - Z
   - U
   - I
@@ -40,8 +40,8 @@ layers:
   - ','
   - .
   - '-'
-  - {t: ß, h: mouse}
-  - {t: '$$mdi:keyboard-return$$', h: Ctrl}
+  - ß
+  - {t: Esc, h: Ctrl}
   - {t: '$$mdi:keyboard-space$$', h: num_nav}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -54,8 +54,8 @@ layers:
   - F
   - P
   - B
-  - ''
-  - ''
+  - ß
+  - ß
   - J
   - L
   - U
@@ -87,8 +87,55 @@ layers:
   - ','
   - .
   - '-'
-  - {t: ß, h: mouse}
-  - {t: '$$mdi:keyboard-return$$', h: Ctrl}
+  - ß
+  - {t: Esc, h: Ctrl}
+  - {t: '$$mdi:keyboard-space$$', h: num_nav}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', h: symbol}
+  - {t: '$$mdi:backspace-outline$$', h: func}
+  but:
+  - {t: Esc, h: Alt}
+  - B
+  - U
+  - .
+  - ','
+  - Ü
+  - ß
+  - ß
+  - P
+  - C
+  - L
+  - M
+  - F
+  - X
+  - {t: '$$mdi:keyboard-tab$$', h: symbol}
+  - {t: H, h: GUI}
+  - {t: I, h: Alt}
+  - {t: E, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: A, h: Ctrl}
+  - O
+  - ''
+  - ''
+  - D
+  - {t: T, h: Ctrl}
+  - {t: R, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: N, h: AltGr}
+  - {t: S, h: GUI}
+  - {t: ß, h: num_nav}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - K
+  - Y
+  - Ö
+  - Ä
+  - Q
+  - J
+  - G
+  - W
+  - V
+  - Z
+  - '-'
+  - {t: Esc, h: Ctrl}
   - {t: '$$mdi:keyboard-space$$', h: num_nav}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -107,7 +154,7 @@ layers:
   - {t: Page, h: '$$mdi:arrow-up$$'}
   - $$mdi:arrow-up-bold$$
   - {t: Page, h: '$$mdi:arrow-down$$'}
-  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - ß
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - {t: '$$mdi:keyboard-tab$$', h: GUI}
   - .
@@ -187,7 +234,7 @@ layers:
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {type: held alternate}
-  - {t: '$$mdi:keyboard-space$$', h: mouse}
+  - {t: mouse, h: toggle}
   func:
   - Esc
   - F12
@@ -250,8 +297,8 @@ layers:
   - ''
   - ''
   - ''
-  - {type: held alternate}
-  - $$mdi:mouse-left-click-outline$$
+  - ''
+  - $$mdi:mouse-right-click-outline$$
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-left-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-down-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-right-bold$$', type: sym_by_sym}
@@ -265,23 +312,23 @@ layers:
   - GUI
   - ''
   - ''
-  - {t: MB4, s: '$$mdi:mouse$$'}
   - {t: MB5, s: '$$mdi:mouse$$'}
-  - {t: MB3, s: '$$mdi:mouse$$'}
+  - {t: MB4, s: '$$mdi:mouse$$'}
   - $$mdi:mouse-right-click-outline$$
+  - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
-  - ''
+  - AltGr
   - Ctrl+V
   - Ctrl+C
   - Ctrl+X
   - ''
-  - {type: held}
   - ''
   - ''
-  - ''
-  - AltGr
-  - {type: held alternate}
-  - {type: held alternate}
+  - {t: MB4, s: '$$mdi:mouse$$'}
+  - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-right-click-outline$$
+  - {t: mouse, h: toggle}
+  - {t: mouse, h: toggle}
   system:
   - {type: held}
   - {t: '$$mdi:bluetooth-connect$$', h: '0'}
@@ -310,7 +357,7 @@ layers:
   - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:white-balance-sunny$$', type: sym_by_sym}
   - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:palette$$', type: sym_by_sym}
   - {t: '$$mdi:toggle-switch-outline$$', h: '$$mdi:led-on$$', s: '$$mdi:led-off$$', type: toggle}
-  - {type: held}
+  - {t: BUT, h: tap 3x, s: '$$mdi:toggle-switch-outline$$', type: held}
   - ''
   - {t: '$$mdi:flash-alert$$', h: tap 3x, s: Reset}
   - ''
@@ -329,3 +376,24 @@ layers:
   - ''
   - ''
   - ''
+combos:
+- p: [17, 16]
+  k: ß
+  l: [qwertz, colemak-dh]
+- p: [11, 12]
+  k: Ü
+  l: [qwertz]
+- p: [24, 26]
+  k: Ö
+  l: [colemak-dh]
+  a: top
+  o: 1.25
+  arc_scale: 0.75
+- p: [37, 38]
+  k: '?'
+  l: [qwertz, colemak-dh, but]
+- p: [44, 45]
+  k: {t: mouse, h: toggle}
+  l: [qwertz, colemak-dh]
+  a: bottom
+  o: 0.5

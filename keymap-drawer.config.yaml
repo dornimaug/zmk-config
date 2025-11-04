@@ -112,6 +112,10 @@ parse_config:
       shifted: $$mdi:toggle-switch-outline$$
       tap: Colemak-DH
       hold: tap 3x
+    '&td_tog_but':
+      shifted: $$mdi:toggle-switch-outline$$
+      tap: BUT
+      hold: tap 3x
 
     '&mt_sk LSHFT LSHFT':
       tap: $$mdi:apple-keyboard-shift$$
@@ -234,8 +238,8 @@ parse_config:
       shifted: $$mdi:palette$$
       hold:    Blue
       type:    sym_by_sym
-  sticky_label: st
-  toggle_label: tog
+  sticky_label: sticky
+  toggle_label: toggle
   tap_toggle_label: tap-toggle
   trans_legend:
     t: ▽
@@ -253,7 +257,6 @@ parse_config:
     right_gui: GUI
     keycode_combiner: '{mods}+{key}'
     mod_combiner: '{mod_1}+{mod_2}'
-    label: modifier-combo
     special_combinations:
       left_ctrl+left_alt+left_gui+left_shift: Hyper
       left_ctrl+left_alt+left_shift: Meh
@@ -325,6 +328,7 @@ parse_config:
     O_UMLAUT: 'Ö'
     U_UMLAUT: 'Ü'
     SHARP_S: 'ß'
+    SZ: 'ß'
 
     MUTE_MIC: 
       tap: $$mdi:microphone-off$$
@@ -436,6 +440,8 @@ parse_config:
     NON_US_HASH: '#'
     NUHS: '#'
     TILDE2: '~'
-  zmk_combos: {}
   zmk_preamble: '#define KEYMAP_DRAWER'
   zmk_additional_includes: ['config']
+  zmk_combos:
+    combo_oe_colemak: { align: top,    o: 1.25, arc_scale: 0.75 }
+    combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 1.0 }
