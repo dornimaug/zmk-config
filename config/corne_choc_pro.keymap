@@ -60,9 +60,10 @@
 #define BUT        2
 #define NUM_NAV    3
 #define SYMBOL     4
-#define FUNCTION   5
-#define MOUSE      6
-#define SYSTEM     7
+#define QWERTZ_NUM 5
+#define FUNCTION   6
+#define MOUSE      7
+#define SYSTEM     8
 
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
 
@@ -172,39 +173,39 @@
     };
 
 
-#define COMBO_TIMEOUT_NEXT   38
+#define COMBO_TIMEOUT_ROLL   45
 #define COMBO_TIMEOUT_SAME   50
+#define COMBO_IDLE_ROLL      150
+
+#define COMBO_ROLL(NAME, KEYS, BINDINGS, LAYERS) \
+    NAME { \
+        key-positions = <KEYS>; \
+        bindings = <BINDINGS>; \
+        layers = <LAYERS>; \
+        slow-release; \
+        timeout-ms = <COMBO_TIMEOUT_ROLL>; \
+        require-prior-idle-ms = <COMBO_IDLE_ROLL>; \
+    };
+
     combos {
         compatible = "zmk,combos";
 
-        combo_sz_left {
-            key-positions = <LM3 LM4>; // qwertz s + d
-            bindings = <&kp DE_SZ>;
-            timeout-ms = <COMBO_TIMEOUT_NEXT>;
-            layers = <QWERTZ COLEMAK_DH>;
-        };
-        combo_ue_qwertz {
-            key-positions = <RT4 RT5>; // qwertz o + p
-            bindings = <&kp DE_U_UMLAUT>;
-            timeout-ms = <COMBO_TIMEOUT_NEXT>;
-            layers = <QWERTZ>;
-        };
+        COMBO_ROLL(combo_sz_left,   LM3 LM4, &kp DE_SZ,         QWERTZ COLEMAK_DH)      // qwertz s + d
+        COMBO_ROLL(combo_ue_qwertz, RT4 RT5, &kp DE_U_UMLAUT,   QWERTZ)                 // qwertz o + p
+        COMBO_ROLL(combo_qmark,     RB4 RB5, &kp DE_QMARK,      QWERTZ COLEMAK_DH BUT)  // qwertz . + -
+
         combo_oe_colemak {
             key-positions = <RM3 RM5>; // qwertz o + e
             bindings = <&kp DE_O_UMLAUT>;
-            timeout-ms = <COMBO_TIMEOUT_SAME>;
             layers = <COLEMAK_DH>;
-        };
-        combo_qmark {
-            key-positions = <RB4 RB5>; // qwertz . + -
-            bindings = <&kp DE_QMARK>;
-            timeout-ms = <COMBO_TIMEOUT_NEXT>;
-            layers = <QWERTZ COLEMAK_DH BUT>;
+            slow-release;
+            timeout-ms = <COMBO_TIMEOUT_SAME>;
         };
         combo_mouse_tog {
             key-positions = <RH1 RH2>; // right 2 thumb keys
             bindings = <&tog MOUSE>;
             timeout-ms = <COMBO_TIMEOUT_SAME>;
+            slow-release;
             layers = <QWERTZ COLEMAK_DH>;
         };
     };
@@ -270,9 +271,9 @@
         BASE_LAYER(
             but,
             "but",
-            B, U, DOT,      COMMA,   U_UMLAUT,   P, C, L, M, F, X,
-            H, I, E,        A,       O,          D, T, R, N, S, SHARP_S,
-            K, Y, O_UMLAUT, A_UMLAUT,Q,          J, G, W, V, Z, MINUS  
+            B, U, DOT,      COMMA,    U_UMLAUT,   P, C, L, M, F, X,
+            H, I, E,        A,        O,          D, T, R, N, S, SHARP_S,
+            K, Y, O_UMLAUT, A_UMLAUT, Q,          J, G, W, V, Z, MINUS  
         )
 
         num_nav_layer {
@@ -288,16 +289,26 @@
         symbol_layer {
             display-name = "symbol";
             // ╭----------┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----┬-----╮
-            // |     §    |  ^  |  '  |  -  |  *  |  #  |  -  |  .  |  @  | "|" |  {  |  }  |  ´  |  °  |
+            // |     §    |  ^  |  '  |  -  |  *  |  #  |  -  |  .  |  @  | "|" |  {  |  }  |  .  |  ,  |
             // | TAB->GUI |  !  |  "  |  :  |  =  |  $  |  _  |  ,  |  &  |  /  |  (  |  )  |  ?  |  ~  |
-            // |   SHFT   |  <  |  `  |  >  |  +  |  %  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
-            // ╰----------┴-----┴-----┤ ALT | CTRL| BSPC|           | TAB |     |MOUSE├-----┴-----┴-----╯
+            // |   SHIFT  |  <  |  `  |  >  |  +  |  %  ├-----┴-----┤  €  |  \  |  [  |  ]  |  _  |  ;  |
+            // ╰----------┴-----┴-----┤ ALT | CTRL| BSPC|           |  °  |     |MOUSE├-----┴-----┴-----╯
             //                        ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
             bindings = <
-&kp DE_SECT  &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH  &kp DE_MINUS &kp DE_DOT   &kp DE_AT   &kp DE_PIPE &kp  DE_LBRC &kp DE_RBRC &kp DE_ACUTE &kp DE_DEGREE
-&mt LGUI TAB &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR  &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS &kp DE_FSLH &kp  DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
-&kp LSHFT    &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                           &kp DE_EURO &kp DE_BSLH &kp  DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-                                       &mt LALT RET  &mt LCTRL SPC &kp BSPC                               &kp TAB     &none       &tog MOUSE
+&kp DE_SECT   &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH          &kp DE_MINUS &kp DE_DOT   &kp DE_AT   &kp DE_PIPE &kp  DE_LBRC &kp DE_RBRC &kp DE_DOT   &kp DE_COMMA
+&mt LGUI TAB  &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR          &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS &kp DE_FSLH &kp  DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
+&kp LSHFT     &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                                   &kp DE_EURO &kp DE_BSLH &kp  DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
+                                        &mt LALT RET  &mt LCTRL SPC &lt QWERTZ_NUM BSPC                            &kp DE_DEG  &none       &tog MOUSE
+            >;
+        };
+
+        qwertz_num_layer {
+            display-name = "qwertz_num";
+            bindings = <
+&kp DE_CARET &kp DE_EXCL &kp DE_DQT  &kp DE_SECT   &kp DE_DLLR &kp DE_PRCNT &trans &trans &kp DE_AMPS &kp DE_FSLH &kp DE_LPAR  &kp DE_RPAR &kp DE_EQUAL &kp DE_QMARK
+&trans       &kp DE_N1   &kp DE_N2   &kp DE_N3     &kp DE_N4   &kp DE_N5    &trans &trans &kp DE_N6   &kp DE_N7   &kp DE_N8    &kp DE_N9   &kp DE_N0    &kp DE_SHARP_S
+&kp LSHFT    &kp DE_LT   &kp DE_PIPE &kp DE_TILDE  &kp DE_PLUS &kp DE_HASH                &kp DE_SEMI &kp DE_LBRC &kp DE_LBKT  &kp DE_RBKT &kp DE_RBRC  &kp DE_BSLH
+                                     &trans        &trans      &trans                     &none       &trans      &kp DE_COLON
             >;
         };
 

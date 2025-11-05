@@ -201,8 +201,8 @@ layers:
   - '|'
   - '{'
   - '}'
-  - ´
-  - °
+  - .
+  - ','
   - {t: '$$mdi:keyboard-tab$$', h: GUI, type: held}
   - '!'
   - '"'
@@ -231,10 +231,57 @@ layers:
   - ;
   - {t: '$$mdi:keyboard-return$$', h: Alt}
   - {t: '$$mdi:keyboard-space$$', h: Ctrl}
-  - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:backspace-outline$$', h: qwertz_num}
+  - °
   - {type: held alternate}
   - {t: mouse, h: toggle}
+  qwertz_num:
+  - ^
+  - '!'
+  - '"'
+  - §
+  - $
+  - '%'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&'
+  - /
+  - (
+  - )
+  - '='
+  - '?'
+  - {type: held}
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - ß
+  - $$mdi:apple-keyboard-shift$$
+  - <
+  - '|'
+  - '~'
+  - +
+  - '#'
+  - ;
+  - '{'
+  - '['
+  - ']'
+  - '}'
+  - \
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - ''
+  - {type: held}
+  - ':'
   func:
   - Esc
   - F12
@@ -383,15 +430,15 @@ combos:
 - p: [11, 12]
   k: Ü
   l: [qwertz]
+- p: [37, 38]
+  k: '?'
+  l: [qwertz, colemak-dh, but]
 - p: [24, 26]
   k: Ö
   l: [colemak-dh]
   a: top
   o: 1.25
   arc_scale: 0.75
-- p: [37, 38]
-  k: '?'
-  l: [qwertz, colemak-dh, but]
 - p: [44, 45]
   k: {t: mouse, h: toggle}
   l: [qwertz, colemak-dh]
