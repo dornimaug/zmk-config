@@ -127,6 +127,11 @@ parse_config:
       shifted: $$mdi:toggle-switch-outline$$
       hold: $$mdi:apple-keyboard-shift$$
       type: sym_by_sym
+    '&mo_sk NUM_NAV LSHFT':
+      tap: $$mdi:apple-keyboard-shift$$
+      shifted: $$mdi:numeric-1$$
+      hold: num_nav
+      type: sym_by_sym
 
     "&mmv MOVE_UP":
       tap: $$mdi:mouse$$

@@ -7,7 +7,7 @@ layers:
   - E
   - R
   - T
-  - ß
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ß
   - Z
   - U
@@ -21,8 +21,8 @@ layers:
   - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: F, h: Ctrl}
   - G
-  - ''
-  - ''
+  - {t: mouse, h: toggle}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - H
   - {t: J, h: Ctrl}
   - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
@@ -40,13 +40,13 @@ layers:
   - ','
   - .
   - '-'
-  - ß
+  - {t: ß, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: Esc, h: Ctrl}
-  - {t: '$$mdi:keyboard-space$$', h: num_nav}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: num_nav, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
-  - {t: '$$mdi:backspace-outline$$', h: func}
+  - {t: '$$mdi:keyboard-tab$$', h: func}
   colemak-dh:
   - {t: Esc, h: Alt}
   - Q
@@ -54,7 +54,7 @@ layers:
   - F
   - P
   - B
-  - ß
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ß
   - J
   - L
@@ -68,8 +68,8 @@ layers:
   - {t: S, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: T, h: Ctrl}
   - G
-  - ''
-  - ''
+  - {t: mouse, h: toggle}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - M
   - {t: N, h: Ctrl}
   - {t: E, h: '$$mdi:apple-keyboard-shift$$'}
@@ -87,13 +87,13 @@ layers:
   - ','
   - .
   - '-'
-  - ß
+  - {t: ß, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: Esc, h: Ctrl}
-  - {t: '$$mdi:keyboard-space$$', h: num_nav}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: num_nav, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
-  - {t: '$$mdi:backspace-outline$$', h: func}
+  - {t: '$$mdi:keyboard-tab$$', h: func}
   but:
   - {t: Esc, h: Alt}
   - B
@@ -101,7 +101,7 @@ layers:
   - .
   - ','
   - Ü
-  - ß
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ß
   - P
   - C
@@ -115,8 +115,8 @@ layers:
   - {t: E, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: A, h: Ctrl}
   - O
-  - ''
-  - ''
+  - {t: mouse, h: toggle}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - D
   - {t: T, h: Ctrl}
   - {t: R, h: '$$mdi:apple-keyboard-shift$$'}
@@ -134,13 +134,13 @@ layers:
   - W
   - V
   - Z
-  - '-'
+  - {t: '-', h: '$$mdi:apple-keyboard-shift$$'}
   - {t: Esc, h: Ctrl}
-  - {t: '$$mdi:keyboard-space$$', h: num_nav}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: num_nav, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
-  - {t: '$$mdi:backspace-outline$$', h: func}
+  - {t: '$$mdi:keyboard-tab$$', h: func}
   num_nav:
   - {t: Esc, h: system}
   - {t: /, s: KP}
@@ -183,7 +183,7 @@ layers:
   - _
   - $$mdi:volume-off$$
   - {t: '$$mdi:backspace-reverse-outline$$', h: Ctrl}
-  - {type: held alternate}
+  - ''
   - NUML
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-return$$', h: Ctrl}
@@ -350,7 +350,7 @@ layers:
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-down-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-right-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}
-  - ''
+  - {t: mouse, h: toggle}
   - ''
   - ''
   - Ctrl
@@ -418,13 +418,16 @@ layers:
   - ''
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - ''
   - ''
   - ''
 combos:
 - p: [17, 16]
+  k: {t: ß, h: Shft+Alt}
+  l: [qwertz, colemak-dh]
+- p: [10, 11]
   k: ß
   l: [qwertz, colemak-dh]
 - p: [11, 12]
@@ -432,6 +435,18 @@ combos:
   l: [qwertz]
 - p: [37, 38]
   k: '?'
+  l: [qwertz, colemak-dh, but]
+- p: [15, 16]
+  k: {t: '$$mdi:apple-keyboard-shift$$', h: GUI+Alt}
+  l: [qwertz, colemak-dh, but]
+- p: [17, 18]
+  k: {t: '$$mdi:apple-keyboard-shift$$', h: Shft+Ctrl}
+  l: [qwertz, colemak-dh, but]
+- p: [23, 24]
+  k: {t: '$$mdi:apple-keyboard-shift$$', h: Shft+Ctrl}
+  l: [qwertz, colemak-dh, but]
+- p: [25, 26]
+  k: {t: '$$mdi:apple-keyboard-shift$$', h: AltGr+GUI}
   l: [qwertz, colemak-dh, but]
 - p: [24, 26]
   k: Ö
