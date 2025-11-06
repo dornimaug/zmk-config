@@ -108,16 +108,13 @@ parse_config:
       tap: $$mdi:flash$$
       hold: tap 3x
       type: sym_by_sym
-    '&td_tog_colemak':
-      shifted: $$mdi:toggle-switch-outline$$
-      tap: Colemak-DH
-      hold: tap 3x
-    '&td_tog_but':
-      shifted: $$mdi:toggle-switch-outline$$
-      tap: BUT
-      hold: tap 3x
 
     '&mt_sk LSHFT LSHFT':
+      tap: $$mdi:apple-keyboard-shift$$
+      shifted: $$mdi:numeric-1$$
+      hold: $$mdi:apple-keyboard-shift$$
+      type: sym_by_sym
+    '&mt_sk RSHFT RSHFT':
       tap: $$mdi:apple-keyboard-shift$$
       shifted: $$mdi:numeric-1$$
       hold: $$mdi:apple-keyboard-shift$$
@@ -449,5 +446,8 @@ parse_config:
   zmk_preamble: '#define KEYMAP_DRAWER'
   zmk_additional_includes: ['config']
   zmk_combos:
-    combo_oe_colemak: { align: top,    o: 1.25, arc_scale: 0.75 }
     combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 1.0 }
+    combo_qw_u_uml:   { align: top,    o: 1.0,  arc_scale: 0.9 }
+    combo_qw_o_uml:   { align: top,    o: 0.3,  arc_scale: 0.3 }
+    combo_qw_sz:      { align: top,    o: 2.3,  arc_scale: 1.025 }
+    combo_qw_a_uml:   { align: top,    o: 3.0,  arc_scale: 1.05 }
