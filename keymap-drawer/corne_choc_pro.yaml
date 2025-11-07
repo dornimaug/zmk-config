@@ -28,7 +28,7 @@ layers:
   - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: L, h: AltGr}
   - {t: QWERTZ uml, h: QWERTZ uml}
-  - {t: '$$mdi:keyboard-return$$', h: num/nav}
+  - {t: symbol, h: num/nav}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - Y
   - X
@@ -141,7 +141,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
   - {t: '$$mdi:keyboard-tab$$', h: func}
-  Colemak-DH de:
+  Colemakish:
   - {t: Esc, h: Alt}
   - Q
   - W
@@ -153,9 +153,9 @@ layers:
   - J
   - L
   - U
-  - Y
-  - Ä
-  - Ö
+  - O
+  - Z
+  - {t: '?', h: GUI}
   - {t: '$$mdi:keyboard-tab$$', h: symbol}
   - {t: A, h: GUI}
   - {t: R, h: Alt}
@@ -168,26 +168,73 @@ layers:
   - {t: N, h: Ctrl}
   - {t: E, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: I, h: AltGr}
-  - {t: O, h: GUI}
-  - {t: Ü, h: num/nav}
+  - {t: Colemakish uml, h: Colemakish uml}
+  - {t: symbol, h: num/nav}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - Y
   - X
   - C
-  - D
   - V
-  - Z
+  - B
   - K
   - H
   - ','
   - .
   - '-'
-  - {t: ß, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: symbol, h: Ctrl}
   - {t: '$$mdi:apple-keyboard-shift$$', h: num_nav, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
   - {t: '$$mdi:keyboard-tab$$', h: func}
+  Colemakish uml:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Ü
+  - Ö
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Ä
+  - {t: ▽, type: trans}
+  - ß
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   BUT:
   - {t: Esc, h: Alt}
   - B
@@ -310,7 +357,7 @@ layers:
   - (
   - )
   - '?'
-  - '~'
+  - {t: '~', type: held alternate}
   - $$mdi:apple-keyboard-shift$$
   - <
   - '`'
@@ -357,7 +404,7 @@ layers:
   - '8'
   - '9'
   - '0'
-  - ß
+  - {t: ß, type: held}
   - $$mdi:apple-keyboard-shift$$
   - <
   - '|'
@@ -425,7 +472,7 @@ layers:
   - {type: held}
   mouse:
   - ''
-  - ''
+  - Esc
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-up-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
@@ -498,7 +545,7 @@ layers:
   - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:white-balance-sunny$$', type: sym_by_sym}
   - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:palette$$', type: sym_by_sym}
   - {t: '$$mdi:toggle-switch-outline$$', h: '$$mdi:led-on$$', s: '$$mdi:led-off$$', type: toggle}
-  - {t: Colemak-DH de, h: toggle, type: held}
+  - {t: Colemakish, h: toggle, type: held}
   - ''
   - {t: '$$mdi:flash-alert$$', h: tap 3x, s: Reset}
   - ''
@@ -520,13 +567,13 @@ layers:
 combos:
 - p: [17, 16]
   k: {t: ß, h: Shft+Alt}
-  l: [QWERTZ de, Colemak-DH de]
+  l: [QWERTZ de, Colemakish]
 - p: [10, 11]
   k: ß
-  l: [QWERTZ de, Colemak-DH de]
+  l: [QWERTZ de, Colemakish]
 - p: [37, 38]
   k: '?'
-  l: [QWERTZ de, Colemak-DH de, BUT]
+  l: [QWERTZ de, Colemakish, BUT]
 - p: [9, 26]
   k: Ü
   l: [QWERTZ]
@@ -553,6 +600,6 @@ combos:
   arc_scale: 1.025
 - p: [44, 45]
   k: {t: mouse, h: toggle}
-  l: [QWERTZ, QWERTZ de, Colemak-DH de, BUT]
+  l: [QWERTZ, QWERTZ de, Colemakish, BUT]
   a: bottom
   o: 0.5

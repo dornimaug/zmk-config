@@ -58,14 +58,15 @@
 #define QWERTZ          0
 #define QWERTZ_UML      1
 #define QWERTZ_DE       2
-#define COLEMAK_DH_DE   3
-#define BUT             4
-#define NUM_NAV         5
-#define SYMBOL          6
-#define QWERTZ_NUM      7
-#define FUNCTION        8
-#define MOUSE           9
-#define SYSTEM          10
+#define COLEMAK         3
+#define COLEMAK_UML     4
+#define BUT             5
+#define NUM_NAV         6
+#define SYMBOL          7
+#define QWERTZ_NUM      8
+#define FUNCTION        9
+#define MOUSE           10
+#define SYSTEM          11
 
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
 
@@ -233,14 +234,14 @@
         compatible = "zmk,combos";
 
         // see https://github.com/zmkfirmware/zmk/issues/544
-        COMBO_ROLL(combo_qw_de_sz_left, LM3 LM4, &hml LS(LALT) DE_SZ,  QWERTZ_DE COLEMAK_DH_DE)      // qwertz sd
-        COMBO_ROLL(combo_qw_de_sz_top,  RT3 RT4, &kp DE_SZ,            QWERTZ_DE COLEMAK_DH_DE)      // qwertz io
-        COMBO_ROLL(combo_qmark,         RB4 RB5, &kp DE_QMARK,         QWERTZ_DE COLEMAK_DH_DE BUT)  // qwertz .-
+        COMBO_ROLL(combo_qw_de_sz_left, LM3 LM4, &hml LS(LALT) DE_SZ,  QWERTZ_DE COLEMAK)      // qwertz sd
+        COMBO_ROLL(combo_qw_de_sz_top,  RT3 RT4, &kp DE_SZ,            QWERTZ_DE COLEMAK)      // qwertz io
+        COMBO_ROLL(combo_qmark,         RB4 RB5, &kp DE_QMARK,         QWERTZ_DE COLEMAK BUT)  // qwertz .-
 
         // if we ever want to go back to shift combos on home row mods
-        // COMBO_ROLL(combo_sshft_l1,  LM3 LM2, &hml_skq LS(LCTRL) LSHFT,  QWERTZ_DE COLEMAK_DH_DE BUT)  // qwertz df
-        // COMBO_ROLL(combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   QWERTZ_DE COLEMAK_DH_DE BUT)  // qwertz as
-        // COMBO_ROLL(combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  QWERTZ_DE COLEMAK_DH_DE BUT)  // qwertz jk
+        // COMBO_ROLL(combo_sshft_l1,  LM3 LM2, &hml_skq LS(LCTRL) LSHFT,  QWERTZ_DE COLEMAK BUT)  // qwertz df
+        // COMBO_ROLL(combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   QWERTZ_DE COLEMAK BUT)  // qwertz as
+        // COMBO_ROLL(combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  QWERTZ_DE COLEMAK BUT)  // qwertz jk
         
         COMBO_UMLAUT(combo_qw_u_uml, RT2 RM5, &kp DE_U_UMLAUT, QWERTZ)
         COMBO_UMLAUT(combo_qw_o_uml, RT4 RM5, &kp DE_O_UMLAUT, QWERTZ)
@@ -252,7 +253,7 @@
             bindings = <&tog MOUSE>;
             timeout-ms = <COMBO_TIMEOUT_SAME>;
             slow-release;
-            layers = <QWERTZ QWERTZ_DE COLEMAK_DH_DE BUT>;
+            layers = <QWERTZ QWERTZ_DE COLEMAK BUT>;
         };
     };
 };
@@ -273,13 +274,10 @@
 #define BASE_LT6    &mt LALT ESC
 #define BASE_LT0    &kp MUTE_MIC
 #define BASE_RT0    &kp DE_SZ
-#define BASE_RT6(k) &kp k
 #define BASE_LM6    &lt SYMBOL TAB
 #define BASE_LM0    &none
 #define BASE_RM0    &kp BSPC
-#define BASE_RM6(k) &lt NUM_NAV k
 #define BASE_LB6    &mt_sk LSHFT LSHFT
-#define BASE_RB6(k) &mt RSHFT k
 #define BASE_LH     &mt_sl LCTRL SYMBOL  &mo_sk NUM_NAV LSHFT    &kp BSPC
 #define BASE_RH     &kp SPC              &lt SYMBOL RET          &lt FUNCTION TAB
 
@@ -292,9 +290,9 @@
     NAME ## _layer { \
         display-name = DISPLAY_NAME; \
         bindings = < \
-BASE_LT6 &kp DE_##LT5       &kp DE_##LT4       &kp DE_##LT3        &kp DE_##LT2        &kp DE_##LT1 BASE_LT0 /**/ BASE_RT0 &kp DE_##RT1 &kp DE_##RT2        &kp DE_##RT3        &kp DE_##RT4       &kp DE_##RT5       BASE_RT6(DE_##RT6) \
-BASE_LM6 &hml LGUI DE_##LM5 &hml LALT DE_##LM4 &hml LSHFT DE_##LM3 &hml LCTRL DE_##LM2 &kp DE_##LM1 BASE_LM0 /**/ BASE_RM0 &kp DE_##RM1 &hmr RCTRL DE_##RM2 &hmr RSHFT DE_##RM3 &hmr RALT DE_##RM4 &hmr RGUI DE_##RM5 BASE_RM6(DE_##RM6) \
-BASE_LB6 &kp DE_##LB5       &kp DE_##LB4       &kp DE_##LB3        &kp DE_##LB2        &kp DE_##LB1                        &kp DE_##RB1 &kp DE_##RB2        &kp DE_##RB3        &kp DE_##RB4       &kp DE_##RB5       BASE_RB6(DE_##RB6) \
+BASE_LT6 &kp DE_##LT5       &kp DE_##LT4       &kp DE_##LT3        &kp DE_##LT2        &kp DE_##LT1 BASE_LT0 /**/ BASE_RT0 &kp DE_##RT1 &kp DE_##RT2        &kp DE_##RT3        &kp DE_##RT4       &kp DE_##RT5       &kp DE_##RT6 \
+BASE_LM6 &hml LGUI DE_##LM5 &hml LALT DE_##LM4 &hml LSHFT DE_##LM3 &hml LCTRL DE_##LM2 &kp DE_##LM1 BASE_LM0 /**/ BASE_RM0 &kp DE_##RM1 &hmr RCTRL DE_##RM2 &hmr RSHFT DE_##RM3 &hmr RALT DE_##RM4 &hmr RGUI DE_##RM5 &lt NUM_NAV DE_##RM6 \
+BASE_LB6 &kp DE_##LB5       &kp DE_##LB4       &kp DE_##LB3        &kp DE_##LB2        &kp DE_##LB1                        &kp DE_##RB1 &kp DE_##RB2        &kp DE_##RB3        &kp DE_##RB4       &kp DE_##RB5       &mt RSHFT DE_##RB6 \
                                                                                        BASE_LH               /**/          BASE_RH \
         >; \
     };
@@ -303,11 +301,11 @@ BASE_LB6 &kp DE_##LB5       &kp DE_##LB4       &kp DE_##LB3        &kp DE_##LB2 
     keymap {
         compatible = "zmk,keymap";
 
-        qwertz_no_umlauts_layer {
+        qwertz_layer {
             display-name = "QWERTZ";
             bindings = <
 BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R        &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &mt RGUI DE_QMARK \
-BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML BASE_RM6(RET) \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &mo_sl NUM_NAV SYMBOL \
 BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                 &mt_sk RSHFT RSHFT \
                                                                        BASE_LH           /**/          BASE_RH \
             >;
@@ -316,10 +314,10 @@ BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B 
         qwertz_umlauts_overlay_layer {
             display-name = "QWERTZ uml";
             bindings = <
-&trans &trans           &trans    &trans &trans &trans &trans /**/ &trans &trans &kp DE_U_UMLAUT &trans &kp DE_O_UMLAUT &trans &trans
-&trans &kp DE_A_UMLAUT  &kp DE_SZ &trans &trans &trans &trans /**/ &trans &trans &trans          &trans &trans          &trans &trans
-&trans &trans           &trans    &trans &trans &trans                    &trans &trans          &trans &trans          &trans &trans
-                                  &trans &trans &trans                    &trans &trans          &trans
+___ ___              ___       ___ ___ ___ ___ /**/ ___ ___ &kp DE_U_UMLAUT ___ &kp DE_O_UMLAUT ___ ___
+___ &kp DE_A_UMLAUT  &kp DE_SZ ___ ___ ___ ___ /**/ ___ ___ ___             ___ ___             ___ ___
+___ ___              ___       ___ ___ ___                  ___ ___         ___ ___             ___ ___
+                               ___ ___ ___                  ___ ___         ___
             >;
         };
 
@@ -331,13 +329,25 @@ BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B 
             Y, X, C, V, B,   N, M, COMMA, DOT, MINUS,    SHARP_S
         )
 
-        BASE_LAYER(
-            colemak_dh_de,
-            "Colemak-DH de",
-            Q, W, F, P, B,   J, L, U,     Y,   A_UMLAUT, O_UMLAUT,
-            A, R, S, T, G,   M, N, E,     I,   O,        U_UMLAUT,
-            X, C, D, V, Z,   K, H, COMMA, DOT, MINUS,    SHARP_S
-        )
+        colemak_layer {
+            display-name = "Colemakish";
+            bindings = <
+BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_F        &kp DE_P        &kp DE_B BASE_LT0 /**/ BASE_RT0 &kp DE_J &kp DE_L        &kp DE_U        &kp DE_O       &kp DE_Z                       &mt RGUI DE_QMARK \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr RALT DE_I &mo_sl COLEMAK_UML COLEMAK_UML &mo_sl NUM_NAV SYMBOL \
+BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_K &kp DE_H        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                   &mt_sk RSHFT RSHFT \
+                                                                       BASE_LH           /**/          BASE_RH \
+            >;
+        };
+
+        colemak_umlauts_overlay_layer {
+            display-name = "Colemakish uml";
+            bindings = <
+___ ___              ___ ___       ___ ___ ___ /**/ ___ ___ ___ &kp DE_U_UMLAUT &kp DE_O_UMLAUT ___ ___
+___ &kp DE_A_UMLAUT  ___ &kp DE_SZ ___ ___ ___ /**/ ___ ___ ___ ___             ___             ___ ___
+___ ___              ___ ___       ___ ___              ___ ___ ___             ___             ___ ___
+                               ___ ___ ___              ___ ___ ___
+            >;
+        };
 
         // http://www.adnw.de/index.php?n=Main.OptimierungF%c3%bcrDieGeradeTastaturMitDaumen-Shift
         BASE_LAYER(
@@ -397,7 +407,7 @@ ___          &kp DE_N1   &kp DE_N2   &kp DE_N3     &kp DE_N4   &kp DE_N5    ___ 
         mouse_layer {
             display-name = "mouse";
             bindings = <
-XXX  XXX      &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  XXX              XXX        XXX    &kp UNDO_ XXX         XXX        XXX       XXX      XXX  
+XXX  &kp ESC  &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  XXX              XXX        XXX    &kp UNDO_ XXX         XXX        XXX       XXX      XXX  
 XXX  &mkp MB2 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT  &tog MOUSE XXX    XXX       &kp RCTRL   &kp LALT   &kp RSHFT &kp RGUI XXX  
 XXX  &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT                     &kp RALT  &kp PASTE_  &kp COPY_  &kp CUT_  XXX      XXX   
                              XXX            &mkp MB4        &mkp MB1                           &mkp MB2  &tog MOUSE  &tog MOUSE 
@@ -408,7 +418,7 @@ XXX  &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT      
             display-name = "system";
             bindings = <
 XXX  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4   XXX    XXX   &rgb_ug RGB_EFF &rgb_ug RGB_SAI   &rgb_ug RGB_BRI     &rgb_ug RGB_HUI    XXX             &tog QWERTZ_DE
-XXX  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3  &bt BT_DISC 4  XXX    XXX   &rgb_ug RGB_EFR &rgb_ug RGB_SAD   &rgb_ug RGB_BRD     &rgb_ug RGB_HUD    &rgb_ug RGB_TOG &tog COLEMAK_DH_DE
+XXX  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3  &bt BT_DISC 4  XXX    XXX   &rgb_ug RGB_EFR &rgb_ug RGB_SAD   &rgb_ug RGB_BRD     &rgb_ug RGB_HUD    &rgb_ug RGB_TOG &tog COLEMAK
 XXX  &td_sys_reset XXX           &td_bt_clr    &studio_unlock &td_bootloader              XXX             &rgb_ug COLOR_RED &rgb_ug COLOR_GREEN &rgb_ug COLOR_BLUE XXX             &tog BUT  
                                  XXX           XXX            XXX                         XXX             XXX               XXX  
             >;
