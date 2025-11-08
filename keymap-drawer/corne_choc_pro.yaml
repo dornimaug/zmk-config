@@ -28,7 +28,7 @@ layers:
   - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: L, h: AltGr}
   - {t: QWERTZ uml, h: QWERTZ uml}
-  - {t: symbol, h: num/nav}
+  - {t: symbol, h: QWERTZ num}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - Y
   - X
@@ -324,11 +324,11 @@ layers:
   - _
   - $$mdi:volume-off$$
   - {t: '$$mdi:backspace-reverse-outline$$', h: Ctrl}
-  - ''
+  - {t: ▽, type: trans}
   - NUML
-  - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:keyboard-return$$', h: Ctrl}
-  - {t: '$$mdi:keyboard-space$$', h: Alt}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:backspace-outline$$', h: Ctrl}
+  - {t: '$$mdi:keyboard-return$$', h: Alt}
   symbol:
   - §
   - ^
@@ -371,9 +371,9 @@ layers:
   - _
   - ;
   - {t: '$$mdi:keyboard-return$$', h: Alt, type: held alternate}
-  - {t: '$$mdi:keyboard-space$$', h: Ctrl}
-  - {t: '$$mdi:backspace-outline$$', h: QWERTZ num}
-  - °
+  - {t: '$$mdi:backspace-outline$$', h: Ctrl}
+  - {t: '$$mdi:keyboard-space$$', h: QWERTZ num}
+  - {t: '$$mdi:keyboard-space$$', type: space}
   - {type: held alternate}
   - {t: mouse, h: toggle}
   QWERTZ num:
@@ -391,7 +391,7 @@ layers:
   - )
   - '='
   - '?'
-  - {type: held}
+  - {type: held alternate}
   - '1'
   - '2'
   - '3'
@@ -417,11 +417,11 @@ layers:
   - ']'
   - '}'
   - \
-  - {type: held}
+  - {type: held alternate}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {type: held alternate}
   - ''
-  - {type: held}
+  - {type: held alternate}
   - ':'
   func:
   - Esc

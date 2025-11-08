@@ -41,6 +41,8 @@
 
 &lt {
     tapping-term-ms = <280>; // default 200
+    flavor = "balanced";
+    quick-tap-ms = <175>;
 };
 
 &mt {
@@ -158,7 +160,7 @@
             tapping-term-ms = <300>;
             quick-tap-ms = <QUICK_TAP_MS>;
             flavor = "hold-preferred";
-            bindings = <&mt>, <&kt>;
+            bindings = <&kp>, <&kt>;
         };
 
         mo_sk: hold_layer_tap_sticky_key {
@@ -305,7 +307,7 @@ BASE_LB6 &kp DE_##LB5       &kp DE_##LB4       &kp DE_##LB3        &kp DE_##LB2 
             display-name = "QWERTZ";
             bindings = <
 BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R        &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &mt RGUI DE_QMARK \
-BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &mo_sl NUM_NAV SYMBOL \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &mo_sl QWERTZ_NUM SYMBOL \
 BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                 &mt_sk RSHFT RSHFT \
                                                                        BASE_LH           /**/          BASE_RH \
             >;
@@ -361,10 +363,10 @@ ___ ___              ___ ___       ___ ___              ___ ___ ___             
         num_nav_layer {
             display-name = "num/nav";
             bindings = <
-&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP     &kp UP     &kp PG_DN &kp DE_SZ    &kp MUTE_MIC
-&mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT      &kp DOWN   &kp RIGHT &kp END      &kp C_PP
-&mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp SPACE &kp HOME      &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
-                                 &mt LCTRL DEL XXX        &kp KP_NUM                                        &kp BSPC  &mt RCTRL RET &mt LALT SPC
+&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP      &kp UP     &kp PG_DN &kp DE_SZ    &kp MUTE_MIC
+&mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT       &kp DOWN   &kp RIGHT &kp END      &kp C_PP
+&mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp SPACE &kp HOME       &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
+                                 &mt LCTRL DEL ___        &kp KP_NUM                                        &kp SPC   &mt RCTRL BSPC &mt LALT RET
             >;
         };
 
@@ -377,10 +379,10 @@ ___ ___              ___ ___       ___ ___              ___ ___ ___             
             // ╰----------┴-----┴-----┤ ALT | CTRL| BSPC|           |  °  |     |MOUSE├-----┴-----┴-----╯
             //                        ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
             bindings = <
-&kp DE_SECT   &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR   &kp DE_HASH          &kp DE_MINUS &kp DE_DOT   &kp DE_AT   &kp DE_PIPE &kp  DE_LBRC &kp DE_RBRC &kp DE_DOT   &kp DE_COMMA
-&mt LGUI TAB  &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL  &kp DE_DLLR          &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS &kp DE_FSLH &kp  DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
-&kp LSHFT     &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS   &kp DE_PRCNT                                   &kp DE_EURO &kp DE_BSLH &kp  DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-                                        &mt LALT RET  &mt LCTRL SPC &lt QWERTZ_NUM BSPC                            &kp DE_DEG  XXX         &tog MOUSE
+&kp DE_SECT   &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR    &kp DE_HASH         &kp DE_MINUS &kp DE_DOT   &kp DE_AT      &kp DE_PIPE &kp  DE_LBRC &kp DE_RBRC &kp DE_DOT   &kp DE_COMMA
+&mt LGUI TAB  &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL   &kp DE_DLLR         &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS    &kp DE_FSLH &kp  DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
+&kp LSHFT     &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS    &kp DE_PRCNT                                  &kp DE_EURO    &kp DE_BSLH &kp  DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
+                                        &mt LALT RET  &mt LCTRL BSPC &lt QWERTZ_NUM SPC                            &kp SPC        XXX         &tog MOUSE
             >;
         };
 

@@ -459,8 +459,8 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#symbol">
 <text x="0" y="0" class="key tap layer-activator"><tspan style="font-size: 83%">symbol</tspan></text>
-</a><a href="#numnav">
-<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 71%">num/nav</tspan></text>
+</a><a href="#QWERTZ-num">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 62%">QWERTZ …</tspan></text>
 </a></g>
 <g transform="translate(28, 161)" class="key sym_by_sym keypos-28">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_by_sym"/>
@@ -1840,25 +1840,26 @@ svg.keymap {
 <use href="#mdi:backspace-reverse-outline" xlink:href="#mdi:backspace-reverse-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-reverse-outline"/>
 <text x="0" y="24" class="key hold">Ctrl</text>
 </g>
-<g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<g transform="translate(285, 209) rotate(12.0)" class="key trans keypos-41">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g transform="translate(350, 215) rotate(24.0)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
 <text x="0" y="0" class="key tap">NUML</text>
 </g>
-<g transform="translate(490, 215) rotate(-24.0)" class="key backspace keypos-43">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
-<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
+<g transform="translate(490, 215) rotate(-24.0)" class="key space keypos-43">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key space"/>
+<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
 </g>
 <g transform="translate(555, 209) rotate(-12.0)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-return"/>
+<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-outline"/>
 <text x="0" y="24" class="key hold">Ctrl</text>
 </g>
 <g transform="translate(616, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-space"/>
+<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-return"/>
 <text x="0" y="24" class="key hold">Alt</text>
 </g>
 </g>
@@ -2034,18 +2035,18 @@ svg.keymap {
 </g>
 <g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-space"/>
+<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-outline"/>
 <text x="0" y="24" class="key hold">Ctrl</text>
 </g>
 <g transform="translate(350, 215) rotate(24.0)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-outline"/>
+<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-space"/>
 <a href="#QWERTZ-num">
 <text x="0" y="38" class="key hold layer-activator"><tspan style="font-size: 62%">QWERTZ …</tspan></text>
 </a></g>
-<g transform="translate(490, 215) rotate(-24.0)" class="key keypos-43">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">°</text>
+<g transform="translate(490, 215) rotate(-24.0)" class="key space keypos-43">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key space"/>
+<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
 </g>
 <g transform="translate(555, 209) rotate(-12.0)" class="key held alternate keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
@@ -2117,8 +2118,8 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">?</text>
 </g>
-<g transform="translate(28, 105)" class="key held keypos-14">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(28, 105)" class="key held alternate keypos-14">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
 </g>
 <g transform="translate(84, 105)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2220,21 +2221,21 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">\</text>
 </g>
-<g transform="translate(224, 203)" class="key held keypos-40">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(224, 203)" class="key held alternate keypos-40">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
 </g>
 <g transform="translate(285, 209) rotate(12.0)" class="key trans keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(350, 215) rotate(24.0)" class="key held keypos-42">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held"/>
+<g transform="translate(350, 215) rotate(24.0)" class="key held alternate keypos-42">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held alternate"/>
 </g>
 <g transform="translate(490, 215) rotate(-24.0)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
 </g>
-<g transform="translate(555, 209) rotate(-12.0)" class="key held keypos-44">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(555, 209) rotate(-12.0)" class="key held alternate keypos-44">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
 </g>
 <g transform="translate(616, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
