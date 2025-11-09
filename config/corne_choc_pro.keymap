@@ -123,6 +123,8 @@
         MORPH(ret_del,      RET,    DEL,    MOD_ANY)
         MORPH(bspc_del,     BSPC,   DEL,    MOD_ANY)
 
+        MORPH(left_right,   LEFT, RIGHT,  MOD_LSFT|MOD_RSFT)
+
         TAP_DANCE_3(td_sys_reset,   &none, &none, &sys_reset)
         TAP_DANCE_3(td_bt_clr,      &none, &none, &bt BT_CLR)
         TAP_DANCE_3(td_bootloader,  &none, &none, &bootloader)
@@ -141,7 +143,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             quick-tap-ms = <QUICK_TAP_MS>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
             bindings = <&kp>, <&sl>;
         };
 
@@ -222,14 +224,23 @@
         require-prior-idle-ms = <COMBO_IDLE_ROLL>; \
     };
 
-#define COMBO_UMLAUT(NAME, KEYS, BINDINGS, LAYERS) \
+#define COMBO_UMLAUT(NAME, KEYS, BINDING, LAYERS) \
     NAME { \
         key-positions = <KEYS>; \
-        bindings = <BINDINGS>; \
+        bindings = <&kp BINDING>; \
         layers = <LAYERS>; \
         slow-release; \
         timeout-ms = <75>; \
         require-prior-idle-ms = <150>; \
+    };
+
+#define COMBO_THUMB_TOG(NAME, KEYS, TOG_LAYER, LAYERS) \
+    NAME { \
+        key-positions = <KEYS>; \
+        bindings = <&tog TOG_LAYER>; \
+        layers = <LAYERS>; \
+        slow-release; \
+        timeout-ms = <COMBO_TIMEOUT_SAME>; \
     };
 
     combos {
@@ -245,18 +256,14 @@
         // COMBO_ROLL(combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   QWERTZ_DE COLEMAK BUT)  // qwertz as
         // COMBO_ROLL(combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  QWERTZ_DE COLEMAK BUT)  // qwertz jk
         
-        COMBO_UMLAUT(combo_qw_u_uml, RT2 RM5, &kp DE_U_UMLAUT, QWERTZ)
-        COMBO_UMLAUT(combo_qw_o_uml, RT4 RM5, &kp DE_O_UMLAUT, QWERTZ)
-        COMBO_UMLAUT(combo_qw_a_uml, LM5 RM5, &kp DE_A_UMLAUT, QWERTZ)
-        COMBO_UMLAUT(combo_qw_sz,    LM4 RM5, &kp DE_SZ,       QWERTZ)
+        COMBO_UMLAUT(combo_qw_u_uml, RT2 RM5, DE_U_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(combo_qw_o_uml, RT4 RM5, DE_O_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(combo_qw_a_uml, LM5 RM5, DE_A_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(combo_qw_sz,    LM4 RM5, DE_SZ,       QWERTZ)
 
-        combo_mouse_tog {
-            key-positions = <RH1 RH2>; // right 2 thumb keys
-            bindings = <&tog MOUSE>;
-            timeout-ms = <COMBO_TIMEOUT_SAME>;
-            slow-release;
-            layers = <QWERTZ QWERTZ_DE COLEMAK BUT>;
-        };
+        COMBO_THUMB_TOG(combo_mouse_tog,    RH1 RH2, MOUSE,     QWERTZ QWERTZ_UML QWERTZ_DE COLEMAK BUT)
+        COMBO_THUMB_TOG(combo_sym_tog,      RH0 RH1, SYMBOL,    QWERTZ QWERTZ_UML QWERTZ_DE COLEMAK BUT SYMBOL)
+        COMBO_THUMB_TOG(combo_numnav_tog,   LH0 LH1, NUM_NAV,   QWERTZ QWERTZ_UML QWERTZ_DE COLEMAK BUT NUM_NAV)
     };
 };
 
@@ -275,13 +282,17 @@
 
 #define BASE_LT6    &mt LALT ESC
 #define BASE_LT0    &kp MUTE_MIC
-#define BASE_RT0    &kp DE_SZ
+#define BASE_RT0    &kp DE_DOUBLE_QUOTES
 #define BASE_LM6    &lt SYMBOL TAB
 #define BASE_LM0    &none
-#define BASE_RM0    &kp BSPC
+#define BASE_RM0    &left_right
 #define BASE_LB6    &mt_sk LSHFT LSHFT
 #define BASE_LH     &mt_sl LCTRL SYMBOL  &mo_sk NUM_NAV LSHFT    &kp BSPC
 #define BASE_RH     &kp SPC              &lt SYMBOL RET          &lt FUNCTION TAB
+
+#define UML_RT6 &mt RGUI DE_EXCL
+#define UML_RM6 &lt NUM_NAV DE_QMARK
+#define UML_RB6 &mt_sk RSHFT RSHFT
 
 // GASC / CASG home row mods
 #define BASE_LAYER(NAME, DISPLAY_NAME, \
@@ -306,9 +317,9 @@ BASE_LB6 &kp DE_##LB5       &kp DE_##LB4       &kp DE_##LB3        &kp DE_##LB2 
         qwertz_layer {
             display-name = "QWERTZ";
             bindings = <
-BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R        &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &mt RGUI DE_QMARK \
-BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &mo_sl QWERTZ_NUM SYMBOL \
-BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                 &mt_sk RSHFT RSHFT \
+BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R        &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     UML_RT6 \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML UML_RM6 \
+BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                 UML_RB6 \
                                                                        BASE_LH           /**/          BASE_RH \
             >;
         };
@@ -334,9 +345,9 @@ ___ ___              ___       ___ ___ ___                  ___ ___         ___ 
         colemak_layer {
             display-name = "Colemakish";
             bindings = <
-BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_F        &kp DE_P        &kp DE_B BASE_LT0 /**/ BASE_RT0 &kp DE_J &kp DE_L        &kp DE_U        &kp DE_O       &kp DE_Z                       &mt RGUI DE_QMARK \
-BASE_LM6 &hml LGUI DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr RALT DE_I &mo_sl COLEMAK_UML COLEMAK_UML &mo_sl NUM_NAV SYMBOL \
-BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_K &kp DE_H        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                   &mt_sk RSHFT RSHFT \
+BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_F        &kp DE_P        &kp DE_B BASE_LT0 /**/ BASE_RT0 &kp DE_J &kp DE_L        &kp DE_U        &kp DE_O       &kp DE_Z                       UML_RT6 \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr RALT DE_I &mo_sl COLEMAK_UML COLEMAK_UML UML_RM6 \
+BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_K &kp DE_H        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                   UML_RB6 \
                                                                        BASE_LH           /**/          BASE_RH \
             >;
         };
@@ -361,12 +372,12 @@ ___ ___              ___ ___       ___ ___              ___ ___ ___             
         )
 
         num_nav_layer {
-            display-name = "num/nav";
+            display-name = "num_nav";
             bindings = <
-&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP      &kp UP     &kp PG_DN &kp DE_SZ    &kp MUTE_MIC
-&mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT       &kp DOWN   &kp RIGHT &kp END      &kp C_PP
-&mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp KP_MINUS                           &kp SPACE &kp HOME       &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
-                                 &mt LCTRL DEL ___        &kp KP_NUM                                        &kp SPC   &mt RCTRL BSPC &mt LALT RET
+&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8     &kp DE_N9    &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP      &kp UP     &kp PG_DN &kp DE_SZ    &kp MUTE_MIC
+&mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5     &kp DE_N6    &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT       &kp DOWN   &kp RIGHT &kp END      &lt FUNCTION C_PP
+&mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2     &kp DE_N3    &kp KP_MINUS                           &kp SPACE &kp HOME       &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
+                                               &mt LCTRL DEL &tog NUM_NAV &kp BSPC                               &kp SPC   &mt LALT BSPC  &mt RCTRL RET
             >;
         };
 
@@ -379,10 +390,10 @@ ___ ___              ___ ___       ___ ___              ___ ___ ___             
             // ╰----------┴-----┴-----┤ ALT | CTRL| BSPC|           |  °  |     |MOUSE├-----┴-----┴-----╯
             //                        ╰-----┴-----┴-----╯           ╰-----┴-----┴-----╯
             bindings = <
-&kp DE_SECT   &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR    &kp DE_HASH         &kp DE_MINUS &kp DE_DOT   &kp DE_AT      &kp DE_PIPE &kp  DE_LBRC &kp DE_RBRC &kp DE_DOT   &kp DE_COMMA
-&mt LGUI TAB  &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL   &kp DE_DLLR         &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS    &kp DE_FSLH &kp  DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
-&kp LSHFT     &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS    &kp DE_PRCNT                                  &kp DE_EURO    &kp DE_BSLH &kp  DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-                                        &mt LALT RET  &mt LCTRL BSPC &lt QWERTZ_NUM SPC                            &kp SPC        XXX         &tog MOUSE
+&kp DE_SECT   &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR    &kp DE_HASH         &kp DE_MINUS &kp DE_DOT   &kp DE_AT    &kp DE_PIPE &kp  DE_LBRC &kp DE_RBRC &kp DE_DOT   &kp DE_COMMA
+&mt LGUI TAB  &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL   &kp DE_DLLR         &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS  &kp DE_FSLH &kp  DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
+&kp LSHFT     &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS    &kp DE_PRCNT                                  &kp DE_EURO  &kp DE_BSLH &kp  DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
+                                        &mt LCTRL RET &mt LALT BSPC  &lt QWERTZ_NUM SPC                            &kp SPC      &tog SYMBOL &tog MOUSE
             >;
         };
 
@@ -392,7 +403,7 @@ ___ ___              ___ ___       ___ ___              ___ ___ ___             
 &kp DE_CARET &kp DE_EXCL &kp DE_DQT  &kp DE_SECT   &kp DE_DLLR &kp DE_PRCNT ___  ___ &kp DE_AMPS &kp DE_FSLH &kp DE_LPAR  &kp DE_RPAR &kp DE_EQUAL &kp DE_QMARK
 ___          &kp DE_N1   &kp DE_N2   &kp DE_N3     &kp DE_N4   &kp DE_N5    ___  ___ &kp DE_N6   &kp DE_N7   &kp DE_N8    &kp DE_N9   &kp DE_N0    &kp DE_SHARP_S
 &kp LSHFT    &kp DE_LT   &kp DE_PIPE &kp DE_TILDE  &kp DE_PLUS &kp DE_HASH           &kp DE_SEMI &kp DE_LBRC &kp DE_LBKT  &kp DE_RBKT &kp DE_RBRC  &kp DE_BSLH
-                                     ___           ___         ___                   XXX         ___         &kp DE_COLON
+                                     ___           ___         ___                   ___         ___         &kp DE_COLON
             >;
         };
 

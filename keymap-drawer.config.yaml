@@ -446,7 +446,9 @@ parse_config:
   zmk_preamble: '#define KEYMAP_DRAWER'
   zmk_additional_includes: ['config']
   zmk_combos:
-    combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 1.0 }
+    combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    combo_sym_tog:    { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    combo_numnav_tog: { align: bottom, o: 0.5,  arc_scale: 0.98 }
     combo_qw_u_uml:   { align: top,    o: 1.0,  arc_scale: 0.9 }
     combo_qw_o_uml:   { align: top,    o: 0.3,  arc_scale: 0.3 }
     combo_qw_sz:      { align: top,    o: 2.3,  arc_scale: 1.025 }
