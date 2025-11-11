@@ -123,7 +123,8 @@
         MORPH(ret_del,      RET,    DEL,    MOD_ANY)
         MORPH(bspc_del,     BSPC,   DEL,    MOD_ANY)
 
-        MORPH(left_right,   LEFT, RIGHT,  MOD_LSFT|MOD_RSFT)
+        MORPH(left_right,   LEFT, RIGHT,        MOD_LSFT|MOD_RSFT)
+        MORPH(qmark_excl,   DE_QMARK, DE_EXCL,  MOD_LSFT|MOD_RSFT)
 
         TAP_DANCE_3(td_sys_reset,   &none, &none, &sys_reset)
         TAP_DANCE_3(td_bt_clr,      &none, &none, &bt BT_CLR)
@@ -247,9 +248,14 @@
         compatible = "zmk,combos";
 
         // see https://github.com/zmkfirmware/zmk/issues/544
-        COMBO_ROLL(combo_qw_de_sz_left, LM3 LM4, &hml LS(LALT) DE_SZ,  QWERTZ_DE COLEMAK)      // qwertz sd
-        COMBO_ROLL(combo_qw_de_sz_top,  RT3 RT4, &kp DE_SZ,            QWERTZ_DE COLEMAK)      // qwertz io
-        COMBO_ROLL(combo_qmark,         RB4 RB5, &kp DE_QMARK,         QWERTZ_DE COLEMAK BUT)  // qwertz .-
+        COMBO_ROLL(combo_qw_de_sz_left, LM3 LM4, &hml LS(LALT) DE_SZ,  QWERTZ_DE)      // qwertz sd
+        COMBO_ROLL(combo_qw_de_sz_top,  RT3 RT4, &kp DE_SZ,            QWERTZ_DE)      // qwertz io
+        COMBO_ROLL(combo_qmark,         RB4 RB5, &kp DE_QMARK,         QWERTZ_DE BUT)  // qwertz .-
+
+        COMBO_ROLL(combo_home_bspc,     LM2 LM3, &hml LS(LCTRL) BSPC,   QWERTZ QWERTZ_UML QWERTZ_DE COLEMAK COLEMAK_UML)   // qwertz df
+        COMBO_ROLL(combo_home_del,      LM3 LM4, &hml LS(LALT) DEL,     QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML)   // qwertz sd
+        COMBO_ROLL(combo_bspc,          LM2 LM3, &kp BSPC,              NUM_NAV SYMBOL)   // qwertz df
+        COMBO_ROLL(combo_del,           LM3 LM4, &kp DEL,               NUM_NAV SYMBOL)   // qwertz sd
 
         // if we ever want to go back to shift combos on home row mods
         // COMBO_ROLL(combo_sshft_l1,  LM3 LM2, &hml_skq LS(LCTRL) LSHFT,  QWERTZ_DE COLEMAK BUT)  // qwertz df
@@ -286,11 +292,11 @@
 #define BASE_LM6    &lt SYMBOL TAB
 #define BASE_LM0    &none
 #define BASE_RM0    &left_right
-#define BASE_LB6    &mt_sk LSHFT LSHFT
+#define BASE_LB6    &kp LSHFT
 #define BASE_LH     &mt_sl LCTRL SYMBOL  &mo_sk NUM_NAV LSHFT    &kp BSPC
 #define BASE_RH     &kp SPC              &lt SYMBOL RET          &lt FUNCTION TAB
 
-#define UML_RT6 &mt RGUI DE_EXCL
+#define UML_RT6 &mt RGUI DE_EXCL // TODO: change to &qmark_excl when fixed
 #define UML_RM6 &lt NUM_NAV DE_QMARK
 #define UML_RB6 &mt_sk RSHFT RSHFT
 
@@ -374,10 +380,10 @@ ___ ___              ___ ___       ___ ___              ___ ___ ___             
         num_nav_layer {
             display-name = "num_nav";
             bindings = <
-&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8     &kp DE_N9    &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC   &kp PG_UP      &kp UP     &kp PG_DN &kp DE_SZ    &kp MUTE_MIC
-&mt LGUI TAB       &kp DE_DOT    &kp DE_N4     &kp DE_N5     &kp DE_N6    &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME  &kp LEFT       &kp DOWN   &kp RIGHT &kp END      &lt FUNCTION C_PP
-&mt_kt LSHFT LSHFT &kp DE_N0     &kp DE_N1     &kp DE_N2     &kp DE_N3    &kp KP_MINUS                           &kp SPACE &kp HOME       &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
-                                               &mt LCTRL DEL &tog NUM_NAV &kp BSPC                               &kp SPC   &mt LALT BSPC  &mt RCTRL RET
+&lt SYSTEM ESC     &kp KP_DIVIDE &kp DE_N7     &kp DE_N8     &kp DE_N9    &kp KP_MULTIPLY &kp KP_ENTER &kp PG_UP &kp ESC      &kp PG_UP      &kp UP     &kp PG_DN &kp CAPS     &kp MUTE_MIC
+&mt LGUI TAB       &kp DE_N0     &kp DE_N4     &kp DE_N5     &kp DE_N6    &kp KP_PLUS     &kp KP_DOT   &kp PG_DN &kp HOME     &kp LEFT       &kp DOWN   &kp RIGHT &kp END      &lt FUNCTION C_PP
+&mt_kt LSHFT LSHFT &kp DE_DOT    &kp DE_N1     &kp DE_N2     &kp DE_N3    &kp KP_MINUS                           &kp DE_COLON &kp HOME       &kp DEL    &kp END   &kp DE_UNDER &kp C_MUTE
+                                               &mt LCTRL DEL &tog NUM_NAV &kp BSPC                               &kp SPC      &mt LALT BSPC  &mt RCTRL RET
             >;
         };
 

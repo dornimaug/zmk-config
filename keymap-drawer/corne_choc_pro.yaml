@@ -29,7 +29,7 @@ layers:
   - {t: L, h: AltGr}
   - {t: QWERTZ uml, h: QWERTZ uml}
   - {t: '?', h: num_nav}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - $$mdi:apple-keyboard-shift$$
   - Y
   - X
   - C
@@ -123,7 +123,7 @@ layers:
   - {t: L, h: AltGr}
   - {t: Ö, h: GUI}
   - {t: Ä, h: num_nav}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - $$mdi:apple-keyboard-shift$$
   - Y
   - X
   - C
@@ -170,7 +170,7 @@ layers:
   - {t: I, h: AltGr}
   - {t: Colemakish uml, h: Colemakish uml}
   - {t: '?', h: num_nav}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - $$mdi:apple-keyboard-shift$$
   - Y
   - X
   - C
@@ -264,7 +264,7 @@ layers:
   - {t: N, h: AltGr}
   - {t: S, h: GUI}
   - {t: ß, h: num_nav}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - $$mdi:apple-keyboard-shift$$
   - K
   - Y
   - Ö
@@ -295,10 +295,10 @@ layers:
   - {t: Page, h: '$$mdi:arrow-up$$'}
   - $$mdi:arrow-up-bold$$
   - {t: Page, h: '$$mdi:arrow-down$$'}
-  - ß
+  - $$mdi:apple-keyboard-caps$$
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - {t: '$$mdi:keyboard-tab$$', h: GUI}
-  - .
+  - '0'
   - '4'
   - '5'
   - '6'
@@ -312,12 +312,12 @@ layers:
   - End
   - {t: '$$mdi:play-pause$$', h: func, type: held}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:toggle-switch-outline$$', type: sym_by_sym}
-  - '0'
+  - .
   - '1'
   - '2'
   - '3'
   - {t: '-', s: KP}
-  - {t: '$$mdi:keyboard-space$$', type: space}
+  - ':'
   - Home
   - $$mdi:backspace-reverse-outline$$
   - End
@@ -567,13 +567,25 @@ layers:
 combos:
 - p: [17, 16]
   k: {t: ß, h: Shft+Alt}
-  l: [QWERTZ de, Colemakish]
+  l: [QWERTZ de]
 - p: [10, 11]
   k: ß
-  l: [QWERTZ de, Colemakish]
+  l: [QWERTZ de]
 - p: [37, 38]
   k: '?'
-  l: [QWERTZ de, Colemakish, BUT]
+  l: [QWERTZ de, BUT]
+- p: [18, 17]
+  k: {t: '$$mdi:backspace-outline$$', h: Shft+Ctrl}
+  l: [QWERTZ, QWERTZ uml, QWERTZ de, Colemakish, Colemakish uml]
+- p: [17, 16]
+  k: {t: '$$mdi:backspace-reverse-outline$$', h: Shft+Alt}
+  l: [QWERTZ, QWERTZ uml, Colemakish, Colemakish uml]
+- p: [18, 17]
+  k: {t: '$$mdi:backspace-outline$$', type: backspace}
+  l: [num_nav, symbol]
+- p: [17, 16]
+  k: $$mdi:backspace-reverse-outline$$
+  l: [num_nav, symbol]
 - p: [9, 26]
   k: Ü
   l: [QWERTZ]
