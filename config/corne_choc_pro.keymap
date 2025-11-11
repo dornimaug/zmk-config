@@ -353,7 +353,7 @@ ___ ___              ___       ___ ___ ___                  ___ ___         ___ 
             bindings = <
 BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_F        &kp DE_P        &kp DE_B BASE_LT0 /**/ BASE_RT0 &kp DE_J &kp DE_L        &kp DE_U        &kp DE_O       &kp DE_Z                       UML_RT6 \
 BASE_LM6 &hml LGUI DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr RALT DE_I &mo_sl COLEMAK_UML COLEMAK_UML UML_RM6 \
-BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_K &kp DE_H        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                   UML_RB6 \
+BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_D        &kp DE_V                        &kp DE_K &kp DE_H        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                   UML_RB6 \
                                                                        BASE_LH           /**/          BASE_RH \
             >;
         };
