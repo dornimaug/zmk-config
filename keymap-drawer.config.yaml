@@ -124,10 +124,15 @@ parse_config:
       shifted: $$mdi:toggle-switch-outline$$
       hold: $$mdi:apple-keyboard-shift$$
       type: sym_by_sym
-    '&mo_sk NUM_NAV LSHFT':
+    '&mt_kt RSHFT RSHFT':
+      tap: $$mdi:apple-keyboard-shift$$
+      shifted: $$mdi:toggle-switch-outline$$
+      hold: $$mdi:apple-keyboard-shift$$
+      type: sym_by_sym
+    '&mo_sk NAV LSHFT':
       tap: $$mdi:apple-keyboard-shift$$
       shifted: $$mdi:numeric-1$$
-      hold: num_nav
+      hold: nav
       type: sym_by_sym
 
     "&mmv MOVE_UP":
@@ -240,6 +245,12 @@ parse_config:
       shifted: $$mdi:palette$$
       hold:    Blue
       type:    sym_by_sym
+
+    '&out OUT_TOG':
+      tap: $$mdi:bluetooth$$
+      hold: toggle
+      shifted: $$mdi:usb$$
+      type: sym_by_sym
   sticky_label: sticky
   toggle_label: toggle
   tap_toggle_label: tap-toggle
@@ -354,7 +365,15 @@ parse_config:
       shifted: $$mdi:microsoft-windows$$
       type: sym_by_sym
 
-    ACUTE: '´'
+    CUT_: Cut
+    COPY_: Copy
+    PASTE_: Paste
+    UNDO_: Undo
+    REDO_: Redo
+
+    ACUTE: 
+      tap: '´'
+      shifted: '`'
     DEGREE: '°'
     DEG: '°'
     SECT: '§'
@@ -379,17 +398,51 @@ parse_config:
       tap: ','
       shifted: KP
     KP_NUM: 'NUML'
+    N1:
+      tap: '1'
+      shifted: '!'
+    N2:
+      tap: '2'
+      shifted: '"'
+    N3:
+      tap: '3'
+      shifted: '§'
+    N4:
+      tap: '4'
+      shifted: '$'
+    N5:
+      tap: '5'
+      shifted: '%'
+    N6:
+      tap: '6'
+      shifted: '&'
+    N7:
+      tap: '7'
+      shifted: '/'
+    N8:
+      tap: '8'
+      shifted: '('
+    N9:
+      tap: '9'
+      shifted: ')'
+    N0:
+      tap: '0'
+      shifted: '='
     EXCLAMATION: '!'
     EXCL: '!'
     AT_SIGN: '@'
     AT: '@'
-    HASH: '#'
+    HASH: 
+      tap: '#'
+      shifted: "'"
     POUND: '#'
     DOLLAR: $
     DLLR: $
     PERCENT: '%'
     PRCNT: '%'
-    CARET: ^
+    CARET: 
+      tap: ^
+      shifted: '°'
     AMPERSAND: '&'
     AMPS: '&'
     ASTERISK: '*'
@@ -400,8 +453,12 @@ parse_config:
     RIGHT_PARENTHESIS: )
     RPAR: )
     EQUAL: '='
-    PLUS: +
-    MINUS: '-'
+    PLUS: 
+      tap: '+'
+      shifted: '*'
+    MINUS: 
+      tap: '-'
+      shifted: '_'
     UNDERSCORE: _
     UNDER: _
     SLASH: /
@@ -423,11 +480,17 @@ parse_config:
     APOS: ''''
     DOUBLE_QUOTES: '"'
     DQT: '"'
-    COMMA: ','
+    COMMA: 
+      tap: ','
+      shifted: ';'
     LESS_THAN: <
-    LT: <
+    LT: 
+      tap: '<'
+      shifted: '>'
     PERIOD: .
-    DOT: .
+    DOT: 
+      tap: .
+      shifted: ':'
     GREATER_THAN: '>'
     GT: '>'
     LEFT_BRACKET: '['
@@ -448,7 +511,8 @@ parse_config:
   zmk_combos:
     combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
     combo_sym_tog:    { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    combo_numnav_tog: { align: bottom, o: 0.5,  arc_scale: 0.98 }
+    combo_num_tog:    { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    combo_nav_tog:    { align: bottom, o: 0.5,  arc_scale: 0.98 }
     combo_qw_u_uml:   { align: top,    o: 1.0,  arc_scale: 0.9 }
     combo_qw_o_uml:   { align: top,    o: 0.3,  arc_scale: 0.3 }
     combo_qw_sz:      { align: top,    o: 2.3,  arc_scale: 1.025 }
