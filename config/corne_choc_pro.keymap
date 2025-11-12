@@ -59,7 +59,7 @@
 };
 
 &caps_word {
-    continue-list = <DE_UNDERSCORE DE_MINUS DE_O_UMLAUT DE_A_UMLAUT DE_U_UMLAUT DE_SHARP_S>;
+    continue-list = <DE_UNDERSCORE DE_MINUS DE_O_UMLAUT DE_A_UMLAUT DE_U_UMLAUT DE_SHARP_S BACKSPACE>;
 };
 
 #define STRINGIFY(x) #x
@@ -71,11 +71,12 @@
 #define COLEMAK_UML     3
 #define BUT             4
 #define NUM             5
-#define SYMBOL          6
-#define NAV             7
-#define FUNCTION        8
-#define MOUSE           9
-#define SYSTEM          10
+#define NUM_MIRROR      6
+#define SYMBOL          7
+#define NAV             8
+#define FUNCTION        9
+#define MOUSE           10
+#define SYSTEM          11
 
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
 
@@ -112,6 +113,15 @@
         bindings = <K1>, <K2>, <K3>;                    \
     };
 
+#define HOLD_TAP_QUICK(NAME, FLAVOR, HOLD_BINDING, TAP_BINDING) \
+    /omit-if-no-ref/ NAME: NAME {                               \
+        compatible = "zmk,behavior-hold-tap";                   \
+        #binding-cells = <2>;                                   \
+        bindings = <HOLD_BINDING>, <TAP_BINDING>;               \
+        flavor = FLAVOR;                                        \
+        tapping-term-ms = <300>;                                \
+        quick-tap-ms = <QUICK_TAP_MS>;                          \
+    };
 
 / {
     behaviors {
@@ -132,6 +142,7 @@
 
         MORPH(left_right,   LEFT, RIGHT,        MOD_LSFT|MOD_RSFT)
         MORPH(qmark_excl,   DE_QMARK, DE_EXCL,  MOD_LSFT|MOD_RSFT)
+        MORPH(flsh_bslh,    DE_FSLH, DE_BSLH,   MOD_LSFT|MOD_RSFT)
 
         MORPH(lr_brc,       DE_LBRC, DE_RBRC,   MOD_LSFT|MOD_RSFT)
         MORPH(lr_bkt,       DE_LBKT, DE_RBKT,   MOD_LSFT|MOD_RSFT)
@@ -143,41 +154,12 @@
         TAP_DANCE_3(td_bt_clr,      &none, &none, &bt BT_CLR)
         TAP_DANCE_3(td_bootloader,  &none, &none, &bootloader)
 
-        /omit-if-no-ref/ mo_sl: momentary_sticky_layer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            flavor = "hold-preferred";
-            bindings = <&mo>, <&sl>;
-        };
+        HOLD_TAP_QUICK(mo_sl, "hold-preferred", &mo, &sl)
+        HOLD_TAP_QUICK(mt_sl, "tap-preferred",  &kp, &sl)
+        HOLD_TAP_QUICK(mt_sk, "hold-preferred", &kp, &sk)
+        HOLD_TAP_QUICK(mt_kt, "hold-preferred", &kp, &kt)
 
-        /omit-if-no-ref/ mt_sl: hold_key_sticky_layer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&sl>;
-        };
-
-        /omit-if-no-ref/ mt_sk: momentary_sticky_key {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            flavor = "hold-preferred";
-            bindings = <&kp>, <&sk>;
-        };
-
-        /omit-if-no-ref/ mt_kt: toggle_or_hold {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            flavor = "hold-preferred";
-            bindings = <&kp>, <&kt>;
-        };
+        HOLD_TAP_QUICK(mt_qe, "hold-preferred", &kp, &qmark_excl)
 
         /omit-if-no-ref/ mo_sk: hold_layer_tap_sticky_key {
             compatible = "zmk,behavior-hold-tap";
@@ -266,22 +248,24 @@
         COMBO_ROLL(combo_qmark,         RB4 RB5, &kp DE_QMARK,          BUT)  // qwertz .-
 
         // see https://github.com/zmkfirmware/zmk/issues/544
-        COMBO_ROLL(combo_home_bspc,     LM2 LM3, &hml LS(LCTRL) BSPC,   QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML)   // qwertz df
-        COMBO_ROLL(combo_home_del,      LM3 LM4, &hml LS(LALT) DEL,     QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML)   // qwertz sd
+        // COMBO_ROLL(combo_home_bspc,     LM2 LM3, &hml LS(LCTRL) BSPC,   QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML)   // qwertz df
 
         // if we ever want to go back to shift combos on home row mods
         // COMBO_ROLL(combo_sshft_l1,  LM3 LM2, &hml_skq LS(LCTRL) LSHFT,  COLEMAK BUT)  // qwertz df
         // COMBO_ROLL(combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   COLEMAK BUT)  // qwertz as
         // COMBO_ROLL(combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  COLEMAK BUT)  // qwertz jk
+
+        COMBO_ROLL(combo_flsh, RB3 RB4, &flsh_bslh, QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML BUT)  // qwertz er
         
         COMBO_UMLAUT(combo_qw_u_uml, RT2 RM5, DE_U_UMLAUT, QWERTZ)
         COMBO_UMLAUT(combo_qw_o_uml, RT4 RM5, DE_O_UMLAUT, QWERTZ)
         COMBO_UMLAUT(combo_qw_a_uml, LM5 RM5, DE_A_UMLAUT, QWERTZ)
         COMBO_UMLAUT(combo_qw_sz,    LM4 RM5, DE_SZ,       QWERTZ)
 
-        COMBO_THUMB_TOG(combo_mouse_tog,    RH1 RH2, MOUSE,     QWERTZ QWERTZ_UML COLEMAK BUT)
-        COMBO_THUMB_TOG(combo_num_tog,      RH0 RH1, NUM,       QWERTZ QWERTZ_UML COLEMAK BUT NUM)
-        COMBO_THUMB_TOG(combo_nav_tog,      LH0 LH1, NAV,       QWERTZ QWERTZ_UML COLEMAK BUT NAV)
+        COMBO_THUMB_TOG(combo_mouse_tog,    RH1 RH2, MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT)
+        COMBO_THUMB_TOG(combo_num_tog,      RH0 RH1, NUM,           QWERTZ QWERTZ_UML COLEMAK BUT NUM)
+        COMBO_THUMB_TOG(combo_num_mirr_tog, LH1 LH2, NUM_MIRROR,    QWERTZ QWERTZ_UML COLEMAK BUT NUM_MIRROR)
+        COMBO_THUMB_TOG(combo_nav_tog,      LH0 LH1, NAV,           QWERTZ QWERTZ_UML COLEMAK BUT NAV)
     };
 };
 
@@ -293,16 +277,16 @@
 
 #define BASE_LT6    &kp ESC
 #define BASE_LT0    &kp MUTE_MIC
-#define BASE_RT0    &kp DE_DOUBLE_QUOTES
-#define BASE_LM6    &mt LALT TAB
+#define BASE_RT0    &kp TAB
+#define BASE_LM6    &mt LCTRL TAB
 #define BASE_LM0    &none
 #define BASE_RM0    &left_right
 #define BASE_LB6    &kp LSHFT
-#define BASE_LH     &mt LCTRL ESC   &mo_sk NAV LSHFT   &kp BSPC
-#define BASE_RH     &lt SYMBOL SPC  &lt NUM RET        &lt FUNCTION TAB
+#define BASE_LH     &mo_sl NUM_MIRROR NUM_MIRROR    &mo_sk NAV LSHFT   &kp BSPC
+#define BASE_RH     &lt SYMBOL SPC                  &lt NUM RET        &lt FUNCTION TAB
 
-#define UML_RT6 &kp DE_EXCL
-#define UML_RM6 &mt RGUI DE_QMARK
+#define UML_RT6 &flsh_bslh
+#define UML_RM6 &mt_qe RGUI 0
 #define UML_RB6 &mt_sk RSHFT RSHFT
 
 / {
@@ -370,19 +354,24 @@ BASE_LB6 &kp DE_K       &kp DE_Y       &kp DE_O_UMLAUT   &kp DE_A_UMLAUT     &kp
             >;
         };
 
+        num_mirrored_layer {
+            display-name = "num mirror";
+            bindings = <
+XXX &kp TAB     &kp ESC  &kp LALT  &kp UNDO_  &kp RET  &kt RALT  &kp MUTE_MIC &kp DE_PLUS  &kp DE_N7 &kp DE_N8 &kp DE_N9 &lr_bkt    &at_euro
+XXX &kp RGUI    &kp RALT &kp RSHFT &kp RCTRL  &kp BSPC &kt RSHFT &kp DE_COMMA &kp DE_HASH  &kp DE_N4 &kp DE_N5 &kp DE_N6 &lr_brc    &bslh_pipe
+XXX &kp DE_SEMI &kp CUT_ &kp COPY_ &kp PASTE_ &kp SPC                         &kp DE_MINUS &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp DE_LT  &grave_equal
+                  &tog NUM_MIRROR &tog NUM_MIRROR XXX                         &kp DE_DOT   &kp DE_N0 &kp DE_CARET
+            >;
+        };
+
         symbol_layer {
             display-name = "symbol";
             bindings = <
-// &kp DE_SECT   &kp DE_CARET &kp DE_SQT   &kp DE_MINUS  &kp DE_STAR    &kp DE_HASH   &kp DE_MINUS &kp DE_DOT   &kp DE_AT    &kp DE_PIPE &kp  DE_LBRC &kp DE_RBRC &kp DE_DOT   &kp DE_COMMA
-// &mt LGUI TAB  &kp DE_EXCL  &kp DE_DQT   &kp DE_COLON  &kp DE_EQUAL   &kp DE_DLLR   &kp DE_UNDER &kp DE_COMMA &kp DE_AMPS  &kp DE_FSLH &kp  DE_LPAR &kp DE_RPAR &kp DE_QMARK &kp DE_TILDE
-// &kp LSHFT     &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_PLUS    &kp DE_PRCNT                            &kp DE_EURO  &kp DE_BSLH &kp  DE_LBKT &kp DE_RBKT &kp DE_UNDER &kp DE_SEMI
-//                                         &mt LCTRL RET &mt LALT BSPC  &kp SPC                                 &kp SPC      &tog SYMBOL &tog MOUSE
 &kp DE_EURO  &kp DE_RBKT &kp DE_FSLH    &kp DE_LPAR    &kp DE_RPAR    &kp DE_STAR XXX          XXX  &kp RET   &kp UNDO_  XXX         &kp ESC   XXX          XXX
 &kp DE_PIPE  &kp DE_RBRC &kp DE_EXCL    &kp DE_DQT     &kp DE_AMPS    &kp DE_SQT  &kp DE_SEMI  XXX  &kp BSPC  &kp RCTRL  &kp RSHFT   &kp LALT  &kp RGUI     XXX
 &kp DE_EQUAL &kp DE_GT   &kp DE_DOLLAR  &kp DE_PRCNT   &kp DE_QMARK   &kp DE_UNDER                  &kp SPC   &kp PASTE_ &kp COPY_   &kp CUT_  &kp DE_COLON XXX
                                         &kp DE_DEG     &kp DE_EQUAL   &kp DE_COLON                  XXX       XXX        &kp TAB
-
->;
+            >;
         };
 
         nav_layer {
