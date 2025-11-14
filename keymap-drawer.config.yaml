@@ -129,10 +129,10 @@ parse_config:
       shifted: $$mdi:toggle-switch-outline$$
       hold: $$mdi:apple-keyboard-shift$$
       type: sym_by_sym
-    '&mo_sk NAV LSHFT':
+    '&mo_skq NAV LSHFT':
       tap: $$mdi:apple-keyboard-shift$$
       shifted: $$mdi:numeric-1$$
-      hold: nav
+      hold: navi
       type: sym_by_sym
 
     "&mmv MOVE_UP":
@@ -230,17 +230,17 @@ parse_config:
       hold:    $$mdi:arrow-down$$
       type:    sym_by_sym
     
-    '&rgb_ug COLOR_RED':
+    '&rgb_ug RGB_COL_RED':
       tap:     $$mdi:led-variant-outline$$
       shifted: $$mdi:palette$$
       hold:    Red
       type:    sym_by_sym
-    '&rgb_ug COLOR_GREEN':
+    '&rgb_ug RGB_COL_GREEN':
       tap:     $$mdi:led-variant-outline$$
       shifted: $$mdi:palette$$
       hold:    Green
       type:    sym_by_sym
-    '&rgb_ug COLOR_BLUE':
+    '&rgb_ug RGB_COL_BLUE':
       tap:     $$mdi:led-variant-outline$$
       shifted: $$mdi:palette$$
       hold:    Blue
@@ -509,12 +509,11 @@ parse_config:
   zmk_preamble: '#define KEYMAP_DRAWER'
   zmk_additional_includes: ['config']
   zmk_combos:
-    combo_mouse_tog:    { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    combo_sym_tog:      { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    combo_num_tog:      { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    combo_num_mirr_tog: { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    combo_nav_tog:      { align: bottom, o: 0.5,  arc_scale: 0.98 }
-    combo_qw_u_uml:     { align: top,    o: 1.0,  arc_scale: 0.9 }
-    combo_qw_o_uml:     { align: top,    o: 0.3,  arc_scale: 0.3 }
-    combo_qw_sz:        { align: top,    o: 2.3,  arc_scale: 1.025 }
-    combo_qw_a_uml:     { align: top,    o: 3.0,  arc_scale: 1.05 }
+    combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    combo_num_l_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    combo_num_r_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    combo_navi_tog:   { align: bottom, o: 0.5,  arc_scale: 0.98 }
+    combo_qw_u_uml:   { align: top,    o: 1.0,  arc_scale: 0.9 }
+    combo_qw_o_uml:   { align: top,    o: 0.3,  arc_scale: 0.3 }
+    combo_qw_sz:      { align: top,    o: 2.3,  arc_scale: 1.025 }
+    combo_qw_a_uml:   { align: top,    o: 3.0,  arc_scale: 1.05 }

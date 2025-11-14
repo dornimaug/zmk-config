@@ -8,7 +8,6 @@
 #ifndef KEYMAP_DRAWER
 
 #include "keys_de.h"
-#include "rgb.h"
 
 #define MUTE_MIC LG(LA(DE_K))
 
@@ -29,6 +28,11 @@
 #define CUT_    LC(DE_X)
 #define UNDO_   LC(DE_Z)
 #define REDO_   LC(LS(DE_Z))
+
+// colors
+#define RGB_COL_RED   RGB_COLOR_HSB(0,100,66)
+#define RGB_COL_GREEN RGB_COLOR_HSB(100,100,66)
+#define RGB_COL_BLUE  RGB_COLOR_HSB(190,100,66)
 
 // intellij idea shortcuts
 #define IJ_COMMIT_PUSH LC(LA(DE_K))
@@ -70,13 +74,14 @@
 #define COLEMAK         2
 #define COLEMAK_UML     3
 #define BUT             4
-#define NUM             5
-#define NUM_MIRROR      6
-#define SYMBOL          7
-#define NAV             8
-#define FUNCTION        9
-#define MOUSE           10
-#define SYSTEM          11
+#define NUM_LEFT        5
+#define NUM_RIGHT       6
+#define SYMB_LEFT       7
+#define SYMB_RIGHT      8
+#define NAVI            9
+#define FUNCTION        10
+#define MOUSE           11
+#define SYSTEM          12
 
 // see https://github.com/urob/zmk-config#timeless-homerow-mods
 
@@ -146,9 +151,9 @@
 
         MORPH(lr_brc,       DE_LBRC, DE_RBRC,   MOD_LSFT|MOD_RSFT)
         MORPH(lr_bkt,       DE_LBKT, DE_RBKT,   MOD_LSFT|MOD_RSFT)
-        MORPH(bslh_pipe,    DE_BSLH, DE_PIPE,   MOD_LSFT|MOD_RSFT)
+        MORPH(pipe_bslh,    DE_PIPE, DE_BSLH,   MOD_LSFT|MOD_RSFT)
         MORPH(at_euro,      DE_AT,   DE_EURO,   MOD_LSFT|MOD_RSFT)
-        MORPH(grave_equal,  DE_GRAVE,DE_EQUAL,  MOD_LSFT|MOD_RSFT)
+        MORPH(grave_tilde,  DE_GRAVE,DE_TILDE,  MOD_LSFT|MOD_RSFT)
 
         TAP_DANCE_3(td_sys_reset,   &none, &none, &sys_reset)
         TAP_DANCE_3(td_bt_clr,      &none, &none, &bt BT_CLR)
@@ -161,21 +166,6 @@
 
         HOLD_TAP_QUICK(mt_qe, "hold-preferred", &kp, &qmark_excl)
 
-        /omit-if-no-ref/ mo_sk: hold_layer_tap_sticky_key {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&sk>;
-        };
-
-        /omit-if-no-ref/ kt_off: toggle_off {
-            compatible = "zmk,behavior-key-toggle";
-            #binding-cells = <1>;
-            display-name = "Key Toggle Off";
-            toggle-mode = "off";
-        };
-
         /omit-if-no-ref/ skq: sticky_key_quick_release {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
@@ -184,10 +174,25 @@
             ignore-modifiers;
             release-after-ms = <1000>;
         };
+
+        /omit-if-no-ref/ mo_skq: hold_layer_tap_sticky_key_quick_release {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&skq>;
+        };
+
+        /omit-if-no-ref/ kt_off: toggle_off {
+            compatible = "zmk,behavior-key-toggle";
+            #binding-cells = <1>;
+            display-name = "Key Toggle Off";
+            toggle-mode = "off";
+        };
     };
 
     macros {
-        // Used by layer-listener to ensure toggled shift is turned off when leaving NAV layer
+        // Used by layer-listener to ensure toggled shift is turned off when leaving a layer
         reset_kt_mods: reset_kt_mods {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -203,7 +208,7 @@
         compatible = "zmk,layer-listeners";
 
         reset_kt_mods_on_exit {
-            layers = <NAV NUM MOUSE>;
+            layers = <NAVI NUM_LEFT MOUSE>;
             bindings = <&none &reset_kt_mods>;
         };
     };
@@ -255,17 +260,18 @@
         // COMBO_ROLL(combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   COLEMAK BUT)  // qwertz as
         // COMBO_ROLL(combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  COLEMAK BUT)  // qwertz jk
 
-        COMBO_ROLL(combo_flsh, RB3 RB4, &flsh_bslh, QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML BUT)  // qwertz er
+        COMBO_ROLL(combo_flsh, RB4 RB5, &flsh_bslh, QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML BUT)
         
         COMBO_UMLAUT(combo_qw_u_uml, RT2 RM5, DE_U_UMLAUT, QWERTZ)
         COMBO_UMLAUT(combo_qw_o_uml, RT4 RM5, DE_O_UMLAUT, QWERTZ)
         COMBO_UMLAUT(combo_qw_a_uml, LM5 RM5, DE_A_UMLAUT, QWERTZ)
         COMBO_UMLAUT(combo_qw_sz,    LM4 RM5, DE_SZ,       QWERTZ)
 
-        COMBO_THUMB_TOG(combo_mouse_tog,    RH1 RH2, MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT)
-        COMBO_THUMB_TOG(combo_num_tog,      RH0 RH1, NUM,           QWERTZ QWERTZ_UML COLEMAK BUT NUM)
-        COMBO_THUMB_TOG(combo_num_mirr_tog, LH1 LH2, NUM_MIRROR,    QWERTZ QWERTZ_UML COLEMAK BUT NUM_MIRROR)
-        COMBO_THUMB_TOG(combo_nav_tog,      LH0 LH1, NAV,           QWERTZ QWERTZ_UML COLEMAK BUT NAV)
+        // same side toggles for layers for one-hand-access
+        COMBO_THUMB_TOG(combo_mouse_tog,    LH1 LH2, MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT)
+        COMBO_THUMB_TOG(combo_num_l_tog,    LH0 LH1, NUM_LEFT,      QWERTZ QWERTZ_UML COLEMAK BUT NUM_LEFT)
+        COMBO_THUMB_TOG(combo_num_r_tog,    RH1 RH2, NUM_RIGHT,     QWERTZ QWERTZ_UML COLEMAK BUT NUM_RIGHT)
+        COMBO_THUMB_TOG(combo_navi_tog,     RH0 RH1, NAVI,          QWERTZ QWERTZ_UML COLEMAK BUT NAVI)
     };
 };
 
@@ -278,16 +284,24 @@
 #define BASE_LT6    &kp ESC
 #define BASE_LT0    &kp MUTE_MIC
 #define BASE_RT0    &kp TAB
-#define BASE_LM6    &mt LCTRL TAB
+#define BASE_LM6    &lt SYMB_RIGHT TAB
 #define BASE_LM0    &none
 #define BASE_RM0    &left_right
 #define BASE_LB6    &kp LSHFT
-#define BASE_LH     &mo_sl NUM_MIRROR NUM_MIRROR    &mo_sk NAV LSHFT   &kp BSPC
-#define BASE_RH     &lt SYMBOL SPC                  &lt NUM RET        &lt FUNCTION TAB
+#define BASE_LH     &mo_sl NUM_RIGHT SYMB_RIGHT  &mo_skq NAVI LSHFT &kp BSPC
+#define BASE_RH     &lt SYMB_LEFT SPC            &lt NUM_LEFT RET   &lt FUNCTION TAB
 
 #define UML_RT6 &flsh_bslh
 #define UML_RM6 &mt_qe RGUI 0
 #define UML_RB6 &mt_sk RSHFT RSHFT
+
+#define LEFT_ACTIVATE_TOP       XXX      &kp TAB  &kp RET   &kp SPC    &kp UNDO_
+#define LEFT_ACTIVATE_MIDDLE    &kp LGUI &kp LALT &kp LSHFT &kp LCTRL  &kp BSPC
+#define LEFT_ACTIVATE_BOTTOM(p) p        &kp CUT_ &kp COPY_ &kp PASTE_ &kp ESC
+
+#define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB  XXX      XXX
+#define RIGHT_ACTIVATE_MIDDLE     &kp BSPC  &kp RCTRL  &kp RSHFT  &kp LALT &kp RGUI XXX
+#define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_ p        XXX
 
 / {
     keymap {
@@ -344,74 +358,92 @@ BASE_LB6 &kp DE_K       &kp DE_Y       &kp DE_O_UMLAUT   &kp DE_A_UMLAUT     &kp
             >;
         };
 
-        num_layer {
-            display-name = "num";
+        number_left_layer {
+            display-name = "num_l";
             bindings = <
-&at_euro     &lr_bkt    &kp DE_N7   &kp DE_N8     &kp DE_N9    &kp DE_PLUS  &kp MUTE_MIC &kt RALT   &kp RET   &kp UNDO_  &kp LALT    &kp ESC   XXX         XXX
-&bslh_pipe   &lr_brc    &kp DE_N4   &kp DE_N5     &kp DE_N6    &kp DE_HASH  &kp DE_COMMA &kt RSHFT  &kp BSPC  &kp RCTRL  &kp RSHFT   &kp RALT  &kp RGUI    XXX
-&grave_equal &kp DE_LT  &kp DE_N1   &kp DE_N2     &kp DE_N3    &kp DE_MINUS                         &kp SPC   &kp PASTE_ &kp COPY_   &kp CUT_  &kp DE_SEMI XXX
-                                    &kp DE_CARET  &kp DE_N0    &kp DE_DOT                           &tog NUM  &tog NUM   &kp TAB
+&at_euro     &lr_bkt    &kp DE_N7   &kp DE_N8     &kp DE_N9    &kp DE_PLUS  &sk RALT   XXX       RIGHT_ACTIVATE_TOP
+&kp DE_LT    &lr_brc    &kp DE_N4   &kp DE_N5     &kp DE_N6    &kp DE_HASH  &sk LSHFT  &kt RSHFT RIGHT_ACTIVATE_MIDDLE
+&grave_tilde &pipe_bslh &kp DE_N1   &kp DE_N2     &kp DE_N3    &kp DE_MINUS                      RIGHT_ACTIVATE_BOTTOM(&kp DE_COMMA)
+                                    &kp DE_CARET  &kp DE_N0    &kp DE_DOT                        &tog NUM_LEFT  &tog NUM_LEFT &kp RALT
             >;
         };
 
-        num_mirrored_layer {
-            display-name = "num mirror";
+        number_right_layer {
+            display-name = "num_r";
+            // the number keys are not mirrored, only the symbol keys
             bindings = <
-XXX &kp TAB     &kp ESC  &kp LALT  &kp UNDO_  &kp RET  &kt RALT  &kp MUTE_MIC &kp DE_PLUS  &kp DE_N7 &kp DE_N8 &kp DE_N9 &lr_bkt    &at_euro
-XXX &kp RGUI    &kp RALT &kp RSHFT &kp RCTRL  &kp BSPC &kt RSHFT &kp DE_COMMA &kp DE_HASH  &kp DE_N4 &kp DE_N5 &kp DE_N6 &lr_brc    &bslh_pipe
-XXX &kp DE_SEMI &kp CUT_ &kp COPY_ &kp PASTE_ &kp SPC                         &kp DE_MINUS &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp DE_LT  &grave_equal
-                  &tog NUM_MIRROR &tog NUM_MIRROR XXX                         &kp DE_DOT   &kp DE_N0 &kp DE_CARET
+XXX     LEFT_ACTIVATE_TOP         XXX       &sk RALT  &kp DE_PLUS  &kp DE_N7 &kp DE_N8 &kp DE_N9 &lr_bkt    &at_euro
+&kp TAB LEFT_ACTIVATE_MIDDLE      &kt LSHFT &sk RSHFT &kp DE_HASH  &kp DE_N4 &kp DE_N5 &kp DE_N6 &lr_brc    &kp DE_LT
+XXX     LEFT_ACTIVATE_BOTTOM(XXX)                     &kp DE_MINUS &kp DE_N1 &kp DE_N2 &kp DE_N3 &pipe_bslh &grave_tilde
+&tog NUM_RIGHT &tog NUM_RIGHT XXX                     &kp DE_DOT   &kp DE_N0 &kp DE_CARET
             >;
         };
 
-        symbol_layer {
-            display-name = "symbol";
+        // symbol layers, which only shift the numbers, not the symbols, but swap bottom and middle number rows
+        symbol_left_layer {
+            display-name = "symb_l";
             bindings = <
-&kp DE_EURO  &kp DE_RBKT &kp DE_FSLH    &kp DE_LPAR    &kp DE_RPAR    &kp DE_STAR XXX          XXX  &kp RET   &kp UNDO_  XXX         &kp ESC   XXX          XXX
-&kp DE_PIPE  &kp DE_RBRC &kp DE_EXCL    &kp DE_DQT     &kp DE_AMPS    &kp DE_SQT  &kp DE_SEMI  XXX  &kp BSPC  &kp RCTRL  &kp RSHFT   &kp LALT  &kp RGUI     XXX
-&kp DE_EQUAL &kp DE_GT   &kp DE_DOLLAR  &kp DE_PRCNT   &kp DE_QMARK   &kp DE_UNDER                  &kp SPC   &kp PASTE_ &kp COPY_   &kp CUT_  &kp DE_COLON XXX
-                                        &kp DE_DEG     &kp DE_EQUAL   &kp DE_COLON                  XXX       XXX        &kp TAB
+&at_euro     &lr_bkt    &kp DE_FSLH    &kp DE_LPAR    &kp DE_RPAR    &kp DE_PLUS  &kp DE_SECT  XXX  RIGHT_ACTIVATE_TOP
+&kp DE_LT    &lr_brc    &kp DE_EXCL    &kp DE_DQT     &kp DE_AMPS    &kp DE_HASH  &kp DE_SEMI  XXX  RIGHT_ACTIVATE_MIDDLE
+&grave_tilde &pipe_bslh &kp DE_DOLLAR  &kp DE_PRCNT   &kp DE_QMARK   &kp DE_MINUS                   RIGHT_ACTIVATE_BOTTOM(&kp DE_SEMI)
+                                       &kp DE_CARET   &kp DE_EQUAL   &kp DE_DOT                     XXX       &kp RALT   XXX        
             >;
         };
 
-        nav_layer {
-            display-name = "nav";
+        symbol_right_layer {
+            display-name = "symb_r";
+            // the number keys are not mirrored, only the symbol keys
             bindings = <
-XXX         XXX         XXX        &kp REDO_   &kp UNDO_   &kp RET     &kp MUTE_MIC &kp C_PREV &kp ESC     &kp PG_UP   &kp UP     &kp PG_DN XXX       &kp MUTE_MIC
-XXX         &kp LGUI    &kp LALT   &kp LSHFT   &kp LCTRL   &kp BSPC    &kt LSHFT    &kp C_NEXT &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT &kp END   &kp C_PP
-&mo SYSTEM  &kt LSHFT   &kp CUT_   &kp COPY_   &kp PASTE_  &kp SPC                             &caps_word  &kp HOME    &kp DEL    &kp END   &kp CAPS  &kp C_MUTE
-                                   XXX         &tog NAV    &tog NAV                            &kp SPC     &kp RET     &kp TAB
+XXX LEFT_ACTIVATE_TOP          XXX       &kp DE_SECT  &kp DE_PLUS  &kp DE_FSLH    &kp DE_LPAR    &kp DE_RPAR  &lr_bkt    &at_euro
+XXX LEFT_ACTIVATE_MIDDLE       &kt LSHFT &kp DE_COMMA &kp DE_HASH  &kp DE_EXCL    &kp DE_DQT     &kp DE_AMPS  &lr_brc    &kp DE_LT
+XXX LEFT_ACTIVATE_BOTTOM(XXX)                         &kp DE_MINUS &kp DE_DOLLAR  &kp DE_PRCNT   &kp DE_QMARK &pipe_bslh &grave_tilde
+            XXX  &kp TAB  XXX                         &kp DE_DOT   &kp DE_EQUAL   &kp DE_CARET
+            >;
+        };
+
+        navigation_layer {
+            display-name = "navi";
+            bindings = <
+XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC &kp C_PREV &kp ESC     &kp PG_UP   &kp UP     &kp PG_DN &kp REDO_ &kp MUTE_MIC
+XXX         LEFT_ACTIVATE_MIDDLE            &kt LSHFT    &kp C_NEXT &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT &kp END   &kp C_PP
+&mo SYSTEM  LEFT_ACTIVATE_BOTTOM(&kt LSHFT)                         &caps_word  &kp HOME    &kp DEL    &kp END   &kp CAPS  &kp C_MUTE
+                  XXX  &tog NAVI  &tog NAVI                         &kp SPC     &kp RET     &kp TAB
             >;
         };
 
         function_layer {
             display-name = "func";
             bindings = <
-&kp ESC    &kp F12  &kp F7  &kp F8   &kp F9    &kp SS_WIN  &kp MUTE_MIC XXX  &kp RET   &kp UNDO_  &kp COPILOT   &kp ESC   XXX       XXX
-&kp CAPS   &kp F11  &kp F2  &kp F3   &kp F6    &kp SSS_WIN XXX          XXX  &kp BSPC  &kp RCTRL  &kp RSHFT     &kp LALT  &kp RGUI  XXX
-&caps_word &kp F10  &kp F1  &kp F2   &kp F3    &kp CSR_WIN                   &kp SPC   &kp PASTE_ &kp COPY_     &kp CUT_  XXX       XXX 
-                            &kp CUT_ &kp COPY_ &kp PASTE_                    XXX       XXX        XXX   
+&kp ESC    &kp F12  &kp F7  &kp F8   &kp F9    &kp SS_WIN  &kp MUTE_MIC XXX  RIGHT_ACTIVATE_TOP
+&kp CAPS   &kp F11  &kp F2  &kp F3   &kp F6    &kp SSS_WIN &kp COPILOT  XXX  RIGHT_ACTIVATE_MIDDLE
+&caps_word &kp F10  &kp F1  &kp F2   &kp F3    &kp CSR_WIN                   RIGHT_ACTIVATE_BOTTOM(XXX)
+                            &kp CUT_ &kp COPY_ &kp PASTE_                    XXX  XXX  XXX   
             >;
         };
 
         mouse_layer {
             display-name = "mouse";
             bindings = <
-XXX  &kp ESC  &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  XXX              &kp MUTE_MIC XXX  &kp RET   &kp UNDO_   XXX        &kp ESC   XXX       XXX
-XXX  &mkp MB2 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT  &kt LSHFT    XXX  &kp BSPC  &kp RCTRL   &kp RSHFT  &kp LALT  &kp RGUI  XXX
-XXX  &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT                     &kp SPC   &kp PASTE_  &kp COPY_  &kp CUT_  XXX       XXX 
-                             &mkp MB3       &mkp MB2        &mkp MB1                           XXX       &tog MOUSE  &tog MOUSE 
+XXX  &kp ESC  &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  XXX              &kp MUTE_MIC XXX  RIGHT_ACTIVATE_TOP
+XXX  &mkp MB2 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT  &kt LSHFT    XXX  RIGHT_ACTIVATE_MIDDLE
+XXX  &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT                     RIGHT_ACTIVATE_BOTTOM(XXX)
+                             &mkp MB3       &mkp MB2        &mkp MB1                           XXX  &tog MOUSE  &tog MOUSE 
             >;
         };
         
+#define RGB_(k) &rgb_ug RGB_##k
+
         system_layer {
             display-name = "system";
             bindings = <
-XXX  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4   XXX    XXX   &rgb_ug RGB_EFF &rgb_ug RGB_SAI   &rgb_ug RGB_BRI     &rgb_ug RGB_HUI    XXX             &tog COLEMAK
-XXX  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3  &bt BT_DISC 4  XXX    XXX   &rgb_ug RGB_EFR &rgb_ug RGB_SAD   &rgb_ug RGB_BRD     &rgb_ug RGB_HUD    &rgb_ug RGB_TOG &tog BUT
-XXX  &out OUT_TOG  &td_sys_reset &td_bt_clr    &studio_unlock &td_bootloader              XXX             &rgb_ug COLOR_RED &rgb_ug COLOR_GREEN &rgb_ug COLOR_BLUE XXX             XXX 
-                                 XXX           XXX            XXX                         XXX             XXX               XXX  
+XXX  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4   XXX XXX  RGB_(EFF) RGB_(SAI)     RGB_(BRI)       RGB_(HUI)      XXX       &tog COLEMAK
+XXX  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3  &bt BT_DISC 4  XXX XXX  RGB_(EFR) RGB_(SAD)     RGB_(BRD)       RGB_(HUD)      RGB_(TOG) &tog BUT
+XXX  &out OUT_TOG  &td_sys_reset &td_bt_clr    &studio_unlock &td_bootloader          XXX       RGB_(COL_RED) RGB_(COL_GREEN) RGB_(COL_BLUE) XXX       XXX 
+                                 XXX           XXX            XXX                     XXX       XXX           XXX  
             >;
         };
+
+#undef RGB_
+
     };
 };
