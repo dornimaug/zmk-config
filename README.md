@@ -1,23 +1,25 @@
-# German Layout for Keebart Corne Choc Pro
+# ZMK-Config for German layouts
 
 > [!WARNING]
 >
 > This is a strictly personal repository.
 
-A Keebart Corne Choc Pro 46 key layout for German PC layouts configured in the OS.
+Layouts for Falbatech Redox and Keebart Keebart Corne Choc Pro 46 keys keyboards, which are to be used
+with German PC layouts configured in the OS.
 
-It is primarily compatible with Windows but should be usable in other OSes with compatible German PC layouts.
+They are primarily compatible with Windows but should be usable in other OSes with compatible German PC layouts.
 
 ### Design Principles
 
 - Primary use cases are writing German (and sometimes English) texts and code mostly in C-style languages.
 - Provide opposing hand modifiers for most used layers
-- Optimize for minimal finger movements instead of familiarity (QWERTZ being the exception for now)
-- Should be usable without the 4 inner keys (i.e. on 42-key boards)
+- Optimize for minimal finger movements without sacrificing familiarity too much
 
 ### References
 
-Forked from the original [Keebart zmk-config](https://github.com/Keebart/zmk-config).
+Originally forked from the original [Keebart zmk-config](https://github.com/Keebart/zmk-config).
+
+Redox initially config copied from [Falbatech zmk-config-redox_ZMK](https://github.com/falbatech/zmk-config-redox_ZMK).
 
 Inspired by 
 
@@ -28,4 +30,10 @@ Inspired by
 
 ## Keymap
 
-[![Split Keyboard Keymap](https://raw.githubusercontent.com/dornimaug/keebart-zmk-config/corne-de/keymap-drawer/corne_choc_pro.svg)](https://raw.githubusercontent.com/dornimaug/keebart-zmk-config/corne-de/keymap-drawer/corne_choc_pro.svg)
+### Redox
+
+[![Redox Keyboard Keymap](https://raw.githubusercontent.com/dornimaug/zmk-config/main/keymap-drawer/redox.svg)](https://raw.githubusercontent.com/dornimaug/zmk-config/main/keymap-drawer/redox.svg)
+
+### Corne Choc Pro
+
+[![Corne Choc Pro Keyboard Keymap](https://raw.githubusercontent.com/dornimaug/zmk-config/main/keymap-drawer/corne_choc_pro.svg)](https://raw.githubusercontent.com/dornimaug/zmk-config/main/keymap-drawer/corne_choc_pro.svg)
