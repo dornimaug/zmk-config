@@ -130,11 +130,11 @@
         qwertz_layer {
             display-name = "QWERTZ";
             bindings = <
-&kp ESC            &kp DE_N1      &kp DE_N2      &kp DE_N3       &kp DE_N4       &kp DE_N5                                                             &kp DE_N6    &kp DE_N7       &kp DE_N8       &kp DE_N9      &kp DE_N0                    &mute_mic_pp
-&caps_word         &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R        &kp DE_T  &mute_mic_pp                                    &kp ESC     &kp DE_Z     &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &excl_sqt
-&lt SYMB_RIGHT TAB &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G  &lt SYMB_RIGHT RET                              &kp BSPC    &kp DE_H     &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &qmark_dqt
-&kp LSHFT          &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B  &kp DEL  &kp SPC                      &kp SPC   &kp RET     &kp DE_N     &kp DE_M        &kp COMMA       &kp DE_DOT     &kp DE_MINUS                 &mt_sk RSHFT RSHFT
-&kp LCTRL          &kp LALT       &kp LGUI       &kp RALT           &mo_skq NAVI LSHFT     &kp BSPC &mo_sl NUM_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT SPC &lt NUM_LEFT RET   &kp LEFT  &kp RIGHT &kp UP   &kp DOWN
+&kp ESC            &kp DE_N1      &kp DE_N2      &kp DE_N3       &kp DE_N4       &kp DE_N5                                                                    &kp DE_N6    &kp DE_N7       &kp DE_N8       &kp DE_N9      &kp DE_N0                    &mute_mic_pp
+&caps_word         &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R        &kp DE_T  &mute_mic_pp                                           &kp ESC     &kp DE_Z     &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &excl_sqt
+&lt SYMB_RIGHT TAB &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G  &lt SYMB_RIGHT RET                                     &kp BSPC    &kp DE_H     &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &qmark_dqt
+&kp LSHFT          &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B  &kp DEL  &kp SPC                      &kp SPC          &kp RET     &kp DE_N     &kp DE_M        &kp COMMA       &kp DE_DOT     &kp DE_MINUS                 &mt_sk RSHFT RSHFT
+&kp LCTRL          &kp LALT       &kp LGUI       &kp RALT           &mo_skq NAVI LSHFT     &kp BSPC &mo_sl NUM_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT SPC &lt NUM_LEFT RET       &kp LEFT        &kp RIGHT      &kp DOWN                     &kp UP
             >;
 
         };
@@ -204,7 +204,7 @@ EMPTY_NUMBER_ROW                                                                
 XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC                 &kp INS    &kp REDO_   &kp PG_UP   &kp UP     &kp PG_DN  &kp REDO_    &kp MUTE_MIC
 &mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kt LSHFT                    &mkp MB4   &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT  &kp END      &kp C_PP
 XXX         LEFT_ACTIVATE_BOTTOM(&kt LSHFT) XXX       XXX       &mkp MB4 &mkp MB5   &caps_word  &kp HOME    &kp DEL    &kp END    &kp CAPS     &kp C_MUTE
-EMPTY_4                                XXX  &tog NAVI &tog NAVI &kp SPC  &kp RET          &kp TAB           &kp C_PREV &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN
+EMPTY_4                                XXX  &tog NAVI &tog NAVI &kp SPC  &kp RET          &kp TAB           &kp C_PREV &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP
             >;
         };
 
@@ -240,56 +240,5 @@ XXX  &out OUT_TOG  &td_sys_reset &td_bt_clr    &td_bootloader &td_bootloader XXX
 EMPTY_4                                                     XXX              XXX            XXX XXX XXX    XXX   EMPTY_4
             >;
         };
-
-//         lower_layer {
-//             display-name = "Lower Layer";
-// // --------------------------------------------------------------------------------------------------------------------------
-// // | ESC   |  1  |  2  |   3   |   4   |  5  |                   ---              |  6  |  7  |   8  |  9   |  0  |  DEL  |
-// // | ESC   |  1  |  2  |   3   |   4   |  5  |   (   |           ---        |  )  |  6  |  7  |   8  |  9   |  0  |  DEL  |
-// // | CTRL  |  -  |  =  |   [   |   ]   |  \  |   [   |           ---        |  ]  |  *  |  4  |   5  |  6   |  +  |   -   |
-// // | SHIFT | ESC | GUI | COPY  | PASTE |     | PG_UP | PG_DOWN | --- | HOME | END |  \  |  1  |   2  |  3   | RET |  RET  |
-// // | CRTL  | ALT | GUI | LOWER |     GUI     | LOWER | SPACE   | --- | DEL  |  0  |    RAISE  | LEFT | DOWN | UP  | RIGHT |
-//             bindings = <
-//    &trans  &trans    &trans    &trans    &trans    &trans                                &trans          &trans    &trans    &trans    &trans      &trans
-//    &kp ESC &kp DE_N1    &kp DE_N2    &kp DE_N3    &kp DE_N4    &kp DE_N5    &trans               &trans &kp DE_N6          &kp DE_N7    &kp DE_N8    &kp DE_N9    &kp DE_N0      &kp DEL
-//    &trans  &kp DE_MINUS &kp DE_EQUAL &kp DE_LBKT  &kp DE_RBKT  &kp DE_BSLH  &trans               &trans &kp KP_MULTIPLY &kp DE_N4    &kp DE_N5    &kp DE_N6    &kp KP_PLUS &kp KP_MINUS
-//    &trans  &kp ESC   &kp LGUI  &kp COPY_ &kp PASTE_ &kp DE_GRAVE &trans &trans &trans &trans &kp KP_DIVIDE   &kp DE_N1    &kp DE_N2    &kp DE_N3    &kp RET     &kp RET
-//    &trans  &trans    &trans    &trans          &trans        &trans &trans &trans &kp DE_N0          &mo 3            &trans    &trans    &trans      &trans
-//             >;
-//         };
-
-//         raise_layer {
-//             display-name = "Raise Layer";
-// // ----------------------------------------------------------------------------------------------------------------------------
-// // | ESC   |  1  |  2  |   3   |  4  |  5  |                   ---                |  6   |  7   |  8   |  9   |  0    |  DEL  |
-// // | ESC   |  !  |  @  |   #   |  $  |  %  |   (   |           ---        |  )    |  ^   |  &   |  *   |  (   |  )    |  DEL  |
-// // | CTRL  |  _  |  +  |   {   |  }  | "|" |   [   |           ---        |  ]    | HOME | PGUP | PRSC | UP   |  `    |   ~   |
-// // | SHIFT | ESC | GUI |   (   |  )  |     | PG_UP | PG_DOWN | --- | HOME | END   | END  | PGDN | LEFT | DOWN | RIGHT |  RET  |
-// // | CRTL  | ALT | GUI | LOWER |    GUI    | LOWER | SPACE   | --- | DEL  | SPACE |    RAISE    | LEFT | DOWN | UP    | RIGHT |
-//             bindings = <
-//    &trans  &trans    &trans   &trans   &trans   &trans                                &trans    &trans    &trans    &trans   &trans    &trans
-//    &kp ESC &kp DE_EXCL  &kp DE_AT   &kp DE_HASH &kp DE_DLLR &kp DE_PRCNT &trans               &trans &kp DE_CARET &kp DE_AMPS  &kp DE_ASTRK &kp DE_LPAR &kp DE_RPAR  &kp DEL
-//    &trans  &kp DE_UNDER &kp DE_PLUS &kp DE_LBRC &kp DE_RBRC &kp DE_PIPE  &trans               &trans &kp HOME  &kp PG_UP &kp PSCRN &kp UP   &kp DE_GRAVE &kp DE_TILDE
-//    &trans  &kp ESC      &kp LGUI &kp DE_LPAR &kp DE_RPAR &kp DE_TILDE &trans &trans &trans &trans &kp END   &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &kp RET
-//    &trans  &trans    &trans   &mo 3         &trans        &mo 3  &trans &trans &trans        &trans       &trans    &trans   &trans    &trans
-//             >;
-//         };
-
-//         adjust_layer {
-//             display-name = "Adjust Layer";
-// // -----------------------------------------------------------------------------------------
-// // |  F1   |  F2   |    F3    |    F4     |     F5     | F6 |                   ---                | F7  | F8  |  F9  |  F10 | F11 | F12        |
-// // | TAB   |       |          |           |            |    | BOOTL |           ---        |  )    | BT1 | BT2 |  BT3 |  BT4 | BT5 | OUTPUT TGL |
-// // | CTRL  | MUTE  |  Vol Dn  |  Vol Up   | Play/Pause |    | RESET |           ---        |  ]    | F1  | F2  |  F3  |  F4  | F5  | F6         |
-// // | SHIFT | PSCRN |  PSCRN   |   CAPS    |            |    | PG_UP | PG_DOWN | --- | HOME | END   | F7  | F8  |  F9  |  F10 | F11 | F12        |
-// // | CRTL  | ALT   |  GUI     |   LOWER   |      GUI        | LOWER | SPACE   | --- | DEL  | SPACE |   RAISE   | LEFT | DOWN | UP  |   RIGHT    |
-//                         bindings = <
-//    &kp F1  &kp F2     &kp F3       &kp F4       &kp F5           &kp F6                                 &kp F7       &kp F8       &kp F9       &kp F10      &kp F11       &kp F12
-//    &trans  &none      &none        &none        &none            &none  &bootloader          &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &out OUT_TOG
-//    &trans  &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_PLAY_PAUSE &none  &sys_reset           &trans     &kp F1       &kp F2       &kp F3       &kp F4       &kp F5        &kp F6
-//    &trans  &kp PSCRN  &kp PSCRN    &kp CLCK     &none            &none  &trans &trans &trans &trans     &kp F7       &kp F8       &kp F9       &kp F10      &kp F11       &kp F12
-//    &trans  &trans     &trans       &trans              &trans           &trans &trans &trans &trans          &trans           &trans       &trans       &trans        &trans
-//             >;
-//         };
     };
 };

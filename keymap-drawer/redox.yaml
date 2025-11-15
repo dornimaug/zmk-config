@@ -69,8 +69,8 @@ layers:
   - {t: '$$mdi:keyboard-return$$', h: num_l}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$
-  - $$mdi:arrow-up-bold$$
   - $$mdi:arrow-down-bold$$
+  - $$mdi:arrow-up-bold$$
   QWERTZ uml:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -495,8 +495,8 @@ layers:
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - $$mdi:skip-previous$$
   - $$mdi:skip-next$$
-  - $$mdi:volume-high$$
   - $$mdi:volume-low$$
+  - $$mdi:volume-high$$
   func:
   - F13
   - F14
