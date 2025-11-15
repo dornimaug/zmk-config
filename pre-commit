@@ -17,7 +17,10 @@ KEYMAP=`which keymap 2> /dev/null`
 
 set -euo pipefail
 
-"$KEYMAP" -c ./keymap-drawer.config.yaml parse -z ./config/corne_choc_pro.keymap >keymap-drawer/corne_choc_pro.yaml
+"$KEYMAP" -c ./keymap-drawer.config.yaml parse -z ./config/corne_choc_pro.keymap -o keymap-drawer/corne_choc_pro.yaml
 "$KEYMAP" -c ./keymap-drawer.config.yaml draw -j config/corne_choc_pro.json keymap-drawer/corne_choc_pro.yaml >keymap-drawer/corne_choc_pro.svg
 
-git add keymap-drawer/corne_choc_pro.yaml keymap-drawer/corne_choc_pro.svg
+"$KEYMAP" -c ./keymap-drawer.config.yaml parse -z ./config/redox.keymap -o keymap-drawer/redox.yaml
+"$KEYMAP" -c ./keymap-drawer.config.yaml draw keymap-drawer/redox.yaml >keymap-drawer/redox.svg
+
+git add keymap-drawer/*.yaml keymap-drawer/*.svg

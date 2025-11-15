@@ -1,0 +1,758 @@
+layout: {zmk_keyboard: redox}
+layers:
+  QWERTZ:
+  - Esc
+  - {t: '1', s: '!'}
+  - {t: '2', s: '"'}
+  - {t: '3', s: §}
+  - {t: '4', s: $}
+  - {t: '5', s: '%'}
+  - {t: '6', s: '&'}
+  - {t: '7', s: /}
+  - {t: '8', s: (}
+  - {t: '9', s: )}
+  - {t: '0', s: '='}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
+  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
+  - Esc
+  - Z
+  - U
+  - I
+  - O
+  - P
+  - {t: '!', s: ''''}
+  - {t: '$$mdi:keyboard-tab$$', h: symb_r}
+  - {t: A, h: GUI}
+  - {t: S, h: Alt}
+  - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: F, h: Ctrl}
+  - G
+  - {t: '$$mdi:keyboard-return$$', h: symb_r}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - H
+  - {t: J, h: Ctrl}
+  - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: L, h: AltGr}
+  - {t: QWERTZ uml, h: QWERTZ uml}
+  - {t: '?', s: '"'}
+  - $$mdi:apple-keyboard-shift$$
+  - Y
+  - X
+  - C
+  - V
+  - B
+  - $$mdi:backspace-reverse-outline$$
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - N
+  - M
+  - {t: ',', s: ;}
+  - {t: ., s: ':'}
+  - {t: '-', s: _}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - Ctrl
+  - Alt
+  - GUI
+  - AltGr
+  - {t: '$$mdi:apple-keyboard-shift$$', h: navi}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: symb_r, h: num_r}
+  - {t: '$$mdi:keyboard-tab$$', h: func}
+  - {t: '$$mdi:keyboard-space$$', h: symb_l}
+  - {t: '$$mdi:keyboard-return$$', h: num_l}
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-right-bold$$
+  - $$mdi:arrow-up-bold$$
+  - $$mdi:arrow-down-bold$$
+  QWERTZ uml:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Ü
+  - {t: ▽, type: trans}
+  - Ö
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Ä
+  - ß
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  num_l:
+  - {t: num_l, h: toggle}
+  - {t: /, s: KP}
+  - {t: '-', s: KP}
+  - {t: +, s: KP}
+  - {t: '*', s: KP}
+  - {t: ^, s: °}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: '@', s: €}
+  - {t: '[', s: ']'}
+  - {t: '7', s: /}
+  - {t: '8', s: (}
+  - {t: '9', s: )}
+  - {t: +, s: '*'}
+  - {t: AltGr, h: sticky}
+  - ''
+  - Undo
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - ''
+  - ''
+  - {t: <, s: '>'}
+  - {t: '{', s: '}'}
+  - {t: '4', s: $}
+  - {t: '5', s: '%'}
+  - {t: '6', s: '&'}
+  - {t: '#', s: ''''}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - Ctrl
+  - $$mdi:apple-keyboard-shift$$
+  - Alt
+  - GUI
+  - AltGr
+  - {t: '`', s: '~'}
+  - {t: '|', s: \}
+  - {t: '1', s: '!'}
+  - {t: '2', s: '"'}
+  - {t: '3', s: §}
+  - {t: '-', s: _}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: sticky}
+  - {t: AltGr, h: sticky}
+  - ''
+  - ''
+  - Esc
+  - Paste
+  - Copy
+  - Cut
+  - AltGr
+  - ''
+  - {t: num_l, h: toggle}
+  - AltGr
+  - {t: '0', s: '='}
+  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: '0', s: '='}
+  - {t: ., s: ':'}
+  - {t: ',', s: ;}
+  - {t: num_l, h: toggle}
+  - {t: num_l, h: toggle}
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  num_r:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ^, s: °}
+  - {t: '*', s: KP}
+  - {t: +, s: KP}
+  - {t: '-', s: KP}
+  - {t: /, s: KP}
+  - {t: num_r, h: toggle}
+  - ''
+  - ''
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - Undo
+  - ''
+  - {t: AltGr, h: sticky}
+  - {t: +, s: '*'}
+  - {t: '7', s: /}
+  - {t: '8', s: (}
+  - {t: '9', s: )}
+  - {t: '[', s: ']'}
+  - {t: '@', s: €}
+  - AltGr
+  - GUI
+  - Alt
+  - $$mdi:apple-keyboard-shift$$
+  - Ctrl
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '#', s: ''''}
+  - {t: '4', s: $}
+  - {t: '5', s: '%'}
+  - {t: '6', s: '&'}
+  - {t: '{', s: '}'}
+  - {t: <, s: '>'}
+  - ''
+  - AltGr
+  - Cut
+  - Copy
+  - Paste
+  - Esc
+  - ''
+  - ''
+  - {t: AltGr, h: sticky}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: sticky}
+  - {t: '-', s: _}
+  - {t: '1', s: '!'}
+  - {t: '2', s: '"'}
+  - {t: '3', s: §}
+  - {t: '|', s: \}
+  - {t: '`', s: '~'}
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: num_r, h: toggle}
+  - {t: num_r, h: toggle}
+  - {type: held}
+  - {t: ',', s: ;}
+  - {t: ., s: ':'}
+  - {t: '0', s: '='}
+  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: '0', s: '='}
+  - AltGr
+  - {t: num_r, h: toggle}
+  symb_l:
+  - {t: ´, s: '`'}
+  - ']'
+  - '}'
+  - )
+  - '*'
+  - {t: ^, s: °}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: '@', s: €}
+  - {t: '[', s: ']'}
+  - /
+  - (
+  - )
+  - {t: +, s: '*'}
+  - ;
+  - ''
+  - Undo
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - ''
+  - ''
+  - {t: <, s: '>'}
+  - {t: '{', s: '}'}
+  - '!'
+  - '"'
+  - '&'
+  - {t: '#', s: ''''}
+  - ':'
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - Ctrl
+  - $$mdi:apple-keyboard-shift$$
+  - Alt
+  - GUI
+  - ''
+  - {t: '`', s: '~'}
+  - {t: '|', s: \}
+  - $
+  - '%'
+  - '?'
+  - {t: '-', s: _}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - ''
+  - ''
+  - Esc
+  - Paste
+  - Copy
+  - Cut
+  - ''
+  - ''
+  - ''
+  - §
+  - '='
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - '='
+  - {t: ., s: ':'}
+  - {t: ',', s: ;}
+  - ''
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  symb_r:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ^, s: °}
+  - '*'
+  - )
+  - '}'
+  - ']'
+  - {t: ´, s: '`'}
+  - ''
+  - ''
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - Undo
+  - ''
+  - ;
+  - {t: +, s: '*'}
+  - /
+  - (
+  - )
+  - {t: '[', s: ']'}
+  - {t: '@', s: €}
+  - {type: held}
+  - GUI
+  - Alt
+  - $$mdi:apple-keyboard-shift$$
+  - Ctrl
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle, type: held alternate}
+  - ':'
+  - {t: '#', s: ''''}
+  - '!'
+  - '"'
+  - '&'
+  - {t: '{', s: '}'}
+  - {t: <, s: '>'}
+  - ''
+  - ''
+  - Cut
+  - Copy
+  - Paste
+  - Esc
+  - ''
+  - ''
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '-', s: _}
+  - $
+  - '%'
+  - '?'
+  - {t: '|', s: \}
+  - {t: '`', s: '~'}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held alternate}
+  - {t: ',', s: ;}
+  - {t: ., s: ':'}
+  - '='
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - '='
+  - §
+  - ''
+  navi:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Print Screen
+  - $$mdi:rewind$$
+  - $$mdi:play-pause$$
+  - $$mdi:fast-forward$$
+  - Pause / Break
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - ''
+  - ''
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - Undo
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
+  - Insert
+  - Redo
+  - {t: Page, h: '$$mdi:arrow-up$$'}
+  - $$mdi:arrow-up-bold$$
+  - {t: Page, h: '$$mdi:arrow-down$$'}
+  - Redo
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
+  - system
+  - GUI
+  - Alt
+  - $$mdi:apple-keyboard-shift$$
+  - Ctrl
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: MB4, s: '$$mdi:mouse$$'}
+  - Home
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-down-bold$$
+  - $$mdi:arrow-right-bold$$
+  - End
+  - $$mdi:play-pause$$
+  - ''
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - Cut
+  - Copy
+  - Paste
+  - Esc
+  - ''
+  - ''
+  - {t: MB4, s: '$$mdi:mouse$$'}
+  - {t: MB5, s: '$$mdi:mouse$$'}
+  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
+  - Home
+  - $$mdi:backspace-reverse-outline$$
+  - End
+  - $$mdi:apple-keyboard-caps$$
+  - $$mdi:volume-off$$
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  - {t: navi, h: toggle}
+  - {t: navi, h: toggle}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - $$mdi:skip-previous$$
+  - $$mdi:skip-next$$
+  - $$mdi:volume-high$$
+  - $$mdi:volume-low$$
+  func:
+  - F13
+  - F14
+  - F15
+  - F16
+  - F17
+  - F18
+  - F19
+  - F20
+  - F21
+  - F22
+  - F23
+  - F24
+  - Esc
+  - F12
+  - F7
+  - F8
+  - F9
+  - {t: '$$mdi:monitor-screenshot$$', h: '$$mdi:microsoft-windows$$'}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
+  - ''
+  - Undo
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - ''
+  - ''
+  - $$mdi:apple-keyboard-caps$$
+  - F11
+  - F2
+  - F3
+  - F6
+  - {t: '$$mdi:monitor-screenshot$$', h: '$$mdi:microsoft-windows$$', s: '$$mdi:select-drag$$', type: sym_by_sym}
+  - {t: '$$mdi:robot-confused-outline$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
+  - ''
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - Ctrl
+  - $$mdi:apple-keyboard-shift$$
+  - Alt
+  - GUI
+  - ''
+  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
+  - F10
+  - F1
+  - F2
+  - F3
+  - {t: '$$mdi:monitor-screenshot$$', h: '$$mdi:microsoft-windows$$', s: '$$mdi:video-outline$$', type: sym_by_sym}
+  - Undo
+  - Redo
+  - ''
+  - ''
+  - Esc
+  - Paste
+  - Copy
+  - Cut
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Cut
+  - Copy
+  - Paste
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  mouse:
+  - {t: mouse, h: toggle}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Esc
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-up-bold$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
+  - {t: MB3, s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
+  - ''
+  - Undo
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - ''
+  - ''
+  - ''
+  - $$mdi:mouse-left-click-outline$$
+  - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-left-bold$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-down-bold$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-right-bold$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - ''
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - Ctrl
+  - $$mdi:apple-keyboard-shift$$
+  - Alt
+  - GUI
+  - ''
+  - $$mdi:apple-keyboard-shift$$
+  - {t: MB5, s: '$$mdi:mouse$$'}
+  - {t: MB4, s: '$$mdi:mouse$$'}
+  - $$mdi:mouse-right-click-outline$$
+  - $$mdi:mouse-left-click-outline$$
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
+  - {t: MB5, s: '$$mdi:mouse$$'}
+  - {t: MB4, s: '$$mdi:mouse$$'}
+  - ''
+  - ''
+  - Esc
+  - Paste
+  - Copy
+  - Cut
+  - ''
+  - ''
+  - {t: mouse, h: toggle}
+  - ''
+  - ''
+  - ''
+  - $$mdi:mouse-right-click-outline$$
+  - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-right-click-outline$$
+  - ''
+  - {t: mouse, h: toggle}
+  - {t: mouse, h: toggle}
+  - ''
+  - ''
+  - ''
+  - ''
+  system:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: '$$mdi:bluetooth-connect$$', h: '0'}
+  - {t: '$$mdi:bluetooth-connect$$', h: '1'}
+  - {t: '$$mdi:bluetooth-connect$$', h: '2'}
+  - {t: '$$mdi:bluetooth-connect$$', h: '3'}
+  - {t: '$$mdi:bluetooth-connect$$', h: '4'}
+  - {t: '$$mdi:lock-open-outline$$', s: Studio}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  - {t: '$$mdi:bluetooth-off$$', h: '0'}
+  - {t: '$$mdi:bluetooth-off$$', h: '1'}
+  - {t: '$$mdi:bluetooth-off$$', h: '2'}
+  - {t: '$$mdi:bluetooth-off$$', h: '3'}
+  - {t: '$$mdi:bluetooth-off$$', h: '4'}
+  - {t: '$$mdi:flash$$', h: tap 3x, s: '$$mdi:usb-flash-drive$$', type: sym_by_sym}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: '$$mdi:bluetooth$$', h: toggle, s: '$$mdi:usb$$', type: sym_by_sym}
+  - {t: '$$mdi:flash-alert$$', h: tap 3x, s: Reset}
+  - {t: '$$mdi:bluetooth-settings$$', h: tap 3x, s: '$$mdi:close-thick$$', type: sym_by_sym}
+  - {t: '$$mdi:flash$$', h: tap 3x, s: '$$mdi:usb-flash-drive$$', type: sym_by_sym}
+  - {t: '$$mdi:flash$$', h: tap 3x, s: '$$mdi:usb-flash-drive$$', type: sym_by_sym}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+combos:
+- p: [53, 54]
+  k: {t: /, s: \}
+  l: [QWERTZ, QWERTZ uml]
+- p: [52, 53]
+  k: {t: /, s: \}
+  l: [QWERTZ, QWERTZ uml]
+- p: [66, 67]
+  k: Home
+  l: [QWERTZ, QWERTZ uml]
+- p: [21, 38]
+  k: Ü
+  l: [QWERTZ]
+  a: top
+  o: 1.5
+  arc_scale: 0.9
+- p: [23, 38]
+  k: Ö
+  l: [QWERTZ]
+  a: top
+  o: 1.2
+  arc_scale: 0.3
+- p: [27, 38]
+  k: Ä
+  l: [QWERTZ]
+  a: top
+  o: 3.6
+  arc_scale: 1.05
+- p: [28, 38]
+  k: ß
+  l: [QWERTZ]
+  a: top
+  o: 2.8
+  arc_scale: 1.025
+- p: [62, 47]
+  k: {t: mouse, h: toggle}
+  l: [QWERTZ, QWERTZ uml, mouse]
+- p: [61, 46]
+  k: {t: num_l, h: toggle}
+  l: [QWERTZ, QWERTZ uml, num_l]
+- p: [63, 48]
+  k: {t: num_r, h: toggle}
+  l: [QWERTZ, QWERTZ uml, num_r]
+- p: [64, 49]
+  k: {t: navi, h: toggle}
+  l: [QWERTZ, QWERTZ uml, navi]

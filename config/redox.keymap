@@ -1,0 +1,295 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
+
+#ifndef KEYMAP_DRAWER
+#include "keys_de.h"
+#endif // KEYMAP_DRAWER
+
+#include "redox-labels.h"
+#include "common.dtsi"
+
+// layers
+#define QWERTZ          0
+#define QWERTZ_UML      1
+#define NUM_LEFT        2
+#define NUM_RIGHT       3
+#define SYMB_LEFT       4
+#define SYMB_RIGHT      5
+#define NAVI            6
+#define FUNCTION        7
+#define MOUSE           8
+#define SYSTEM          9
+
+/ {
+    behaviors {
+        // see https://github.com/zmkfirmware/zmk/issues/544
+        // HOME_ROW_MOD(hml_skq, &kp, &skq, KEYS_RIGHT KEYS_THUMB)
+        // HOME_ROW_MOD(hmr_skq, &kp, &skq, KEYS_LEFT KEYS_THUMB)
+        // HOME_ROW_MOD(hml_sl, &kp, &sl, KEYS_RIGHT KEYS_THUMB)
+        // HOME_ROW_MOD(hmr_sl, &kp, &sl, KEYS_LEFT KEYS_THUMB)
+
+        MORPH(prev_next,    C_PREV,     C_NEXT,     MOD_ANY)
+        MORPH(spc_bspc,     SPACE,      BSPC,       MOD_ANY)
+        MORPH(bspc_spc,     BSPC,       SPACE,      MOD_ANY)
+        MORPH(ret_del,      RET,        DEL,        MOD_ANY)
+        MORPH(bspc_del,     BSPC,       DEL,        MOD_ANY)
+        MORPH(mute_mic_pp,  MUTE_MIC,   C_PP,       MOD_ANY)
+
+        MORPH(left_right,   LEFT,       RIGHT,      MOD_LSFT|MOD_RSFT)
+        MORPH(qmark_dqt,    DE_QMARK,   DE_DQT,     MOD_LSFT|MOD_RSFT)
+        MORPH(excl_sqt,     DE_EXCL,    DE_SQT,     MOD_LSFT|MOD_RSFT)
+        MORPH(fslh_bslh,    DE_FSLH,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
+
+        MORPH(lr_brc,       DE_LBRC,    DE_RBRC,    MOD_LSFT|MOD_RSFT)
+        MORPH(lr_bkt,       DE_LBKT,    DE_RBKT,    MOD_LSFT|MOD_RSFT)
+        MORPH(pipe_bslh,    DE_PIPE,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
+        MORPH(at_euro,      DE_AT,      DE_EURO,    MOD_LSFT|MOD_RSFT)
+        MORPH(grave_tilde,  DE_GRAVE,   DE_TILDE,   MOD_LSFT|MOD_RSFT)
+
+    };
+
+    macros {
+        // Used by layer-listener to ensure toggled shift is turned off when leaving a layer
+        reset_kt_mods: reset_kt_mods {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings 
+                = <&kt_off LSHFT>
+                , <&kt_off RSHFT>
+                , <&kt_off RALT>;
+        };
+    };
+
+    layer_listeners {
+        // see https://github.com/ssbb/zmk-listeners/tree/v1
+        compatible = "zmk,layer-listeners";
+
+        reset_kt_mods_on_exit {
+            layers = <NAVI NUM_LEFT NUM_RIGHT SYMB_LEFT SYMB_RIGHT MOUSE>;
+            bindings = <&none &reset_kt_mods>;
+        };
+    };
+
+
+    combos {
+        compatible = "zmk,combos";
+
+        // see https://github.com/zmkfirmware/zmk/issues/544
+        // COMBO_ROLL(rdx_combo_home_bspc,     LM2 LM3, &hml LS(LCTRL) BSPC,   QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML)   // qwertz df
+
+        // if we ever want to go back to shift combos on home row mods
+        // COMBO_ROLL(rdx_combo_sshft_l1,  LM3 LM2, &hml_skq LS(LCTRL) LSHFT,  COLEMAK BUT)  // qwertz df
+        // COMBO_ROLL(rdx_combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   COLEMAK BUT)  // qwertz as
+        // COMBO_ROLL(rdx_combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  COLEMAK BUT)  // qwertz jk
+
+        COMBO_ROLL(rdx_combo_fslh,  RB4 RB5, &fslh_bslh, QWERTZ QWERTZ_UML)
+        COMBO_ROLL(rdx_combo_fslh2, RB3 RB4, &fslh_bslh, QWERTZ QWERTZ_UML)
+        COMBO_ROLL(rdx_combo_home,  RF3 RF4, &kp HOME,   QWERTZ QWERTZ_UML)
+        
+        COMBO_UMLAUT(rdx_combo_qw_u_uml, RT2 RM5, DE_U_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(rdx_combo_qw_o_uml, RT4 RM5, DE_O_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(rdx_combo_qw_a_uml, LM5 RM5, DE_A_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(rdx_combo_qw_sz,    LM4 RM5, DE_SZ,       QWERTZ)
+
+        // same side toggles for layers for one-hand-access
+        COMBO_THUMB_TOG(rdx_combo_mouse_tog,    LH0 LH3, MOUSE,         QWERTZ QWERTZ_UML MOUSE)
+        COMBO_THUMB_TOG(rdx_combo_num_l_tog,    LH1 LH4, NUM_LEFT,      QWERTZ QWERTZ_UML NUM_LEFT)
+        COMBO_THUMB_TOG(rdx_combo_num_r_tog,    RH0 RH3, NUM_RIGHT,     QWERTZ QWERTZ_UML NUM_RIGHT)
+        COMBO_THUMB_TOG(rdx_combo_navi_tog,     RH1 RH4, NAVI,          QWERTZ QWERTZ_UML NAVI)
+    };
+};
+
+#define XXX &none  
+#define ___ &trans
+
+#define LEFT_ACTIVATE_TOP       XXX      &kp TAB  &kp RET   &kp SPC    &kp UNDO_
+#define LEFT_ACTIVATE_MIDDLE    &kp LGUI &kp LALT &kp LSHFT &kp LCTRL  &kp BSPC
+#define LEFT_ACTIVATE_BOTTOM(p) p        &kp CUT_ &kp COPY_ &kp PASTE_ &kp ESC
+
+#define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB  XXX      XXX
+#define RIGHT_ACTIVATE_MIDDLE(p)  &kp BSPC  &kp RCTRL  &kp RSHFT  &kp LALT &kp RGUI p
+#define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_ p        XXX
+
+#define EMPTY_NUMBER_ROW    XXX XXX XXX XXX XXX XXX
+#define EMPTY_4             XXX XXX XXX XXX
+
+/ {
+    keymap {
+        compatible =  "zmk,keymap" ;
+
+        qwertz_layer {
+            display-name = "QWERTZ";
+            bindings = <
+&kp ESC            &kp DE_N1      &kp DE_N2      &kp DE_N3       &kp DE_N4       &kp DE_N5                                                             &kp DE_N6    &kp DE_N7       &kp DE_N8       &kp DE_N9      &kp DE_N0                    &mute_mic_pp
+&caps_word         &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R        &kp DE_T  &mute_mic_pp                                    &kp ESC     &kp DE_Z     &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &excl_sqt
+&lt SYMB_RIGHT TAB &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G  &lt SYMB_RIGHT RET                              &kp BSPC    &kp DE_H     &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &qmark_dqt
+&kp LSHFT          &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B  &kp DEL  &kp SPC                      &kp SPC   &kp RET     &kp DE_N     &kp DE_M        &kp COMMA       &kp DE_DOT     &kp DE_MINUS                 &mt_sk RSHFT RSHFT
+&kp LCTRL          &kp LALT       &kp LGUI       &kp RALT           &mo_skq NAVI LSHFT     &kp BSPC &mo_sl NUM_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT SPC &lt NUM_LEFT RET   &kp LEFT  &kp RIGHT &kp UP   &kp DOWN
+            >;
+
+        };
+
+        qwertz_umlauts_overlay_layer {
+            display-name = "QWERTZ uml";
+            bindings = <
+___ ___              ___       ___ ___ ___                      ___ ___             ___ ___             ___ ___
+___ ___              ___       ___ ___ ___ ___     /**/     ___ ___ &kp DE_U_UMLAUT ___ &kp DE_O_UMLAUT ___ ___
+___ &kp DE_A_UMLAUT  &kp DE_SZ ___ ___ ___ ___     /**/     ___ ___ ___             ___ ___             ___ ___
+___ ___              ___       ___ ___ ___ ___ ___      ___ ___ ___ ___             ___ ___             ___ ___
+___ ___              ___       ___   ___   ___ ___      ___ ___   ___               ___ ___             ___ ___
+            >;
+        };
+
+        number_left_layer {
+            display-name = "num_l";
+            bindings = <
+&tog NUM_LEFT &kp KP_DIVIDE &kp KP_MINUS &kp KP_PLUS &kp KP_MULTIPLY &kp DE_CARET                                                  EMPTY_NUMBER_ROW
+&at_euro      &lr_bkt       &kp DE_N7    &kp DE_N8   &kp DE_N9       &kp DE_PLUS  &sk RALT                               XXX       RIGHT_ACTIVATE_TOP
+&kp DE_LT     &lr_brc       &kp DE_N4    &kp DE_N5   &kp DE_N6       &kp DE_HASH  &kt LSHFT                              &kt RSHFT RIGHT_ACTIVATE_MIDDLE(&kp RALT)
+&grave_tilde  &pipe_bslh    &kp DE_N1    &kp DE_N2   &kp DE_N3       &kp DE_MINUS &sk LSHFT  &sk RALT      XXX           XXX       RIGHT_ACTIVATE_BOTTOM(&kp RALT)
+&tog NUM_LEFT &kp RALT      &kp DE_N0    &kp KP_ENTER       &kp DE_N0             &kp DE_DOT &kp DE_COMMA  &tog NUM_LEFT &tog NUM_LEFT XXX EMPTY_4
+            >;
+        };
+
+        number_right_layer {
+            display-name = "num_r";
+            // the number keys are not mirrored, only the symbol keys
+            bindings = <
+EMPTY_NUMBER_ROW                                                          &kp DE_CARET &kp KP_MULTIPLY &kp KP_PLUS  &kp KP_MINUS &kp KP_DIVIDE &tog NUM_RIGHT
+XXX      LEFT_ACTIVATE_TOP              XXX                     &sk RALT  &kp DE_PLUS  &kp DE_N7       &kp DE_N8    &kp DE_N9    &lr_bkt       &at_euro
+&kp RALT LEFT_ACTIVATE_MIDDLE           &kt LSHFT               &kt RSHFT &kp DE_HASH  &kp DE_N4       &kp DE_N5    &kp DE_N6    &lr_brc       &kp DE_LT
+XXX      LEFT_ACTIVATE_BOTTOM(&kp RALT) XXX XXX    &sk RALT     &sk RSHFT &kp DE_MINUS &kp DE_N1       &kp DE_N2    &kp DE_N3    &pipe_bslh    &grave_tilde
+EMPTY_4       &tog NUM_RIGHT &tog NUM_RIGHT XXX    &kp DE_COMMA &kp DE_DOT       &kp DE_N0             &kp KP_ENTER &kp DE_N0    &kp RALT      &tog NUM_RIGHT
+            >;
+        };
+
+        // symbol layers, which only shift the numbers, not the symbols, but swap bottom and middle number rows
+        symbol_left_layer {
+            display-name = "symb_l";
+            bindings = <
+&kp DE_ACUTE &kp DE_RBKT &kp DE_RBRC  &kp DE_RPAR    &kp DE_STAR    &kp DE_CARET                                        EMPTY_NUMBER_ROW
+&at_euro     &lr_bkt     &kp DE_FSLH  &kp DE_LPAR    &kp DE_RPAR    &kp DE_PLUS  &kp DE_SEMI                  XXX       RIGHT_ACTIVATE_TOP
+&kp DE_LT    &lr_brc     &kp DE_EXCL  &kp DE_DQT     &kp DE_AMPS    &kp DE_HASH  &kp DE_COLON                 &kt RSHFT RIGHT_ACTIVATE_MIDDLE(XXX)
+&grave_tilde &pipe_bslh  &kp DE_DLLR  &kp DE_PRCNT   &kp DE_QMARK   &kp DE_MINUS &kp TAB     &kp SPC      XXX XXX       RIGHT_ACTIVATE_BOTTOM(XXX)
+XXX          &kp DE_SECT &kp DE_EQUAL &kp RET                &kp DE_EQUAL        &kp DE_DOT  &kp DE_COMMA XXX XXX       XXX     EMPTY_4   
+            >;
+        };
+
+        symbol_right_layer {
+            display-name = "symb_r";
+            // the number keys are not mirrored, only the symbol keys
+            bindings = <
+EMPTY_NUMBER_ROW                                                   &kp DE_CARET &kp DE_STAR    &kp DE_RPAR    &kp DE_RBRC  &kp DE_RBKT &kp DE_ACUTE
+XXX LEFT_ACTIVATE_TOP         XXX                     &kp DE_SEMI  &kp DE_PLUS  &kp DE_FSLH    &kp DE_LPAR    &kp DE_RPAR  &lr_bkt     &at_euro
+XXX LEFT_ACTIVATE_MIDDLE      &kt LSHFT               &kp DE_COLON &kp DE_HASH  &kp DE_EXCL    &kp DE_DQT     &kp DE_AMPS  &lr_brc     &kp DE_LT
+XXX LEFT_ACTIVATE_BOTTOM(XXX) XXX XXX    &kp SPC      &kp TAB      &kp DE_MINUS &kp DE_DOLLAR  &kp DE_PRCNT   &kp DE_QMARK &pipe_bslh  &grave_tilde
+EMPTY_4                  XXX  XXX XXX    &kp DE_COMMA &kp DE_DOT          &kp DE_EQUAL         &kp RET        &kp DE_EQUAL &kp DE_SECT XXX 
+            >;
+        };
+
+        navigation_layer {
+            display-name = "navi";
+            bindings = <
+EMPTY_NUMBER_ROW                                                                    &kp PSCRN   &kp C_RW    &kp C_PP   &kp C_FF   &kp PAUSE_BREAK &kp BSPC
+XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC                 &kp INS    &kp REDO_   &kp PG_UP   &kp UP     &kp PG_DN  &kp REDO_    &kp MUTE_MIC
+&mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kt LSHFT                    &mkp MB4   &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT  &kp END      &kp C_PP
+XXX         LEFT_ACTIVATE_BOTTOM(&kt LSHFT) XXX       XXX       &mkp MB4 &mkp MB5   &caps_word  &kp HOME    &kp DEL    &kp END    &kp CAPS     &kp C_MUTE
+EMPTY_4                                XXX  &tog NAVI &tog NAVI &kp SPC  &kp RET          &kp TAB           &kp C_PREV &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN
+            >;
+        };
+
+        function_layer {
+            display-name = "func";
+            bindings = <
+&kp F13    &kp F14  &kp F15 &kp F16  &kp F17  &kp F18                                    &kp F19 &kp F20 &kp F21 &kp F22 &kp F23 &kp F24
+&kp ESC    &kp F12  &kp F7  &kp F8   &kp F9   &kp SS_WIN  &kp MUTE_MIC              XXX  RIGHT_ACTIVATE_TOP
+&kp CAPS   &kp F11  &kp F2  &kp F3   &kp F6   &kp SSS_WIN &kp COPILOT               XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
+&caps_word &kp F10  &kp F1  &kp F2   &kp F3   &kp CSR_WIN &kp UNDO_ &kp REDO_  XXX  XXX  RIGHT_ACTIVATE_BOTTOM(XXX)
+EMPTY_4                                 &kp CUT_          &kp COPY_ &kp PASTE_ XXX  XXX     XXX    EMPTY_4
+            >;
+        };
+
+        mouse_layer {
+            display-name = "mouse";
+            bindings = <
+&tog MOUSE  XXX      XXX            XXX            XXX             XXX                                        EMPTY_NUMBER_ROW
+XXX         &kp ESC  &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &mkp MB3        &kp MUTE_MIC          XXX  RIGHT_ACTIVATE_TOP
+XXX         &mkp MB1 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT &kt LSHFT             XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
+&kp LSHFT   &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT  &mkp MB5 &mkp MB4 XXX XXX  RIGHT_ACTIVATE_BOTTOM(XXX)
+&tog MOUSE  XXX      XXX            XXX                       &mkp MB2             &mkp MB1 &mkp MB2 XXX &tog MOUSE  &tog MOUSE  EMPTY_4
+            >;
+        };
+    
+        system_layer {
+            display-name = "system";
+            bindings = <
+EMPTY_NUMBER_ROW                                                                                        EMPTY_NUMBER_ROW
+XXX  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4   &studio_unlock         XXX EMPTY_NUMBER_ROW
+XXX  &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3  &bt BT_DISC 4  &td_bootloader         XXX EMPTY_NUMBER_ROW
+XXX  &out OUT_TOG  &td_sys_reset &td_bt_clr    &td_bootloader &td_bootloader XXX            XXX XXX XXX EMPTY_NUMBER_ROW
+EMPTY_4                                                     XXX              XXX            XXX XXX XXX    XXX   EMPTY_4
+            >;
+        };
+
+//         lower_layer {
+//             display-name = "Lower Layer";
+// // --------------------------------------------------------------------------------------------------------------------------
+// // | ESC   |  1  |  2  |   3   |   4   |  5  |                   ---              |  6  |  7  |   8  |  9   |  0  |  DEL  |
+// // | ESC   |  1  |  2  |   3   |   4   |  5  |   (   |           ---        |  )  |  6  |  7  |   8  |  9   |  0  |  DEL  |
+// // | CTRL  |  -  |  =  |   [   |   ]   |  \  |   [   |           ---        |  ]  |  *  |  4  |   5  |  6   |  +  |   -   |
+// // | SHIFT | ESC | GUI | COPY  | PASTE |     | PG_UP | PG_DOWN | --- | HOME | END |  \  |  1  |   2  |  3   | RET |  RET  |
+// // | CRTL  | ALT | GUI | LOWER |     GUI     | LOWER | SPACE   | --- | DEL  |  0  |    RAISE  | LEFT | DOWN | UP  | RIGHT |
+//             bindings = <
+//    &trans  &trans    &trans    &trans    &trans    &trans                                &trans          &trans    &trans    &trans    &trans      &trans
+//    &kp ESC &kp DE_N1    &kp DE_N2    &kp DE_N3    &kp DE_N4    &kp DE_N5    &trans               &trans &kp DE_N6          &kp DE_N7    &kp DE_N8    &kp DE_N9    &kp DE_N0      &kp DEL
+//    &trans  &kp DE_MINUS &kp DE_EQUAL &kp DE_LBKT  &kp DE_RBKT  &kp DE_BSLH  &trans               &trans &kp KP_MULTIPLY &kp DE_N4    &kp DE_N5    &kp DE_N6    &kp KP_PLUS &kp KP_MINUS
+//    &trans  &kp ESC   &kp LGUI  &kp COPY_ &kp PASTE_ &kp DE_GRAVE &trans &trans &trans &trans &kp KP_DIVIDE   &kp DE_N1    &kp DE_N2    &kp DE_N3    &kp RET     &kp RET
+//    &trans  &trans    &trans    &trans          &trans        &trans &trans &trans &kp DE_N0          &mo 3            &trans    &trans    &trans      &trans
+//             >;
+//         };
+
+//         raise_layer {
+//             display-name = "Raise Layer";
+// // ----------------------------------------------------------------------------------------------------------------------------
+// // | ESC   |  1  |  2  |   3   |  4  |  5  |                   ---                |  6   |  7   |  8   |  9   |  0    |  DEL  |
+// // | ESC   |  !  |  @  |   #   |  $  |  %  |   (   |           ---        |  )    |  ^   |  &   |  *   |  (   |  )    |  DEL  |
+// // | CTRL  |  _  |  +  |   {   |  }  | "|" |   [   |           ---        |  ]    | HOME | PGUP | PRSC | UP   |  `    |   ~   |
+// // | SHIFT | ESC | GUI |   (   |  )  |     | PG_UP | PG_DOWN | --- | HOME | END   | END  | PGDN | LEFT | DOWN | RIGHT |  RET  |
+// // | CRTL  | ALT | GUI | LOWER |    GUI    | LOWER | SPACE   | --- | DEL  | SPACE |    RAISE    | LEFT | DOWN | UP    | RIGHT |
+//             bindings = <
+//    &trans  &trans    &trans   &trans   &trans   &trans                                &trans    &trans    &trans    &trans   &trans    &trans
+//    &kp ESC &kp DE_EXCL  &kp DE_AT   &kp DE_HASH &kp DE_DLLR &kp DE_PRCNT &trans               &trans &kp DE_CARET &kp DE_AMPS  &kp DE_ASTRK &kp DE_LPAR &kp DE_RPAR  &kp DEL
+//    &trans  &kp DE_UNDER &kp DE_PLUS &kp DE_LBRC &kp DE_RBRC &kp DE_PIPE  &trans               &trans &kp HOME  &kp PG_UP &kp PSCRN &kp UP   &kp DE_GRAVE &kp DE_TILDE
+//    &trans  &kp ESC      &kp LGUI &kp DE_LPAR &kp DE_RPAR &kp DE_TILDE &trans &trans &trans &trans &kp END   &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &kp RET
+//    &trans  &trans    &trans   &mo 3         &trans        &mo 3  &trans &trans &trans        &trans       &trans    &trans   &trans    &trans
+//             >;
+//         };
+
+//         adjust_layer {
+//             display-name = "Adjust Layer";
+// // -----------------------------------------------------------------------------------------
+// // |  F1   |  F2   |    F3    |    F4     |     F5     | F6 |                   ---                | F7  | F8  |  F9  |  F10 | F11 | F12        |
+// // | TAB   |       |          |           |            |    | BOOTL |           ---        |  )    | BT1 | BT2 |  BT3 |  BT4 | BT5 | OUTPUT TGL |
+// // | CTRL  | MUTE  |  Vol Dn  |  Vol Up   | Play/Pause |    | RESET |           ---        |  ]    | F1  | F2  |  F3  |  F4  | F5  | F6         |
+// // | SHIFT | PSCRN |  PSCRN   |   CAPS    |            |    | PG_UP | PG_DOWN | --- | HOME | END   | F7  | F8  |  F9  |  F10 | F11 | F12        |
+// // | CRTL  | ALT   |  GUI     |   LOWER   |      GUI        | LOWER | SPACE   | --- | DEL  | SPACE |   RAISE   | LEFT | DOWN | UP  |   RIGHT    |
+//                         bindings = <
+//    &kp F1  &kp F2     &kp F3       &kp F4       &kp F5           &kp F6                                 &kp F7       &kp F8       &kp F9       &kp F10      &kp F11       &kp F12
+//    &trans  &none      &none        &none        &none            &none  &bootloader          &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &out OUT_TOG
+//    &trans  &kp K_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_PLAY_PAUSE &none  &sys_reset           &trans     &kp F1       &kp F2       &kp F3       &kp F4       &kp F5        &kp F6
+//    &trans  &kp PSCRN  &kp PSCRN    &kp CLCK     &none            &none  &trans &trans &trans &trans     &kp F7       &kp F8       &kp F9       &kp F10      &kp F11       &kp F12
+//    &trans  &trans     &trans       &trans              &trans           &trans &trans &trans &trans          &trans           &trans       &trans       &trans        &trans
+//             >;
+//         };
+    };
+};

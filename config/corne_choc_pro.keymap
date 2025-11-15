@@ -9,41 +9,10 @@
 
 #include "keys_de.h"
 
-#define MUTE_MIC LG(LA(DE_K))
-
-#define SCREENSHOT_WIN LG(PRINTSCREEN)
-#define SS_WIN SCREENSHOT_WIN
-
-#define SCREENSHOT_SELECT_WIN LG(LS(DE_S))
-#define SSS_WIN SCREENSHOT_SELECT_WIN
-
-#define CAPTURE_SCREEN_RECORDING_WIN LG(LS(DE_R))
-#define CSR_WIN CAPTURE_SCREEN_RECORDING_WIN
-
-#define COPILOT LG(LS(F23))
-
-// the default definitions for COPY, PASTE, CUT, UNDO are useless in anything but Linux
-#define COPY_   LC(DE_C)
-#define PASTE_  LC(DE_V)
-#define CUT_    LC(DE_X)
-#define UNDO_   LC(DE_Z)
-#define REDO_   LC(LS(DE_Z))
-
-// colors
-#define RGB_COL_RED   RGB_COLOR_HSB(0,100,66)
-#define RGB_COL_GREEN RGB_COLOR_HSB(100,100,66)
-#define RGB_COL_BLUE  RGB_COLOR_HSB(190,100,66)
-
-// intellij idea shortcuts
-#define IJ_COMMIT_PUSH LC(LA(DE_K))
-#define IJ_PUSH_MENU   LA(DE_P)
-#define IJ_FORMAT      LC(LS(DE_F))
-#define IJ_REPLACE     LC(LS(DE_H))
-#define IJ_OPTIM_IMP   LC(LS(DE_O))
-
 #endif // KEYMAP_DRAWER
 
 #include "corne_choc_pro-labels.h"
+#include "common.dtsi"
 
 / {
     chosen {
@@ -62,12 +31,6 @@
     flavor = "balanced";
 };
 
-&caps_word {
-    continue-list = <DE_UNDERSCORE DE_MINUS DE_O_UMLAUT DE_A_UMLAUT DE_U_UMLAUT DE_SHARP_S BACKSPACE>;
-};
-
-#define STRINGIFY(x) #x
-
 // layers
 #define QWERTZ          0
 #define QWERTZ_UML      1
@@ -83,56 +46,8 @@
 #define MOUSE           11
 #define SYSTEM          12
 
-// see https://github.com/urob/zmk-config#timeless-homerow-mods
-
-#define QUICK_TAP_MS 175
-
-#define HOME_ROW_MOD(NAME, HOLD_BINDING, TAP_BINDING, TRIGGER_POS)  \
-    NAME: NAME {                                                    \
-        compatible = "zmk,behavior-hold-tap";                       \
-        #binding-cells = <2>;                                       \
-        bindings = <HOLD_BINDING>, <TAP_BINDING>;                   \
-        flavor = "balanced";                                        \
-        tapping-term-ms = <280>;                                    \
-        quick-tap-ms = <QUICK_TAP_MS>;                              \
-        require-prior-idle-ms = <150>;                              \
-        hold-trigger-on-release;                                    \
-        hold-trigger-key-positions = <TRIGGER_POS>;                 \
-    };
-
-#define MORPH(NAME, FROM_KEY, TO_KEY, MODS)             \
-    /omit-if-no-ref/ NAME: NAME {                       \
-        compatible = "zmk,behavior-mod-morph";          \
-        #binding-cells = <0>;                           \
-        bindings = <&kp FROM_KEY>, <&kp TO_KEY>;        \
-        mods = <(MODS)>;                                \
-    };
-
-#define MOD_ANY MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI
-
-#define TAP_DANCE_3(NAME, K1, K2, K3) \
-    NAME: NAME {                                        \
-        compatible = "zmk,behavior-tap-dance";          \
-        #binding-cells = <0>;                           \
-        tapping-term-ms = <200>;                        \
-        bindings = <K1>, <K2>, <K3>;                    \
-    };
-
-#define HOLD_TAP_QUICK(NAME, FLAVOR, HOLD_BINDING, TAP_BINDING) \
-    /omit-if-no-ref/ NAME: NAME {                               \
-        compatible = "zmk,behavior-hold-tap";                   \
-        #binding-cells = <2>;                                   \
-        bindings = <HOLD_BINDING>, <TAP_BINDING>;               \
-        flavor = FLAVOR;                                        \
-        tapping-term-ms = <300>;                                \
-        quick-tap-ms = <QUICK_TAP_MS>;                          \
-    };
-
 / {
     behaviors {
-        HOME_ROW_MOD(hml, &kp, &kp, KEYS_RIGHT KEYS_THUMB)
-        HOME_ROW_MOD(hmr, &kp, &kp, KEYS_LEFT KEYS_THUMB)
-
         // see https://github.com/zmkfirmware/zmk/issues/544
         // HOME_ROW_MOD(hml_skq, &kp, &skq, KEYS_RIGHT KEYS_THUMB)
         // HOME_ROW_MOD(hmr_skq, &kp, &skq, KEYS_LEFT KEYS_THUMB)
@@ -147,7 +62,7 @@
 
         MORPH(left_right,   LEFT, RIGHT,        MOD_LSFT|MOD_RSFT)
         MORPH(qmark_excl,   DE_QMARK, DE_EXCL,  MOD_LSFT|MOD_RSFT)
-        MORPH(flsh_bslh,    DE_FSLH, DE_BSLH,   MOD_LSFT|MOD_RSFT)
+        MORPH(fslh_bslh,    DE_FSLH, DE_BSLH,   MOD_LSFT|MOD_RSFT)
 
         MORPH(lr_brc,       DE_LBRC, DE_RBRC,   MOD_LSFT|MOD_RSFT)
         MORPH(lr_bkt,       DE_LBKT, DE_RBKT,   MOD_LSFT|MOD_RSFT)
@@ -155,40 +70,8 @@
         MORPH(at_euro,      DE_AT,   DE_EURO,   MOD_LSFT|MOD_RSFT)
         MORPH(grave_tilde,  DE_GRAVE,DE_TILDE,  MOD_LSFT|MOD_RSFT)
 
-        TAP_DANCE_3(td_sys_reset,   &none, &none, &sys_reset)
-        TAP_DANCE_3(td_bt_clr,      &none, &none, &bt BT_CLR)
-        TAP_DANCE_3(td_bootloader,  &none, &none, &bootloader)
-
-        HOLD_TAP_QUICK(mo_sl, "hold-preferred", &mo, &sl)
-        HOLD_TAP_QUICK(mt_sl, "tap-preferred",  &kp, &sl)
-        HOLD_TAP_QUICK(mt_sk, "hold-preferred", &kp, &sk)
-        HOLD_TAP_QUICK(mt_kt, "hold-preferred", &kp, &kt)
-
         HOLD_TAP_QUICK(mt_qe, "hold-preferred", &kp, &qmark_excl)
 
-        /omit-if-no-ref/ skq: sticky_key_quick_release {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            quick-release;
-            ignore-modifiers;
-            release-after-ms = <1000>;
-        };
-
-        /omit-if-no-ref/ mo_skq: hold_layer_tap_sticky_key_quick_release {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&skq>;
-        };
-
-        /omit-if-no-ref/ kt_off: toggle_off {
-            compatible = "zmk,behavior-key-toggle";
-            #binding-cells = <1>;
-            display-name = "Key Toggle Off";
-            toggle-mode = "off";
-        };
     };
 
     macros {
@@ -214,64 +97,31 @@
     };
 
 
-#define COMBO_TIMEOUT_ROLL   45
-#define COMBO_TIMEOUT_SAME   50
-#define COMBO_IDLE_ROLL      150
-
-#define COMBO_ROLL(NAME, KEYS, BINDINGS, LAYERS) \
-    NAME { \
-        key-positions = <KEYS>; \
-        bindings = <BINDINGS>; \
-        layers = <LAYERS>; \
-        slow-release; \
-        timeout-ms = <COMBO_TIMEOUT_ROLL>; \
-        require-prior-idle-ms = <COMBO_IDLE_ROLL>; \
-    };
-
-#define COMBO_UMLAUT(NAME, KEYS, BINDING, LAYERS) \
-    NAME { \
-        key-positions = <KEYS>; \
-        bindings = <&kp BINDING>; \
-        layers = <LAYERS>; \
-        slow-release; \
-        timeout-ms = <75>; \
-        require-prior-idle-ms = <150>; \
-    };
-
-#define COMBO_THUMB_TOG(NAME, KEYS, TOG_LAYER, LAYERS) \
-    NAME { \
-        key-positions = <KEYS>; \
-        bindings = <&tog TOG_LAYER>; \
-        layers = <LAYERS>; \
-        slow-release; \
-        timeout-ms = <COMBO_TIMEOUT_SAME>; \
-    };
-
     combos {
         compatible = "zmk,combos";
 
-        COMBO_ROLL(combo_qmark,         RB4 RB5, &kp DE_QMARK,          BUT)  // qwertz .-
+        COMBO_ROLL(cc_combo_qmark,         RB4 RB5, &kp DE_QMARK,          BUT)  // qwertz .-
 
         // see https://github.com/zmkfirmware/zmk/issues/544
-        // COMBO_ROLL(combo_home_bspc,     LM2 LM3, &hml LS(LCTRL) BSPC,   QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML)   // qwertz df
+        // COMBO_ROLL(cc_combo_home_bspc,     LM2 LM3, &hml LS(LCTRL) BSPC,   QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML)   // qwertz df
 
         // if we ever want to go back to shift combos on home row mods
-        // COMBO_ROLL(combo_sshft_l1,  LM3 LM2, &hml_skq LS(LCTRL) LSHFT,  COLEMAK BUT)  // qwertz df
-        // COMBO_ROLL(combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   COLEMAK BUT)  // qwertz as
-        // COMBO_ROLL(combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  COLEMAK BUT)  // qwertz jk
+        // COMBO_ROLL(cc_combo_sshft_l1,  LM3 LM2, &hml_skq LS(LCTRL) LSHFT,  COLEMAK BUT)  // qwertz df
+        // COMBO_ROLL(cc_combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   COLEMAK BUT)  // qwertz as
+        // COMBO_ROLL(cc_combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  COLEMAK BUT)  // qwertz jk
 
-        COMBO_ROLL(combo_flsh, RB4 RB5, &flsh_bslh, QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML BUT)
+        COMBO_ROLL(cc_combo_fslh, RB4 RB5, &fslh_bslh, QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML BUT)
         
-        COMBO_UMLAUT(combo_qw_u_uml, RT2 RM5, DE_U_UMLAUT, QWERTZ)
-        COMBO_UMLAUT(combo_qw_o_uml, RT4 RM5, DE_O_UMLAUT, QWERTZ)
-        COMBO_UMLAUT(combo_qw_a_uml, LM5 RM5, DE_A_UMLAUT, QWERTZ)
-        COMBO_UMLAUT(combo_qw_sz,    LM4 RM5, DE_SZ,       QWERTZ)
+        COMBO_UMLAUT(cc_combo_qw_u_uml, RT2 RM5, DE_U_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(cc_combo_qw_o_uml, RT4 RM5, DE_O_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(cc_combo_qw_a_uml, LM5 RM5, DE_A_UMLAUT, QWERTZ)
+        COMBO_UMLAUT(cc_combo_qw_sz,    LM4 RM5, DE_SZ,       QWERTZ)
 
         // same side toggles for layers for one-hand-access
-        COMBO_THUMB_TOG(combo_mouse_tog,    LH1 LH2, MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT)
-        COMBO_THUMB_TOG(combo_num_l_tog,    LH0 LH1, NUM_LEFT,      QWERTZ QWERTZ_UML COLEMAK BUT NUM_LEFT)
-        COMBO_THUMB_TOG(combo_num_r_tog,    RH1 RH2, NUM_RIGHT,     QWERTZ QWERTZ_UML COLEMAK BUT NUM_RIGHT)
-        COMBO_THUMB_TOG(combo_navi_tog,     RH0 RH1, NAVI,          QWERTZ QWERTZ_UML COLEMAK BUT NAVI)
+        COMBO_THUMB_TOG(cc_combo_mouse_tog,    LH1 LH2, MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT)
+        COMBO_THUMB_TOG(cc_combo_num_l_tog,    LH0 LH1, NUM_LEFT,      QWERTZ QWERTZ_UML COLEMAK BUT NUM_LEFT)
+        COMBO_THUMB_TOG(cc_combo_num_r_tog,    RH1 RH2, NUM_RIGHT,     QWERTZ QWERTZ_UML COLEMAK BUT NUM_RIGHT)
+        COMBO_THUMB_TOG(cc_combo_navi_tog,     RH0 RH1, NAVI,          QWERTZ QWERTZ_UML COLEMAK BUT NAVI)
     };
 };
 
@@ -291,7 +141,7 @@
 #define BASE_LH     &mo_sl NUM_RIGHT SYMB_RIGHT  &mo_skq NAVI LSHFT &kp BSPC
 #define BASE_RH     &lt SYMB_LEFT SPC            &lt NUM_LEFT RET   &lt FUNCTION TAB
 
-#define UML_RT6 &flsh_bslh
+#define UML_RT6 &fslh_bslh
 #define UML_RM6 &mt_qe RGUI 0
 #define UML_RB6 &mt_sk RSHFT RSHFT
 

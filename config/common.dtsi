@@ -1,0 +1,176 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#ifndef KEYMAP_DRAWER
+
+#include "keys_de.h"
+
+#define MUTE_MIC LG(LA(DE_K))
+
+#define SCREENSHOT_WIN LG(PRINTSCREEN)
+#define SS_WIN SCREENSHOT_WIN
+
+#define SCREENSHOT_SELECT_WIN LG(LS(DE_S))
+#define SSS_WIN SCREENSHOT_SELECT_WIN
+
+#define CAPTURE_SCREEN_RECORDING_WIN LG(LS(DE_R))
+#define CSR_WIN CAPTURE_SCREEN_RECORDING_WIN
+
+#define COPILOT LG(LS(F23))
+
+// the default definitions for COPY, PASTE, CUT, UNDO are useless in anything but Linux
+#define COPY_   LC(DE_C)
+#define PASTE_  LC(DE_V)
+#define CUT_    LC(DE_X)
+#define UNDO_   LC(DE_Z)
+#define REDO_   LC(LS(DE_Z))
+
+// colors
+#define RGB_COL_RED   RGB_COLOR_HSB(0,100,66)
+#define RGB_COL_GREEN RGB_COLOR_HSB(100,100,66)
+#define RGB_COL_BLUE  RGB_COLOR_HSB(190,100,66)
+
+// intellij idea shortcuts
+#define IJ_COMMIT_PUSH LC(LA(DE_K))
+#define IJ_PUSH_MENU   LA(DE_P)
+#define IJ_FORMAT      LC(LS(DE_F))
+#define IJ_REPLACE     LC(LS(DE_H))
+#define IJ_OPTIM_IMP   LC(LS(DE_O))
+
+#endif // KEYMAP_DRAWER
+
+&caps_word {
+    continue-list = <DE_UNDERSCORE DE_MINUS DE_O_UMLAUT DE_A_UMLAUT DE_U_UMLAUT DE_SHARP_S BACKSPACE>;
+};
+
+
+// see https://github.com/urob/zmk-config#timeless-homerow-mods
+
+#ifndef QUICK_TAP_MS
+#define QUICK_TAP_MS 175
+#endif
+
+#define HOME_ROW_MOD(NAME, HOLD_BINDING, TAP_BINDING, TRIGGER_POS)  \
+    NAME: NAME {                                                    \
+        compatible = "zmk,behavior-hold-tap";                       \
+        #binding-cells = <2>;                                       \
+        bindings = <HOLD_BINDING>, <TAP_BINDING>;                   \
+        flavor = "balanced";                                        \
+        tapping-term-ms = <280>;                                    \
+        quick-tap-ms = <QUICK_TAP_MS>;                              \
+        require-prior-idle-ms = <150>;                              \
+        hold-trigger-on-release;                                    \
+        hold-trigger-key-positions = <TRIGGER_POS>;                 \
+    };
+
+#define MORPH(NAME, FROM_KEY, TO_KEY, MODS)             \
+    /omit-if-no-ref/ NAME: NAME {                       \
+        compatible = "zmk,behavior-mod-morph";          \
+        #binding-cells = <0>;                           \
+        bindings = <&kp FROM_KEY>, <&kp TO_KEY>;        \
+        mods = <(MODS)>;                                \
+    };
+
+#define MOD_ANY MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI
+
+#define TAP_DANCE_3(NAME, K1, K2, K3) \
+    NAME: NAME {                                        \
+        compatible = "zmk,behavior-tap-dance";          \
+        #binding-cells = <0>;                           \
+        tapping-term-ms = <200>;                        \
+        bindings = <K1>, <K2>, <K3>;                    \
+    };
+
+#define HOLD_TAP_QUICK(NAME, FLAVOR, HOLD_BINDING, TAP_BINDING) \
+    /omit-if-no-ref/ NAME: NAME {                               \
+        compatible = "zmk,behavior-hold-tap";                   \
+        #binding-cells = <2>;                                   \
+        bindings = <HOLD_BINDING>, <TAP_BINDING>;               \
+        flavor = FLAVOR;                                        \
+        tapping-term-ms = <300>;                                \
+        quick-tap-ms = <QUICK_TAP_MS>;                          \
+    };
+
+/ {
+    behaviors {
+        HOME_ROW_MOD(hml, &kp, &kp, KEYS_RIGHT KEYS_THUMB)
+        HOME_ROW_MOD(hmr, &kp, &kp, KEYS_LEFT KEYS_THUMB)
+
+        TAP_DANCE_3(td_sys_reset,   &none, &none, &sys_reset)
+        TAP_DANCE_3(td_bt_clr,      &none, &none, &bt BT_CLR)
+        TAP_DANCE_3(td_bootloader,  &none, &none, &bootloader)
+
+        HOLD_TAP_QUICK(mo_sl, "hold-preferred", &mo, &sl)
+        HOLD_TAP_QUICK(mt_sl, "tap-preferred",  &kp, &sl)
+        HOLD_TAP_QUICK(mt_sk, "hold-preferred", &kp, &sk)
+        HOLD_TAP_QUICK(mt_kt, "hold-preferred", &kp, &kt)
+
+        /omit-if-no-ref/ skq: sticky_key_quick_release {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            quick-release;
+            ignore-modifiers;
+            release-after-ms = <1000>;
+        };
+
+        /omit-if-no-ref/ mo_skq: hold_layer_tap_sticky_key_quick_release {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&skq>;
+        };
+
+        /omit-if-no-ref/ kt_off: toggle_off {
+            compatible = "zmk,behavior-key-toggle";
+            #binding-cells = <1>;
+            display-name = "Key Toggle Off";
+            toggle-mode = "off";
+        };
+    };
+};
+
+#ifndef COMBO_TIMEOUT_ROLL
+#define COMBO_TIMEOUT_ROLL 45
+#endif
+
+#ifndef COMBO_TIMEOUT_SAME
+#define COMBO_TIMEOUT_SAME 50
+#endif
+
+#ifndef COMBO_IDLE_ROLL
+#define COMBO_IDLE_ROLL 150
+#endif
+
+#define COMBO_ROLL(NAME, KEYS, BINDINGS, LAYERS) \
+    NAME { \
+        key-positions = <KEYS>; \
+        bindings = <BINDINGS>; \
+        layers = <LAYERS>; \
+        slow-release; \
+        timeout-ms = <COMBO_TIMEOUT_ROLL>; \
+        require-prior-idle-ms = <COMBO_IDLE_ROLL>; \
+    };
+
+#define COMBO_UMLAUT(NAME, KEYS, BINDING, LAYERS) \
+    NAME { \
+        key-positions = <KEYS>; \
+        bindings = <&kp BINDING>; \
+        layers = <LAYERS>; \
+        slow-release; \
+        timeout-ms = <75>; \
+        require-prior-idle-ms = <150>; \
+    };
+
+#define COMBO_THUMB_TOG(NAME, KEYS, TOG_LAYER, LAYERS) \
+    NAME { \
+        key-positions = <KEYS>; \
+        bindings = <&tog TOG_LAYER>; \
+        layers = <LAYERS>; \
+        slow-release; \
+        timeout-ms = <COMBO_TIMEOUT_SAME>; \
+    };

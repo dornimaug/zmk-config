@@ -317,6 +317,9 @@ parse_config:
     C_PREV: $$mdi:skip-previous$$
     C_PP: $$mdi:play-pause$$
 
+    C_RW: $$mdi:rewind$$
+    C_FF: $$mdi:fast-forward$$
+
     BT_CLR: $$mdi:bluetooth-off$$
     BT_SEL: $$mdi:bluetooth-connect$$
     BT_DISC: $$mdi:bluetooth-off$$
@@ -370,6 +373,10 @@ parse_config:
     PASTE_: Paste
     UNDO_: Undo
     REDO_: Redo
+
+    PSCRN: Print Screen
+    PAUSE_BREAK: Pause / Break
+    INS: Insert
 
     ACUTE: 
       tap: '´'
@@ -509,11 +516,20 @@ parse_config:
   zmk_preamble: '#define KEYMAP_DRAWER'
   zmk_additional_includes: ['config']
   zmk_combos:
-    combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    combo_num_l_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    combo_num_r_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    combo_navi_tog:   { align: bottom, o: 0.5,  arc_scale: 0.98 }
-    combo_qw_u_uml:   { align: top,    o: 1.0,  arc_scale: 0.9 }
-    combo_qw_o_uml:   { align: top,    o: 0.3,  arc_scale: 0.3 }
-    combo_qw_sz:      { align: top,    o: 2.3,  arc_scale: 1.025 }
-    combo_qw_a_uml:   { align: top,    o: 3.0,  arc_scale: 1.05 }
+    cc_combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    cc_combo_num_l_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    cc_combo_num_r_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+    cc_combo_navi_tog:   { align: bottom, o: 0.5,  arc_scale: 0.98 }
+    cc_combo_qw_u_uml:   { align: top,    o: 1.0,  arc_scale: 0.9 }
+    cc_combo_qw_o_uml:   { align: top,    o: 0.3,  arc_scale: 0.3 }
+    cc_combo_qw_sz:      { align: top,    o: 2.3,  arc_scale: 1.025 }
+    cc_combo_qw_a_uml:   { align: top,    o: 3.0,  arc_scale: 1.05 }
+
+#    rdx_combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+#    rdx_combo_num_l_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+#    rdx_combo_num_r_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
+#    rdx_combo_navi_tog:   { align: bottom, o: 0.5,  arc_scale: 0.98 }
+    rdx_combo_qw_u_uml:   { align: top,    o: 1.5,  arc_scale: 0.9 }
+    rdx_combo_qw_o_uml:   { align: top,    o: 1.2,  arc_scale: 0.3 }
+    rdx_combo_qw_sz:      { align: top,    o: 2.8,  arc_scale: 1.025 }
+    rdx_combo_qw_a_uml:   { align: top,    o: 3.6,  arc_scale: 1.05 }
