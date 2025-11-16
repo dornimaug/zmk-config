@@ -12,15 +12,15 @@ layers:
   - {t: '8', s: (}
   - {t: '9', s: )}
   - {t: '0', s: '='}
-  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
-  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
+  - Esc
+  - {t: Word, h: tap 2x, s: '$$mdi:apple-keyboard-caps$$'}
   - Q
   - W
   - E
   - R
   - T
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
-  - Esc
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
   - Z
   - U
   - I
@@ -33,14 +33,14 @@ layers:
   - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: F, h: Ctrl}
   - G
-  - {t: '$$mdi:keyboard-return$$', h: symb_r}
+  - {t: '$$mdi:keyboard-space$$', h: symb_r}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - H
   - {t: J, h: Ctrl}
   - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: L, h: AltGr}
+  - {t: L, h: Alt}
   - {t: QWERTZ uml, h: QWERTZ uml}
-  - {t: '?', s: '"'}
+  - {t: '?', h: GUI, s: '"'}
   - $$mdi:apple-keyboard-shift$$
   - Y
   - X
@@ -48,19 +48,19 @@ layers:
   - V
   - B
   - $$mdi:backspace-reverse-outline$$
-  - {t: '$$mdi:keyboard-space$$', type: space}
-  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', h: AltGr}
   - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-space$$', type: space}
   - N
   - M
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '-', s: _}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - {t: /, s: \}
   - Ctrl
   - Alt
   - GUI
-  - AltGr
+  - {t: Esc, h: AltGr}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: symb_r, h: num_r}
@@ -711,14 +711,14 @@ layers:
   - ''
   - ''
 combos:
-- p: [53, 54]
-  k: {t: /, s: \}
-  l: [QWERTZ, QWERTZ uml]
 - p: [52, 53]
   k: {t: /, s: \}
   l: [QWERTZ, QWERTZ uml]
 - p: [66, 67]
   k: Home
+  l: [QWERTZ, QWERTZ uml]
+- p: [67, 68]
+  k: End
   l: [QWERTZ, QWERTZ uml]
 - p: [21, 38]
   k: Ü

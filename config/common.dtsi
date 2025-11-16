@@ -76,6 +76,14 @@
 
 #define MOD_ANY MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI
 
+#define TAP_DANCE_2(NAME, K1, K2) \
+    NAME: NAME {                                        \
+        compatible = "zmk,behavior-tap-dance";          \
+        #binding-cells = <0>;                           \
+        tapping-term-ms = <200>;                        \
+        bindings = <K1>, <K2>;                          \
+    };
+
 #define TAP_DANCE_3(NAME, K1, K2, K3) \
     NAME: NAME {                                        \
         compatible = "zmk,behavior-tap-dance";          \

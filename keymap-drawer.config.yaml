@@ -108,6 +108,10 @@ parse_config:
       tap: $$mdi:flash$$
       hold: tap 3x
       type: sym_by_sym
+    '&td_caps_word_lock':
+      shifted: $$mdi:apple-keyboard-caps$$
+      tap: Word
+      hold: tap 2x
 
     '&mt_sk LSHFT LSHFT':
       tap: $$mdi:apple-keyboard-shift$$
