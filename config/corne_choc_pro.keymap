@@ -59,10 +59,12 @@
         MORPH(bspc_spc,     BSPC,   SPACE,      MOD_ANY)
         MORPH(ret_del,      RET,    DEL,        MOD_ANY)
         MORPH(bspc_del,     BSPC,   DEL,        MOD_ANY)
+        MORPH(mute_mic_pp,  MUTE_MIC,   C_PP,       MOD_ANY)
 
-        MORPH(left_right,   LEFT, RIGHT,        MOD_LSFT|MOD_RSFT)
-        MORPH(qmark_excl,   DE_QMARK, DE_EXCL,  MOD_LSFT|MOD_RSFT)
-        MORPH(fslh_bslh,    DE_FSLH, DE_BSLH,   MOD_LSFT|MOD_RSFT)
+        MORPH(left_right,   LEFT,       RIGHT,      MOD_LSFT|MOD_RSFT)
+        MORPH(qmark_dqt,    DE_QMARK,   DE_DQT,     MOD_LSFT|MOD_RSFT)
+        MORPH(excl_sqt,     DE_EXCL,    DE_SQT,     MOD_LSFT|MOD_RSFT)
+        MORPH(fslh_bslh,    DE_FSLH,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
 
         MORPH(lr_brc,       DE_LBRC, DE_RBRC,   MOD_LSFT|MOD_RSFT)
         MORPH(lr_bkt,       DE_LBKT, DE_RBKT,   MOD_LSFT|MOD_RSFT)
@@ -70,8 +72,8 @@
         MORPH(at_euro,      DE_AT,   DE_EURO,   MOD_LSFT|MOD_RSFT)
         MORPH(grave_tilde,  DE_GRAVE,DE_TILDE,  MOD_LSFT|MOD_RSFT)
 
-        HOLD_TAP_QUICK(mt_qe, "hold-preferred", &kp, &qmark_excl)
-
+        HOME_ROW_MOD(hmr_qmark_dqt, &kp, &qmark_dqt,    KEYS_LEFT KEYS_THUMB)
+        HOME_ROW_MOD(hml_mo,        &mo, &kp,           KEYS_RIGHT KEYS_THUMB)
     };
 
     macros {
@@ -110,7 +112,7 @@
         // COMBO_ROLL(cc_combo_sshft_l2,  LM5 LM4, &hml_skq LG(LALT) LSHFT,   COLEMAK BUT)  // qwertz as
         // COMBO_ROLL(cc_combo_sshft_r,   RM2 RM3, &hmr_skq RS(RCTRL) RSHFT,  COLEMAK BUT)  // qwertz jk
 
-        COMBO_ROLL(cc_combo_fslh, RB4 RB5, &fslh_bslh, QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML BUT)
+        COMBO_ROLL(cc_combo_fslh, RB3 RB4, &fslh_bslh, QWERTZ QWERTZ_UML COLEMAK COLEMAK_UML BUT)
         
         COMBO_UMLAUT(cc_combo_qw_u_uml, RT2 RM5, DE_U_UMLAUT, QWERTZ)
         COMBO_UMLAUT(cc_combo_qw_o_uml, RT4 RM5, DE_O_UMLAUT, QWERTZ)
@@ -118,10 +120,10 @@
         COMBO_UMLAUT(cc_combo_qw_sz,    LM4 RM5, DE_SZ,       QWERTZ)
 
         // same side toggles for layers for one-hand-access
-        COMBO_SAME(cc_combo_mouse_tog,    LH1 LH2, &tog MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT)
-        COMBO_SAME(cc_combo_num_l_tog,    LH0 LH1, &tog NUM_LEFT,      QWERTZ QWERTZ_UML COLEMAK BUT NUM_LEFT)
-        COMBO_SAME(cc_combo_num_r_tog,    RH1 RH2, &tog NUM_RIGHT,     QWERTZ QWERTZ_UML COLEMAK BUT NUM_RIGHT)
-        COMBO_SAME(cc_combo_navi_tog,     RH0 RH1, &tog NAVI,          QWERTZ QWERTZ_UML COLEMAK BUT NAVI)
+        COMBO_LAYER_TOG(cc_combo_mouse_tog,     LH0 LT0, MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT MOUSE)
+        COMBO_LAYER_TOG(cc_combo_num_l_tog,     LH0 LM0, NUM_LEFT,      QWERTZ QWERTZ_UML COLEMAK BUT NUM_LEFT)
+        COMBO_LAYER_TOG(cc_combo_symb_r_tog,    RH0 RT0, SYMB_RIGHT,    QWERTZ QWERTZ_UML COLEMAK BUT NUM_RIGHT)
+        COMBO_LAYER_TOG(cc_combo_navi_tog,      RH0 RM0, NAVI,          QWERTZ QWERTZ_UML COLEMAK BUT NAVI)
     };
 };
 
@@ -132,18 +134,18 @@
 #define BASE_ROW(K0, K1, K2, K3, K4) &kp K0 &kp K1 &kp K2 &kp K3 &kp K4
 
 #define BASE_LT6    &kp ESC
-#define BASE_LT0    &kp MUTE_MIC
-#define BASE_RT0    &kp TAB
+#define BASE_LT0    &mute_mic_pp
+#define BASE_RT0    &mute_mic_pp
 #define BASE_LM6    &lt SYMB_RIGHT TAB
 #define BASE_LM0    &none
-#define BASE_RM0    &left_right
+#define BASE_RM0    &kp BSPC
 #define BASE_LB6    &kp LSHFT
 #define BASE_LH     &mo_sl NUM_RIGHT SYMB_RIGHT  &mo_skq NAVI LSHFT &kp BSPC
-#define BASE_RH     &lt SYMB_LEFT SPC            &lt NUM_LEFT RET   &lt FUNCTION TAB
+#define BASE_RH     &lt SYMB_LEFT RET            &lt NUM_LEFT SPC   &lt FUNCTION TAB
 
-#define UML_RT6 &fslh_bslh
-#define UML_RM6 &mt_qe RGUI 0
-#define UML_RB6 &mt_sk RSHFT RSHFT
+#define UML_RT6 &excl_sqt
+#define UML_RM6 &hmr_qmark_dqt RGUI 0
+#define UML_RB6 &fslh_bslh
 
 #define LEFT_ACTIVATE_TOP       XXX      &kp TAB  &kp RET   &kp SPC    &kp UNDO_
 #define LEFT_ACTIVATE_MIDDLE    &kp LGUI &kp LALT &kp LSHFT &kp LCTRL  &kp BSPC
@@ -160,10 +162,10 @@
         qwertz_layer {
             display-name = "QWERTZ";
             bindings = <
-BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R        &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     UML_RT6 \
-BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML UML_RM6 \
-BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B                        &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                 UML_RB6 \
-                                                                       BASE_LH           /**/          BASE_RH \
+BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R                &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     UML_RT6 \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F         &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML UML_RM6 \
+BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &hml_mo QWERTZ_UML DE_V &kp DE_B                        &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                 UML_RB6 \
+                                                                               BASE_LH           /**/          BASE_RH \
             >;
         };
 
@@ -171,7 +173,7 @@ BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_V        &kp DE_B 
             display-name = "QWERTZ uml";
             bindings = <
 ___ ___              ___       ___ ___ ___ ___ /**/ ___ ___ &kp DE_U_UMLAUT ___ &kp DE_O_UMLAUT ___ ___
-___ &kp DE_A_UMLAUT  &kp DE_SZ ___ ___ ___ ___ /**/ ___ ___ ___             ___ ___             ___ ___
+___ &kp DE_A_UMLAUT  &kp DE_SZ ___ ___ ___ ___ /**/ ___ ___ ___             ___ ___             &kp DE_SHARP_S &kp DE_A_UMLAUT
 ___ ___              ___       ___ ___ ___                  ___ ___         ___ ___             ___ ___
                                ___ ___ ___                  ___ ___         ___
             >;
@@ -255,7 +257,7 @@ XXX LEFT_ACTIVATE_BOTTOM(XXX)                         &kp DE_MINUS &kp DE_DOLLAR
             display-name = "navi";
             bindings = <
 XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC &kp C_PREV &kp ESC     &kp PG_UP   &kp UP     &kp PG_DN &kp REDO_ &kp MUTE_MIC
-XXX         LEFT_ACTIVATE_MIDDLE            &kt LSHFT    &kp C_NEXT &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT &kp END   &kp C_PP
+&mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kt LSHFT    &kp C_NEXT &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT &kp END   &kp C_PP
 &mo SYSTEM  LEFT_ACTIVATE_BOTTOM(&kt LSHFT)                         &caps_word  &kp HOME    &kp DEL    &kp END   &kp CAPS  &kp C_MUTE
                   XXX  &tog NAVI  &tog NAVI                         &kp SPC     &kp RET     &kp TAB
             >;

@@ -7,14 +7,14 @@ layers:
   - E
   - R
   - T
-  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
   - Z
   - U
   - I
   - O
   - P
-  - {t: /, s: \}
+  - {t: '!', s: ''''}
   - {t: '$$mdi:keyboard-tab$$', h: symb_r}
   - {t: A, h: GUI}
   - {t: S, h: Alt}
@@ -22,30 +22,30 @@ layers:
   - {t: F, h: Ctrl}
   - G
   - ''
-  - {t: '$$mdi:arrow-left-bold$$', s: '$$mdi:arrow-right-bold$$'}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - H
   - {t: J, h: Ctrl}
   - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: L, h: AltGr}
   - {t: QWERTZ uml, h: QWERTZ uml}
-  - {t: '?', h: GUI, s: '!'}
+  - {t: '?', h: GUI, s: '"'}
   - $$mdi:apple-keyboard-shift$$
   - Y
   - X
   - C
-  - V
+  - {t: V, h: QWERTZ uml}
   - B
   - N
   - M
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '-', s: _}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - {t: /, s: \}
   - {t: symb_r, h: num_r}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:keyboard-space$$', h: symb_l}
-  - {t: '$$mdi:keyboard-return$$', h: num_l}
+  - {t: '$$mdi:keyboard-return$$', h: symb_l}
+  - {t: '$$mdi:keyboard-space$$', h: num_l}
   - {t: '$$mdi:keyboard-tab$$', h: func}
   QWERTZ uml:
   - {t: ▽, type: trans}
@@ -74,13 +74,13 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ß, type: held}
+  - Ä
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held alternate}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -101,14 +101,14 @@ layers:
   - F
   - P
   - B
-  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
   - J
   - L
   - U
   - O
   - Z
-  - {t: /, s: \}
+  - {t: '!', s: ''''}
   - {t: '$$mdi:keyboard-tab$$', h: symb_r}
   - {t: A, h: GUI}
   - {t: R, h: Alt}
@@ -116,13 +116,13 @@ layers:
   - {t: T, h: Ctrl}
   - G
   - ''
-  - {t: '$$mdi:arrow-left-bold$$', s: '$$mdi:arrow-right-bold$$'}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - M
   - {t: N, h: Ctrl}
   - {t: E, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: I, h: AltGr}
   - {t: Colemakish uml, h: Colemakish uml}
-  - {t: '?', h: GUI, s: '!'}
+  - {t: '?', h: GUI, s: '"'}
   - $$mdi:apple-keyboard-shift$$
   - Y
   - X
@@ -134,12 +134,12 @@ layers:
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '-', s: _}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - {t: /, s: \}
   - {t: symb_r, h: num_r}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:keyboard-space$$', h: symb_l}
-  - {t: '$$mdi:keyboard-return$$', h: num_l}
+  - {t: '$$mdi:keyboard-return$$', h: symb_l}
+  - {t: '$$mdi:keyboard-space$$', h: num_l}
   - {t: '$$mdi:keyboard-tab$$', h: func}
   Colemakish uml:
   - {t: ▽, type: trans}
@@ -195,8 +195,8 @@ layers:
   - {t: ., s: ':'}
   - {t: ',', s: ;}
   - Ü
-  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
   - P
   - C
   - L
@@ -210,7 +210,7 @@ layers:
   - {t: A, h: Ctrl}
   - O
   - ''
-  - {t: '$$mdi:arrow-left-bold$$', s: '$$mdi:arrow-right-bold$$'}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - D
   - {t: T, h: Ctrl}
   - {t: R, h: '$$mdi:apple-keyboard-shift$$'}
@@ -232,8 +232,8 @@ layers:
   - {t: symb_r, h: num_r}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:keyboard-space$$', h: symb_l}
-  - {t: '$$mdi:keyboard-return$$', h: num_l}
+  - {t: '$$mdi:keyboard-return$$', h: symb_l}
+  - {t: '$$mdi:keyboard-space$$', h: num_l}
   - {t: '$$mdi:keyboard-tab$$', h: func}
   num_l:
   - {t: '@', s: €}
@@ -438,7 +438,7 @@ layers:
   - {t: Page, h: '$$mdi:arrow-down$$'}
   - Redo
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
-  - ''
+  - system
   - GUI
   - Alt
   - $$mdi:apple-keyboard-shift$$
@@ -579,7 +579,7 @@ layers:
   - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-up$$', s: '$$mdi:palette$$', type: sym_by_sym}
   - ''
   - {t: Colemakish, h: toggle}
-  - ''
+  - {type: held}
   - {t: '$$mdi:bluetooth-off$$', h: '0'}
   - {t: '$$mdi:bluetooth-off$$', h: '1'}
   - {t: '$$mdi:bluetooth-off$$', h: '2'}
@@ -593,7 +593,7 @@ layers:
   - {t: '$$mdi:led-variant-outline$$', h: '$$mdi:arrow-down$$', s: '$$mdi:palette$$', type: sym_by_sym}
   - {t: '$$mdi:toggle-switch-outline$$', h: '$$mdi:led-on$$', s: '$$mdi:led-off$$', type: toggle}
   - {t: BUT, h: toggle}
-  - {type: held}
+  - {type: held alternate}
   - {t: '$$mdi:bluetooth$$', h: toggle, s: '$$mdi:usb$$', type: sym_by_sym}
   - {t: '$$mdi:flash-alert$$', h: tap 3x, s: Reset}
   - {t: '$$mdi:bluetooth-settings$$', h: tap 3x, s: '$$mdi:close-thick$$', type: sym_by_sym}
@@ -615,7 +615,7 @@ combos:
 - p: [37, 38]
   k: '?'
   l: [BUT]
-- p: [37, 38]
+- p: [36, 37]
   k: {t: /, s: \}
   l: [QWERTZ, QWERTZ uml, Colemakish, Colemakish uml, BUT]
 - p: [9, 26]
@@ -642,27 +642,21 @@ combos:
   a: top
   o: 2.3
   arc_scale: 1.025
-- p: [41, 40]
+- p: [42, 6]
   k: {t: mouse, h: toggle}
-  l: [QWERTZ, QWERTZ uml, Colemakish, BUT]
-  a: bottom
-  o: 0.5
-  arc_scale: 0.9
-- p: [42, 41]
+  l: [QWERTZ, QWERTZ uml, Colemakish, BUT, mouse]
+  a: right
+  o: 0.2
+  arc_scale: 0.75
+- p: [42, 20]
   k: {t: num_l, h: toggle}
   l: [QWERTZ, QWERTZ uml, Colemakish, BUT, num_l]
-  a: bottom
-  o: 0.5
-  arc_scale: 0.9
-- p: [44, 45]
-  k: {t: num_r, h: toggle}
+- p: [43, 7]
+  k: {t: symb_r, h: toggle}
   l: [QWERTZ, QWERTZ uml, Colemakish, BUT, num_r]
-  a: bottom
-  o: 0.5
-  arc_scale: 0.9
-- p: [43, 44]
+  a: left
+  o: 0.2
+  arc_scale: 0.75
+- p: [43, 21]
   k: {t: navi, h: toggle}
   l: [QWERTZ, QWERTZ uml, Colemakish, BUT, navi]
-  a: bottom
-  o: 0.5
-  arc_scale: 0.98

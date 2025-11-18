@@ -2,7 +2,7 @@ draw_config:
   key_w: 60
   key_h: 56
   split_gap: 30.0
-  combo_w: 28
+  combo_w: 32
   combo_h: 26
   key_rx: 6.0
   key_ry: 6.0
@@ -15,7 +15,7 @@ draw_config:
   outer_pad_w: 30.0
   outer_pad_h: 56.0
   line_spacing: 1.2
-  arc_radius: 6.0
+  arc_radius: 3.0
   append_colon_to_layer_header: true
   small_pad: 2.0
   legend_rel_x: 0.0
@@ -524,23 +524,23 @@ parse_config:
   zmk_preamble: '#define KEYMAP_DRAWER'
   zmk_additional_includes: ['config']
   zmk_combos:
-    cc_combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    cc_combo_num_l_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    cc_combo_num_r_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-    cc_combo_navi_tog:   { align: bottom, o: 0.5,  arc_scale: 0.98 }
-    cc_combo_qw_u_uml:   { align: top,    o: 1.0,  arc_scale: 0.9 }
-    cc_combo_qw_o_uml:   { align: top,    o: 0.3,  arc_scale: 0.3 }
-    cc_combo_qw_sz:      { align: top,    o: 2.3,  arc_scale: 1.025 }
-    cc_combo_qw_a_uml:   { align: top,    o: 3.0,  arc_scale: 1.05 }
+    cc_combo_mouse_tog:   { align: right, o: 0.2,   arc_scale: 0.75 }
+    cc_combo_num_l_tog:   { align: mid,   o: 0,     arc_scale: 1 }
+    cc_combo_symb_r_tog:  { align: left,  o: 0.2,   arc_scale: 0.75 }
+    cc_combo_navi_tog:    { align: mid,   o: 0,     arc_scale: 1 }
+    cc_combo_qw_u_uml:    { align: top,   o: 1.0,   arc_scale: 0.9 }
+    cc_combo_qw_o_uml:    { align: top,   o: 0.3,   arc_scale: 0.3 }
+    cc_combo_qw_sz:       { align: top,   o: 2.3,   arc_scale: 1.025 }
+    cc_combo_qw_a_uml:    { align: top,   o: 3.0,   arc_scale: 1.05 }
 
-    rdx_combo_mouse_tog:  { align: right,  o: 0.25, arc_scale: 1.3 }
-    rdx_combo_func_tog:   { align: mid,    o: 0,    arc_scale: 1 }
-    rdx_combo_num_l_tog:  { align: left,   o: -0.3, arc_scale: 0.7 }
-    rdx_combo_symb_l_tog: { align: mid,    o: 0,    arc_scale: 1 }
-    rdx_combo_num_r_tog:  { align: left,   o: 0.25, arc_scale: 1.3 }
-    rdx_combo_navi_tog:   { align: right,  o: -0.3, arc_scale: 0.7 }
+    rdx_combo_mouse_tog:  { align: right, o: 0.15,  arc_scale: 1.1 }
+    rdx_combo_func_tog:   { align: mid,   o: 0,     arc_scale: 1 }
+    rdx_combo_num_l_tog:  { align: left,  o: -0.3,  arc_scale: 0.7 }
+    rdx_combo_symb_l_tog: { align: mid,   o: 0,     arc_scale: 1 }
+    rdx_combo_num_r_tog:  { align: left,  o: 0.15,  arc_scale: 1.1 }
+    rdx_combo_navi_tog:   { align: right, o: -0.3,  arc_scale: 0.7 }
 
-    rdx_combo_qw_u_uml:   { align: top,    o: 1.5,  arc_scale: 0.9 }
-    rdx_combo_qw_o_uml:   { align: top,    o: 1.2,  arc_scale: 0.3 }
-    rdx_combo_qw_sz:      { align: top,    o: 2.8,  arc_scale: 1.025 }
-    rdx_combo_qw_a_uml:   { align: top,    o: 3.6,  arc_scale: 1.05 }
+    rdx_combo_qw_u_uml:   { align: top,   o: 1.5,   arc_scale: 0.9 }
+    rdx_combo_qw_o_uml:   { align: top,   o: 1.2,   arc_scale: 0.3 }
+    rdx_combo_qw_sz:      { align: top,   o: 2.8,   arc_scale: 1.025 }
+    rdx_combo_qw_a_uml:   { align: top,   o: 3.6,   arc_scale: 1.05 }
