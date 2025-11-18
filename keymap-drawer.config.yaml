@@ -123,6 +123,10 @@ parse_config:
       shifted: $$mdi:numeric-1$$
       hold: $$mdi:apple-keyboard-shift$$
       type: sym_by_sym
+    '&mt_sk RALT RALT':
+      tap: AltGr
+      shifted: 1x
+      hold: AltGr
     '&mt_kt LSHFT LSHFT':
       tap: $$mdi:apple-keyboard-shift$$
       shifted: $$mdi:toggle-switch-outline$$
@@ -133,7 +137,7 @@ parse_config:
       shifted: $$mdi:toggle-switch-outline$$
       hold: $$mdi:apple-keyboard-shift$$
       type: sym_by_sym
-    '&mo_skq NAV LSHFT':
+    '&mo_skq NAVI LSHFT':
       tap: $$mdi:apple-keyboard-shift$$
       shifted: $$mdi:numeric-1$$
       hold: navi
@@ -529,10 +533,13 @@ parse_config:
     cc_combo_qw_sz:      { align: top,    o: 2.3,  arc_scale: 1.025 }
     cc_combo_qw_a_uml:   { align: top,    o: 3.0,  arc_scale: 1.05 }
 
-#    rdx_combo_mouse_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-#    rdx_combo_num_l_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-#    rdx_combo_num_r_tog:  { align: bottom, o: 0.5,  arc_scale: 0.9 }
-#    rdx_combo_navi_tog:   { align: bottom, o: 0.5,  arc_scale: 0.98 }
+    rdx_combo_mouse_tog:  { align: right,  o: 0.25, arc_scale: 1.3 }
+    rdx_combo_func_tog:   { align: mid,    o: 0,    arc_scale: 1 }
+    rdx_combo_num_l_tog:  { align: left,   o: -0.3, arc_scale: 0.7 }
+    rdx_combo_symb_l_tog: { align: mid,    o: 0,    arc_scale: 1 }
+    rdx_combo_num_r_tog:  { align: left,   o: 0.25, arc_scale: 1.3 }
+    rdx_combo_navi_tog:   { align: right,  o: -0.3, arc_scale: 0.7 }
+
     rdx_combo_qw_u_uml:   { align: top,    o: 1.5,  arc_scale: 0.9 }
     rdx_combo_qw_o_uml:   { align: top,    o: 1.2,  arc_scale: 0.3 }
     rdx_combo_qw_sz:      { align: top,    o: 2.8,  arc_scale: 1.025 }

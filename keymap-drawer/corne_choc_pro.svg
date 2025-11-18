@@ -527,12 +527,13 @@ svg.keymap {
 </a><a href="#num_r">
 <text x="0" y="24" class="key hold layer-activator">num_r</text>
 </a></g>
-<g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<g transform="translate(285, 209) rotate(12.0)" class="key sym_by_sym keypos-41">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_by_sym"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key sym_by_sym tap glyph mdi:apple-keyboard-shift"/>
 <a href="#navi">
-<text x="0" y="24" class="key hold layer-activator">navi</text>
-</a></g>
+<text x="0" y="24" class="key sym_by_sym hold layer-activator">navi</text>
+</a><use href="#mdi:numeric-1" xlink:href="#mdi:numeric-1" x="-8" y="-24" height="15" width="15.0" class="key sym_by_sym shifted glyph mdi:numeric-1"/>
+</g>
 <g transform="translate(350, 215) rotate(24.0)" class="key backspace keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
 <use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
@@ -1036,12 +1037,13 @@ svg.keymap {
 </a><a href="#num_r">
 <text x="0" y="24" class="key hold layer-activator">num_r</text>
 </a></g>
-<g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<g transform="translate(285, 209) rotate(12.0)" class="key sym_by_sym keypos-41">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_by_sym"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key sym_by_sym tap glyph mdi:apple-keyboard-shift"/>
 <a href="#navi">
-<text x="0" y="24" class="key hold layer-activator">navi</text>
-</a></g>
+<text x="0" y="24" class="key sym_by_sym hold layer-activator">navi</text>
+</a><use href="#mdi:numeric-1" xlink:href="#mdi:numeric-1" x="-8" y="-24" height="15" width="15.0" class="key sym_by_sym shifted glyph mdi:numeric-1"/>
+</g>
 <g transform="translate(350, 215) rotate(24.0)" class="key backspace keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
 <use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
@@ -1481,12 +1483,13 @@ svg.keymap {
 </a><a href="#num_r">
 <text x="0" y="24" class="key hold layer-activator">num_r</text>
 </a></g>
-<g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<g transform="translate(285, 209) rotate(12.0)" class="key sym_by_sym keypos-41">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_by_sym"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key sym_by_sym tap glyph mdi:apple-keyboard-shift"/>
 <a href="#navi">
-<text x="0" y="24" class="key hold layer-activator">navi</text>
-</a></g>
+<text x="0" y="24" class="key sym_by_sym hold layer-activator">navi</text>
+</a><use href="#mdi:numeric-1" xlink:href="#mdi:numeric-1" x="-8" y="-24" height="15" width="15.0" class="key sym_by_sym shifted glyph mdi:numeric-1"/>
+</g>
 <g transform="translate(350, 215) rotate(24.0)" class="key backspace keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
 <use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
@@ -2549,11 +2552,11 @@ svg.keymap {
 <g transform="translate(224, 203)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(285, 209) rotate(12.0)" class="key held keypos-41">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#navi">
-<text x="0" y="0" class="key held tap layer-activator">navi</text>
-</a><text x="0" y="24" class="key held hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="0" y="0" class="key tap layer-activator">navi</text>
+</a><text x="0" y="24" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g transform="translate(350, 215) rotate(24.0)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
@@ -3166,8 +3169,8 @@ svg.keymap {
 <g transform="translate(224, 203)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(285, 209) rotate(12.0)" class="key held keypos-41">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
 <g transform="translate(350, 215) rotate(24.0)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>

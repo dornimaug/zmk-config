@@ -174,11 +174,30 @@
         require-prior-idle-ms = <150>; \
     };
 
-#define COMBO_THUMB_TOG(NAME, KEYS, TOG_LAYER, LAYERS) \
+#define COMBO_SAME(NAME, KEYS, BINDING, LAYERS) \
+    NAME { \
+        key-positions = <KEYS>; \
+        bindings = <BINDING>; \
+        layers = <LAYERS>; \
+        slow-release; \
+        timeout-ms = <COMBO_TIMEOUT_SAME>; \
+    };
+
+#define COMBO_THUMB(NAME, KEYS, BINDING, LAYERS) \
+    NAME { \
+        key-positions = <KEYS>; \
+        bindings = <BINDING>; \
+        layers = <LAYERS>; \
+        slow-release; \
+        timeout-ms = <40>; \
+    };
+
+#define COMBO_LAYER_TOG(NAME, KEYS, TOG_LAYER, LAYERS) \
     NAME { \
         key-positions = <KEYS>; \
         bindings = <&tog TOG_LAYER>; \
         layers = <LAYERS>; \
         slow-release; \
-        timeout-ms = <COMBO_TIMEOUT_SAME>; \
+        timeout-ms = <75>; \
+        require-prior-idle-ms = <150>; \
     };

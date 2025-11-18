@@ -12,7 +12,7 @@ layers:
   - {t: '8', s: (}
   - {t: '9', s: )}
   - {t: '0', s: '='}
-  - Esc
+  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
   - {t: Word, h: tap 2x, s: '$$mdi:apple-keyboard-caps$$'}
   - Q
   - W
@@ -20,7 +20,7 @@ layers:
   - R
   - T
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
-  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
+  - Esc
   - Z
   - U
   - I
@@ -33,7 +33,7 @@ layers:
   - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: F, h: Ctrl}
   - G
-  - {t: '$$mdi:keyboard-space$$', h: symb_r}
+  - {t: '$$mdi:keyboard-space$$', h: '$$mdi:backspace-outline$$'}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - H
   - {t: J, h: Ctrl}
@@ -45,12 +45,12 @@ layers:
   - Y
   - X
   - C
-  - V
+  - {t: V, h: QWERTZ uml}
   - B
   - $$mdi:backspace-reverse-outline$$
   - {t: '$$mdi:keyboard-return$$', h: AltGr}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - N
   - M
   - {t: ',', s: ;}
@@ -61,12 +61,12 @@ layers:
   - Alt
   - GUI
   - {t: Esc, h: AltGr}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: navi}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: symb_r, h: num_r}
   - {t: '$$mdi:keyboard-tab$$', h: func}
-  - {t: '$$mdi:keyboard-space$$', h: symb_l}
-  - {t: '$$mdi:keyboard-return$$', h: num_l}
+  - {t: '$$mdi:keyboard-return$$', h: symb_l}
+  - {t: '$$mdi:keyboard-space$$', h: num_l}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$
   - $$mdi:arrow-down-bold$$
@@ -110,13 +110,13 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ß, type: held}
+  - Ä
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held alternate}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -161,7 +161,7 @@ layers:
   - {t: '8', s: (}
   - {t: '9', s: )}
   - {t: +, s: '*'}
-  - {t: AltGr, h: sticky}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
   - Undo
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -175,7 +175,7 @@ layers:
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
   - {t: '#', s: ''''}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - Ctrl
@@ -189,8 +189,8 @@ layers:
   - {t: '2', s: '"'}
   - {t: '3', s: §}
   - {t: '-', s: _}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: sticky}
-  - {t: AltGr, h: sticky}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-space$$', type: space}
   - ''
   - ''
   - Esc
@@ -199,12 +199,12 @@ layers:
   - Cut
   - AltGr
   - ''
-  - {t: num_l, h: toggle}
-  - AltGr
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
+  - {t: AltGr, h: AltGr, s: 1x}
   - {t: '0', s: '='}
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
-  - {t: '0', s: '='}
   - {t: ., s: ':'}
+  - {t: '0', s: '='}
   - {t: ',', s: ;}
   - {t: num_l, h: toggle}
   - {t: num_l, h: toggle}
@@ -233,7 +233,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
   - ''
-  - {t: AltGr, h: sticky}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: +, s: '*'}
   - {t: '7', s: /}
   - {t: '8', s: (}
@@ -247,7 +247,7 @@ layers:
   - Ctrl
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '#', s: ''''}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
@@ -260,10 +260,10 @@ layers:
   - Copy
   - Paste
   - Esc
+  - {type: held alternate}
   - ''
-  - ''
-  - {t: AltGr, h: sticky}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: sticky}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '-', s: _}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
@@ -275,15 +275,15 @@ layers:
   - ''
   - ''
   - {t: num_r, h: toggle}
-  - {t: num_r, h: toggle}
+  - {t: num_r, h: toggle, type: held alternate}
   - {type: held}
   - {t: ',', s: ;}
-  - {t: ., s: ':'}
   - {t: '0', s: '='}
+  - {t: ., s: ':'}
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - {t: '0', s: '='}
-  - AltGr
-  - {t: num_r, h: toggle}
+  - {t: AltGr, h: AltGr, s: 1x}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   symb_l:
   - {t: ´, s: '`'}
   - ']'
@@ -303,7 +303,7 @@ layers:
   - (
   - )
   - {t: +, s: '*'}
-  - ;
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
   - Undo
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -317,7 +317,7 @@ layers:
   - '"'
   - '&'
   - {t: '#', s: ''''}
-  - ':'
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - Ctrl
@@ -331,7 +331,7 @@ layers:
   - '%'
   - '?'
   - {t: '-', s: _}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - ''
   - ''
@@ -341,14 +341,14 @@ layers:
   - Cut
   - ''
   - ''
-  - ''
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - §
   - '='
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - '='
   - {t: ., s: ':'}
   - {t: ',', s: ;}
-  - ''
+  - {t: symb_l, h: toggle}
   - {type: held}
   - ''
   - ''
@@ -375,7 +375,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
   - ''
-  - ;
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: +, s: '*'}
   - /
   - (
@@ -388,8 +388,8 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - Ctrl
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle, type: held alternate}
-  - ':'
+  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '#', s: ''''}
   - '!'
   - '"'
@@ -403,9 +403,9 @@ layers:
   - Paste
   - Esc
   - ''
-  - ''
+  - {type: held alternate}
   - {t: '$$mdi:keyboard-space$$', type: space}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '-', s: _}
   - $
   - '%'
@@ -417,7 +417,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - {t: symb_r, h: toggle}
   - {type: held alternate}
   - {t: ',', s: ;}
   - {t: ., s: ':'}
@@ -425,7 +425,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - '='
   - §
-  - ''
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   navi:
   - ''
   - ''
@@ -475,7 +475,7 @@ layers:
   - Esc
   - ''
   - ''
-  - {t: MB4, s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: MB5, s: '$$mdi:mouse$$'}
   - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - Home
@@ -487,12 +487,12 @@ layers:
   - ''
   - ''
   - ''
-  - {type: held}
+  - ''
   - {t: navi, h: toggle}
   - {t: navi, h: toggle}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - $$mdi:skip-previous$$
   - $$mdi:skip-next$$
   - $$mdi:volume-low$$
@@ -526,8 +526,8 @@ layers:
   - ''
   - $$mdi:apple-keyboard-caps$$
   - F11
-  - F2
-  - F3
+  - F4
+  - F5
   - F6
   - {t: '$$mdi:monitor-screenshot$$', h: '$$mdi:microsoft-windows$$', s: '$$mdi:select-drag$$', type: sym_by_sym}
   - {t: '$$mdi:robot-confused-outline$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
@@ -547,7 +547,7 @@ layers:
   - Undo
   - Redo
   - ''
-  - ''
+  - {type: held alternate}
   - Esc
   - Paste
   - Copy
@@ -562,7 +562,7 @@ layers:
   - Copy
   - Paste
   - {type: held}
-  - ''
+  - {type: held alternate}
   - ''
   - ''
   - ''
@@ -700,7 +700,7 @@ layers:
   - ''
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - ''
   - ''
@@ -744,15 +744,45 @@ combos:
   a: top
   o: 2.8
   arc_scale: 1.025
-- p: [62, 47]
+- p: [62, 32]
   k: {t: mouse, h: toggle}
   l: [QWERTZ, QWERTZ uml, mouse]
-- p: [61, 46]
+  a: right
+  o: 0.25
+  arc_scale: 1.3
+- p: [61, 32]
   k: {t: num_l, h: toggle}
   l: [QWERTZ, QWERTZ uml, num_l]
-- p: [63, 48]
+  a: left
+  o: -0.3
+  arc_scale: 0.7
+- p: [46, 32]
+  k: {t: symb_l, h: toggle}
+  l: [QWERTZ, QWERTZ uml, symb_l]
+- p: [47, 32]
+  k: {t: func, h: toggle}
+  l: [QWERTZ, QWERTZ uml, func]
+- p: [63, 33]
   k: {t: num_r, h: toggle}
   l: [QWERTZ, QWERTZ uml, num_r]
-- p: [64, 49]
+  a: left
+  o: 0.25
+  arc_scale: 1.3
+- p: [64, 33]
   k: {t: navi, h: toggle}
   l: [QWERTZ, QWERTZ uml, navi]
+  a: right
+  o: -0.3
+  arc_scale: 0.7
+- p: [48, 33]
+  k: {t: symb_r, h: toggle}
+  l: [QWERTZ, QWERTZ uml, symb_r]
+- p: [61, 46]
+  k: num_r
+  l: [QWERTZ, QWERTZ uml]
+- p: [62, 47]
+  k: symb_r
+  l: [QWERTZ, QWERTZ uml]
+- p: [64, 49]
+  k: func
+  l: [QWERTZ, QWERTZ uml]

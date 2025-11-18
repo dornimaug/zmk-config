@@ -42,7 +42,7 @@ layers:
   - {t: '-', s: _}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: symb_r, h: num_r}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: navi}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', h: symb_l}
   - {t: '$$mdi:keyboard-return$$', h: num_l}
@@ -136,7 +136,7 @@ layers:
   - {t: '-', s: _}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: symb_r, h: num_r}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: navi}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', h: symb_l}
   - {t: '$$mdi:keyboard-return$$', h: num_l}
@@ -230,7 +230,7 @@ layers:
   - Z
   - {t: '-', h: '$$mdi:apple-keyboard-shift$$', s: _}
   - {t: symb_r, h: num_r}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: navi}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-space$$', h: symb_l}
   - {t: '$$mdi:keyboard-return$$', h: num_l}
@@ -465,7 +465,7 @@ layers:
   - $$mdi:apple-keyboard-caps$$
   - $$mdi:volume-off$$
   - ''
-  - {t: navi, h: toggle, type: held}
+  - {t: navi, h: toggle}
   - {t: navi, h: toggle}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -606,7 +606,7 @@ layers:
   - ''
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - ''
   - ''

@@ -87,6 +87,9 @@
 <svg id="mdi:mouse-scroll-wheel">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-mouse-scroll-wheel" viewBox="0 0 24 24"><path d="M11 1.07C7.05 1.56 4 4.92 4 9H11V7.73C10.4 7.39 10 6.74 10 6V4C10 3.26 10.4 2.61 11 2.27V1.07M13 9V7.73C13.6 7.39 14 6.74 14 6V4C14 3.26 13.6 2.61 13 2.27V1.07C16.94 1.56 20 4.92 20 9H13M4 15C4 17.12 4.84 19.16 6.34 20.66C7.84 22.16 9.88 23 12 23C14.12 23 16.16 22.16 17.66 20.66C19.16 19.16 20 17.12 20 15V11H4V15M13 6V4C13 3.45 12.55 3 12 3C11.45 3 11 3.45 11 4V6C11 6.55 11.45 7 12 7C12.55 7 13 6.55 13 6Z" /></svg>
 </svg>
+<svg id="mdi:numeric-1">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-numeric-1" viewBox="0 0 24 24"><path d="M10,7V9H12V17H14V7H10Z" /></svg>
+</svg>
 <svg id="mdi:play-pause">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-play-pause" viewBox="0 0 24 24"><path d="M3,5V19L11,12M13,19H16V5H13M18,5V19H21V5" /></svg>
 </svg>
@@ -378,7 +381,8 @@ svg.keymap {
 </g>
 <g transform="translate(1001, 49)" class="key keypos-11">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Esc</text>
+<use href="#mdi:microphone-off" xlink:href="#mdi:microphone-off" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:microphone-off"/>
+<use href="#mdi:play-pause" xlink:href="#mdi:play-pause" x="-8" y="-24" height="15" width="15.0" class="key shifted glyph mdi:play-pause"/>
 </g>
 <g transform="translate(35, 105)" class="key keypos-12">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
@@ -413,8 +417,7 @@ svg.keymap {
 </g>
 <g transform="translate(658, 70)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:microphone-off" xlink:href="#mdi:microphone-off" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:microphone-off"/>
-<use href="#mdi:play-pause" xlink:href="#mdi:play-pause" x="-8" y="-24" height="15" width="15.0" class="key shifted glyph mdi:play-pause"/>
+<text x="0" y="0" class="key tap">Esc</text>
 </g>
 <g transform="translate(714, 98)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -474,9 +477,8 @@ svg.keymap {
 <g transform="translate(378, 140)" class="key keypos-32">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-space"/>
-<a href="#symb_r">
-<text x="0" y="38" class="key hold layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
-</a></g>
+<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-8" y="23" height="15" width="15.0" class="key hold glyph mdi:backspace-outline"/>
+</g>
 <g transform="translate(658, 140)" class="key backspace keypos-33">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
 <use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
@@ -534,7 +536,9 @@ svg.keymap {
 <g transform="translate(266, 203)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">V</text>
-</g>
+<a href="#QWERTZ-uml">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 62%">QWERTZ …</tspan></text>
+</a></g>
 <g transform="translate(322, 210)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">B</text>
@@ -548,13 +552,13 @@ svg.keymap {
 <use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-return"/>
 <text x="0" y="24" class="key hold">AltGr</text>
 </g>
-<g transform="translate(574, 238)" class="key enter keypos-48">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key enter"/>
-<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key enter tap glyph mdi:keyboard-return"/>
-</g>
-<g transform="translate(630, 238)" class="key space keypos-49">
+<g transform="translate(574, 238)" class="key space keypos-48">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key space"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
+</g>
+<g transform="translate(630, 238)" class="key enter keypos-49">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key enter"/>
+<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key enter tap glyph mdi:keyboard-return"/>
 </g>
 <g transform="translate(714, 210)" class="key keypos-50">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -601,12 +605,13 @@ svg.keymap {
 <text x="0" y="0" class="key tap">Esc</text>
 <text x="0" y="24" class="key hold">AltGr</text>
 </g>
-<g transform="translate(343, 322)" class="key keypos-60">
-<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<g transform="translate(343, 322)" class="key sym_by_sym keypos-60">
+<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key sym_by_sym"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key sym_by_sym tap glyph mdi:apple-keyboard-shift"/>
 <a href="#navi">
-<text x="0" y="24" class="key hold layer-activator">navi</text>
-</a></g>
+<text x="0" y="24" class="key sym_by_sym hold layer-activator">navi</text>
+</a><use href="#mdi:numeric-1" xlink:href="#mdi:numeric-1" x="-8" y="-24" height="15" width="15.0" class="key sym_by_sym shifted glyph mdi:numeric-1"/>
+</g>
 <g transform="translate(406, 308)" class="key backspace keypos-61">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
 <use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
@@ -626,13 +631,13 @@ svg.keymap {
 </a></g>
 <g transform="translate(630, 308)" class="key keypos-64">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-space"/>
+<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-return"/>
 <a href="#symb_l">
 <text x="0" y="38" class="key hold layer-activator"><tspan style="font-size: 83%">symb_l</tspan></text>
 </a></g>
 <g transform="translate(693, 322)" class="key keypos-65">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
-<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-return"/>
+<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-space"/>
 <a href="#num_l">
 <text x="0" y="24" class="key hold layer-activator">num_l</text>
 </a></g>
@@ -690,29 +695,74 @@ svg.keymap {
 <text x="546" y="-39" class="combo tap">ß</text>
 </g>
 <g class="combo combopos-7">
-<rect rx="6" ry="6" x="448" y="260" width="28" height="26" class="combo"/>
+<path d="M505,224 v103 a6.0,6.0 0 0 1 -6.0,6.0 h-18" class="combo"/>
+<path d="M505,224 v-103 a6.0,6.0 0 0 0 -6.0,-6.0 h-102" class="combo"/>
+<rect rx="6" ry="6" x="491" y="211" width="28" height="26" class="combo"/>
 <a href="#mouse">
-<text x="462" y="273" class="combo tap layer-activator">mouse</text>
-</a><text x="462" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="505" y="224" class="combo tap layer-activator">mouse</text>
+</a><text x="505" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g class="combo combopos-8">
-<rect rx="6" ry="6" x="392" y="260" width="28" height="26" class="combo"/>
+<path d="M366,224 v53 a6.0,6.0 0 0 0 6.0,6.0 h16" class="combo"/>
+<path d="M366,224 v-53 a6.0,6.0 0 0 1 6.0,-6.0 h-12" class="combo"/>
+<rect rx="6" ry="6" x="352" y="211" width="28" height="26" class="combo"/>
 <a href="#num_l">
-<text x="406" y="273" class="combo tap layer-activator">num_l</text>
-</a><text x="406" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="366" y="224" class="combo tap layer-activator">num_l</text>
+</a><text x="366" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g class="combo combopos-9">
-<rect rx="6" ry="6" x="560" y="260" width="28" height="26" class="combo"/>
-<a href="#num_r">
-<text x="574" y="273" class="combo tap layer-activator">num_r</text>
-</a><text x="574" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<rect rx="6" ry="6" x="378" y="176" width="28" height="26" class="combo"/>
+<a href="#symb_l">
+<text x="392" y="189" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_l</tspan></text>
+</a><text x="392" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g class="combo combopos-10">
-<rect rx="6" ry="6" x="616" y="260" width="28" height="26" class="combo"/>
-<a href="#navi">
-<text x="630" y="273" class="combo tap layer-activator">navi</text>
-</a><text x="630" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<path d="M420,189 l30,35" class="combo"/>
+<path d="M420,189 l-30,-35" class="combo"/>
+<rect rx="6" ry="6" x="406" y="176" width="28" height="26" class="combo"/>
+<a href="#func">
+<text x="420" y="189" class="combo tap layer-activator">func</text>
+</a><text x="420" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
+<g class="combo combopos-11">
+<path d="M531,224 v103 a6.0,6.0 0 0 0 6.0,6.0 h18" class="combo"/>
+<path d="M531,224 v-103 a6.0,6.0 0 0 1 6.0,-6.0 h102" class="combo"/>
+<rect rx="6" ry="6" x="517" y="211" width="28" height="26" class="combo"/>
+<a href="#num_r">
+<text x="531" y="224" class="combo tap layer-activator">num_r</text>
+</a><text x="531" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+</g>
+<g class="combo combopos-12">
+<path d="M670,224 v53 a6.0,6.0 0 0 1 -6.0,6.0 h-16" class="combo"/>
+<path d="M670,224 v-53 a6.0,6.0 0 0 0 -6.0,-6.0 h12" class="combo"/>
+<rect rx="6" ry="6" x="656" y="211" width="28" height="26" class="combo"/>
+<a href="#navi">
+<text x="670" y="224" class="combo tap layer-activator">navi</text>
+</a><text x="670" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+</g>
+<g class="combo combopos-13">
+<path d="M616,189 l-30,35" class="combo"/>
+<path d="M616,189 l30,-35" class="combo"/>
+<rect rx="6" ry="6" x="602" y="176" width="28" height="26" class="combo"/>
+<a href="#symb_r">
+<text x="616" y="189" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
+</a><text x="616" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+</g>
+<g class="combo combopos-14">
+<rect rx="6" ry="6" x="392" y="260" width="28" height="26" class="combo"/>
+<a href="#num_r">
+<text x="406" y="273" class="combo tap layer-activator">num_r</text>
+</a></g>
+<g class="combo combopos-15">
+<rect rx="6" ry="6" x="448" y="260" width="28" height="26" class="combo"/>
+<a href="#symb_r">
+<text x="462" y="273" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
+</a></g>
+<g class="combo combopos-16">
+<rect rx="6" ry="6" x="616" y="260" width="28" height="26" class="combo"/>
+<a href="#func">
+<text x="630" y="273" class="combo tap layer-activator">func</text>
+</a></g>
 </g>
 </g>
 <g transform="translate(30, 489)" class="layer-QWERTZ uml">
@@ -872,10 +922,11 @@ svg.keymap {
 </g>
 <g transform="translate(938, 161)" class="key held keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<text x="0" y="0" class="key held tap">ß</text>
 </g>
-<g transform="translate(1001, 161)" class="key trans keypos-39">
-<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(1001, 161)" class="key keypos-39">
+<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Ä</text>
 </g>
 <g transform="translate(35, 217)" class="key trans keypos-40">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key trans"/>
@@ -893,9 +944,8 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(266, 203)" class="key trans keypos-44">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(266, 203)" class="key held alternate keypos-44">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
 </g>
 <g transform="translate(322, 210)" class="key trans keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -1011,29 +1061,74 @@ svg.keymap {
 <text x="910" y="266" class="combo tap">End</text>
 </g>
 <g class="combo combopos-3">
-<rect rx="6" ry="6" x="448" y="260" width="28" height="26" class="combo"/>
+<path d="M505,224 v103 a6.0,6.0 0 0 1 -6.0,6.0 h-18" class="combo"/>
+<path d="M505,224 v-103 a6.0,6.0 0 0 0 -6.0,-6.0 h-102" class="combo"/>
+<rect rx="6" ry="6" x="491" y="211" width="28" height="26" class="combo"/>
 <a href="#mouse">
-<text x="462" y="273" class="combo tap layer-activator">mouse</text>
-</a><text x="462" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="505" y="224" class="combo tap layer-activator">mouse</text>
+</a><text x="505" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g class="combo combopos-4">
-<rect rx="6" ry="6" x="392" y="260" width="28" height="26" class="combo"/>
+<path d="M366,224 v53 a6.0,6.0 0 0 0 6.0,6.0 h16" class="combo"/>
+<path d="M366,224 v-53 a6.0,6.0 0 0 1 6.0,-6.0 h-12" class="combo"/>
+<rect rx="6" ry="6" x="352" y="211" width="28" height="26" class="combo"/>
 <a href="#num_l">
-<text x="406" y="273" class="combo tap layer-activator">num_l</text>
-</a><text x="406" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="366" y="224" class="combo tap layer-activator">num_l</text>
+</a><text x="366" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g class="combo combopos-5">
-<rect rx="6" ry="6" x="560" y="260" width="28" height="26" class="combo"/>
-<a href="#num_r">
-<text x="574" y="273" class="combo tap layer-activator">num_r</text>
-</a><text x="574" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<rect rx="6" ry="6" x="378" y="176" width="28" height="26" class="combo"/>
+<a href="#symb_l">
+<text x="392" y="189" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_l</tspan></text>
+</a><text x="392" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g class="combo combopos-6">
-<rect rx="6" ry="6" x="616" y="260" width="28" height="26" class="combo"/>
-<a href="#navi">
-<text x="630" y="273" class="combo tap layer-activator">navi</text>
-</a><text x="630" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<path d="M420,189 l30,35" class="combo"/>
+<path d="M420,189 l-30,-35" class="combo"/>
+<rect rx="6" ry="6" x="406" y="176" width="28" height="26" class="combo"/>
+<a href="#func">
+<text x="420" y="189" class="combo tap layer-activator">func</text>
+</a><text x="420" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
+<g class="combo combopos-7">
+<path d="M531,224 v103 a6.0,6.0 0 0 0 6.0,6.0 h18" class="combo"/>
+<path d="M531,224 v-103 a6.0,6.0 0 0 1 6.0,-6.0 h102" class="combo"/>
+<rect rx="6" ry="6" x="517" y="211" width="28" height="26" class="combo"/>
+<a href="#num_r">
+<text x="531" y="224" class="combo tap layer-activator">num_r</text>
+</a><text x="531" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+</g>
+<g class="combo combopos-8">
+<path d="M670,224 v53 a6.0,6.0 0 0 1 -6.0,6.0 h-16" class="combo"/>
+<path d="M670,224 v-53 a6.0,6.0 0 0 0 -6.0,-6.0 h12" class="combo"/>
+<rect rx="6" ry="6" x="656" y="211" width="28" height="26" class="combo"/>
+<a href="#navi">
+<text x="670" y="224" class="combo tap layer-activator">navi</text>
+</a><text x="670" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+</g>
+<g class="combo combopos-9">
+<path d="M616,189 l-30,35" class="combo"/>
+<path d="M616,189 l30,-35" class="combo"/>
+<rect rx="6" ry="6" x="602" y="176" width="28" height="26" class="combo"/>
+<a href="#symb_r">
+<text x="616" y="189" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
+</a><text x="616" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+</g>
+<g class="combo combopos-10">
+<rect rx="6" ry="6" x="392" y="260" width="28" height="26" class="combo"/>
+<a href="#num_r">
+<text x="406" y="273" class="combo tap layer-activator">num_r</text>
+</a></g>
+<g class="combo combopos-11">
+<rect rx="6" ry="6" x="448" y="260" width="28" height="26" class="combo"/>
+<a href="#symb_r">
+<text x="462" y="273" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
+</a></g>
+<g class="combo combopos-12">
+<rect rx="6" ry="6" x="616" y="260" width="28" height="26" class="combo"/>
+<a href="#func">
+<text x="630" y="273" class="combo tap layer-activator">func</text>
+</a></g>
 </g>
 </g>
 <g transform="translate(30, 895)" class="layer-num_l">
@@ -1118,10 +1213,9 @@ svg.keymap {
 <text x="0" y="0" class="key tap">+</text>
 <text x="0" y="-24" class="key shifted">*</text>
 </g>
-<g transform="translate(378, 70)" class="key keypos-18">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">AltGr</text>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<g transform="translate(378, 70)" class="key tab keypos-18">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
+<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
 </g>
 <g transform="translate(658, 70)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1178,10 +1272,9 @@ svg.keymap {
 <text x="0" y="0" class="key tap">#</text>
 <text x="0" y="-24" class="key shifted">&#x27;</text>
 </g>
-<g transform="translate(378, 140)" class="key keypos-32">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
-<text x="0" y="38" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<g transform="translate(378, 140)" class="key backspace keypos-32">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
+<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
 </g>
 <g transform="translate(658, 140)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
@@ -1242,15 +1335,13 @@ svg.keymap {
 <text x="0" y="0" class="key tap">-</text>
 <text x="0" y="-24" class="key shifted">_</text>
 </g>
-<g transform="translate(406, 238)" class="key keypos-46">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<g transform="translate(406, 238)" class="key enter keypos-46">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key enter"/>
+<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key enter tap glyph mdi:keyboard-return"/>
 </g>
-<g transform="translate(462, 238)" class="key keypos-47">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">AltGr</text>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<g transform="translate(462, 238)" class="key space keypos-47">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key space"/>
+<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
 </g>
 <g transform="translate(574, 238)" class="key keypos-48">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1281,15 +1372,17 @@ svg.keymap {
 <g transform="translate(1001, 217)" class="key keypos-55">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
 </g>
-<g transform="translate(42, 273)" class="key keypos-56">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#num_l">
-<text x="0" y="0" class="key tap layer-activator">num_l</text>
-</a><text x="0" y="24" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<g transform="translate(42, 273)" class="key sym_by_sym keypos-56">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_by_sym"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key sym_by_sym tap glyph mdi:apple-keyboard-shift"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-8" y="9" height="15" width="15.0" class="key sym_by_sym hold glyph mdi:apple-keyboard-shift"/>
+<use href="#mdi:numeric-1" xlink:href="#mdi:numeric-1" x="-8" y="-24" height="15" width="15.0" class="key sym_by_sym shifted glyph mdi:numeric-1"/>
 </g>
 <g transform="translate(98, 273)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">AltGr</text>
+<text x="0" y="24" class="key hold">AltGr</text>
+<text x="0" y="-24" class="key shifted">1x</text>
 </g>
 <g transform="translate(154, 259)" class="key keypos-58">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1303,13 +1396,13 @@ svg.keymap {
 </g>
 <g transform="translate(343, 322)" class="key keypos-60">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
-<text x="0" y="0" class="key tap">0</text>
-<text x="0" y="-24" class="key shifted">=</text>
+<text x="0" y="0" class="key tap">.</text>
+<text x="0" y="-24" class="key shifted">:</text>
 </g>
 <g transform="translate(406, 308)" class="key keypos-61">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">.</text>
-<text x="0" y="-38" class="key shifted">:</text>
+<text x="0" y="0" class="key tap">0</text>
+<text x="0" y="-38" class="key shifted">=</text>
 </g>
 <g transform="translate(462, 308)" class="key keypos-62">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
@@ -1344,10 +1437,12 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
 <g class="combo combopos-0">
-<rect rx="6" ry="6" x="392" y="260" width="28" height="26" class="combo"/>
+<path d="M366,224 v53 a6.0,6.0 0 0 0 6.0,6.0 h16" class="combo"/>
+<path d="M366,224 v-53 a6.0,6.0 0 0 1 6.0,-6.0 h-12" class="combo"/>
+<rect rx="6" ry="6" x="352" y="211" width="28" height="26" class="combo"/>
 <a href="#num_l">
-<text x="406" y="273" class="combo tap layer-activator">num_l</text>
-</a><text x="406" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="366" y="224" class="combo tap layer-activator">num_l</text>
+</a><text x="366" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 </g>
 </g>
@@ -1428,10 +1523,9 @@ svg.keymap {
 <g transform="translate(378, 70)" class="key keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(658, 70)" class="key keypos-19">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">AltGr</text>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<g transform="translate(658, 70)" class="key tab keypos-19">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
+<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
 </g>
 <g transform="translate(714, 98)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1492,10 +1586,9 @@ svg.keymap {
 <use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
 <text x="0" y="38" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
-<g transform="translate(658, 140)" class="key keypos-33">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
-<text x="0" y="38" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<g transform="translate(658, 140)" class="key backspace keypos-33">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
+<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
 </g>
 <g transform="translate(714, 154)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1550,21 +1643,19 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">Esc</text>
 </g>
-<g transform="translate(406, 238)" class="key keypos-46">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<g transform="translate(406, 238)" class="key held alternate keypos-46">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
 </g>
 <g transform="translate(462, 238)" class="key keypos-47">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(574, 238)" class="key keypos-48">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">AltGr</text>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<g transform="translate(574, 238)" class="key space keypos-48">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key space"/>
+<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
 </g>
-<g transform="translate(630, 238)" class="key keypos-49">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<g transform="translate(630, 238)" class="key enter keypos-49">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key enter"/>
+<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key enter tap glyph mdi:keyboard-return"/>
 </g>
 <g transform="translate(714, 210)" class="key keypos-50">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1614,11 +1705,11 @@ svg.keymap {
 <text x="0" y="0" class="key tap layer-activator">num_r</text>
 </a><text x="0" y="24" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
-<g transform="translate(406, 308)" class="key keypos-61">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
+<g transform="translate(406, 308)" class="key held alternate keypos-61">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held alternate"/>
 <a href="#num_r">
-<text x="0" y="0" class="key tap layer-activator">num_r</text>
-</a><text x="0" y="38" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="0" y="0" class="key held alternate tap layer-activator">num_r</text>
+</a><text x="0" y="38" class="key held alternate hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g transform="translate(462, 308)" class="key held keypos-62">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held"/>
@@ -1630,13 +1721,13 @@ svg.keymap {
 </g>
 <g transform="translate(630, 308)" class="key keypos-64">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">.</text>
-<text x="0" y="-38" class="key shifted">:</text>
+<text x="0" y="0" class="key tap">0</text>
+<text x="0" y="-38" class="key shifted">=</text>
 </g>
 <g transform="translate(693, 322)" class="key keypos-65">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
-<text x="0" y="0" class="key tap">0</text>
-<text x="0" y="-24" class="key shifted">=</text>
+<text x="0" y="0" class="key tap">.</text>
+<text x="0" y="-24" class="key shifted">:</text>
 </g>
 <g transform="translate(826, 252)" class="key return keypos-66">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key return"/>
@@ -1651,18 +1742,22 @@ svg.keymap {
 <g transform="translate(938, 273)" class="key keypos-68">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">AltGr</text>
+<text x="0" y="24" class="key hold">AltGr</text>
+<text x="0" y="-24" class="key shifted">1x</text>
 </g>
-<g transform="translate(994, 273)" class="key keypos-69">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#num_r">
-<text x="0" y="0" class="key tap layer-activator">num_r</text>
-</a><text x="0" y="24" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<g transform="translate(994, 273)" class="key sym_by_sym keypos-69">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_by_sym"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key sym_by_sym tap glyph mdi:apple-keyboard-shift"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-8" y="9" height="15" width="15.0" class="key sym_by_sym hold glyph mdi:apple-keyboard-shift"/>
+<use href="#mdi:numeric-1" xlink:href="#mdi:numeric-1" x="-8" y="-24" height="15" width="15.0" class="key sym_by_sym shifted glyph mdi:numeric-1"/>
 </g>
 <g class="combo combopos-0">
-<rect rx="6" ry="6" x="560" y="260" width="28" height="26" class="combo"/>
+<path d="M531,224 v103 a6.0,6.0 0 0 0 6.0,6.0 h18" class="combo"/>
+<path d="M531,224 v-103 a6.0,6.0 0 0 1 6.0,-6.0 h102" class="combo"/>
+<rect rx="6" ry="6" x="517" y="211" width="28" height="26" class="combo"/>
 <a href="#num_r">
-<text x="574" y="273" class="combo tap layer-activator">num_r</text>
-</a><text x="574" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="531" y="224" class="combo tap layer-activator">num_r</text>
+</a><text x="531" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 </g>
 </g>
@@ -1740,9 +1835,9 @@ svg.keymap {
 <text x="0" y="0" class="key tap">+</text>
 <text x="0" y="-24" class="key shifted">*</text>
 </g>
-<g transform="translate(378, 70)" class="key keypos-18">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">;</text>
+<g transform="translate(378, 70)" class="key tab keypos-18">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
+<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
 </g>
 <g transform="translate(658, 70)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1796,9 +1891,9 @@ svg.keymap {
 <text x="0" y="0" class="key tap">#</text>
 <text x="0" y="-24" class="key shifted">&#x27;</text>
 </g>
-<g transform="translate(378, 140)" class="key keypos-32">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">:</text>
+<g transform="translate(378, 140)" class="key backspace keypos-32">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
+<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
 </g>
 <g transform="translate(658, 140)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
@@ -1855,9 +1950,9 @@ svg.keymap {
 <text x="0" y="0" class="key tap">-</text>
 <text x="0" y="-24" class="key shifted">_</text>
 </g>
-<g transform="translate(406, 238)" class="key tab keypos-46">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
-<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
+<g transform="translate(406, 238)" class="key enter keypos-46">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key enter"/>
+<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key enter tap glyph mdi:keyboard-return"/>
 </g>
 <g transform="translate(462, 238)" class="key space keypos-47">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key space"/>
@@ -1891,8 +1986,11 @@ svg.keymap {
 <g transform="translate(1001, 217)" class="key keypos-55">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
 </g>
-<g transform="translate(42, 273)" class="key keypos-56">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<g transform="translate(42, 273)" class="key sym_by_sym keypos-56">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_by_sym"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key sym_by_sym tap glyph mdi:apple-keyboard-shift"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-8" y="9" height="15" width="15.0" class="key sym_by_sym hold glyph mdi:apple-keyboard-shift"/>
+<use href="#mdi:numeric-1" xlink:href="#mdi:numeric-1" x="-8" y="-24" height="15" width="15.0" class="key sym_by_sym shifted glyph mdi:numeric-1"/>
 </g>
 <g transform="translate(98, 273)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1922,6 +2020,9 @@ svg.keymap {
 </g>
 <g transform="translate(574, 308)" class="key keypos-63">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
+<a href="#symb_l">
+<text x="0" y="0" class="key tap layer-activator"><tspan style="font-size: 83%">symb_l</tspan></text>
+</a><text x="0" y="38" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g transform="translate(630, 308)" class="key held keypos-64">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held"/>
@@ -1940,6 +2041,12 @@ svg.keymap {
 </g>
 <g transform="translate(994, 273)" class="key keypos-69">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+</g>
+<g class="combo combopos-0">
+<rect rx="6" ry="6" x="378" y="176" width="28" height="26" class="combo"/>
+<a href="#symb_l">
+<text x="392" y="189" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_l</tspan></text>
+</a><text x="392" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 </g>
 </g>
@@ -2015,9 +2122,9 @@ svg.keymap {
 <g transform="translate(378, 70)" class="key keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(658, 70)" class="key keypos-19">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">;</text>
+<g transform="translate(658, 70)" class="key tab keypos-19">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
+<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
 </g>
 <g transform="translate(714, 98)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2069,14 +2176,14 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key backspace"/>
 <use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
 </g>
-<g transform="translate(378, 140)" class="key held alternate keypos-32">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held alternate"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key held alternate tap glyph mdi:apple-keyboard-shift"/>
-<text x="0" y="38" class="key held alternate hold"><tspan style="font-size: 83%">toggle</tspan></text>
-</g>
-<g transform="translate(658, 140)" class="key keypos-33">
+<g transform="translate(378, 140)" class="key keypos-32">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">:</text>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
+<text x="0" y="38" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
+</g>
+<g transform="translate(658, 140)" class="key backspace keypos-33">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key backspace"/>
+<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
 </g>
 <g transform="translate(714, 154)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2130,16 +2237,16 @@ svg.keymap {
 <g transform="translate(406, 238)" class="key keypos-46">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(462, 238)" class="key keypos-47">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<g transform="translate(462, 238)" class="key held alternate keypos-47">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
 </g>
 <g transform="translate(574, 238)" class="key space keypos-48">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key space"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
 </g>
-<g transform="translate(630, 238)" class="key tab keypos-49">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
-<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
+<g transform="translate(630, 238)" class="key enter keypos-49">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key enter"/>
+<use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key enter tap glyph mdi:keyboard-return"/>
 </g>
 <g transform="translate(714, 210)" class="key keypos-50">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2185,6 +2292,9 @@ svg.keymap {
 </g>
 <g transform="translate(406, 308)" class="key keypos-61">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
+<a href="#symb_r">
+<text x="0" y="0" class="key tap layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
+</a><text x="0" y="38" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g transform="translate(462, 308)" class="key held alternate keypos-62">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held alternate"/>
@@ -2215,8 +2325,19 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">§</text>
 </g>
-<g transform="translate(994, 273)" class="key keypos-69">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<g transform="translate(994, 273)" class="key sym_by_sym keypos-69">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_by_sym"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key sym_by_sym tap glyph mdi:apple-keyboard-shift"/>
+<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-8" y="9" height="15" width="15.0" class="key sym_by_sym hold glyph mdi:apple-keyboard-shift"/>
+<use href="#mdi:numeric-1" xlink:href="#mdi:numeric-1" x="-8" y="-24" height="15" width="15.0" class="key sym_by_sym shifted glyph mdi:numeric-1"/>
+</g>
+<g class="combo combopos-0">
+<path d="M616,189 l-30,35" class="combo"/>
+<path d="M616,189 l30,-35" class="combo"/>
+<rect rx="6" ry="6" x="602" y="176" width="28" height="26" class="combo"/>
+<a href="#symb_r">
+<text x="616" y="189" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
+</a><text x="616" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 </g>
 </g>
@@ -2416,10 +2537,9 @@ svg.keymap {
 <g transform="translate(462, 238)" class="key keypos-47">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(574, 238)" class="key keypos-48">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">MB4</text>
-<use href="#mdi:mouse" xlink:href="#mdi:mouse" x="-8" y="-24" height="15" width="15.0" class="key shifted glyph mdi:mouse"/>
+<g transform="translate(574, 238)" class="key backspace keypos-48">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key backspace"/>
+<use href="#mdi:backspace-outline" xlink:href="#mdi:backspace-outline" x="-9" y="-9" height="18" width="18.0" class="key backspace tap glyph mdi:backspace-outline"/>
 </g>
 <g transform="translate(630, 238)" class="key keypos-49">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2463,8 +2583,8 @@ svg.keymap {
 <g transform="translate(210, 252)" class="key keypos-59">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(343, 322)" class="key held keypos-60">
-<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key held"/>
+<g transform="translate(343, 322)" class="key keypos-60">
+<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
 </g>
 <g transform="translate(406, 308)" class="key keypos-61">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
@@ -2478,17 +2598,17 @@ svg.keymap {
 <text x="0" y="0" class="key tap layer-activator">navi</text>
 </a><text x="0" y="38" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
-<g transform="translate(574, 308)" class="key space keypos-63">
+<g transform="translate(574, 308)" class="key tab keypos-63">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key tab"/>
+<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
+</g>
+<g transform="translate(630, 308)" class="key space keypos-64">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key space"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
 </g>
-<g transform="translate(630, 308)" class="key enter keypos-64">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key enter"/>
+<g transform="translate(693, 322)" class="key enter keypos-65">
+<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key enter"/>
 <use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-9" height="18" width="18.0" class="key enter tap glyph mdi:keyboard-return"/>
-</g>
-<g transform="translate(693, 322)" class="key tab keypos-65">
-<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key tab"/>
-<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
 </g>
 <g transform="translate(826, 252)" class="key keypos-66">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2507,10 +2627,12 @@ svg.keymap {
 <use href="#mdi:volume-high" xlink:href="#mdi:volume-high" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:volume-high"/>
 </g>
 <g class="combo combopos-0">
-<rect rx="6" ry="6" x="616" y="260" width="28" height="26" class="combo"/>
+<path d="M670,224 v53 a6.0,6.0 0 0 1 -6.0,6.0 h-16" class="combo"/>
+<path d="M670,224 v-53 a6.0,6.0 0 0 0 -6.0,-6.0 h12" class="combo"/>
+<rect rx="6" ry="6" x="656" y="211" width="28" height="26" class="combo"/>
 <a href="#navi">
-<text x="630" y="273" class="combo tap layer-activator">navi</text>
-</a><text x="630" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="670" y="224" class="combo tap layer-activator">navi</text>
+</a><text x="670" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 </g>
 </g>
@@ -2630,11 +2752,11 @@ svg.keymap {
 </g>
 <g transform="translate(154, 147)" class="key keypos-28">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">F2</text>
+<text x="0" y="0" class="key tap">F4</text>
 </g>
 <g transform="translate(210, 140)" class="key keypos-29">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">F3</text>
+<text x="0" y="0" class="key tap">F5</text>
 </g>
 <g transform="translate(266, 147)" class="key keypos-30">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2715,8 +2837,8 @@ svg.keymap {
 <g transform="translate(574, 238)" class="key keypos-48">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(630, 238)" class="key keypos-49">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<g transform="translate(630, 238)" class="key held alternate keypos-49">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
 </g>
 <g transform="translate(714, 210)" class="key keypos-50">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2767,8 +2889,8 @@ svg.keymap {
 <g transform="translate(574, 308)" class="key held keypos-63">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held"/>
 </g>
-<g transform="translate(630, 308)" class="key keypos-64">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
+<g transform="translate(630, 308)" class="key held alternate keypos-64">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held alternate"/>
 </g>
 <g transform="translate(693, 322)" class="key keypos-65">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
@@ -2784,6 +2906,14 @@ svg.keymap {
 </g>
 <g transform="translate(994, 273)" class="key keypos-69">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+</g>
+<g class="combo combopos-0">
+<path d="M420,189 l30,35" class="combo"/>
+<path d="M420,189 l-30,-35" class="combo"/>
+<rect rx="6" ry="6" x="406" y="176" width="28" height="26" class="combo"/>
+<a href="#func">
+<text x="420" y="189" class="combo tap layer-activator">func</text>
+</a><text x="420" y="200" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 </g>
 </g>
@@ -3064,10 +3194,12 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
 <g class="combo combopos-0">
-<rect rx="6" ry="6" x="448" y="260" width="28" height="26" class="combo"/>
+<path d="M505,224 v103 a6.0,6.0 0 0 1 -6.0,6.0 h-18" class="combo"/>
+<path d="M505,224 v-103 a6.0,6.0 0 0 0 -6.0,-6.0 h-102" class="combo"/>
+<rect rx="6" ry="6" x="491" y="211" width="28" height="26" class="combo"/>
 <a href="#mouse">
-<text x="462" y="273" class="combo tap layer-activator">mouse</text>
-</a><text x="462" y="284" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="505" y="224" class="combo tap layer-activator">mouse</text>
+</a><text x="505" y="235" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 </g>
 </g>
@@ -3294,8 +3426,8 @@ svg.keymap {
 <g transform="translate(210, 252)" class="key keypos-59">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(343, 322)" class="key held keypos-60">
-<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key held"/>
+<g transform="translate(343, 322)" class="key keypos-60">
+<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
 </g>
 <g transform="translate(406, 308)" class="key keypos-61">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>

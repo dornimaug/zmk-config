@@ -118,10 +118,10 @@
         COMBO_UMLAUT(cc_combo_qw_sz,    LM4 RM5, DE_SZ,       QWERTZ)
 
         // same side toggles for layers for one-hand-access
-        COMBO_THUMB_TOG(cc_combo_mouse_tog,    LH1 LH2, MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT)
-        COMBO_THUMB_TOG(cc_combo_num_l_tog,    LH0 LH1, NUM_LEFT,      QWERTZ QWERTZ_UML COLEMAK BUT NUM_LEFT)
-        COMBO_THUMB_TOG(cc_combo_num_r_tog,    RH1 RH2, NUM_RIGHT,     QWERTZ QWERTZ_UML COLEMAK BUT NUM_RIGHT)
-        COMBO_THUMB_TOG(cc_combo_navi_tog,     RH0 RH1, NAVI,          QWERTZ QWERTZ_UML COLEMAK BUT NAVI)
+        COMBO_SAME(cc_combo_mouse_tog,    LH1 LH2, &tog MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT)
+        COMBO_SAME(cc_combo_num_l_tog,    LH0 LH1, &tog NUM_LEFT,      QWERTZ QWERTZ_UML COLEMAK BUT NUM_LEFT)
+        COMBO_SAME(cc_combo_num_r_tog,    RH1 RH2, &tog NUM_RIGHT,     QWERTZ QWERTZ_UML COLEMAK BUT NUM_RIGHT)
+        COMBO_SAME(cc_combo_navi_tog,     RH0 RH1, &tog NAVI,          QWERTZ QWERTZ_UML COLEMAK BUT NAVI)
     };
 };
 
