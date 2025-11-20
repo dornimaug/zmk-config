@@ -29,6 +29,7 @@
 &mt {
     tapping-term-ms = <280>; // default 200
     flavor = "balanced";
+    quick-tap-ms = <175>;
 };
 
 // layers
@@ -140,7 +141,7 @@
 #define BASE_LM0    &none
 #define BASE_RM0    &kp BSPC
 #define BASE_LB6    &kp LSHFT
-#define BASE_LH     &mo_sl NUM_RIGHT SYMB_RIGHT  &mo_skq NAVI LSHFT &kp BSPC
+#define BASE_LH     &mo_sl SYMB_RIGHT SYMB_RIGHT &mo_skq NAVI LSHFT &lt NUM_RIGHT BSPC
 #define BASE_RH     &lt SYMB_LEFT RET            &lt NUM_LEFT SPC   &lt FUNCTION TAB
 
 #define UML_RT6 &excl_sqt
@@ -259,7 +260,7 @@ XXX LEFT_ACTIVATE_BOTTOM(XXX)                         &kp DE_MINUS &kp DE_DOLLAR
 XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC &kp C_PREV &kp ESC     &kp PG_UP   &kp UP     &kp PG_DN &kp REDO_ &kp MUTE_MIC
 &mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kt LSHFT    &kp C_NEXT &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT &kp END   &kp C_PP
 &mo SYSTEM  LEFT_ACTIVATE_BOTTOM(&kt LSHFT)                         &caps_word  &kp HOME    &kp DEL    &kp END   &kp CAPS  &kp C_MUTE
-                  XXX  &tog NAVI  &tog NAVI                         &kp SPC     &kp RET     &kp TAB
+                  XXX  &tog NAVI  &tog NAVI                         &kp RET     &kp SPC     &kp TAB
             >;
         };
 
@@ -276,10 +277,10 @@ XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC &kp C_PREV &kp ESC     
         mouse_layer {
             display-name = "mouse";
             bindings = <
-XXX  &kp ESC  &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  XXX              &kp MUTE_MIC XXX  RIGHT_ACTIVATE_TOP
+XXX  &kp ESC  &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &mkp MB3         &kp MUTE_MIC XXX  RIGHT_ACTIVATE_TOP
 XXX  &mkp MB2 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT  &kt LSHFT    XXX  RIGHT_ACTIVATE_MIDDLE
 XXX  &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT                     RIGHT_ACTIVATE_BOTTOM(XXX)
-                             &mkp MB3       &mkp MB2        &mkp MB1                           XXX  &tog MOUSE  &tog MOUSE 
+                             &mkp MB4       &mkp MB1        &mkp MB2                           XXX  &tog MOUSE  &tog MOUSE 
             >;
         };
         

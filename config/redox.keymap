@@ -121,8 +121,7 @@
         COMBO_LAYER_TOG(rdx_combo_navi_tog,     RH1 RM0, NAVI,         QWERTZ QWERTZ_UML NAVI)
         COMBO_LAYER_TOG(rdx_combo_symb_r_tog,   RH3 RM0, SYMB_RIGHT,   QWERTZ QWERTZ_UML SYMB_RIGHT)
 
-        COMBO_THUMB(rdx_combo_num_r_hold,   LH1 LH4, &mo NUM_RIGHT,     QWERTZ QWERTZ_UML)
-        COMBO_THUMB(rdx_combo_symb_r_hold,  LH0 LH3, &mo SYMB_RIGHT,    QWERTZ QWERTZ_UML)
+        COMBO_THUMB(rdx_combo_symb_r_hold,  LH1 LH4, &mo SYMB_RIGHT,    QWERTZ QWERTZ_UML)
         COMBO_THUMB(rdx_combo_func_hold,    RH1 RH4, &mo FUNCTION,      QWERTZ QWERTZ_UML)
     };
 };
@@ -148,11 +147,11 @@
         qwertz_layer {
             display-name = "QWERTZ";
             bindings = <
-&kp ESC            &kp DE_N1      &kp DE_N2      &kp DE_N3       &kp DE_N4               &kp DE_N5                                                                    &kp DE_N6    &kp DE_N7       &kp DE_N8       &kp DE_N9      &kp DE_N0                    &mute_mic_pp
-&td_caps_word_lock &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R                &kp DE_T  &mute_mic_pp                                           &kp ESC     &kp DE_Z     &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &excl_sqt
-&lt SYMB_RIGHT TAB &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F         &kp DE_G  &mt BSPC SPC                                           &kp BSPC    &kp DE_H     &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &hmr_qmark_dqt RGUI 0
-&kp LSHFT          &kp DE_Y       &kp DE_X       &kp DE_C        &hml_mo QWERTZ_UML DE_V &kp DE_B  &kp DEL  &mt RALT RET                 &kp SPC          &kp RET     &kp DE_N     &kp DE_M        &kp COMMA       &kp DE_DOT     &kp DE_MINUS                 &fslh_bslh
-&kp LCTRL          &kp LALT       &kp LGUI       &mt RALT ESC           &mo_skq NAVI LSHFT         &kp BSPC &mo_sl NUM_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT RET   &lt NUM_LEFT SPC     &kp LEFT        &kp RIGHT      &kp DOWN                     &kp UP
+&kp ESC            &kp DE_N1      &kp DE_N2      &kp DE_N3       &kp DE_N4               &kp DE_N5                                                                            &kp DE_N6    &kp DE_N7       &kp DE_N8       &kp DE_N9      &kp DE_N0                    &mute_mic_pp
+&td_caps_word_lock &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R                &kp DE_T  &mute_mic_pp                                                   &kp ESC     &kp DE_Z     &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &excl_sqt
+&lt SYMB_RIGHT TAB &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F         &kp DE_G  &kp SPC                                                        &kp BSPC    &kp DE_H     &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &hmr_qmark_dqt RGUI 0
+&kp LSHFT          &kp DE_Y       &kp DE_X       &kp DE_C        &hml_mo QWERTZ_UML DE_V &kp DE_B  &kp DEL            &mt RALT RET               &kp SPC          &kp RET     &kp DE_N     &kp DE_M        &kp COMMA       &kp DE_DOT     &kp DE_MINUS                 &fslh_bslh
+&kp LCTRL          &kp LALT       &kp LGUI       &mt RALT ESC           &mo_skq NAVI LSHFT      &lt NUM_RIGHT BSPC &mo_sl SYMB_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT RET   &lt NUM_LEFT SPC     &kp LEFT        &kp RIGHT      &kp DOWN                     &kp UP
             >;
 
         };
@@ -187,7 +186,7 @@ EMPTY_NUMBER_ROW                                                          &kp DE
 XXX      LEFT_ACTIVATE_TOP              XXX                     &kp TAB   &kp DE_PLUS  &kp DE_N7       &kp DE_N8    &kp DE_N9    &lr_bkt          &at_euro
 &kp RALT LEFT_ACTIVATE_MIDDLE           &kt LSHFT               &kp BSPC  &kp DE_HASH  &kp DE_N4       &kp DE_N5    &kp DE_N6    &lr_brc          &kp DE_LT
 XXX      LEFT_ACTIVATE_BOTTOM(&kp RALT) XXX XXX    &kp SPC      &kp RET   &kp DE_MINUS &kp DE_N1       &kp DE_N2    &kp DE_N3    &pipe_bslh       &grave_tilde
-EMPTY_4       &tog NUM_RIGHT &tog NUM_RIGHT XXX    &kp DE_COMMA &kp DE_N0       &kp DE_DOT             &kp KP_ENTER &kp DE_N0    &mt_sk RALT RALT &mt_sk RSHFT RSHFT
+EMPTY_4       &tog NUM_RIGHT &tog NUM_RIGHT XXX    &kp DE_COMMA &kp DE_DOT       &kp DE_N0             &kp KP_ENTER &kp DE_N0    &mt_sk RALT RALT &mt_sk RSHFT RSHFT
             >;
         };
 
@@ -243,8 +242,8 @@ EMPTY_4                                 &kp CUT_          &kp COPY_ &kp PASTE_ X
 &tog MOUSE  XXX      XXX            XXX            XXX             XXX                                        EMPTY_NUMBER_ROW
 XXX         &kp ESC  &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &mkp MB3        &kp MUTE_MIC          XXX  RIGHT_ACTIVATE_TOP
 XXX         &mkp MB1 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT &kt LSHFT             XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
-&kp LSHFT   &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT  &mkp MB5 &mkp MB4 XXX XXX  RIGHT_ACTIVATE_BOTTOM(XXX)
-&tog MOUSE  XXX      XXX            XXX                       &mkp MB2             &mkp MB1 &mkp MB2 XXX &tog MOUSE  &tog MOUSE  EMPTY_4
+&kp LSHFT   &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT  &mkp MB3 &mkp MB5 XXX XXX  RIGHT_ACTIVATE_BOTTOM(XXX)
+&tog MOUSE  XXX      XXX            XXX                       &mkp MB1             &mkp MB2 &mkp MB4 XXX &tog MOUSE  &tog MOUSE  EMPTY_4
             >;
         };
     

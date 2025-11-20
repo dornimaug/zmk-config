@@ -41,9 +41,9 @@ layers:
   - {t: ., s: ':'}
   - {t: '-', s: _}
   - {t: /, s: \}
-  - {t: symb_r, h: num_r}
+  - {t: symb_r, h: symb_r}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
-  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: '$$mdi:backspace-outline$$', h: num_r}
   - {t: '$$mdi:keyboard-return$$', h: symb_l}
   - {t: '$$mdi:keyboard-space$$', h: num_l}
   - {t: '$$mdi:keyboard-tab$$', h: func}
@@ -135,9 +135,9 @@ layers:
   - {t: ., s: ':'}
   - {t: '-', s: _}
   - {t: /, s: \}
-  - {t: symb_r, h: num_r}
+  - {t: symb_r, h: symb_r}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
-  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: '$$mdi:backspace-outline$$', h: num_r}
   - {t: '$$mdi:keyboard-return$$', h: symb_l}
   - {t: '$$mdi:keyboard-space$$', h: num_l}
   - {t: '$$mdi:keyboard-tab$$', h: func}
@@ -229,9 +229,9 @@ layers:
   - V
   - Z
   - {t: '-', h: '$$mdi:apple-keyboard-shift$$', s: _}
-  - {t: symb_r, h: num_r}
+  - {t: symb_r, h: symb_r}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
-  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: '$$mdi:backspace-outline$$', h: num_r}
   - {t: '$$mdi:keyboard-return$$', h: symb_l}
   - {t: '$$mdi:keyboard-space$$', h: num_l}
   - {t: '$$mdi:keyboard-tab$$', h: func}
@@ -323,9 +323,9 @@ layers:
   - {t: '3', s: §}
   - {t: '|', s: \}
   - {t: '`', s: '~'}
-  - {t: num_r, h: toggle, type: held}
   - {t: num_r, h: toggle}
-  - ''
+  - {t: num_r, h: toggle}
+  - {type: held}
   - {t: ., s: ':'}
   - {t: '0', s: '='}
   - {t: ^, s: °}
@@ -467,8 +467,8 @@ layers:
   - ''
   - {t: navi, h: toggle}
   - {t: navi, h: toggle}
-  - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   func:
   - Esc
@@ -523,7 +523,7 @@ layers:
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-up-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
-  - ''
+  - {t: MB3, s: '$$mdi:mouse$$'}
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ''
   - Undo
@@ -558,9 +558,9 @@ layers:
   - Cut
   - ''
   - ''
-  - {t: MB3, s: '$$mdi:mouse$$'}
-  - $$mdi:mouse-right-click-outline$$
+  - {t: MB4, s: '$$mdi:mouse$$'}
   - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-right-click-outline$$
   - ''
   - {t: mouse, h: toggle}
   - {t: mouse, h: toggle}

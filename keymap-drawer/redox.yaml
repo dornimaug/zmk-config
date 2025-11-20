@@ -33,7 +33,7 @@ layers:
   - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: F, h: Ctrl}
   - G
-  - {t: '$$mdi:keyboard-space$$', h: '$$mdi:backspace-outline$$'}
+  - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - H
   - {t: J, h: Ctrl}
@@ -62,8 +62,8 @@ layers:
   - GUI
   - {t: Esc, h: AltGr}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
-  - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: symb_r, h: num_r}
+  - {t: '$$mdi:backspace-outline$$', h: num_r}
+  - {t: symb_r, h: symb_r}
   - {t: '$$mdi:keyboard-tab$$', h: func}
   - {t: '$$mdi:keyboard-return$$', h: symb_l}
   - {t: '$$mdi:keyboard-space$$', h: num_l}
@@ -260,7 +260,7 @@ layers:
   - Copy
   - Paste
   - Esc
-  - {type: held alternate}
+  - ''
   - ''
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -275,11 +275,11 @@ layers:
   - ''
   - ''
   - {t: num_r, h: toggle}
-  - {t: num_r, h: toggle, type: held alternate}
-  - {type: held}
+  - {t: num_r, h: toggle, type: held}
+  - ''
   - {t: ',', s: ;}
-  - {t: '0', s: '='}
   - {t: ., s: ':'}
+  - {t: '0', s: '='}
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - {t: '0', s: '='}
   - {t: AltGr, h: AltGr, s: 1x}
@@ -402,8 +402,8 @@ layers:
   - Copy
   - Paste
   - Esc
-  - ''
   - {type: held alternate}
+  - ''
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '-', s: _}
@@ -417,7 +417,7 @@ layers:
   - ''
   - ''
   - ''
-  - {t: symb_r, h: toggle}
+  - {t: symb_r, h: toggle, type: held alternate}
   - {type: held alternate}
   - {t: ',', s: ;}
   - {t: ., s: ':'}
@@ -615,8 +615,8 @@ layers:
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
+  - {t: MB3, s: '$$mdi:mouse$$'}
   - {t: MB5, s: '$$mdi:mouse$$'}
-  - {t: MB4, s: '$$mdi:mouse$$'}
   - ''
   - ''
   - Esc
@@ -629,9 +629,9 @@ layers:
   - ''
   - ''
   - ''
-  - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-right-click-outline$$
+  - {t: MB4, s: '$$mdi:mouse$$'}
   - ''
   - {t: mouse, h: toggle}
   - {t: mouse, h: toggle}
@@ -778,9 +778,6 @@ combos:
   k: {t: symb_r, h: toggle}
   l: [QWERTZ, QWERTZ uml, symb_r]
 - p: [61, 46]
-  k: num_r
-  l: [QWERTZ, QWERTZ uml]
-- p: [62, 47]
   k: symb_r
   l: [QWERTZ, QWERTZ uml]
 - p: [64, 49]
