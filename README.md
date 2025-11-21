@@ -4,10 +4,10 @@
 >
 > This is a strictly personal repository.
 
-Layouts for Falbatech Redox and Keebart Keebart Corne Choc Pro 46 keys keyboards, which are to be used
-with German PC layouts configured in the OS.
+Layouts for [Falbatech Redox](https://falbatech.click/) and [Keebart Corne Choc Pro 46 keys](https://keebart.com/) 
+keyboards, which are to be used with German PC layouts configured in the OS.
 
-They are primarily compatible with Windows but should be usable in other OSes with compatible German PC layouts.
+They are compatible primarily with Windows but should be usable in other OSes with compatible German PC layouts.
 
 ### Design Principles
 
@@ -19,7 +19,7 @@ They are primarily compatible with Windows but should be usable in other OSes wi
 
 Originally forked from the original [Keebart zmk-config](https://github.com/Keebart/zmk-config).
 
-Redox initially config copied from [Falbatech zmk-config-redox_ZMK](https://github.com/falbatech/zmk-config-redox_ZMK).
+Redox config initially copied from [Falbatech zmk-config-redox_ZMK](https://github.com/falbatech/zmk-config-redox_ZMK).
 
 Inspired by 
 
