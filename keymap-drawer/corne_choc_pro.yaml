@@ -26,7 +26,7 @@ layers:
   - H
   - {t: J, h: Ctrl}
   - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: L, h: AltGr}
+  - {t: L, h: Alt}
   - {t: QWERTZ uml, h: QWERTZ uml}
   - {t: '?', h: GUI, s: '"'}
   - $$mdi:apple-keyboard-shift$$
@@ -120,7 +120,7 @@ layers:
   - M
   - {t: N, h: Ctrl}
   - {t: E, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: I, h: AltGr}
+  - {t: I, h: Alt}
   - {t: Colemakish uml, h: Colemakish uml}
   - {t: '?', h: GUI, s: '"'}
   - $$mdi:apple-keyboard-shift$$
@@ -214,7 +214,7 @@ layers:
   - D
   - {t: T, h: Ctrl}
   - {t: R, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: N, h: AltGr}
+  - {t: N, h: Alt}
   - {t: S, h: GUI}
   - ß
   - $$mdi:apple-keyboard-shift$$
@@ -237,12 +237,12 @@ layers:
   - {t: '$$mdi:keyboard-tab$$', h: func}
   num_l:
   - {t: '@', s: €}
-  - {t: '[', s: ']'}
+  - {t: +, s: '*'}
   - {t: '7', s: /}
   - {t: '8', s: (}
   - {t: '9', s: )}
-  - {t: +, s: '*'}
-  - {t: AltGr, h: sticky}
+  - {t: '#', s: ''''}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
   - Undo
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -251,19 +251,19 @@ layers:
   - ''
   - ''
   - {t: <, s: '>'}
-  - {t: '{', s: '}'}
+  - {t: '[', s: '{'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
-  - {t: '#', s: ''''}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: sticky}
+  - {t: ']', s: '}'}
+  - {t: ^, s: °}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - Alt
   - GUI
-  - ''
+  - AltGr
   - {t: '`', s: '~'}
   - {t: '|', s: \}
   - {t: '1', s: '!'}
@@ -274,13 +274,13 @@ layers:
   - Paste
   - Copy
   - Cut
-  - {t: ',', s: ;}
+  - AltGr
   - ''
-  - {t: ^, s: °}
+  - {t: ',', s: ;}
   - {t: '0', s: '='}
   - {t: ., s: ':'}
   - {t: num_l, h: toggle}
-  - {t: num_l, h: toggle, type: held}
+  - {type: held}
   - AltGr
   num_r:
   - ''
@@ -290,53 +290,53 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
   - ''
-  - {t: AltGr, h: sticky}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: +, s: '*'}
   - {t: '7', s: /}
   - {t: '8', s: (}
   - {t: '9', s: )}
-  - {t: '[', s: ']'}
+  - {t: '#', s: ''''}
   - {t: '@', s: €}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - AltGr
   - GUI
   - Alt
   - $$mdi:apple-keyboard-shift$$
   - Ctrl
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: sticky}
-  - {t: '#', s: ''''}
+  - {t: ^, s: °}
+  - {t: '[', s: '{'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
-  - {t: '{', s: '}'}
+  - {t: ']', s: '}'}
   - {t: <, s: '>'}
   - ''
-  - ''
+  - AltGr
   - Cut
   - Copy
   - Paste
   - Esc
-  - {t: '-', s: _}
+  - {t: '|', s: \}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
   - {t: '3', s: §}
-  - {t: '|', s: \}
+  - {t: '-', s: _}
   - {t: '`', s: '~'}
   - {t: num_r, h: toggle}
-  - {t: num_r, h: toggle}
+  - AltGr
   - {type: held}
   - {t: ., s: ':'}
   - {t: '0', s: '='}
-  - {t: ^, s: °}
+  - {t: ',', s: ;}
   symb_l:
-  - {t: '@', s: €}
-  - {t: '[', s: ']'}
+  - €
+  - '*'
   - /
   - (
   - )
-  - {t: +, s: '*'}
-  - §
+  - ''''
+  - {t: '$$mdi:keyboard-space$$', type: space}
   - ''
   - Undo
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -344,35 +344,35 @@ layers:
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
   - ''
-  - {t: <, s: '>'}
-  - {t: '{', s: '}'}
+  - '>'
+  - '{'
   - '!'
   - '"'
   - '&'
-  - {t: '#', s: ''''}
-  - ;
+  - '}'
+  - °
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - Alt
   - GUI
-  - ''
-  - {t: '`', s: '~'}
-  - {t: '|', s: \}
+  - AltGr
+  - '~'
+  - \
   - $
   - '%'
   - '?'
-  - {t: '-', s: _}
+  - _
   - Esc
   - Paste
   - Copy
   - Cut
   - ;
   - ''
-  - {t: ^, s: °}
+  - ;
   - '='
-  - {t: ., s: ':'}
+  - ':'
   - {type: held}
   - AltGr
   - ''
@@ -384,13 +384,13 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
   - ''
-  - §
-  - {t: +, s: '*'}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - '*'
   - /
   - (
   - )
-  - {t: '[', s: ']'}
-  - {t: '@', s: €}
+  - ''''
+  - €
   - {type: held}
   - GUI
   - Alt
@@ -398,31 +398,31 @@ layers:
   - Ctrl
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
-  - {t: ',', s: ;}
-  - {t: '#', s: ''''}
+  - °
+  - '{'
   - '!'
   - '"'
   - '&'
-  - {t: '{', s: '}'}
-  - {t: <, s: '>'}
+  - '}'
+  - '>'
   - ''
   - ''
   - Cut
   - Copy
   - Paste
   - Esc
-  - {t: '-', s: _}
+  - \
   - $
   - '%'
   - '?'
-  - {t: '|', s: \}
-  - {t: '`', s: '~'}
+  - _
+  - '~'
   - {type: held alternate}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
-  - {t: ., s: ':'}
+  - ':'
   - '='
-  - {t: ^, s: °}
+  - ;
   navi:
   - ''
   - ''
@@ -498,7 +498,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - Alt
   - GUI
-  - ''
+  - AltGr
   - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - F10
   - F1
@@ -545,7 +545,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - Alt
   - GUI
-  - ''
+  - AltGr
   - ''
   - {t: MB5, s: '$$mdi:mouse$$'}
   - {t: MB4, s: '$$mdi:mouse$$'}
@@ -653,7 +653,7 @@ combos:
   l: [QWERTZ, QWERTZ uml, Colemakish, BUT, num_l]
 - p: [43, 7]
   k: {t: symb_r, h: toggle}
-  l: [QWERTZ, QWERTZ uml, Colemakish, BUT, num_r]
+  l: [QWERTZ, QWERTZ uml, Colemakish, BUT, symb_r]
   a: left
   o: 0.2
   arc_scale: 0.75

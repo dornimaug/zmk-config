@@ -15,13 +15,13 @@
 &lt {
     tapping-term-ms = <280>; // default 200
     flavor = "balanced";
-    quick-tap-ms = <175>;
+    quick-tap-ms = <200>;
 };
 
 &mt {
     tapping-term-ms = <280>; // default 200
     flavor = "balanced";
-    quick-tap-ms = <175>;
+    quick-tap-ms = <200>;
 };
 
 // layers
@@ -56,8 +56,8 @@
         MORPH(excl_sqt,     DE_EXCL,    DE_SQT,     MOD_LSFT|MOD_RSFT)
         MORPH(fslh_bslh,    DE_FSLH,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
 
-        MORPH(lr_brc,       DE_LBRC,    DE_RBRC,    MOD_LSFT|MOD_RSFT)
-        MORPH(lr_bkt,       DE_LBKT,    DE_RBKT,    MOD_LSFT|MOD_RSFT)
+        MORPH(l_bkt_brc,    DE_LBKT,    DE_LBRC,    MOD_LSFT|MOD_RSFT)
+        MORPH(r_bkt_brc,    DE_RBKT,    DE_RBRC,    MOD_LSFT|MOD_RSFT)
         MORPH(pipe_bslh,    DE_PIPE,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
         MORPH(at_euro,      DE_AT,      DE_EURO,    MOD_LSFT|MOD_RSFT)
         MORPH(grave_tilde,  DE_GRAVE,   DE_TILDE,   MOD_LSFT|MOD_RSFT)
@@ -151,7 +151,7 @@
 &td_caps_word_lock &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R                &kp DE_T  &mute_mic_pp                                                   &kp ESC     &kp DE_Z     &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &excl_sqt
 &lt SYMB_RIGHT TAB &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F         &kp DE_G  &kp SPC                                                        &kp BSPC    &kp DE_H     &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &hmr_qmark_dqt RGUI 0
 &kp LSHFT          &kp DE_Y       &kp DE_X       &kp DE_C        &hml_mo QWERTZ_UML DE_V &kp DE_B  &kp DEL            &mt RALT RET               &kp SPC          &kp RET     &kp DE_N     &kp DE_M        &kp COMMA       &kp DE_DOT     &kp DE_MINUS                 &fslh_bslh
-&kp LCTRL          &kp LALT       &kp LGUI       &mt RALT ESC           &mo_skq NAVI LSHFT      &lt NUM_RIGHT BSPC &mo_sl SYMB_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT RET   &lt NUM_LEFT SPC     &kp LEFT        &kp RIGHT      &kp DOWN                     &kp UP
+&kp LCTRL          &kp LALT       &kp LGUI       &mt RALT ESC           &mo_skq NAVI LSHFT      &lt NUM_RIGHT BSPC &mo_sl SYMB_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT RET   &lt NUM_LEFT SPC     &kp LEFT        &kp RIGHT      &kp UP                       &kp DOWN
             >;
 
         };
@@ -170,58 +170,57 @@ ___ ___              ___       ___   ___   ___ ___      ___ ___   ___           
         number_left_layer {
             display-name = "num_l";
             bindings = <
-&tog NUM_LEFT       &kp KP_DIVIDE    &kp KP_MINUS &kp KP_PLUS &kp KP_MULTIPLY &kp DE_CARET                                                  EMPTY_NUMBER_ROW
-&at_euro            &lr_bkt          &kp DE_N7    &kp DE_N8   &kp DE_N9       &kp DE_PLUS  &kp TAB                                XXX       RIGHT_ACTIVATE_TOP
-&kp DE_LT           &lr_brc          &kp DE_N4    &kp DE_N5   &kp DE_N6       &kp DE_HASH  &kp BSPC                               &kt RSHFT RIGHT_ACTIVATE_MIDDLE(&kp RALT)
-&grave_tilde        &pipe_bslh       &kp DE_N1    &kp DE_N2   &kp DE_N3       &kp DE_MINUS &kp RET    &kp SPC       XXX           XXX       RIGHT_ACTIVATE_BOTTOM(&kp RALT)
-&mt_sk LSHFT LSHFT  &mt_sk RALT RALT &kp DE_N0    &kp KP_ENTER       &kp DE_DOT            &kp DE_N0  &kp DE_COMMA  &tog NUM_LEFT &tog NUM_LEFT XXX EMPTY_4
+&tog NUM_LEFT       &kp DE_CARET     &kp KP_DIVIDE &kp KP_MULTIPLY &kp KP_PLUS &kp KP_MINUS                                                  EMPTY_NUMBER_ROW
+&at_euro            &kp DE_PLUS      &kp DE_N7     &kp DE_N8       &kp DE_N9   &kp DE_HASH  &kp TAB                                XXX       RIGHT_ACTIVATE_TOP
+&kp DE_LT           &l_bkt_brc       &kp DE_N4     &kp DE_N5       &kp DE_N6   &r_bkt_brc   &kp BSPC                               &kt RSHFT RIGHT_ACTIVATE_MIDDLE(&kp RALT)
+&grave_tilde        &pipe_bslh       &kp DE_N1     &kp DE_N2       &kp DE_N3   &kp DE_MINUS &kp RET    &kp SPC       XXX           XXX       RIGHT_ACTIVATE_BOTTOM(&kp RALT)
+&mt_sk LSHFT LSHFT  &mt_sk RALT RALT &kp SPC       &kp KP_ENTER       &kp DE_N0             &kp DE_DOT &kp DE_COMMA  &tog NUM_LEFT &tog NUM_LEFT   XXX  &kp RALT XXX XXX XXX
             >;
         };
 
         number_right_layer {
             display-name = "num_r";
-            // the number keys are not mirrored, only the symbol keys
+            // numbers and symbols not mirrored, only thumb, inner and outer keys
             bindings = <
-EMPTY_NUMBER_ROW                                                          &kp DE_CARET &kp KP_MULTIPLY &kp KP_PLUS  &kp KP_MINUS &kp KP_DIVIDE    &tog NUM_RIGHT
-XXX      LEFT_ACTIVATE_TOP              XXX                     &kp TAB   &kp DE_PLUS  &kp DE_N7       &kp DE_N8    &kp DE_N9    &lr_bkt          &at_euro
-&kp RALT LEFT_ACTIVATE_MIDDLE           &kt LSHFT               &kp BSPC  &kp DE_HASH  &kp DE_N4       &kp DE_N5    &kp DE_N6    &lr_brc          &kp DE_LT
-XXX      LEFT_ACTIVATE_BOTTOM(&kp RALT) XXX XXX    &kp SPC      &kp RET   &kp DE_MINUS &kp DE_N1       &kp DE_N2    &kp DE_N3    &pipe_bslh       &grave_tilde
-EMPTY_4       &tog NUM_RIGHT &tog NUM_RIGHT XXX    &kp DE_COMMA &kp DE_DOT       &kp DE_N0             &kp KP_ENTER &kp DE_N0    &mt_sk RALT RALT &mt_sk RSHFT RSHFT
+EMPTY_NUMBER_ROW                                                          &kp DE_CARET     &kp KP_DIVIDE &kp KP_MULTIPLY &kp KP_PLUS &kp KP_MINUS   &tog NUM_RIGHT
+XXX      LEFT_ACTIVATE_TOP              XXX                     &kp TAB   &kp DE_PLUS      &kp DE_N7     &kp DE_N8       &kp DE_N9   &kp DE_HASH    &at_euro
+&kp RALT LEFT_ACTIVATE_MIDDLE           &kt LSHFT               &kp BSPC  &l_bkt_brc       &kp DE_N4     &kp DE_N5       &kp DE_N6   &r_bkt_brc     &kp DE_LT
+XXX      LEFT_ACTIVATE_BOTTOM(&kp RALT) XXX XXX    &kp SPC      &kp RET   &pipe_bslh       &kp DE_N1     &kp DE_N2       &kp DE_N3   &kp DE_MINUS   &grave_tilde
+EMPTY_4             &kp RALT XXX &tog NUM_RIGHT    &kp DE_COMMA &kp DE_DOT       &kp DE_N0               &kp KP_ENTER    &kp SPC     &mt_sk RALT RALT &mt_sk RSHFT RSHFT
             >;
         };
 
-        // symbol layers, which only shift the numbers, not the symbols, but swap bottom and middle number rows
+        // symbol layers, which shift number layers and swap some of the number/shifted symbol positions
         symbol_left_layer {
             display-name = "symb_l";
             bindings = <
-&kp DE_ACUTE       &kp DE_RBKT &kp DE_RBRC  &kp DE_RPAR    &kp DE_STAR    &kp DE_CARET                                                   EMPTY_NUMBER_ROW
-&at_euro           &lr_bkt     &kp DE_FSLH  &kp DE_LPAR    &kp DE_RPAR    &kp DE_PLUS  &kp TAB                                 XXX       RIGHT_ACTIVATE_TOP
-&kp DE_LT          &lr_brc     &kp DE_EXCL  &kp DE_DQT     &kp DE_AMPS    &kp DE_HASH  &kp BSPC                                &kt RSHFT RIGHT_ACTIVATE_MIDDLE(XXX)
-&grave_tilde       &pipe_bslh  &kp DE_DLLR  &kp DE_PRCNT   &kp DE_QMARK   &kp DE_MINUS &kp RET     &kp SPC      XXX            XXX       RIGHT_ACTIVATE_BOTTOM(XXX)
-&mt_sk LSHFT LSHFT &kp DE_SECT &kp DE_EQUAL &kp RET                &kp DE_EQUAL        &kp DE_DOT  &kp DE_COMMA &tog SYMB_LEFT XXX       XXX     EMPTY_4   
+&tog SYMB_LEFT     &kp DE_DEG  &kp DE_SECT  &kp DE_LBKT  &kp DE_RBKT  &kp DE_ACUTE                                                   EMPTY_NUMBER_ROW
+&kp DE_EURO        &kp DE_STAR &kp DE_FSLH  &kp DE_LPAR  &kp DE_RPAR  &kp DE_SQT   &kp TAB                                 XXX       RIGHT_ACTIVATE_TOP
+&kp DE_GT          &kp DE_LBRC &kp DE_EXCL  &kp DE_DQT   &kp DE_AMPS  &kp DE_RBRC  &kp BSPC                                &kt RSHFT RIGHT_ACTIVATE_MIDDLE(XXX)
+&kp DE_TILDE       &kp DE_BSLH &kp DE_DLLR  &kp DE_PRCNT &kp DE_QMARK &kp DE_UNDER &kp RET      &kp SPC     XXX            XXX       RIGHT_ACTIVATE_BOTTOM(XXX)
+&mt_sk LSHFT LSHFT &kp DE_SEMI &kp DE_EQUAL &kp DE_COLON       &kp DE_EQUAL        &kp DE_COLON &kp DE_SEMI &tog SYMB_LEFT XXX       XXX     EMPTY_4   
             >;
         };
 
         symbol_right_layer {
             display-name = "symb_r";
-            // the number keys are not mirrored, only the symbol keys
             bindings = <
-EMPTY_NUMBER_ROW                                                             &kp DE_CARET &kp DE_STAR    &kp DE_RPAR    &kp DE_RBRC  &kp DE_RBKT &kp DE_ACUTE
-XXX LEFT_ACTIVATE_TOP         XXX                                 &kp TAB    &kp DE_PLUS  &kp DE_FSLH    &kp DE_LPAR    &kp DE_RPAR  &lr_bkt     &at_euro
-XXX LEFT_ACTIVATE_MIDDLE      &kt LSHFT                           &kp BSPC   &kp DE_HASH  &kp DE_EXCL    &kp DE_DQT     &kp DE_AMPS  &lr_brc     &kp DE_LT
-XXX LEFT_ACTIVATE_BOTTOM(XXX) XXX             XXX    &kp SPC      &kp RET    &kp DE_MINUS &kp DE_DOLLAR  &kp DE_PRCNT   &kp DE_QMARK &pipe_bslh  &grave_tilde
-EMPTY_4                  XXX  &tog SYMB_RIGHT XXX    &kp DE_COMMA &kp DE_DOT        &kp DE_EQUAL         &kp RET        &kp DE_EQUAL &kp DE_SECT &mt_sk RSHFT RSHFT 
+EMPTY_NUMBER_ROW                                                            &kp DE_DEG  &kp DE_SECT &kp DE_LBKT  &kp DE_RBKT  &kp DE_ACUTE XXX
+XXX LEFT_ACTIVATE_TOP         XXX                                 &kp TAB   &kp DE_STAR &kp DE_FSLH &kp DE_LPAR  &kp DE_RPAR  &kp DE_SQT   &kp DE_EURO
+XXX LEFT_ACTIVATE_MIDDLE      &kt LSHFT                           &kp BSPC  &kp DE_LBRC &kp DE_EXCL &kp DE_DQT   &kp DE_AMPS  &kp DE_RBRC  &kp DE_GT
+XXX LEFT_ACTIVATE_BOTTOM(XXX) XXX             XXX    &kp SPC      &kp RET   &kp DE_BSLH &kp DE_DLLR &kp DE_PRCNT &kp DE_QMARK &kp DE_UNDER &kp DE_TILDE
+EMPTY_4                  XXX  &tog SYMB_RIGHT XXX    &kp DE_SEMI  &kp DE_COLON      &kp DE_EQUAL    &kp DE_COLON &kp DE_EQUAL &kp DE_SEMI  &mt_sk RSHFT RSHFT 
             >;
         };
 
         navigation_layer {
             display-name = "navi";
             bindings = <
-EMPTY_NUMBER_ROW                                                                    &kp PSCRN   &kp C_RW    &kp C_PP   &kp C_FF   &kp PAUSE_BREAK &kp BSPC
-XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC                 &kp INS    &kp REDO_   &kp PG_UP   &kp UP     &kp PG_DN  &kp REDO_    &kp MUTE_MIC
-&mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kt LSHFT                    &mkp MB4   &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT  &kp END      &kp C_PP
-XXX         LEFT_ACTIVATE_BOTTOM(&kt LSHFT) XXX       XXX       &kp BSPC &mkp MB5   &caps_word  &kp HOME    &kp DEL    &kp END    &kp CAPS     &kp C_MUTE
-EMPTY_4                                XXX  &tog NAVI &tog NAVI &kp TAB  &kp SPC          &kp RET           &kp C_PREV &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP
+EMPTY_NUMBER_ROW                                                                &kp PSCRN   &kp C_RW    &kp C_PP   &kp C_FF   &kp PAUSE_BREAK &kp BSPC
+XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC             &kp INS    &kp REDO_   &kp PG_UP   &kp UP     &kp PG_DN  &kp REDO_    &kp MUTE_MIC
+&mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kt LSHFT                &mkp MB4   &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT  &kp END      &kp C_PP
+XXX         LEFT_ACTIVATE_BOTTOM(&kt LSHFT) XXX        XXX  &kp BSPC &mkp MB5   &caps_word  &kp HOME    &kp DEL    &kp END    &kp CAPS     &kp C_MUTE
+EMPTY_4                                XXX  &tog NAVI  XXX  &kp TAB  &kp SPC          &kp RET           &kp C_PREV &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP
             >;
         };
 

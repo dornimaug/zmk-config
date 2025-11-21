@@ -23,13 +23,13 @@
 &lt {
     tapping-term-ms = <280>; // default 200
     flavor = "balanced";
-    quick-tap-ms = <175>;
+    quick-tap-ms = <200>;
 };
 
 &mt {
     tapping-term-ms = <280>; // default 200
     flavor = "balanced";
-    quick-tap-ms = <175>;
+    quick-tap-ms = <200>;
 };
 
 // layers
@@ -67,11 +67,11 @@
         MORPH(excl_sqt,     DE_EXCL,    DE_SQT,     MOD_LSFT|MOD_RSFT)
         MORPH(fslh_bslh,    DE_FSLH,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
 
-        MORPH(lr_brc,       DE_LBRC, DE_RBRC,   MOD_LSFT|MOD_RSFT)
-        MORPH(lr_bkt,       DE_LBKT, DE_RBKT,   MOD_LSFT|MOD_RSFT)
-        MORPH(pipe_bslh,    DE_PIPE, DE_BSLH,   MOD_LSFT|MOD_RSFT)
-        MORPH(at_euro,      DE_AT,   DE_EURO,   MOD_LSFT|MOD_RSFT)
-        MORPH(grave_tilde,  DE_GRAVE,DE_TILDE,  MOD_LSFT|MOD_RSFT)
+        MORPH(l_bkt_brc,    DE_LBKT,    DE_LBRC,    MOD_LSFT|MOD_RSFT)
+        MORPH(r_bkt_brc,    DE_RBKT,    DE_RBRC,    MOD_LSFT|MOD_RSFT)
+        MORPH(pipe_bslh,    DE_PIPE,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
+        MORPH(at_euro,      DE_AT,      DE_EURO,    MOD_LSFT|MOD_RSFT)
+        MORPH(grave_tilde,  DE_GRAVE,   DE_TILDE,   MOD_LSFT|MOD_RSFT)
 
         HOME_ROW_MOD(hmr_qmark_dqt, &kp, &qmark_dqt,    KEYS_LEFT KEYS_THUMB)
         HOME_ROW_MOD(hml_mo,        &mo, &kp,           KEYS_RIGHT KEYS_THUMB)
@@ -123,7 +123,7 @@
         // same side toggles for layers for one-hand-access
         COMBO_LAYER_TOG(cc_combo_mouse_tog,     LH0 LT0, MOUSE,         QWERTZ QWERTZ_UML COLEMAK BUT MOUSE)
         COMBO_LAYER_TOG(cc_combo_num_l_tog,     LH0 LM0, NUM_LEFT,      QWERTZ QWERTZ_UML COLEMAK BUT NUM_LEFT)
-        COMBO_LAYER_TOG(cc_combo_symb_r_tog,    RH0 RT0, SYMB_RIGHT,    QWERTZ QWERTZ_UML COLEMAK BUT NUM_RIGHT)
+        COMBO_LAYER_TOG(cc_combo_symb_r_tog,    RH0 RT0, SYMB_RIGHT,    QWERTZ QWERTZ_UML COLEMAK BUT SYMB_RIGHT)
         COMBO_LAYER_TOG(cc_combo_navi_tog,      RH0 RM0, NAVI,          QWERTZ QWERTZ_UML COLEMAK BUT NAVI)
     };
 };
@@ -153,7 +153,7 @@
 #define LEFT_ACTIVATE_BOTTOM(p) p        &kp CUT_ &kp COPY_ &kp PASTE_ &kp ESC
 
 #define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB  XXX      XXX
-#define RIGHT_ACTIVATE_MIDDLE     &kp BSPC  &kp RCTRL  &kp RSHFT  &kp LALT &kp RGUI XXX
+#define RIGHT_ACTIVATE_MIDDLE     &kp BSPC  &kp RCTRL  &kp RSHFT  &kp LALT &kp RGUI &kp RALT
 #define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_ p        XXX
 
 / {
@@ -164,7 +164,7 @@
             display-name = "QWERTZ";
             bindings = <
 BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R                &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     UML_RT6 \
-BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F         &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr RALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML UML_RM6 \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F         &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_H &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML UML_RM6 \
 BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &hml_mo QWERTZ_UML DE_V &kp DE_B                        &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                 UML_RB6 \
                                                                                BASE_LH           /**/          BASE_RH \
             >;
@@ -184,7 +184,7 @@ ___ ___              ___       ___ ___ ___                  ___ ___         ___ 
             display-name = "Colemakish";
             bindings = <
 BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_F        &kp DE_P        &kp DE_B BASE_LT0 /**/ BASE_RT0 &kp DE_J &kp DE_L        &kp DE_U        &kp DE_O       &kp DE_Z                       UML_RT6 \
-BASE_LM6 &hml LGUI DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr RALT DE_I &mo_sl COLEMAK_UML COLEMAK_UML UML_RM6 \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_R &hml LSHFT DE_S &hml LCTRL DE_T &kp DE_G BASE_LM0 /**/ BASE_RM0 &kp DE_M &hmr RCTRL DE_N &hmr RSHFT DE_E &hmr LALT DE_I &mo_sl COLEMAK_UML COLEMAK_UML UML_RM6 \
 BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C        &kp DE_D        &kp DE_V                        &kp DE_K &kp DE_H        &kp DE_COMMA    &kp DE_DOT     &kp DE_MINUS                   UML_RB6 \
                                                                        BASE_LH           /**/          BASE_RH \
             >;
@@ -205,7 +205,7 @@ ___ ___              ___ ___       ___ ___              ___ ___ ___             
             display-name = "BUT";
             bindings = <
 BASE_LT6 &kp DE_B       &kp DE_U       &kp DE_DOT        &kp DE_COMMA        &kp DE_U_UMLAUT BASE_LT0 /**/ BASE_RT0 &kp DE_P &kp DE_C        &kp DE_L        &kp DE_M       &kp DE_F       &kp DE_X
-BASE_LM6 &hml LGUI DE_H &hml LALT DE_I &hml LSHFT DE_E   &hml LCTRL DE_A     &kp DE_O        BASE_LM0 /**/ BASE_RM0 &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_R &hmr RALT DE_N &hmr RGUI DE_S &kp DE_SHARP_S
+BASE_LM6 &hml LGUI DE_H &hml LALT DE_I &hml LSHFT DE_E   &hml LCTRL DE_A     &kp DE_O        BASE_LM0 /**/ BASE_RM0 &kp DE_D &hmr RCTRL DE_T &hmr RSHFT DE_R &hmr LALT DE_N &hmr RGUI DE_S &kp DE_SHARP_S
 BASE_LB6 &kp DE_K       &kp DE_Y       &kp DE_O_UMLAUT   &kp DE_A_UMLAUT     &kp DE_Q                               &kp DE_J &kp DE_G        &kp DE_W        &kp DE_V       &kp DE_Z       &mt RSHFT DE_MINUS
                                                                              BASE_LH                  /**/          BASE_RH
             >;
@@ -214,10 +214,10 @@ BASE_LB6 &kp DE_K       &kp DE_Y       &kp DE_O_UMLAUT   &kp DE_A_UMLAUT     &kp
         number_left_layer {
             display-name = "num_l";
             bindings = <
-&at_euro     &lr_bkt    &kp DE_N7   &kp DE_N8     &kp DE_N9    &kp DE_PLUS  &sk RALT   XXX       RIGHT_ACTIVATE_TOP
-&kp DE_LT    &lr_brc    &kp DE_N4   &kp DE_N5     &kp DE_N6    &kp DE_HASH  &sk LSHFT  &kt RSHFT RIGHT_ACTIVATE_MIDDLE
-&grave_tilde &pipe_bslh &kp DE_N1   &kp DE_N2     &kp DE_N3    &kp DE_MINUS                      RIGHT_ACTIVATE_BOTTOM(&kp DE_COMMA)
-                                    &kp DE_CARET  &kp DE_N0    &kp DE_DOT                        &tog NUM_LEFT  &tog NUM_LEFT &kp RALT
+&at_euro     &kp DE_PLUS &kp DE_N7  &kp DE_N8    &kp DE_N9  &kp DE_HASH &kp TAB      XXX       RIGHT_ACTIVATE_TOP
+&kp DE_LT    &l_bkt_brc  &kp DE_N4  &kp DE_N5    &kp DE_N6  &r_bkt_brc  &kp DE_CARET &kt RSHFT RIGHT_ACTIVATE_MIDDLE
+&grave_tilde &pipe_bslh  &kp DE_N1  &kp DE_N2    &kp DE_N3  &kp DE_MINUS                       RIGHT_ACTIVATE_BOTTOM(&kp RALT)
+                                    &kp DE_COMMA &kp DE_N0  &kp DE_DOT                         &tog NUM_LEFT  XXX  &kp RALT
             >;
         };
 
@@ -225,10 +225,10 @@ BASE_LB6 &kp DE_K       &kp DE_Y       &kp DE_O_UMLAUT   &kp DE_A_UMLAUT     &kp
             display-name = "num_r";
             // the number keys are not mirrored, only the symbol keys
             bindings = <
-XXX     LEFT_ACTIVATE_TOP         XXX       &sk RALT  &kp DE_PLUS  &kp DE_N7 &kp DE_N8 &kp DE_N9 &lr_bkt    &at_euro
-&kp TAB LEFT_ACTIVATE_MIDDLE      &kt LSHFT &sk RSHFT &kp DE_HASH  &kp DE_N4 &kp DE_N5 &kp DE_N6 &lr_brc    &kp DE_LT
-XXX     LEFT_ACTIVATE_BOTTOM(XXX)                     &kp DE_MINUS &kp DE_N1 &kp DE_N2 &kp DE_N3 &pipe_bslh &grave_tilde
-&tog NUM_RIGHT &tog NUM_RIGHT XXX                     &kp DE_DOT   &kp DE_N0 &kp DE_CARET
+XXX      LEFT_ACTIVATE_TOP         XXX       &kp TAB      &kp DE_PLUS  &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_HASH  &at_euro
+&kp RALT LEFT_ACTIVATE_MIDDLE      &kt LSHFT &kp DE_CARET &l_bkt_brc   &kp DE_N4 &kp DE_N5 &kp DE_N6 &r_bkt_brc   &kp DE_LT
+XXX      LEFT_ACTIVATE_BOTTOM(&kp RALT)                   &pipe_bslh   &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp DE_MINUS &grave_tilde
+&tog NUM_RIGHT    &kp RALT    XXX                         &kp DE_DOT   &kp DE_N0 &kp DE_COMMA
             >;
         };
 
@@ -236,10 +236,10 @@ XXX     LEFT_ACTIVATE_BOTTOM(XXX)                     &kp DE_MINUS &kp DE_N1 &kp
         symbol_left_layer {
             display-name = "symb_l";
             bindings = <
-&at_euro     &lr_bkt    &kp DE_FSLH    &kp DE_LPAR    &kp DE_RPAR    &kp DE_PLUS  &kp DE_SECT  XXX  RIGHT_ACTIVATE_TOP
-&kp DE_LT    &lr_brc    &kp DE_EXCL    &kp DE_DQT     &kp DE_AMPS    &kp DE_HASH  &kp DE_SEMI  XXX  RIGHT_ACTIVATE_MIDDLE
-&grave_tilde &pipe_bslh &kp DE_DOLLAR  &kp DE_PRCNT   &kp DE_QMARK   &kp DE_MINUS                   RIGHT_ACTIVATE_BOTTOM(&kp DE_SEMI)
-                                       &kp DE_CARET   &kp DE_EQUAL   &kp DE_DOT                     XXX       &kp RALT   XXX        
+&kp DE_EURO  &kp DE_STAR &kp DE_FSLH  &kp DE_LPAR  &kp DE_RPAR  &kp DE_SQT   &kp SPC     XXX  RIGHT_ACTIVATE_TOP
+&kp DE_GT    &kp DE_LBRC &kp DE_EXCL  &kp DE_DQT   &kp DE_AMPS  &kp DE_RBRC  &kp DE_DEG  XXX  RIGHT_ACTIVATE_MIDDLE
+&kp DE_TILDE &kp DE_BSLH &kp DE_DLLR  &kp DE_PRCNT &kp DE_QMARK &kp DE_UNDER                  RIGHT_ACTIVATE_BOTTOM(&kp DE_SEMI)
+                                      &kp DE_SEMI  &kp DE_EQUAL &kp DE_COLON                  XXX       &kp RALT   XXX        
             >;
         };
 
@@ -247,10 +247,10 @@ XXX     LEFT_ACTIVATE_BOTTOM(XXX)                     &kp DE_MINUS &kp DE_N1 &kp
             display-name = "symb_r";
             // the number keys are not mirrored, only the symbol keys
             bindings = <
-XXX LEFT_ACTIVATE_TOP          XXX       &kp DE_SECT  &kp DE_PLUS  &kp DE_FSLH    &kp DE_LPAR    &kp DE_RPAR  &lr_bkt    &at_euro
-XXX LEFT_ACTIVATE_MIDDLE       &kt LSHFT &kp DE_COMMA &kp DE_HASH  &kp DE_EXCL    &kp DE_DQT     &kp DE_AMPS  &lr_brc    &kp DE_LT
-XXX LEFT_ACTIVATE_BOTTOM(XXX)                         &kp DE_MINUS &kp DE_DOLLAR  &kp DE_PRCNT   &kp DE_QMARK &pipe_bslh &grave_tilde
-            XXX  &kp TAB  XXX                         &kp DE_DOT   &kp DE_EQUAL   &kp DE_CARET
+XXX LEFT_ACTIVATE_TOP          XXX       &kp SPC    &kp DE_STAR  &kp DE_FSLH  &kp DE_LPAR  &kp DE_RPAR  &kp DE_SQT   &kp DE_EURO
+XXX LEFT_ACTIVATE_MIDDLE       &kt LSHFT &kp DE_DEG &kp DE_LBRC  &kp DE_EXCL  &kp DE_DQT   &kp DE_AMPS  &kp DE_RBRC  &kp DE_GT
+XXX LEFT_ACTIVATE_BOTTOM(XXX)                       &kp DE_BSLH  &kp DE_DLLR  &kp DE_PRCNT &kp DE_QMARK &kp DE_UNDER &kp DE_TILDE
+            XXX  &kp TAB  XXX                       &kp DE_COLON &kp DE_EQUAL &kp DE_SEMI
             >;
         };
 

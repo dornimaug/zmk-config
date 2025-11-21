@@ -450,7 +450,7 @@ svg.keymap {
 <g transform="translate(700, 91)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">L</text>
-<text x="0" y="24" class="key hold">AltGr</text>
+<text x="0" y="24" class="key hold">Alt</text>
 </g>
 <g transform="translate(756, 105)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -955,7 +955,7 @@ svg.keymap {
 <g transform="translate(700, 91)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">I</text>
-<text x="0" y="24" class="key hold">AltGr</text>
+<text x="0" y="24" class="key hold">Alt</text>
 </g>
 <g transform="translate(756, 105)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1407,7 +1407,7 @@ svg.keymap {
 <g transform="translate(700, 91)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">N</text>
-<text x="0" y="24" class="key hold">AltGr</text>
+<text x="0" y="24" class="key hold">Alt</text>
 </g>
 <g transform="translate(756, 105)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1555,8 +1555,8 @@ svg.keymap {
 </g>
 <g transform="translate(84, 49)" class="key keypos-1">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">[</text>
-<text x="0" y="-24" class="key shifted">]</text>
+<text x="0" y="0" class="key tap">+</text>
+<text x="0" y="-24" class="key shifted">*</text>
 </g>
 <g transform="translate(140, 35)" class="key keypos-2">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1575,13 +1575,12 @@ svg.keymap {
 </g>
 <g transform="translate(308, 41)" class="key keypos-5">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">+</text>
-<text x="0" y="-24" class="key shifted">*</text>
+<text x="0" y="0" class="key tap">#</text>
+<text x="0" y="-24" class="key shifted">&#x27;</text>
 </g>
-<g transform="translate(364, 69)" class="key keypos-6">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">AltGr</text>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<g transform="translate(364, 69)" class="key tab keypos-6">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
+<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
 </g>
 <g transform="translate(476, 69)" class="key keypos-7">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1615,8 +1614,8 @@ svg.keymap {
 </g>
 <g transform="translate(84, 105)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">{</text>
-<text x="0" y="-24" class="key shifted">}</text>
+<text x="0" y="0" class="key tap">[</text>
+<text x="0" y="-24" class="key shifted">{</text>
 </g>
 <g transform="translate(140, 91)" class="key keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1635,13 +1634,13 @@ svg.keymap {
 </g>
 <g transform="translate(308, 97)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">#</text>
-<text x="0" y="-24" class="key shifted">&#x27;</text>
+<text x="0" y="0" class="key tap">]</text>
+<text x="0" y="-24" class="key shifted">}</text>
 </g>
 <g transform="translate(364, 125)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<text x="0" y="0" class="key tap">^</text>
+<text x="0" y="-24" class="key shifted">°</text>
 </g>
 <g transform="translate(476, 125)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1670,6 +1669,7 @@ svg.keymap {
 </g>
 <g transform="translate(812, 105)" class="key keypos-27">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">AltGr</text>
 </g>
 <g transform="translate(28, 161)" class="key keypos-28">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1719,16 +1719,15 @@ svg.keymap {
 </g>
 <g transform="translate(756, 161)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">,</text>
-<text x="0" y="-24" class="key shifted">;</text>
+<text x="0" y="0" class="key tap">AltGr</text>
 </g>
 <g transform="translate(812, 161)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
 <g transform="translate(224, 203)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">^</text>
-<text x="0" y="-24" class="key shifted">°</text>
+<text x="0" y="0" class="key tap">,</text>
+<text x="0" y="-24" class="key shifted">;</text>
 </g>
 <g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1748,9 +1747,6 @@ svg.keymap {
 </g>
 <g transform="translate(555, 209) rotate(-12.0)" class="key held keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
-<a href="#num_l">
-<text x="0" y="0" class="key held tap layer-activator">num_l</text>
-</a><text x="0" y="24" class="key held hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 <g transform="translate(616, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1792,10 +1788,9 @@ svg.keymap {
 <g transform="translate(364, 69)" class="key keypos-6">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(476, 69)" class="key keypos-7">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">AltGr</text>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<g transform="translate(476, 69)" class="key tab keypos-7">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
+<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
 </g>
 <g transform="translate(532, 41)" class="key keypos-8">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1819,17 +1814,17 @@ svg.keymap {
 </g>
 <g transform="translate(756, 49)" class="key keypos-12">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">[</text>
-<text x="0" y="-24" class="key shifted">]</text>
+<text x="0" y="0" class="key tap">#</text>
+<text x="0" y="-24" class="key shifted">&#x27;</text>
 </g>
 <g transform="translate(812, 49)" class="key keypos-13">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">@</text>
 <text x="0" y="-24" class="key shifted">€</text>
 </g>
-<g transform="translate(28, 105)" class="key tab keypos-14">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
-<use href="#mdi:keyboard-tab" xlink:href="#mdi:keyboard-tab" x="-9" y="-9" height="18" width="18.0" class="key tab tap glyph mdi:keyboard-tab"/>
+<g transform="translate(28, 105)" class="key keypos-14">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">AltGr</text>
 </g>
 <g transform="translate(84, 105)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1858,13 +1853,13 @@ svg.keymap {
 </g>
 <g transform="translate(476, 125)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-shift"/>
-<text x="0" y="24" class="key hold"><tspan style="font-size: 83%">sticky</tspan></text>
+<text x="0" y="0" class="key tap">^</text>
+<text x="0" y="-24" class="key shifted">°</text>
 </g>
 <g transform="translate(532, 97)" class="key keypos-22">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">#</text>
-<text x="0" y="-24" class="key shifted">&#x27;</text>
+<text x="0" y="0" class="key tap">[</text>
+<text x="0" y="-24" class="key shifted">{</text>
 </g>
 <g transform="translate(588, 91)" class="key keypos-23">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1883,7 +1878,7 @@ svg.keymap {
 </g>
 <g transform="translate(756, 105)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">{</text>
+<text x="0" y="0" class="key tap">]</text>
 <text x="0" y="-24" class="key shifted">}</text>
 </g>
 <g transform="translate(812, 105)" class="key keypos-27">
@@ -1896,6 +1891,7 @@ svg.keymap {
 </g>
 <g transform="translate(84, 161)" class="key keypos-29">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">AltGr</text>
 </g>
 <g transform="translate(140, 147)" class="key keypos-30">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1915,8 +1911,8 @@ svg.keymap {
 </g>
 <g transform="translate(532, 153)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">-</text>
-<text x="0" y="-24" class="key shifted">_</text>
+<text x="0" y="0" class="key tap">|</text>
+<text x="0" y="-24" class="key shifted">\</text>
 </g>
 <g transform="translate(588, 147)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1935,8 +1931,8 @@ svg.keymap {
 </g>
 <g transform="translate(756, 161)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">|</text>
-<text x="0" y="-24" class="key shifted">\</text>
+<text x="0" y="0" class="key tap">-</text>
+<text x="0" y="-24" class="key shifted">_</text>
 </g>
 <g transform="translate(812, 161)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1951,9 +1947,7 @@ svg.keymap {
 </g>
 <g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#num_r">
-<text x="0" y="0" class="key tap layer-activator">num_r</text>
-</a><text x="0" y="24" class="key hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="0" y="0" class="key tap">AltGr</text>
 </g>
 <g transform="translate(350, 215) rotate(24.0)" class="key held keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held"/>
@@ -1970,16 +1964,8 @@ svg.keymap {
 </g>
 <g transform="translate(616, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">^</text>
-<text x="0" y="-24" class="key shifted">°</text>
-</g>
-<g class="combo combopos-0">
-<path d="M436,142 v52 a3.0,3.0 0 0 0 3.0,3.0 h33" class="combo"/>
-<path d="M436,142 v-52 a3.0,3.0 0 0 1 3.0,-3.0 h19" class="combo"/>
-<rect rx="6" ry="6" x="420" y="129" width="32" height="26" class="combo"/>
-<a href="#symb_r">
-<text x="436" y="142" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
-</a><text x="436" y="153" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
+<text x="0" y="0" class="key tap">,</text>
+<text x="0" y="-24" class="key shifted">;</text>
 </g>
 </g>
 </g>
@@ -1988,13 +1974,11 @@ svg.keymap {
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">@</text>
-<text x="0" y="-24" class="key shifted">€</text>
+<text x="0" y="0" class="key tap">€</text>
 </g>
 <g transform="translate(84, 49)" class="key keypos-1">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">[</text>
-<text x="0" y="-24" class="key shifted">]</text>
+<text x="0" y="0" class="key tap">*</text>
 </g>
 <g transform="translate(140, 35)" class="key keypos-2">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2010,12 +1994,11 @@ svg.keymap {
 </g>
 <g transform="translate(308, 41)" class="key keypos-5">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">+</text>
-<text x="0" y="-24" class="key shifted">*</text>
+<text x="0" y="0" class="key tap">&#x27;</text>
 </g>
-<g transform="translate(364, 69)" class="key keypos-6">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">§</text>
+<g transform="translate(364, 69)" class="key space keypos-6">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key space"/>
+<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
 </g>
 <g transform="translate(476, 69)" class="key keypos-7">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2044,13 +2027,11 @@ svg.keymap {
 </g>
 <g transform="translate(28, 105)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&lt;</text>
-<text x="0" y="-24" class="key shifted">&gt;</text>
+<text x="0" y="0" class="key tap">&gt;</text>
 </g>
 <g transform="translate(84, 105)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">{</text>
-<text x="0" y="-24" class="key shifted">}</text>
 </g>
 <g transform="translate(140, 91)" class="key keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2066,12 +2047,11 @@ svg.keymap {
 </g>
 <g transform="translate(308, 97)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">#</text>
-<text x="0" y="-24" class="key shifted">&#x27;</text>
+<text x="0" y="0" class="key tap">}</text>
 </g>
 <g transform="translate(364, 125)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">;</text>
+<text x="0" y="0" class="key tap">°</text>
 </g>
 <g transform="translate(476, 125)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2098,16 +2078,15 @@ svg.keymap {
 </g>
 <g transform="translate(812, 105)" class="key keypos-27">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">AltGr</text>
 </g>
 <g transform="translate(28, 161)" class="key keypos-28">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">`</text>
-<text x="0" y="-24" class="key shifted">~</text>
+<text x="0" y="0" class="key tap">~</text>
 </g>
 <g transform="translate(84, 161)" class="key keypos-29">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">|</text>
-<text x="0" y="-24" class="key shifted">\</text>
+<text x="0" y="0" class="key tap">\</text>
 </g>
 <g transform="translate(140, 147)" class="key keypos-30">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2123,8 +2102,7 @@ svg.keymap {
 </g>
 <g transform="translate(308, 153)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">-</text>
-<text x="0" y="-24" class="key shifted">_</text>
+<text x="0" y="0" class="key tap">_</text>
 </g>
 <g transform="translate(532, 153)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2151,8 +2129,7 @@ svg.keymap {
 </g>
 <g transform="translate(224, 203)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">^</text>
-<text x="0" y="-24" class="key shifted">°</text>
+<text x="0" y="0" class="key tap">;</text>
 </g>
 <g transform="translate(285, 209) rotate(12.0)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2160,8 +2137,7 @@ svg.keymap {
 </g>
 <g transform="translate(350, 215) rotate(24.0)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">.</text>
-<text x="0" y="-38" class="key shifted">:</text>
+<text x="0" y="0" class="key tap">:</text>
 </g>
 <g transform="translate(490, 215) rotate(-24.0)" class="key held keypos-43">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key held"/>
@@ -2203,14 +2179,13 @@ svg.keymap {
 <g transform="translate(364, 69)" class="key keypos-6">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
-<g transform="translate(476, 69)" class="key keypos-7">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">§</text>
+<g transform="translate(476, 69)" class="key space keypos-7">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key space"/>
+<use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key space tap glyph mdi:keyboard-space"/>
 </g>
 <g transform="translate(532, 41)" class="key keypos-8">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">+</text>
-<text x="0" y="-24" class="key shifted">*</text>
+<text x="0" y="0" class="key tap">*</text>
 </g>
 <g transform="translate(588, 35)" class="key keypos-9">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2226,13 +2201,11 @@ svg.keymap {
 </g>
 <g transform="translate(756, 49)" class="key keypos-12">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">[</text>
-<text x="0" y="-24" class="key shifted">]</text>
+<text x="0" y="0" class="key tap">&#x27;</text>
 </g>
 <g transform="translate(812, 49)" class="key keypos-13">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">@</text>
-<text x="0" y="-24" class="key shifted">€</text>
+<text x="0" y="0" class="key tap">€</text>
 </g>
 <g transform="translate(28, 105)" class="key held keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
@@ -2264,13 +2237,11 @@ svg.keymap {
 </g>
 <g transform="translate(476, 125)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">,</text>
-<text x="0" y="-24" class="key shifted">;</text>
+<text x="0" y="0" class="key tap">°</text>
 </g>
 <g transform="translate(532, 97)" class="key keypos-22">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">#</text>
-<text x="0" y="-24" class="key shifted">&#x27;</text>
+<text x="0" y="0" class="key tap">{</text>
 </g>
 <g transform="translate(588, 91)" class="key keypos-23">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2286,13 +2257,11 @@ svg.keymap {
 </g>
 <g transform="translate(756, 105)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">{</text>
-<text x="0" y="-24" class="key shifted">}</text>
+<text x="0" y="0" class="key tap">}</text>
 </g>
 <g transform="translate(812, 105)" class="key keypos-27">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">&lt;</text>
-<text x="0" y="-24" class="key shifted">&gt;</text>
+<text x="0" y="0" class="key tap">&gt;</text>
 </g>
 <g transform="translate(28, 161)" class="key keypos-28">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2318,8 +2287,7 @@ svg.keymap {
 </g>
 <g transform="translate(532, 153)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">-</text>
-<text x="0" y="-24" class="key shifted">_</text>
+<text x="0" y="0" class="key tap">\</text>
 </g>
 <g transform="translate(588, 147)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2335,13 +2303,11 @@ svg.keymap {
 </g>
 <g transform="translate(756, 161)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">|</text>
-<text x="0" y="-24" class="key shifted">\</text>
+<text x="0" y="0" class="key tap">_</text>
 </g>
 <g transform="translate(812, 161)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">`</text>
-<text x="0" y="-24" class="key shifted">~</text>
+<text x="0" y="0" class="key tap">~</text>
 </g>
 <g transform="translate(224, 203)" class="key held alternate keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
@@ -2355,8 +2321,7 @@ svg.keymap {
 </g>
 <g transform="translate(490, 215) rotate(-24.0)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">.</text>
-<text x="0" y="-38" class="key shifted">:</text>
+<text x="0" y="0" class="key tap">:</text>
 </g>
 <g transform="translate(555, 209) rotate(-12.0)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2364,8 +2329,15 @@ svg.keymap {
 </g>
 <g transform="translate(616, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">^</text>
-<text x="0" y="-24" class="key shifted">°</text>
+<text x="0" y="0" class="key tap">;</text>
+</g>
+<g class="combo combopos-0">
+<path d="M436,142 v52 a3.0,3.0 0 0 0 3.0,3.0 h33" class="combo"/>
+<path d="M436,142 v-52 a3.0,3.0 0 0 1 3.0,-3.0 h19" class="combo"/>
+<rect rx="6" ry="6" x="420" y="129" width="32" height="26" class="combo"/>
+<a href="#symb_r">
+<text x="436" y="142" class="combo tap layer-activator"><tspan style="font-size: 83%">symb_r</tspan></text>
+</a><text x="436" y="153" class="combo hold"><tspan style="font-size: 83%">toggle</tspan></text>
 </g>
 </g>
 </g>
@@ -2688,6 +2660,7 @@ svg.keymap {
 </g>
 <g transform="translate(812, 105)" class="key keypos-27">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">AltGr</text>
 </g>
 <g transform="translate(28, 161)" class="key keypos-28">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2878,6 +2851,7 @@ svg.keymap {
 </g>
 <g transform="translate(812, 105)" class="key keypos-27">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">AltGr</text>
 </g>
 <g transform="translate(28, 161)" class="key keypos-28">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
