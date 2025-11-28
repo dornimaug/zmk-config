@@ -139,7 +139,7 @@
 #define BASE_LT0    &mute_mic_pp
 #define BASE_RT0    &mute_mic_pp
 #define BASE_LM6    &lt SYMB_RIGHT TAB
-#define BASE_LM0    &mt_sk LCTRL LCTRL
+#define BASE_LM0    &none
 #define BASE_RM0    &kp BSPC
 #define BASE_LB6    &kp LSHFT
 #define BASE_LH     &mo_sl SYMB_RIGHT SYMB_RIGHT &mo_skq NAVI LSHFT &lt NUM_RIGHT BSPC
@@ -164,9 +164,9 @@
         qwertz_layer {
             display-name = "QWERTZ";
             bindings = <
-BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E       &kp DE_R                &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z       &kp DE_U        &kp DE_I       &kp DE_O       &kp DE_P                     UML_RT6 \
-BASE_LM6 &hml LGUI DE_A &hml LCTL DE_S &hml LALT DE_D &hml LSHFT DE_F         &kp DE_G BASE_LM0 /**/ BASE_RM0 &hmr RALT DE_H &hmr RSHFT DE_J &hmr LALT DE_K &hmr LCTL DE_L &mo_sl QWERTZ_UML QWERTZ_UML UML_RM6 \
-BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C       &hml_mo QWERTZ_UML DE_V &kp DE_B                        &kp DE_N       &kp DE_M        &kp DE_COMMA   &kp DE_DOT     &kp DE_MINUS                 UML_RB6 \
+BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E       &kp DE_R                &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z       &kp DE_U       &kp DE_I       &kp DE_O       &kp DE_P                     UML_RT6 \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LCTL DE_D &hml LSHFT DE_F         &kp DE_G BASE_LM0 /**/ BASE_RM0 &hmr RALT DE_H &hmr RSFT DE_J &hmr RCTL DE_K &hmr LALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML UML_RM6 \
+BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C       &hml_mo QWERTZ_UML DE_V &kp DE_B                        &kp DE_N       &kp DE_M       &kp DE_COMMA   &kp DE_DOT     &kp DE_MINUS                 UML_RB6 \
                                                                               BASE_LH           /**/          BASE_RH \
             >;
         };
@@ -184,9 +184,9 @@ ___ ___              ___       ___ ___ ___                  ___ ___         ___ 
         colemak_layer {
             display-name = "Colemakish";
             bindings = <
-BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_F       &kp DE_P        &kp DE_B BASE_LT0 /**/ BASE_RT0 &kp DE_J       &kp DE_L        &kp DE_U       &kp DE_O       &kp DE_Z                       UML_RT6 \
-BASE_LM6 &hml LGUI DE_A &hml LCTL DE_R &hml LALT DE_S &hml LSHFT DE_T &kp DE_G BASE_LM0 /**/ BASE_RM0 &hmr RALT DE_M &hmr RSHFT DE_N &hmr LALT DE_E &hmr RCTL DE_I &mo_sl COLEMAK_UML COLEMAK_UML UML_RM6 \
-BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C       &kp DE_D        &kp DE_V                        &kp DE_K       &kp DE_H        &kp DE_COMMA   &kp DE_DOT     &kp DE_MINUS                   UML_RB6 \
+BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_F       &kp DE_P        &kp DE_B BASE_LT0 /**/ BASE_RT0 &kp DE_J       &kp DE_L       &kp DE_U       &kp DE_O       &kp DE_Z                       UML_RT6 \
+BASE_LM6 &hml LGUI DE_A &hml LALT DE_R &hml LCTL DE_S &hml LSHFT DE_T &kp DE_G BASE_LM0 /**/ BASE_RM0 &hmr RALT DE_M &hmr RSFT DE_N &hmr RCTL DE_E &hmr LALT DE_I &mo_sl COLEMAK_UML COLEMAK_UML UML_RM6 \
+BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C       &kp DE_D        &kp DE_V                        &kp DE_K       &kp DE_H       &kp DE_COMMA   &kp DE_DOT     &kp DE_MINUS                   UML_RB6 \
                                                                       BASE_LH           /**/          BASE_RH \
             >;
         };
@@ -205,10 +205,10 @@ ___ ___              ___ ___       ___ ___              ___ ___ ___             
         but_layer {
             display-name = "BUT";
             bindings = <
-BASE_LT6 &kp DE_B       &kp DE_U       &kp DE_DOT       &kp DE_COMMA     &kp DE_U_UMLAUT BASE_LT0 /**/ BASE_RT0 &kp DE_P       &kp DE_C       &kp DE_L       &kp DE_M       &kp DE_F       &kp DE_X
-BASE_LM6 &hml LGUI DE_H &hml LCTL DE_I &hml LSHFT DE_E  &hml LALT DE_A   &kp DE_O        BASE_LM0 /**/ BASE_RM0 &hmr RALT DE_D &hmr RSFT DE_T &hmr LALT DE_R &hmr LCTL DE_N &hmr RGUI DE_S &kp DE_SHARP_S
-BASE_LB6 &kp DE_K       &kp DE_Y       &kp DE_O_UMLAUT  &kp DE_A_UMLAUT  &kp DE_Q                               &kp DE_J       &kp DE_G       &kp DE_W       &kp DE_V       &kp DE_Z       &mt RSHFT DE_MINUS
-                                                                         BASE_LH                  /**/          BASE_RH
+BASE_LT6 &kp DE_B       &kp DE_U       &kp DE_DOT      &kp DE_COMMA     &kp DE_U_UMLAUT BASE_LT0 /**/ BASE_RT0 &kp DE_P       &kp DE_C       &kp DE_L       &kp DE_M       &kp DE_F       &kp DE_X
+BASE_LM6 &hml LGUI DE_H &hml LALT DE_I &hml LCTL DE_E  &hml LALT DE_A   &kp DE_O        BASE_LM0 /**/ BASE_RM0 &hmr RALT DE_D &hmr RSFT DE_T &hmr RCTL DE_R &hmr LALT DE_N &hmr RGUI DE_S &kp DE_SHARP_S
+BASE_LB6 &kp DE_K       &kp DE_Y       &kp DE_O_UMLAUT &kp DE_A_UMLAUT  &kp DE_Q                               &kp DE_J       &kp DE_G       &kp DE_W       &kp DE_V       &kp DE_Z       &mt RSHFT DE_MINUS
+                                                                        BASE_LH                  /**/          BASE_RH
             >;
         };
 

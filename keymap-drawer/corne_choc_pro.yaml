@@ -17,16 +17,16 @@ layers:
   - {t: '!', s: ''''}
   - {t: '$$mdi:keyboard-tab$$', h: symb_r}
   - {t: A, h: GUI}
-  - {t: S, h: Ctrl}
-  - {t: D, h: Alt}
+  - {t: S, h: Alt}
+  - {t: D, h: Ctrl}
   - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
-  - {t: Ctrl, h: Ctrl}
+  - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: H, h: AltGr}
   - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: K, h: Alt}
-  - {t: L, h: Ctrl}
+  - {t: K, h: Ctrl}
+  - {t: L, h: Alt}
   - {t: QWERTZ uml, h: QWERTZ uml}
   - {t: '?', h: GUI, s: '"'}
   - $$mdi:apple-keyboard-shift$$
@@ -111,16 +111,16 @@ layers:
   - {t: '!', s: ''''}
   - {t: '$$mdi:keyboard-tab$$', h: symb_r}
   - {t: A, h: GUI}
-  - {t: R, h: Ctrl}
-  - {t: S, h: Alt}
+  - {t: R, h: Alt}
+  - {t: S, h: Ctrl}
   - {t: T, h: '$$mdi:apple-keyboard-shift$$'}
   - G
-  - {t: Ctrl, h: Ctrl}
+  - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: M, h: AltGr}
   - {t: N, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: E, h: Alt}
-  - {t: I, h: Ctrl}
+  - {t: E, h: Ctrl}
+  - {t: I, h: Alt}
   - {t: Colemakish uml, h: Colemakish uml}
   - {t: '?', h: GUI, s: '"'}
   - $$mdi:apple-keyboard-shift$$
@@ -205,16 +205,16 @@ layers:
   - X
   - {t: '$$mdi:keyboard-tab$$', h: symb_r}
   - {t: H, h: GUI}
-  - {t: I, h: Ctrl}
-  - {t: E, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: I, h: Alt}
+  - {t: E, h: Ctrl}
   - {t: A, h: Alt}
   - O
-  - {t: Ctrl, h: Ctrl}
+  - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: D, h: AltGr}
   - {t: T, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: R, h: Alt}
-  - {t: N, h: Ctrl}
+  - {t: R, h: Ctrl}
+  - {t: N, h: Alt}
   - {t: S, h: GUI}
   - ß
   - $$mdi:apple-keyboard-shift$$
