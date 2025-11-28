@@ -63,6 +63,7 @@
         MORPH(grave_tilde,  DE_GRAVE,   DE_TILDE,   MOD_LSFT|MOD_RSFT)
 
         HOME_ROW_MOD(hmr_qmark_dqt, &kp, &qmark_dqt,    KEYS_LEFT KEYS_THUMB)
+        HOME_ROW_MOD(hmr_fslh_bslh, &kp, &fslh_bslh,    KEYS_LEFT KEYS_THUMB)
         HOME_ROW_MOD(hml_mo,        &mo, &kp,           KEYS_RIGHT KEYS_THUMB)
 
         TAP_DANCE_2(td_caps_word_lock, &caps_word, &kp CAPS)
@@ -129,13 +130,13 @@
 #define XXX &none  
 #define ___ &trans
 
-#define LEFT_ACTIVATE_TOP       XXX      &kp TAB  &kp RET   &kp SPC    &kp UNDO_
-#define LEFT_ACTIVATE_MIDDLE    &kp LGUI &kp LALT &kp LSHFT &kp LCTRL  &kp BSPC
-#define LEFT_ACTIVATE_BOTTOM(p) p        &kp CUT_ &kp COPY_ &kp PASTE_ &kp ESC
+#define LEFT_ACTIVATE_TOP       XXX      &kp TAB   &kp RET   &kp SPC    &kp UNDO_
+#define LEFT_ACTIVATE_MIDDLE    &kp LGUI &kp LCTRL &kp LALT  &kp LSHFT  &kp BSPC
+#define LEFT_ACTIVATE_BOTTOM(p) p        &kp CUT_  &kp COPY_ &kp PASTE_ &kp ESC
 
-#define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB  XXX      XXX
-#define RIGHT_ACTIVATE_MIDDLE(p)  &kp BSPC  &kp RCTRL  &kp RSHFT  &kp LALT &kp RGUI p
-#define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_ p        XXX
+#define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB   XXX      XXX
+#define RIGHT_ACTIVATE_MIDDLE(p)  &kp BSPC  &kp LSHFT  &kp LALT   &kp RCTRL &kp RGUI p
+#define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_  p        XXX
 
 #define EMPTY_NUMBER_ROW    XXX XXX XXX XXX XXX XXX
 #define EMPTY_4             XXX XXX XXX XXX
@@ -147,11 +148,11 @@
         qwertz_layer {
             display-name = "QWERTZ";
             bindings = <
-&kp ESC            &kp DE_N1      &kp DE_N2      &kp DE_N3       &kp DE_N4               &kp DE_N5                                                                            &kp DE_N6    &kp DE_N7       &kp DE_N8       &kp DE_N9      &kp DE_N0                    &mute_mic_pp
-&td_caps_word_lock &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R                &kp DE_T  &mute_mic_pp                                                   &kp ESC     &kp DE_Z     &kp DE_U        &kp DE_I        &kp DE_O       &kp DE_P                     &excl_sqt
-&lt SYMB_RIGHT TAB &hml LGUI DE_A &hml LALT DE_S &hml LSHFT DE_D &hml LCTRL DE_F         &kp DE_G  &kp SPC                                                        &kp BSPC    &kp DE_H     &hmr RCTRL DE_J &hmr RSHFT DE_K &hmr LALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &hmr_qmark_dqt RGUI 0
-&kp LSHFT          &kp DE_Y       &kp DE_X       &kp DE_C        &hml_mo QWERTZ_UML DE_V &kp DE_B  &kp DEL            &mt RALT RET               &kp SPC          &kp RET     &kp DE_N     &kp DE_M        &kp COMMA       &kp DE_DOT     &kp DE_MINUS                 &fslh_bslh
-&kp LCTRL          &kp LALT       &kp LGUI       &mt RALT ESC           &mo_skq NAVI LSHFT      &lt NUM_RIGHT BSPC &mo_sl SYMB_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT RET   &lt NUM_LEFT SPC     &kp LEFT        &kp RIGHT      &kp UP                       &kp DOWN
+&kp ESC            &kp DE_N1      &kp DE_N2       &kp DE_N3       &kp DE_N4               &kp DE_N5                                                                            &kp DE_N6      &kp DE_N7       &kp DE_N8      &kp DE_N9       &kp DE_N0                    &mute_mic_pp
+&caps_word         &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R                &kp DE_T  &mute_mic_pp                                                   &kp ESC     &kp DE_Z       &kp DE_U        &kp DE_I       &kp DE_O        &kp DE_P                     &excl_sqt
+&lt SYMB_RIGHT TAB &hml LGUI DE_A &hml LCTRL DE_S &hml LALT DE_D  &hml LSHFT DE_F         &kp DE_G  &kp SPC                                                        &kp BSPC    &hmr RALT DE_H &hmr LSHFT DE_J &hmr LALT DE_K &hmr RCTRL DE_L &mo_sl QWERTZ_UML QWERTZ_UML &hmr_qmark_dqt RGUI 0
+&kp LSHFT          &kp DE_Y       &kp DE_X        &kp DE_C        &hml_mo QWERTZ_UML DE_V &kp DE_B  &kp DEL            &mt RALT RET               &kp SPC          &kp RET     &kp DE_N       &kp DE_M        &kp COMMA      &kp DE_DOT      &kp DE_MINUS                 &hmr_fslh_bslh RSFT 0
+&kp LCTRL          &kp LALT       &kp LGUI        &mt RALT ESC           &mo_skq NAVI LSHFT      &lt NUM_RIGHT BSPC &mo_sl SYMB_RIGHT SYMB_RIGHT  &lt FUNCTION TAB &lt SYMB_LEFT RET     &lt NUM_LEFT SPC     &kp LEFT       &kp RIGHT       &kp UP                       &kp DOWN
             >;
 
         };
@@ -217,9 +218,9 @@ EMPTY_4                  XXX  &tog SYMB_RIGHT XXX    &kp DE_SEMI  &kp DE_COLON  
             display-name = "navi";
             bindings = <
 EMPTY_NUMBER_ROW                                                                &kp PSCRN   &kp C_RW    &kp C_PP   &kp C_FF   &kp PAUSE_BREAK &kp BSPC
-XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC             &kp INS    &kp REDO_   &kp PG_UP   &kp UP     &kp PG_DN  &kp REDO_    &kp MUTE_MIC
+XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC             &kp INS    &kp UNDO_   &kp PG_UP   &kp UP     &kp PG_DN  &kp REDO_    &kp MUTE_MIC
 &mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kt LSHFT                &mkp MB4   &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT  &kp END      &kp C_PP
-XXX         LEFT_ACTIVATE_BOTTOM(&kt LSHFT) XXX        XXX  &kp BSPC &mkp MB5   &caps_word  &kp HOME    &kp DEL    &kp END    &kp CAPS     &kp C_MUTE
+XXX         LEFT_ACTIVATE_BOTTOM(&kt LSHFT) XXX        XXX  &kp BSPC &mkp MB5   &kp ESC     &kp HOME    &kp DEL    &kp END    &kp CAPS     &kp C_MUTE
 EMPTY_4                                XXX  &tog NAVI  XXX  &kp TAB  &kp SPC          &kp RET           &kp C_PREV &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP
             >;
         };

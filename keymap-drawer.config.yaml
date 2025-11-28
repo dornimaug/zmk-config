@@ -307,14 +307,18 @@ parse_config:
       type: sym_by_sym
 
     LCTRL: Ctrl
+    LCTL: Ctrl
     LALT: Alt
     LSHIFT: $$mdi:apple-keyboard-shift$$
     LSHFT: $$mdi:apple-keyboard-shift$$
+    LSFT: $$mdi:apple-keyboard-shift$$
     LGUI: GUI
     RCTRL: Ctrl
+    RCTL: Ctrl
     RALT: AltGr
     RSHIFT: $$mdi:apple-keyboard-shift$$
     RSHFT: $$mdi:apple-keyboard-shift$$
+    RSFT: $$mdi:apple-keyboard-shift$$
     RGUI: GUI
 
     C_MUTE: $$mdi:volume-off$$

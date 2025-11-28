@@ -13,7 +13,7 @@ layers:
   - {t: '9', s: )}
   - {t: '0', s: '='}
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
-  - {t: Word, h: tap 2x, s: '$$mdi:apple-keyboard-caps$$'}
+  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - Q
   - W
   - E
@@ -29,16 +29,16 @@ layers:
   - {t: '!', s: ''''}
   - {t: '$$mdi:keyboard-tab$$', h: symb_r}
   - {t: A, h: GUI}
-  - {t: S, h: Alt}
-  - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: F, h: Ctrl}
+  - {t: S, h: Ctrl}
+  - {t: D, h: Alt}
+  - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - H
-  - {t: J, h: Ctrl}
-  - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: L, h: Alt}
+  - {t: H, h: AltGr}
+  - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: K, h: Alt}
+  - {t: L, h: Ctrl}
   - {t: QWERTZ uml, h: QWERTZ uml}
   - {t: '?', h: GUI, s: '"'}
   - $$mdi:apple-keyboard-shift$$
@@ -56,7 +56,7 @@ layers:
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '-', s: _}
-  - {t: /, s: \}
+  - {t: /, h: '$$mdi:apple-keyboard-shift$$', s: \}
   - Ctrl
   - Alt
   - GUI
@@ -178,9 +178,9 @@ layers:
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - Alt
+  - Ctrl
   - GUI
   - AltGr
   - {t: '`', s: '~'}
@@ -242,9 +242,9 @@ layers:
   - {t: '@', s: €}
   - AltGr
   - GUI
+  - Ctrl
   - Alt
   - $$mdi:apple-keyboard-shift$$
-  - Ctrl
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
@@ -320,9 +320,9 @@ layers:
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - Alt
+  - Ctrl
   - GUI
   - ''
   - '~'
@@ -384,9 +384,9 @@ layers:
   - €
   - {type: held}
   - GUI
+  - Ctrl
   - Alt
   - $$mdi:apple-keyboard-shift$$
-  - Ctrl
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
@@ -447,7 +447,7 @@ layers:
   - Undo
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - Insert
-  - Redo
+  - Undo
   - {t: Page, h: '$$mdi:arrow-up$$'}
   - $$mdi:arrow-up-bold$$
   - {t: Page, h: '$$mdi:arrow-down$$'}
@@ -455,9 +455,9 @@ layers:
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - system
   - GUI
+  - Ctrl
   - Alt
   - $$mdi:apple-keyboard-shift$$
-  - Ctrl
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - {t: MB4, s: '$$mdi:mouse$$'}
@@ -477,7 +477,7 @@ layers:
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: MB5, s: '$$mdi:mouse$$'}
-  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
+  - Esc
   - Home
   - $$mdi:backspace-reverse-outline$$
   - End
@@ -533,9 +533,9 @@ layers:
   - {t: '$$mdi:robot-confused-outline$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - Alt
+  - Ctrl
   - GUI
   - ''
   - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
@@ -604,9 +604,9 @@ layers:
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - Alt
+  - Ctrl
   - GUI
   - ''
   - $$mdi:apple-keyboard-shift$$
