@@ -396,6 +396,9 @@ parse_config:
     DEGREE: '°'
     DEG: '°'
     SECT: '§'
+    SUPER2: '²'
+    SUPER3: '³'
+    MICRO: 'µ'
     EURO: '€'
     KP_DIVIDE:
       tap: '/'

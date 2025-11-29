@@ -27,6 +27,7 @@ Inspired by
 - [Miryoku](https://github.com/manna-harbour/miryoku)
 - [Seth Milliken's zmk-config](https://github.com/SethMilliken/zmk-config/)
 - [StijnVeenman's zmk-config](https://github.com/stijnveenman/zmk-config/tree/main)
+- [Pascal Getreuer's "Designing a Symbol Layer"](https://getreuer.info/posts/keyboards/symbol-layer/index.html)
 
 ## Keymap
 
