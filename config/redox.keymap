@@ -30,10 +30,10 @@
 #define NUM_LEFT        2
 #define NUM_RIGHT       3
 #define SYMBOL          4
-#define NAVI            4
-#define FUNCTION        5
-#define MOUSE           6
-#define SYSTEM          7
+#define NAVI            5
+#define FUNCTION        6
+#define MOUSE           7
+#define SYSTEM          8
 
 / {
     behaviors {
@@ -193,11 +193,11 @@ EMPTY_4                        &kp RALT XXX XXX    &kp DE_COMMA &kp DE_DOT      
         symbol_layer {
             display-name = "symbol";
             bindings = <
-&tog SYMBOL   &kp DE_SUPER2 &kp DE_SUPER3 &kp DE_SECT  XXX          XXX                                             &kp DE_DEG   XXX         XXX         &kp DE_MICRO &kp DE_ACUTE &tog SYMBOL
-&kp DE_CARET  &kp DE_AT     &kp DE_SQT    &kp DE_PLUS  &kp DE_DLLR  &kp DE_STAR  &kp TAB                   &kp RET  &kp DE_AMPS  &kp DE_LBRC &kp DE_RBRC &kp DE_SEMI  &kp DE_COLON &kp DE_ACUTE
-&mt LALT TAB  &kp DE_EXCL   &kp DE_FSLH   &kp DE_COLON &kp DE_EQUAL &kp DE_HASH  &kp SPC                   &kp BSPC &kp DE_PIPE  &kp DE_LPAR &kp DE_RPAR &kp DE_DQT   &kp DE_QMARK &kp DE_TILDE
-&kp LCTRL     &kp DE_LT     &kp DE_GRAVE  &kp DE_GT    &kp DE_MINUS &kp DE_PRCNT &kp RET  &kp BSPC &kp SPC &kp TAB  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_DOT   &kp DE_COMMA &kp DE_UNDER
-XXX           XXX           &kp LEFT      &kp RIGHT               XXX            XXX      XXX      XXX            XXX            XXX         &kp LEFT    &kp RIGHT    XXX          XXX 
+&tog SYMBOL  &kp DE_SUPER2 &kp DE_SUPER3 &kp DE_SECT  XXX          XXX                                             &kp DE_DEG   XXX         XXX         &kp DE_MICRO &kp DE_ACUTE &tog SYMBOL
+&kp DE_DEG   &kp DE_AT     &kp DE_SQT    &kp DE_PLUS  &kp DE_DLLR  &kp DE_STAR  &kp TAB                   &kp RET  &kp DE_AMPS  &kp DE_LBRC &kp DE_RBRC &kp DE_SEMI  &kp DE_COLON &kp DE_ACUTE
+&kp TAB      &kp DE_EXCL   &kp DE_FSLH   &kp DE_COLON &kp DE_EQUAL &kp DE_HASH  &kp SPC                   &kp BSPC &kp DE_PIPE  &kp DE_LPAR &kp DE_RPAR &kp DE_DQT   &kp DE_QMARK &kp DE_TILDE
+&kp DE_CARET &kp DE_LT     &kp DE_GRAVE  &kp DE_GT    &kp DE_MINUS &kp DE_PRCNT &kp RET  &kp BSPC &kp SPC &kp TAB  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_DOT   &kp DE_COMMA &kp DE_UNDER
+&kp LCTRL    &kp LALT      &kp LEFT      &kp RIGHT         &mt LCTRL ESC        &kp BSPC &kp LALT &kp TAB &kp RET           &kp SPC         &kp LEFT    &kp RIGHT    &kp LALT     &kp RCTRL
             >;
         };
 
