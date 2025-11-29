@@ -189,7 +189,7 @@ layers:
   - {t: '0', s: '='}
   - {t: ',', s: ;}
   symbol:
-  - {t: ^, s: °}
+  - °
   - '@'
   - ''''
   - {t: +, s: '*'}
@@ -203,7 +203,7 @@ layers:
   - ;
   - ':'
   - {t: ´, s: '`'}
-  - {t: '$$mdi:keyboard-tab$$', h: Alt, type: held}
+  - {t: '$$mdi:keyboard-tab$$', type: held}
   - '!'
   - /
   - ':'
@@ -217,7 +217,7 @@ layers:
   - '"'
   - '?'
   - '~'
-  - Ctrl
+  - {t: ^, s: °}
   - {t: <, s: '>'}
   - '`'
   - '>'
@@ -229,12 +229,12 @@ layers:
   - {t: ., s: ':'}
   - {t: ',', s: ;}
   - _
-  - {type: held alternate}
-  - ''
-  - ''
-  - {type: held alternate}
-  - ''
-  - ''
+  - {t: Alt, type: held alternate}
+  - {t: Esc, h: Ctrl}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
+  - {t: '$$mdi:keyboard-return$$', type: held alternate}
+  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   navi:
   - ''
   - ''

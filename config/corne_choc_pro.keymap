@@ -126,23 +126,6 @@
 #define XXX &none  
 #define ___ &trans
 
-// Base layers with different layouts, GASC/CASG home row mods and layer switches on the outside and thumbs
-#define BASE_ROW(K0, K1, K2, K3, K4) &kp K0 &kp K1 &kp K2 &kp K3 &kp K4
-
-#define BASE_LT6    &kp ESC
-#define BASE_LT0    &mute_mic_pp
-#define BASE_RT0    &mute_mic_pp
-#define BASE_LM6    &lt SYMBOL TAB
-#define BASE_LM0    &kp LCTL // to make one-hand Ctrl-C less akward
-#define BASE_RM0    &kp BSPC
-#define BASE_LB6    &kp LSHFT
-#define BASE_LH     &mo_sl SYMBOL SYMBOL &mo_skq NAVI LSHFT &lt NUM_RIGHT BSPC
-#define BASE_RH     &lt SYMBOL RET       &lt NUM_LEFT SPC   &lt FUNCTION TAB
-
-#define UML_RT6 &excl_sqt
-#define UML_RM6 &hmr_qmark_dqt RGUI 0
-#define UML_RB6 &hmr_fslh_bslh RSFT 0
-
 #define LEFT_ACTIVATE_TOP       XXX      &kp TAB  &kp RET   &kp SPC    &kp UNDO_
 #define LEFT_ACTIVATE_MIDDLE    &kp LGUI &kp LCTL &kp LALT  &kp LSHFT  &kp BSPC
 #define LEFT_ACTIVATE_BOTTOM(p) p        &kp CUT_ &kp COPY_ &kp PASTE_ &kp ESC
@@ -158,10 +141,10 @@
         qwertz_layer {
             display-name = "QWERTZ";
             bindings = <
-BASE_LT6 &kp DE_Q       &kp DE_W       &kp DE_E       &kp DE_R                &kp DE_T BASE_LT0 /**/ BASE_RT0 &kp DE_Z       &kp DE_U       &kp DE_I       &kp DE_O       &kp DE_P                     UML_RT6 \
-BASE_LM6 &hml LGUI DE_A &hml LALT DE_S &hml LCTL DE_D &hml LSHFT DE_F         &kp DE_G BASE_LM0 /**/ BASE_RM0 &hmr RALT DE_H &hmr RSFT DE_J &hmr RCTL DE_K &hmr LALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML UML_RM6 \
-BASE_LB6 &kp DE_Y       &kp DE_X       &kp DE_C       &hml_mo QWERTZ_UML DE_V &kp DE_B                        &kp DE_N       &kp DE_M       &kp DE_COMMA   &kp DE_DOT     &kp DE_MINUS                 UML_RB6 \
-                                                                              BASE_LH           /**/          BASE_RH \
+&kp ESC         &kp DE_Q       &kp DE_W       &kp DE_E        &kp DE_R                &kp DE_T   &mute_mic_pp /**/ &mute_mic_pp   &kp DE_Z       &kp DE_U       &kp DE_I       &kp DE_O       &kp DE_P                     &excl_sqt
+&lt SYMBOL TAB  &hml LGUI DE_A &hml LALT DE_S &hml LCTL DE_D  &hml LSHFT DE_F         &kp DE_G   &kp LCTL     /**/ &kp BSPC       &hmr RALT DE_H &hmr RSFT DE_J &hmr RCTL DE_K &hmr LALT DE_L &mo_sl QWERTZ_UML QWERTZ_UML &hmr_qmark_dqt RGUI 0
+&kp LSHFT       &kp DE_Y       &kp DE_X       &kp DE_C        &hml_mo QWERTZ_UML DE_V &kp DE_B                                    &kp DE_N       &kp DE_M       &kp DE_COMMA   &kp DE_DOT     &kp DE_MINUS                 &hmr_fslh_bslh RSFT 0
+                                              &mo_sl SYMBOL SYMBOL &mo_skq NAVI LSHFT &lt NUM_RIGHT BSPC      /**/                &lt SYMBOL RET &lt NUM_LEFT SPC &lt FUNCTION TAB
             >;
         };
 
@@ -200,10 +183,10 @@ XXX      LEFT_ACTIVATE_BOTTOM(&kp RALT)                   &kp KP_MINUS    &kp DE
             display-name = "symbol";
             // the number keys are not mirrored, only the symbol keys
             bindings = <
-&kp DE_CARET  &kp DE_AT    &kp DE_SQT   &kp DE_PLUS   &kp DE_DLLR   &kp DE_STAR  &kp RET  &kp TAB  &kp DE_AMPS  &kp DE_LBRC &kp DE_RBRC &kp DE_SEMI &kp DE_COLON &kp DE_ACUTE
-&mt LALT TAB  &kp DE_EXCL  &kp DE_FSLH  &kp DE_COLON  &kp DE_EQUAL  &kp DE_HASH  &kp SPC  &kp BSPC &kp DE_PIPE  &kp DE_LPAR &kp DE_RPAR &kp DE_DQT  &kp DE_QMARK &kp DE_TILDE
-&kp LCTRL     &kp DE_LT    &kp DE_GRAVE &kp DE_GT     &kp DE_MINUS  &kp DE_PRCNT                   &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_DOT  &kp DE_COMMA &kp DE_UNDER
-                                        XXX           XXX           XXX                            XXX          XXX         XXX
+&kp DE_DEG   &kp DE_AT   &kp DE_SQT   &kp DE_PLUS  &kp DE_DLLR   &kp DE_STAR  &kp RET &kp TAB  &kp DE_AMPS &kp DE_LBRC &kp DE_RBRC &kp DE_SEMI &kp DE_COLON &kp DE_ACUTE
+&kp TAB      &kp DE_EXCL &kp DE_FSLH  &kp DE_COLON &kp DE_EQUAL  &kp DE_HASH  &kp SPC &kp BSPC &kp DE_PIPE &kp DE_LPAR &kp DE_RPAR &kp DE_DQT  &kp DE_QMARK &kp DE_TILDE
+&kp DE_CARET &kp DE_LT   &kp DE_GRAVE &kp DE_GT    &kp DE_MINUS  &kp DE_PRCNT                  &kp DE_BSLH &kp DE_LBKT &kp DE_RBKT &kp DE_DOT  &kp DE_COMMA &kp DE_UNDER
+                                      &kp LALT     &mt LCTRL ESC &kp BSPC                      &kp RET     &kp SPC     &kp TAB
             >;
         };
 

@@ -12,8 +12,8 @@ They are compatible primarily with Windows but should be usable in other OSes wi
 ### Design Principles
 
 - Primary use cases are writing German (and sometimes English) texts and code mostly in C-style languages.
-- Provide opposing hand modifiers for most used layers
 - Optimize for minimal finger movements without sacrificing familiarity too much
+- Provide opposing hand modifiers for "single side" layers
 
 ### References
 
