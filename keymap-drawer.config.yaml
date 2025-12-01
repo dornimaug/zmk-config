@@ -259,6 +259,13 @@ parse_config:
       hold: toggle
       shifted: $$mdi:usb$$
       type: sym_by_sym
+
+    '&grave_nd':
+      tap: '`'
+      hold: non-dead
+    '&caret_nd':
+      tap: '^'
+      hold: non-dead
   sticky_label: sticky
   toggle_label: toggle
   tap_toggle_label: tap-toggle
@@ -379,6 +386,8 @@ parse_config:
       tap: $$mdi:robot-confused-outline$$
       shifted: $$mdi:microsoft-windows$$
       type: sym_by_sym
+    C_AL_CALC: $$mdi:calculator$$
+    C_AL_SHEET: $$mdi:microsoft-excel$$
 
     CUT_: Cut
     COPY_: Copy
@@ -419,7 +428,8 @@ parse_config:
     KP_DOT:
       tap: ','
       shifted: KP
-    KP_NUM: 'NUML'
+    KP_NUM: 'Num Lock'
+  
     N1:
       tap: '1'
       shifted: '!'
@@ -533,6 +543,7 @@ parse_config:
   zmk_combos:
     cc_combo_mouse_tog:   { align: right, o: 0.2,   arc_scale: 0.75 }
     cc_combo_num_l_tog:   { align: mid,   o: 0,     arc_scale: 1 }
+    cc_combo_num_r_tog:   { align: left,  o: 0.2,   arc_scale: 0.75 }
     cc_combo_symb_r_tog:  { align: left,  o: 0.2,   arc_scale: 0.75 }
     cc_combo_navi_tog:    { align: mid,   o: 0,     arc_scale: 1 }
     cc_combo_qw_u_uml:    { align: top,   o: 1.0,   arc_scale: 0.9 }

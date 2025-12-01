@@ -143,11 +143,11 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   num_l:
-  - {t: num_l, h: toggle}
-  - ''
+  - $$mdi:calculator$$
+  - Num Lock
+  - {t: '0', s: '='}
   - {t: <, s: '>'}
   - '>'
-  - {t: '0', s: '='}
   - '='
   - ''
   - ''
@@ -155,22 +155,22 @@ layers:
   - ''
   - ''
   - ''
-  - {t: '#', s: ''''}
-  - {t: ^, s: °}
+  - {t: ^, h: non-dead}
+  - {t: /, s: KP}
   - {t: '7', s: /}
   - {t: '8', s: (}
   - {t: '9', s: )}
   - {t: '*', s: KP}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
-  - ''
+  - {t: '#', s: ''''}
+  - $$mdi:calculator$$
   - Undo
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - Redo
   - ''
-  - ''
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ':'
-  - {t: /, s: KP}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
@@ -197,19 +197,19 @@ layers:
   - Paste
   - Copy
   - Cut
-  - AltGr
+  - Ctrl+A
   - ''
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: AltGr, h: AltGr, s: 1x}
-  - {t: '$$mdi:keyboard-space$$', type: space}
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - {t: '0', s: '='}
+  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: ',', s: KP}
   - {t: ., s: ':'}
   - {t: ',', s: ;}
   - ''
   - ''
   - {type: held}
-  - AltGr
+  - ''
   - ''
   - ''
   - ''
@@ -224,22 +224,22 @@ layers:
   - {t: '0', s: '='}
   - {t: <, s: '>'}
   - '>'
+  - Num Lock
+  - $$mdi:calculator$$
   - ''
-  - {t: num_r, h: toggle}
-  - ''
-  - ''
+  - Redo
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
-  - ''
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - $$mdi:calculator$$
+  - {t: '#', s: ''''}
   - {t: '*', s: KP}
   - {t: '7', s: /}
   - {t: '8', s: (}
   - {t: '9', s: )}
-  - {t: ^, s: °}
-  - {t: '#', s: ''''}
+  - {t: /, s: KP}
+  - {t: ^, h: non-dead}
   - AltGr
   - GUI
   - Alt
@@ -252,10 +252,10 @@ layers:
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
-  - {t: /, s: KP}
   - ':'
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
-  - AltGr
+  - Ctrl+A
   - Cut
   - Copy
   - Paste
@@ -274,14 +274,14 @@ layers:
   - ''
   - ''
   - ''
-  - AltGr
+  - ''
   - {type: held}
   - ''
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '0', s: '='}
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
-  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: ',', s: KP}
   - {t: AltGr, h: AltGr, s: 1x}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   symbol:
@@ -325,9 +325,9 @@ layers:
   - '"'
   - '?'
   - '~'
-  - {t: ^, s: °}
+  - {t: ^, h: non-dead}
   - {t: <, s: '>'}
-  - '`'
+  - {t: '`', h: non-dead}
   - '>'
   - {t: '-', s: _}
   - '%'
@@ -369,7 +369,7 @@ layers:
   - Pause / Break
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - ''
-  - ''
+  - Redo
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -396,8 +396,8 @@ layers:
   - $$mdi:arrow-right-bold$$
   - End
   - $$mdi:play-pause$$
-  - ''
   - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - Ctrl+A
   - Cut
   - Copy
   - Paste
@@ -407,9 +407,9 @@ layers:
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: MB5, s: '$$mdi:mouse$$'}
   - Esc
-  - Home
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - $$mdi:backspace-reverse-outline$$
-  - End
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
   - $$mdi:apple-keyboard-caps$$
   - $$mdi:volume-off$$
   - ''
@@ -451,7 +451,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
-  - ''
+  - Redo
   - ''
   - $$mdi:apple-keyboard-caps$$
   - F11
@@ -481,7 +481,7 @@ layers:
   - Paste
   - Copy
   - Cut
-  - ''
+  - Ctrl+A
   - ''
   - ''
   - ''
@@ -522,7 +522,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
-  - ''
+  - Redo
   - ''
   - ''
   - $$mdi:mouse-left-click-outline$$
@@ -552,7 +552,7 @@ layers:
   - Paste
   - Copy
   - Cut
-  - ''
+  - Ctrl+A
   - ''
   - {t: mouse, h: toggle}
   - ''

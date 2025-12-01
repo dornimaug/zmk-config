@@ -3,6 +3,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
+
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
 #include <dt-bindings/zmk/pointing.h>
 
 #ifndef KEYMAP_DRAWER
@@ -43,23 +45,11 @@
         // HOME_ROW_MOD(hml_sl, &kp, &sl, KEYS_RIGHT KEYS_THUMB)
         // HOME_ROW_MOD(hmr_sl, &kp, &sl, KEYS_LEFT KEYS_THUMB)
 
-        MORPH(prev_next,    C_PREV,     C_NEXT,     MOD_ANY)
-        MORPH(spc_bspc,     SPACE,      BSPC,       MOD_ANY)
-        MORPH(bspc_spc,     BSPC,       SPACE,      MOD_ANY)
-        MORPH(ret_del,      RET,        DEL,        MOD_ANY)
-        MORPH(bspc_del,     BSPC,       DEL,        MOD_ANY)
         MORPH(mute_mic_pp,  MUTE_MIC,   C_PP,       MOD_ANY)
 
-        MORPH(left_right,   LEFT,       RIGHT,      MOD_LSFT|MOD_RSFT)
         MORPH(qmark_dqt,    DE_QMARK,   DE_DQT,     MOD_LSFT|MOD_RSFT)
         MORPH(excl_sqt,     DE_EXCL,    DE_SQT,     MOD_LSFT|MOD_RSFT)
         MORPH(fslh_bslh,    DE_FSLH,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
-
-        MORPH(l_bkt_brc,    DE_LBKT,    DE_LBRC,    MOD_LSFT|MOD_RSFT)
-        MORPH(r_bkt_brc,    DE_RBKT,    DE_RBRC,    MOD_LSFT|MOD_RSFT)
-        MORPH(pipe_bslh,    DE_PIPE,    DE_BSLH,    MOD_LSFT|MOD_RSFT)
-        MORPH(at_euro,      DE_AT,      DE_EURO,    MOD_LSFT|MOD_RSFT)
-        MORPH(grave_tilde,  DE_GRAVE,   DE_TILDE,   MOD_LSFT|MOD_RSFT)
 
         HOME_ROW_MOD(hmr_qmark_dqt, &kp, &qmark_dqt,    KEYS_LEFT KEYS_THUMB)
         HOME_ROW_MOD(hmr_fslh_bslh, &kp, &fslh_bslh,    KEYS_LEFT KEYS_THUMB)
@@ -129,13 +119,13 @@
 #define XXX &none  
 #define ___ &trans
 
-#define LEFT_ACTIVATE_TOP       XXX      &kp TAB   &kp RET   &kp SPC    &kp UNDO_
-#define LEFT_ACTIVATE_MIDDLE    &kp LGUI &kp LALT  &kp LCTRL &kp LSHFT  &kp BSPC
-#define LEFT_ACTIVATE_BOTTOM(p) p        &kp CUT_  &kp COPY_ &kp PASTE_ &kp ESC
+#define LEFT_ACTIVATE_TOP       &kp REDO_ &kp TAB   &kp RET   &kp SPC    &kp UNDO_
+#define LEFT_ACTIVATE_MIDDLE    &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT  &kp BSPC
+#define LEFT_ACTIVATE_BOTTOM(p) p         &kp CUT_  &kp COPY_ &kp PASTE_ &kp ESC
 
-#define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB   XXX      XXX
-#define RIGHT_ACTIVATE_MIDDLE(p)  &kp BSPC  &kp LSHFT  &kp RCTRL  &kp LALT  &kp RGUI p
-#define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_  p        XXX
+#define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB   &kp REDO_ XXX
+#define RIGHT_ACTIVATE_MIDDLE(p)  &kp BSPC  &kp LSHFT  &kp RCTRL  &kp LALT  &kp RGUI  p
+#define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_  p         XXX
 
 #define EMPTY_NUMBER_ROW    XXX XXX XXX XXX XXX XXX
 #define EMPTY_4             XXX XXX XXX XXX
@@ -170,11 +160,11 @@ ___ ___              ___       ___   ___   ___ ___      ___ ___   ___           
         number_left_layer {
             display-name = "num_l";
             bindings = <
-&tog NUM_LEFT       XXX              &kp DE_LT    &kp DE_GT    &kp DE_N0   &kp DE_EQUAL                                           EMPTY_NUMBER_ROW
-&kp DE_HASH         &kp DE_CARET     &kp DE_N7    &kp DE_N8    &kp DE_N9   &kp KP_MULTIPLY &kp TAB                      XXX       RIGHT_ACTIVATE_TOP
-&kp DE_COLON        &kp KP_DIVIDE    &kp DE_N4    &kp DE_N5    &kp DE_N6   &kp KP_PLUS     &kp BSPC                     &kt RSHFT RIGHT_ACTIVATE_MIDDLE(&kp RALT)
-&kp DE_EURO         &kp KP_ENTER     &kp DE_N1    &kp DE_N2    &kp DE_N3   &kp KP_MINUS    &kp RET    &kp SPC       XXX XXX       RIGHT_ACTIVATE_BOTTOM(&kp RALT)
-&mt_sk LSHFT LSHFT  &mt_sk RALT RALT &kp SPC      &kp KP_ENTER       &kp DE_N0             &kp DE_DOT &kp DE_COMMA  XXX XXX       XXX &kp RALT XXX XXX XXX
+&kp C_AL_CALC       &kp KP_NUM       &kp DE_N0   &kp DE_LT    &kp DE_GT   &kp DE_EQUAL                                               EMPTY_NUMBER_ROW
+&caret_nd           &kp KP_DIVIDE    &kp DE_N7   &kp DE_N8    &kp DE_N9   &kp KP_MULTIPLY &kp DE_HASH                  &kp C_AL_CALC RIGHT_ACTIVATE_TOP
+&kp TAB             &kp DE_COLON     &kp DE_N4   &kp DE_N5    &kp DE_N6   &kp KP_PLUS     &kp BSPC                     &kt RSHFT     RIGHT_ACTIVATE_MIDDLE(&kp RALT)
+&kp DE_EURO         &kp KP_ENTER     &kp DE_N1   &kp DE_N2    &kp DE_N3   &kp KP_MINUS    &kp RET    &kp SPC       XXX XXX           RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
+&mt_sk LSHFT LSHFT  &mt_sk RALT RALT &kp DE_N0   &kp KP_ENTER &kp KP_DOT                  &kp DE_DOT &kp DE_COMMA  XXX XXX           XXX EMPTY_4
             >;
         };
 
@@ -182,11 +172,11 @@ ___ ___              ___       ___   ___   ___ ___      ___ ___   ___           
             display-name = "num_r";
             // numbers and symbols not mirrored, only thumb, inner and outer keys
             bindings = <
-EMPTY_NUMBER_ROW                                                          &kp DE_EQUAL    &kp DE_N0 &kp DE_LT    &kp DE_GT XXX              &tog NUM_RIGHT
-XXX      LEFT_ACTIVATE_TOP              XXX                     &kp TAB   &kp KP_MULTIPLY &kp DE_N7 &kp DE_N8    &kp DE_N9 &kp DE_CARET     &kp DE_HASH
-&kp RALT LEFT_ACTIVATE_MIDDLE           &kt LSHFT               &kp BSPC  &kp KP_PLUS     &kp DE_N4 &kp DE_N5    &kp DE_N6 &kp KP_DIVIDE    &kp DE_COLON
-XXX      LEFT_ACTIVATE_BOTTOM(&kp RALT) XXX XXX    &kp SPC      &kp RET   &kp KP_MINUS    &kp DE_N1 &kp DE_N2    &kp DE_N3 &kp KP_ENTER     &kp DE_EURO
-EMPTY_4                        &kp RALT XXX XXX    &kp DE_COMMA &kp DE_DOT       &kp DE_N0          &kp KP_ENTER &kp SPC   &mt_sk RALT RALT &mt_sk RSHFT RSHFT
+EMPTY_NUMBER_ROW                                                                     &kp DE_EQUAL    &kp DE_N0 &kp DE_LT    &kp DE_GT   &kp KP_NUM       &kp C_AL_CALC    
+XXX      LEFT_ACTIVATE_TOP                  &kp C_AL_CALC                &kp DE_HASH &kp KP_MULTIPLY &kp DE_N7 &kp DE_N8    &kp DE_N9   &kp KP_DIVIDE    &caret_nd
+&kp RALT LEFT_ACTIVATE_MIDDLE               &kt LSHFT                    &kp BSPC    &kp KP_PLUS     &kp DE_N4 &kp DE_N5    &kp DE_N6   &kp DE_COLON     &kp TAB
+XXX      LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A)) XXX      XXX    &kp SPC      &kp RET     &kp KP_MINUS    &kp DE_N1 &kp DE_N2    &kp DE_N3   &kp KP_ENTER     &kp DE_EURO
+EMPTY_4                          XXX        XXX      XXX    &kp DE_COMMA &kp DE_DOT         &kp DE_N0          &kp KP_ENTER &kp KP_DOT  &mt_sk RALT RALT &mt_sk RSHFT RSHFT
             >;
         };
 
@@ -196,7 +186,7 @@ EMPTY_4                        &kp RALT XXX XXX    &kp DE_COMMA &kp DE_DOT      
 &tog SYMBOL  &kp DE_SUPER2 &kp DE_SUPER3 &kp DE_SECT  XXX          XXX                                             &kp DE_DEG   XXX         XXX         &kp DE_MICRO &kp DE_ACUTE &tog SYMBOL
 &kp DE_DEG   &kp DE_AT     &kp DE_SQT    &kp DE_PLUS  &kp DE_DLLR  &kp DE_STAR  &kp TAB                   &kp RET  &kp DE_AMPS  &kp DE_LBRC &kp DE_RBRC &kp DE_SEMI  &kp DE_COLON &kp DE_ACUTE
 &kp TAB      &kp DE_EXCL   &kp DE_FSLH   &kp DE_COLON &kp DE_EQUAL &kp DE_HASH  &kp SPC                   &kp BSPC &kp DE_PIPE  &kp DE_LPAR &kp DE_RPAR &kp DE_DQT   &kp DE_QMARK &kp DE_TILDE
-&kp DE_CARET &kp DE_LT     &kp DE_GRAVE  &kp DE_GT    &kp DE_MINUS &kp DE_PRCNT &kp RET  &kp BSPC &kp SPC &kp TAB  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_DOT   &kp DE_COMMA &kp DE_UNDER
+&caret_nd    &kp DE_LT     &grave_nd     &kp DE_GT    &kp DE_MINUS &kp DE_PRCNT &kp RET  &kp BSPC &kp SPC &kp TAB  &kp DE_BSLH  &kp DE_LBKT &kp DE_RBKT &kp DE_DOT   &kp DE_COMMA &kp DE_UNDER
 &kp LCTRL    &kp LALT      &kp LEFT      &kp RIGHT         &mt LCTRL ESC        &kp BSPC &kp LALT &kp TAB &kp RET           &kp SPC         &kp LEFT    &kp RIGHT    &kp LALT     &kp RCTRL
             >;
         };
@@ -204,11 +194,11 @@ EMPTY_4                        &kp RALT XXX XXX    &kp DE_COMMA &kp DE_DOT      
         navigation_layer {
             display-name = "navi";
             bindings = <
-EMPTY_NUMBER_ROW                                                                &kp PSCRN   &kp C_RW    &kp C_PP   &kp C_FF   &kp PAUSE_BREAK &kp BSPC
-XXX         LEFT_ACTIVATE_TOP               &kp MUTE_MIC             &kp INS    &kp UNDO_   &kp PG_UP   &kp UP     &kp PG_DN  &kp REDO_    &kp MUTE_MIC
-&mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kt LSHFT                &mkp MB4   &kp HOME    &kp LEFT    &kp DOWN   &kp RIGHT  &kp END      &kp C_PP
-XXX         LEFT_ACTIVATE_BOTTOM(&kt LSHFT) XXX        XXX  &kp BSPC &mkp MB5   &kp ESC     &kp HOME    &kp DEL    &kp END    &kp CAPS     &kp C_MUTE
-EMPTY_4                                XXX  XXX        XXX  &kp TAB  &kp SPC          &kp RET           &kp C_PREV &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP
+EMPTY_NUMBER_ROW                                                                   &kp PSCRN   &kp C_RW     &kp C_PP   &kp C_FF       &kp PAUSE_BREAK &kp BSPC
+XXX         LEFT_ACTIVATE_TOP                  &kp MUTE_MIC             &kp INS    &kp UNDO_   &kp PG_UP    &kp UP     &kp PG_DN      &kp REDO_    &kp MUTE_MIC
+&mo SYSTEM  LEFT_ACTIVATE_MIDDLE               &kt LSHFT                &mkp MB4   &kp HOME    &kp LEFT     &kp DOWN   &kp RIGHT      &kp END      &kp C_PP
+&kt LSHFT   LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A)) XXX        XXX  &kp BSPC &mkp MB5   &kp ESC     &msc SCRL_UP &kp DEL    &msc SCRL_DOWN &kp CAPS     &kp C_MUTE
+EMPTY_4                                 XXX    XXX        XXX  &kp TAB  &kp SPC          &kp RET            &kp C_PREV &kp C_NEXT     &kp C_VOL_DN &kp C_VOL_UP
             >;
         };
 
@@ -218,7 +208,7 @@ EMPTY_4                                XXX  XXX        XXX  &kp TAB  &kp SPC    
 &kp F13    &kp F14  &kp F15 &kp F16  &kp F17  &kp F18                                    &kp F19 &kp F20 &kp F21 &kp F22 &kp F23 &kp F24
 &kp ESC    &kp F12  &kp F7  &kp F8   &kp F9   &kp SS_WIN  &kp MUTE_MIC              XXX  RIGHT_ACTIVATE_TOP
 &kp CAPS   &kp F11  &kp F4  &kp F5   &kp F6   &kp SSS_WIN &kp COPILOT               XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
-&caps_word &kp F10  &kp F1  &kp F2   &kp F3   &kp CSR_WIN &kp UNDO_ &kp REDO_  XXX  XXX  RIGHT_ACTIVATE_BOTTOM(XXX)
+&caps_word &kp F10  &kp F1  &kp F2   &kp F3   &kp CSR_WIN &kp UNDO_ &kp REDO_  XXX  XXX  RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
 EMPTY_4                                 &kp CUT_          &kp COPY_ &kp PASTE_ XXX  XXX     XXX    EMPTY_4
             >;
         };
@@ -229,7 +219,7 @@ EMPTY_4                                 &kp CUT_          &kp COPY_ &kp PASTE_ X
 &tog MOUSE  XXX      XXX            XXX            XXX             XXX                                        EMPTY_NUMBER_ROW
 XXX         &kp ESC  &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &mkp MB3        &kp MUTE_MIC          XXX  RIGHT_ACTIVATE_TOP
 XXX         &mkp MB1 &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_RIGHT &kt LSHFT             XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
-&kp LSHFT   &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT  &mkp MB3 &mkp MB5 XXX XXX  RIGHT_ACTIVATE_BOTTOM(XXX)
+&kp LSHFT   &mkp MB5 &mkp MB4       &mkp MB2       &mkp MB1        &msc SCRL_LEFT  &mkp MB3 &mkp MB5 XXX XXX  RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
 &tog MOUSE  XXX      XXX            XXX                       &mkp MB1             &mkp MB2 &mkp MB4 XXX XXX  XXX EMPTY_4
             >;
         };
