@@ -93,6 +93,9 @@ parse_config:
     '&caps_word':
       tap: Word
       shifted: $$mdi:apple-keyboard-caps$$
+    '&back_word':
+      tap: Word
+      shifted: $$mdi:backspace-outline$$
     
     '&td_sys_reset':
       shifted: Reset
@@ -388,6 +391,8 @@ parse_config:
       type: sym_by_sym
     C_AL_CALC: $$mdi:calculator$$
     C_AL_SHEET: $$mdi:microsoft-excel$$
+
+    MAGIC: $$mdi:magic-staff$$
 
     CUT_: Cut
     COPY_: Copy

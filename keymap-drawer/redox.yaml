@@ -20,7 +20,7 @@ layers:
   - R
   - T
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
-  - Esc
+  - $$mdi:magic-staff$$
   - Z
   - U
   - I
@@ -33,7 +33,7 @@ layers:
   - {t: D, h: Ctrl}
   - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
-  - {t: '$$mdi:keyboard-space$$', type: space}
+  - Esc
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: H, h: AltGr}
   - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
@@ -47,10 +47,10 @@ layers:
   - C
   - {t: V, h: QWERTZ uml}
   - B
-  - $$mdi:backspace-reverse-outline$$
-  - {t: '$$mdi:keyboard-return$$', h: AltGr}
   - {t: '$$mdi:keyboard-space$$', type: space}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:keyboard-return$$', h: AltGr}
+  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - N
   - M
   - {t: ',', s: ;}
@@ -148,7 +148,7 @@ layers:
   - {t: '0', s: '='}
   - {t: <, s: '>'}
   - '>'
-  - '='
+  - {t: '#', s: ''''}
   - ''
   - ''
   - ''
@@ -161,7 +161,7 @@ layers:
   - {t: '8', s: (}
   - {t: '9', s: )}
   - {t: '*', s: KP}
-  - {t: '#', s: ''''}
+  - '='
   - $$mdi:calculator$$
   - Undo
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -176,13 +176,13 @@ layers:
   - {t: '6', s: '&'}
   - {t: +, s: KP}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '#', s: ''''}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:apple-keyboard-shift$$
   - Ctrl
   - Alt
   - GUI
-  - AltGr
+  - ''
   - €
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - {t: '1', s: '!'}
@@ -220,7 +220,7 @@ layers:
   - ''
   - ''
   - ''
-  - '='
+  - {t: '#', s: ''''}
   - {t: '0', s: '='}
   - {t: <, s: '>'}
   - '>'
@@ -233,20 +233,20 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
   - $$mdi:calculator$$
-  - {t: '#', s: ''''}
+  - '='
   - {t: '*', s: KP}
   - {t: '7', s: /}
   - {t: '8', s: (}
   - {t: '9', s: )}
   - {t: /, s: KP}
   - {t: ^, h: non-dead}
-  - AltGr
+  - ''
   - GUI
   - Alt
   - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - $$mdi:backspace-reverse-outline$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: +, s: KP}
   - {t: '4', s: $}
@@ -285,7 +285,7 @@ layers:
   - {t: AltGr, h: AltGr, s: 1x}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   symbol:
-  - {t: symbol, h: toggle}
+  - Esc
   - ²
   - ³
   - §
@@ -296,7 +296,7 @@ layers:
   - ''
   - µ
   - {t: ´, s: '`'}
-  - {t: symbol, h: toggle}
+  - Esc
   - °
   - '@'
   - ''''
@@ -375,7 +375,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
-  - Insert
+  - {t: MB5, s: '$$mdi:mouse$$'}
   - Undo
   - {t: Page, h: '$$mdi:arrow-up$$'}
   - $$mdi:arrow-up-bold$$
@@ -388,7 +388,7 @@ layers:
   - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - $$mdi:backspace-reverse-outline$$
   - {t: MB4, s: '$$mdi:mouse$$'}
   - Home
   - $$mdi:arrow-left-bold$$
@@ -405,12 +405,12 @@ layers:
   - ''
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: MB5, s: '$$mdi:mouse$$'}
+  - Insert
   - Esc
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - $$mdi:backspace-reverse-outline$$
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
-  - $$mdi:apple-keyboard-caps$$
+  - {t: '$$mdi:volume-low$$', s: '$$mdi:volume-high$$'}
   - $$mdi:volume-off$$
   - ''
   - ''
@@ -511,11 +511,11 @@ layers:
   - ''
   - ''
   - ''
-  - Esc
+  - {t: MB3, s: '$$mdi:mouse$$'}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-up-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
-  - {t: MB3, s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ''
   - Undo
@@ -525,12 +525,12 @@ layers:
   - Redo
   - ''
   - ''
-  - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-right-click-outline$$
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-left-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-down-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-right-bold$$', type: sym_by_sym}
-  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
+  - ''
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:apple-keyboard-shift$$
@@ -538,14 +538,14 @@ layers:
   - Alt
   - GUI
   - ''
-  - $$mdi:apple-keyboard-shift$$
+  - ''
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}
   - {t: MB5, s: '$$mdi:mouse$$'}
   - {t: MB4, s: '$$mdi:mouse$$'}
-  - $$mdi:mouse-right-click-outline$$
-  - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
-  - {t: MB3, s: '$$mdi:mouse$$'}
+  - $$mdi:backspace-reverse-outline$$
   - {t: MB5, s: '$$mdi:mouse$$'}
+  - {t: MB4, s: '$$mdi:mouse$$'}
   - ''
   - ''
   - Esc
@@ -554,13 +554,13 @@ layers:
   - Cut
   - Ctrl+A
   - ''
-  - {t: mouse, h: toggle}
+  - ''
   - ''
   - ''
   - ''
   - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-right-click-outline$$
-  - {t: MB4, s: '$$mdi:mouse$$'}
   - ''
   - ''
   - ''
@@ -685,12 +685,6 @@ combos:
   a: left
   o: -0.3
   arc_scale: 0.7
-- p: [46, 32]
-  k: {t: symbol, h: toggle}
-  l: [QWERTZ, QWERTZ uml, symbol]
-- p: [47, 32]
-  k: {t: func, h: toggle}
-  l: [QWERTZ, QWERTZ uml, func]
 - p: [63, 33]
   k: {t: num_r, h: toggle}
   l: [QWERTZ, QWERTZ uml, num_r]
@@ -703,9 +697,6 @@ combos:
   a: right
   o: -0.3
   arc_scale: 0.7
-- p: [48, 33]
-  k: {t: symbol, h: toggle}
-  l: [QWERTZ, QWERTZ uml, symbol]
 - p: [61, 46]
   k: symbol
   l: [QWERTZ, QWERTZ uml]

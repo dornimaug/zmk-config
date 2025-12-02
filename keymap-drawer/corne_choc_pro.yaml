@@ -1,14 +1,14 @@
 layout: {zmk_keyboard: corne_choc_pro, layout_name: default_layout}
 layers:
   QWERTZ:
-  - Esc
+  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - Q
   - W
   - E
   - R
   - T
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
-  - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
+  - $$mdi:magic-staff$$
   - Z
   - U
   - I
@@ -21,7 +21,7 @@ layers:
   - {t: D, h: Ctrl}
   - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
-  - Ctrl
+  - {t: Esc, h: Ctrl}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: H, h: AltGr}
   - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
@@ -122,7 +122,7 @@ layers:
   - Alt
   - Ctrl
   - GUI
-  - AltGr
+  - ''
   - €
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - {t: '1', s: '!'}
@@ -140,7 +140,7 @@ layers:
   - {t: ., s: ':'}
   - ''
   - {type: held}
-  - AltGr
+  - ''
   num_r:
   - ''
   - Redo
@@ -156,7 +156,7 @@ layers:
   - {t: '9', s: )}
   - {t: /, s: KP}
   - {t: ^, h: non-dead}
-  - AltGr
+  - ''
   - GUI
   - Ctrl
   - Alt
@@ -183,7 +183,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - €
   - ''
-  - AltGr
+  - ''
   - {type: held}
   - {t: ., s: ':'}
   - {t: '0', s: '='}
@@ -242,8 +242,8 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
-  - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
-  - $$mdi:skip-previous$$
+  - {t: '$$mdi:skip-next$$', s: '$$mdi:skip-previous$$'}
+  - {t: MB5, s: '$$mdi:mouse$$'}
   - Undo
   - {t: Page, h: '$$mdi:arrow-up$$'}
   - $$mdi:arrow-up-bold$$
@@ -256,8 +256,8 @@ layers:
   - Alt
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
-  - $$mdi:skip-next$$
+  - $$mdi:backspace-reverse-outline$$
+  - {t: MB4, s: '$$mdi:mouse$$'}
   - Home
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
@@ -274,7 +274,7 @@ layers:
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - $$mdi:backspace-reverse-outline$$
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
-  - $$mdi:apple-keyboard-caps$$
+  - {t: '$$mdi:volume-low$$', s: '$$mdi:volume-high$$'}
   - $$mdi:volume-off$$
   - ''
   - ''
@@ -310,7 +310,7 @@ layers:
   - Alt
   - Ctrl
   - GUI
-  - AltGr
+  - ''
   - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - F10
   - F1
@@ -331,11 +331,11 @@ layers:
   - {type: held}
   mouse:
   - ''
-  - Esc
+  - {t: MB3, s: '$$mdi:mouse$$'}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-up-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
-  - {t: MB3, s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ''
   - Undo
@@ -345,37 +345,37 @@ layers:
   - Redo
   - ''
   - ''
-  - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-right-click-outline$$
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-left-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-down-bold$$', type: sym_by_sym}
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-right-bold$$', type: sym_by_sym}
-  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}
-  - {t: '$$mdi:apple-keyboard-shift$$', h: toggle}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-down$$', type: sym_by_sym}
+  - ''
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:apple-keyboard-shift$$
   - Alt
   - Ctrl
   - GUI
-  - AltGr
   - ''
+  - Ctrl
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
+  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}
   - {t: MB5, s: '$$mdi:mouse$$'}
   - {t: MB4, s: '$$mdi:mouse$$'}
-  - $$mdi:mouse-right-click-outline$$
-  - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
+  - $$mdi:backspace-reverse-outline$$
   - Esc
   - Paste
   - Copy
   - Cut
   - ''
   - ''
-  - {t: MB4, s: '$$mdi:mouse$$'}
-  - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-right-click-outline$$
+  - $$mdi:mouse-left-click-outline$$
+  - $$mdi:mouse-left-click-outline$$
   - ''
-  - {t: mouse, h: toggle}
-  - {t: mouse, h: toggle}
+  - ''
+  - ''
   system:
   - ''
   - {t: '$$mdi:bluetooth-connect$$', h: '0'}

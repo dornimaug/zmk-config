@@ -40,6 +40,8 @@
 #define IJ_REPLACE     LC(LS(DE_H))
 #define IJ_OPTIM_IMP   LC(LS(DE_O))
 
+#define MAGIC RC(RA(RS(F12)))
+
 #endif // KEYMAP_DRAWER
 
 &caps_word {
@@ -151,6 +153,9 @@
             display-name = "Key Toggle Off";
             toggle-mode = "off";
         };
+
+        MORPH(vol_dn_up, C_VOL_DN, C_VOL_UP,    MOD_ANY)
+        MORPH(next_prev, C_NEXT, C_PREV,        MOD_ANY)
     };
 };
 
@@ -225,5 +230,21 @@
     macros {
         MACRO_NON_DEAD_KEY(caret_nd, DE_CARET)
         MACRO_NON_DEAD_KEY(grave_nd, DE_GRAVE)
+
+        clear_all: clear_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_tap &kp LC(DE_A) &kp DEL
+            >;
+        };
+
+        back_word: back_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_tap &kp LC(BSPC)
+            >;
+        };
     };
 };
