@@ -97,9 +97,9 @@ layers:
   num_l:
   - {t: ^, h: non-dead}
   - {t: /, s: KP}
-  - {t: '9', s: )}
-  - {t: '8', s: (}
   - {t: '7', s: /}
+  - {t: '8', s: (}
+  - {t: '9', s: )}
   - {t: '*', s: KP}
   - '='
   - $$mdi:calculator$$
@@ -111,9 +111,9 @@ layers:
   - ''
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ':'
-  - {t: '6', s: '&'}
-  - {t: '5', s: '%'}
   - {t: '4', s: $}
+  - {t: '5', s: '%'}
+  - {t: '6', s: '&'}
   - {t: +, s: KP}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '#', s: ''''}
@@ -125,9 +125,9 @@ layers:
   - ''
   - €
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
-  - {t: '3', s: §}
-  - {t: '2', s: '"'}
   - {t: '1', s: '!'}
+  - {t: '2', s: '"'}
+  - {t: '3', s: §}
   - {t: '-', s: KP}
   - Esc
   - Paste

@@ -158,9 +158,9 @@ ___ ___              ___       ___   ___   ___ ___      ___ ___   ___           
             display-name = "num_l";
             bindings = <
 &kp C_AL_CALC       &kp KP_NUM       &kp DE_LT   &kp DE_GT    &kp DE_N0   &kp DE_HASH                                                EMPTY_NUMBER_ROW
-&caret_nd           &kp KP_DIVIDE    &kp DE_N9   &kp DE_N8    &kp DE_N7   &kp KP_MULTIPLY &kp DE_EQUAL                 &kp C_AL_CALC RIGHT_ACTIVATE_TOP
-&kp TAB             &kp DE_COLON     &kp DE_N6   &kp DE_N5    &kp DE_N4   &kp KP_PLUS     &kp BSPC                     &kp DE_HASH   RIGHT_ACTIVATE_MIDDLE(XXX)
-&kp DE_EURO         &kp KP_ENTER     &kp DE_N3   &kp DE_N2    &kp DE_N1   &kp KP_MINUS    &kp RET    &kp SPC       XXX XXX           RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
+&caret_nd           &kp KP_DIVIDE    &kp DE_N7   &kp DE_N8    &kp DE_N9   &kp KP_MULTIPLY &kp DE_EQUAL                 &kp C_AL_CALC RIGHT_ACTIVATE_TOP
+&kp TAB             &kp DE_COLON     &kp DE_N4   &kp DE_N5    &kp DE_N6   &kp KP_PLUS     &kp BSPC                     &kp DE_HASH   RIGHT_ACTIVATE_MIDDLE(XXX)
+&kp DE_EURO         &kp KP_ENTER     &kp DE_N1   &kp DE_N2    &kp DE_N3   &kp KP_MINUS    &kp RET    &kp SPC       XXX XXX           RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
 &mt_sk LSHFT LSHFT  &mt_sk RALT RALT &kp KP_DOT  &kp KP_ENTER         &kp KP_N0           &kp DE_DOT &kp DE_COMMA  XXX XXX           XXX EMPTY_4
             >;
         };

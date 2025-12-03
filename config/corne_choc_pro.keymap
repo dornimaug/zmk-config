@@ -152,9 +152,9 @@ ___ ___              ___       ___ ___ ___                  ___ ___         ___ 
         number_left_layer {
             display-name = "num_l";
             bindings = <
-&caret_nd     &kp KP_DIVIDE &kp DE_N9  &kp DE_N8    &kp DE_N7  &kp KP_MULTIPLY &kp DE_EQUAL &kp C_AL_CALC  RIGHT_ACTIVATE_TOP
-&kp TAB       &kp DE_COLON  &kp DE_N6  &kp DE_N5    &kp DE_N4  &kp KP_PLUS     &kp BSPC     &kp DE_HASH    RIGHT_ACTIVATE_MIDDLE
-&kp DE_EURO   &kp KP_ENTER  &kp DE_N3  &kp DE_N2    &kp DE_N1  &kp KP_MINUS                                RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
+&caret_nd     &kp KP_DIVIDE &kp DE_N7  &kp DE_N8    &kp DE_N9  &kp KP_MULTIPLY &kp DE_EQUAL &kp C_AL_CALC  RIGHT_ACTIVATE_TOP
+&kp TAB       &kp DE_COLON  &kp DE_N4  &kp DE_N5    &kp DE_N6  &kp KP_PLUS     &kp BSPC     &kp DE_HASH    RIGHT_ACTIVATE_MIDDLE
+&kp DE_EURO   &kp KP_ENTER  &kp DE_N1  &kp DE_N2    &kp DE_N3  &kp KP_MINUS                                RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
                                        &kp DE_COMMA &kp DE_N0  &kp DE_DOT                                  XXX  XXX  XXX
             >;
         };
