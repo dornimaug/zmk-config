@@ -403,6 +403,7 @@ parse_config:
     PSCRN: Print Screen
     PAUSE_BREAK: Pause / Break
     INS: Insert
+    K_APP: $$mdi:menu$$
 
     ACUTE: 
       tap: '´'

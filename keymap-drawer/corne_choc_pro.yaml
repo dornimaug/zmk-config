@@ -195,8 +195,8 @@ layers:
   - {t: +, s: '*'}
   - $
   - '*'
-  - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: Esc, h: Alt}
+  - $$mdi:backspace-reverse-outline$$
   - '&'
   - '{'
   - '}'
@@ -209,7 +209,7 @@ layers:
   - ':'
   - '='
   - {t: '#', s: ''''}
-  - {t: '$$mdi:keyboard-space$$', type: space}
+  - $$mdi:backspace-reverse-outline$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - '|'
   - (
@@ -229,11 +229,11 @@ layers:
   - {t: ., s: ':'}
   - {t: ',', s: ;}
   - _
-  - {t: Alt, type: held alternate}
-  - {t: Esc, h: Ctrl}
+  - {t: '$$mdi:keyboard-return$$', type: held alternate}
+  - {t: '$$mdi:keyboard-space$$', h: Ctrl}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: '$$mdi:keyboard-return$$', type: held alternate}
-  - {t: '$$mdi:keyboard-space$$', type: space}
+  - {t: '$$mdi:keyboard-space$$', h: Ctrl}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   navi:
   - ''
@@ -242,13 +242,13 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
-  - {t: '$$mdi:skip-next$$', s: '$$mdi:skip-previous$$'}
-  - {t: MB5, s: '$$mdi:mouse$$'}
-  - Undo
+  - $$mdi:skip-previous$$
+  - $$mdi:skip-next$$
+  - {t: MB4, s: '$$mdi:mouse$$'}
   - {t: Page, h: '$$mdi:arrow-up$$'}
   - $$mdi:arrow-up-bold$$
   - {t: Page, h: '$$mdi:arrow-down$$'}
-  - Redo
+  - {t: MB5, s: '$$mdi:mouse$$'}
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - system
   - GUI
@@ -257,7 +257,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:backspace-reverse-outline$$
-  - {t: MB4, s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:backspace-outline$$', type: backspace}
   - Home
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$

@@ -174,20 +174,20 @@ XXX  LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A))                   &kp KP_MINUS    &kp DE
             display-name = "symbol";
             // the number keys are not mirrored, only the symbol keys
             bindings = <
-&kp DE_DEG  &kp DE_AT   &kp DE_SQT   &kp DE_PLUS  &kp DE_DLLR   &kp DE_STAR  &kp RET &kp TAB  &kp DE_AMPS &kp DE_LBRC &kp DE_RBRC &kp DE_SEMI &kp DE_COLON &kp DE_ACUTE
-&kp TAB     &kp DE_EXCL &kp DE_FSLH  &kp DE_COLON &kp DE_EQUAL  &kp DE_HASH  &kp SPC &kp BSPC &kp DE_PIPE &kp DE_LPAR &kp DE_RPAR &kp DE_DQT  &kp DE_QMARK &kp DE_TILDE
-&caret_nd   &kp DE_LT   &grave_nd    &kp DE_GT    &kp DE_MINUS  &kp DE_PRCNT                  &kp DE_BSLH &kp DE_LBKT &kp DE_RBKT &kp DE_DOT  &kp DE_COMMA &kp DE_UNDER
-                                     &kp LALT     &mt LCTRL ESC &kp BSPC                      &kp RET     &kp SPC     &kp TAB
+&kp DE_DEG  &kp DE_AT   &kp DE_SQT   &kp DE_PLUS  &kp DE_DLLR  &kp DE_STAR  &mt LALT ESC &kp DEL  &kp DE_AMPS &kp DE_LBRC  &kp DE_RBRC &kp DE_SEMI &kp DE_COLON &kp DE_ACUTE
+&kp TAB     &kp DE_EXCL &kp DE_FSLH  &kp DE_COLON &kp DE_EQUAL &kp DE_HASH  &kp DEL      &kp BSPC &kp DE_PIPE &kp DE_LPAR  &kp DE_RPAR &kp DE_DQT  &kp DE_QMARK &kp DE_TILDE
+&caret_nd   &kp DE_LT   &grave_nd    &kp DE_GT    &kp DE_MINUS &kp DE_PRCNT                       &kp DE_BSLH &kp DE_LBKT  &kp DE_RBKT &kp DE_DOT  &kp DE_COMMA &kp DE_UNDER
+                                     &kp RET      &mt LCTL SPC &kp BSPC                           &kp RET     &mt LCTL SPC &kp TAB
             >;
         };
 
         navigation_layer {
             display-name = "navi";
             bindings = <
-XXX         LEFT_ACTIVATE_TOP               &next_prev &mkp MB5  &kp UNDO_  &kp PG_UP    &kp UP    &kp PG_DN      &kp REDO_  &kp MUTE_MIC
-&mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kp DEL    &mkp MB4  &kp HOME   &kp LEFT     &kp DOWN  &kp RIGHT      &kp END    &kp C_PP
-&kt LSHFT   LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A))                   &kp ESC    &msc SCRL_UP &kp DEL   &msc SCRL_DOWN &vol_dn_up &kp C_MUTE
-                                  XXX  XXX  XXX                  &kp RET    &kp SPC      &kp TAB
+XXX         LEFT_ACTIVATE_TOP               &kp C_PREV &kp C_NEXT &mkp MB4  &kp PG_UP    &kp UP    &kp PG_DN      &mkp MB5   &kp MUTE_MIC
+&mo SYSTEM  LEFT_ACTIVATE_MIDDLE            &kp DEL    &kp BSPC   &kp HOME  &kp LEFT     &kp DOWN  &kp RIGHT      &kp END    &kp C_PP
+&kt LSHFT   LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A))                    &kp ESC   &msc SCRL_UP &kp DEL   &msc SCRL_DOWN &vol_dn_up &kp C_MUTE
+                                  XXX  XXX  XXX                   &kp RET   &kp SPC      &kp TAB
             >;
         };
 
