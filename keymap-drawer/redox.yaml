@@ -156,7 +156,7 @@ layers:
   - ''
   - ''
   - {t: ^, h: non-dead}
-  - {t: /, s: KP}
+  - ':'
   - {t: '7', s: /}
   - {t: '8', s: (}
   - {t: '9', s: )}
@@ -170,7 +170,7 @@ layers:
   - Redo
   - ''
   - {t: '$$mdi:keyboard-tab$$', type: tab}
-  - ':'
+  - {t: ., s: ':'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
@@ -184,11 +184,11 @@ layers:
   - GUI
   - ''
   - €
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: '-', s: KP}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
   - {t: '3', s: §}
-  - {t: '-', s: KP}
+  - {t: /, s: KP}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-space$$', type: space}
   - ''
@@ -204,7 +204,7 @@ layers:
   - {t: ',', s: KP}
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - KP 0
-  - {t: ., s: ':'}
+  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - {t: ',', s: ;}
   - ''
   - ''
@@ -238,7 +238,7 @@ layers:
   - {t: '7', s: /}
   - {t: '8', s: (}
   - {t: '9', s: )}
-  - {t: /, s: KP}
+  - ':'
   - {t: ^, h: non-dead}
   - ''
   - GUI
@@ -252,7 +252,7 @@ layers:
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
-  - ':'
+  - {t: ., s: ':'}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
   - Ctrl+A
@@ -264,11 +264,11 @@ layers:
   - ''
   - {t: '$$mdi:keyboard-space$$', type: space}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: '-', s: KP}
+  - {t: /, s: KP}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
   - {t: '3', s: §}
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: '-', s: _}
   - €
   - ''
   - ''
@@ -278,7 +278,7 @@ layers:
   - {type: held}
   - ''
   - {t: ',', s: ;}
-  - {t: ., s: ':'}
+  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - {t: '0', s: '='}
   - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
   - {t: ',', s: KP}

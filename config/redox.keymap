@@ -157,11 +157,11 @@ ___ ___              ___       ___   ___   ___ ___      ___ ___   ___           
         number_left_layer {
             display-name = "num_l";
             bindings = <
-&kp C_AL_CALC       &kp KP_NUM       &kp DE_LT   &kp DE_GT    &kp DE_N0   &kp DE_HASH                                                EMPTY_NUMBER_ROW
-&caret_nd           &kp KP_DIVIDE    &kp DE_N7   &kp DE_N8    &kp DE_N9   &kp KP_MULTIPLY &kp DE_EQUAL                 &kp C_AL_CALC RIGHT_ACTIVATE_TOP
-&kp TAB             &kp DE_COLON     &kp DE_N4   &kp DE_N5    &kp DE_N6   &kp KP_PLUS     &kp BSPC                     &kp DE_HASH   RIGHT_ACTIVATE_MIDDLE(XXX)
-&kp DE_EURO         &kp KP_ENTER     &kp DE_N1   &kp DE_N2    &kp DE_N3   &kp KP_MINUS    &kp RET    &kp SPC       XXX XXX           RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
-&mt_sk LSHFT LSHFT  &mt_sk RALT RALT &kp KP_DOT  &kp KP_ENTER         &kp KP_N0           &kp DE_DOT &kp DE_COMMA  XXX XXX           XXX EMPTY_4
+&kp C_AL_CALC       &kp KP_NUM       &kp DE_LT   &kp DE_GT    &kp DE_N0   &kp DE_HASH                                                  EMPTY_NUMBER_ROW
+&caret_nd           &kp DE_COLON     &kp DE_N7   &kp DE_N8    &kp DE_N9   &kp KP_MULTIPLY &kp DE_EQUAL                   &kp C_AL_CALC RIGHT_ACTIVATE_TOP
+&kp TAB             &kp DE_DOT       &kp DE_N4   &kp DE_N5    &kp DE_N6   &kp KP_PLUS     &kp BSPC                       &kp DE_HASH   RIGHT_ACTIVATE_MIDDLE(XXX)
+&kp DE_EURO         &kp KP_MINUS     &kp DE_N1   &kp DE_N2    &kp DE_N3   &kp KP_DIVIDE   &kp RET      &kp SPC       XXX XXX           RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
+&mt_sk LSHFT LSHFT  &mt_sk RALT RALT &kp KP_DOT  &kp KP_ENTER         &kp KP_N0           &kp KP_ENTER &kp DE_COMMA  XXX XXX           XXX EMPTY_4
             >;
         };
 
@@ -170,10 +170,10 @@ ___ ___              ___       ___   ___   ___ ___      ___ ___   ___           
             // numbers and symbols not mirrored, only thumb, inner and outer keys
             bindings = <
 EMPTY_NUMBER_ROW                                                                      &kp DE_HASH     &kp DE_N0 &kp DE_LT    &kp DE_GT   &kp KP_NUM       &kp C_AL_CALC    
-XXX      LEFT_ACTIVATE_TOP                  &kp C_AL_CALC                &kp DE_EQUAL &kp KP_MULTIPLY &kp DE_N7 &kp DE_N8    &kp DE_N9   &kp KP_DIVIDE    &caret_nd
-XXX      LEFT_ACTIVATE_MIDDLE               &kp DE_HASH                  &kp BSPC     &kp KP_PLUS     &kp DE_N4 &kp DE_N5    &kp DE_N6   &kp DE_COLON     &kp TAB
-XXX      LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A)) XXX      XXX    &kp SPC      &kp RET      &kp KP_MINUS    &kp DE_N1 &kp DE_N2    &kp DE_N3   &kp KP_ENTER     &kp DE_EURO
-EMPTY_4                          XXX        XXX      XXX    &kp DE_COMMA &kp DE_DOT          &kp DE_N0          &kp KP_ENTER &kp KP_DOT  &mt_sk RALT RALT &mt_sk RSHFT RSHFT
+XXX      LEFT_ACTIVATE_TOP                  &kp C_AL_CALC                &kp DE_EQUAL &kp KP_MULTIPLY &kp DE_N7 &kp DE_N8    &kp DE_N9   &kp DE_COLON     &caret_nd
+XXX      LEFT_ACTIVATE_MIDDLE               &kp DE_HASH                  &kp BSPC     &kp KP_PLUS     &kp DE_N4 &kp DE_N5    &kp DE_N6   &kp DE_DOT       &kp TAB
+XXX      LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A)) XXX      XXX    &kp SPC      &kp RET      &kp KP_DIVIDE   &kp DE_N1 &kp DE_N2    &kp DE_N3   &kp DE_MINUS     &kp DE_EURO
+EMPTY_4                          XXX        XXX      XXX    &kp DE_COMMA &kp KP_ENTER        &kp DE_N0          &kp KP_ENTER &kp KP_DOT  &mt_sk RALT RALT &mt_sk RSHFT RSHFT
             >;
         };
 
