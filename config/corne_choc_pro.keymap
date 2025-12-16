@@ -122,7 +122,7 @@
 #define LEFT_ACTIVATE_BOTTOM(p) p         &kp CUT_ &kp COPY_ &kp PASTE_ &kp ESC
 
 #define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB  &kp REDO_ XXX
-#define RIGHT_ACTIVATE_MIDDLE     &kp BSPC  &kp RSHFT  &kp LALT   &kp RCTL &kp RGUI  XXX
+#define RIGHT_ACTIVATE_MIDDLE(p)  &kp BSPC  &kp RSHFT  &kp LALT   &kp RCTL &kp RGUI  p
 #define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_ p         XXX
 
 / {
@@ -152,10 +152,10 @@ ___ ___              ___       ___ ___ ___                  ___ ___         ___ 
         number_left_layer {
             display-name = "num_l";
             bindings = <
-&caret_nd     &kp DE_COLON  &kp DE_N7  &kp DE_N8    &kp DE_N9  &kp KP_MULTIPLY &kp DE_EQUAL &kp C_AL_CALC  RIGHT_ACTIVATE_TOP
-&kp TAB       &kp DE_DOT    &kp DE_N4  &kp DE_N5    &kp DE_N6  &kp KP_PLUS     &kp BSPC     &kp DE_HASH    RIGHT_ACTIVATE_MIDDLE
-&kp DE_EURO   &kp KP_MINUS  &kp DE_N1  &kp DE_N2    &kp DE_N3  &kp KP_DIVIDE                               RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
-                                       &kp DE_COMMA &kp DE_N0  &kp KP_ENTER                                XXX  XXX  XXX
+&caret_nd     &kp DE_COLON  &kp DE_N7  &kp DE_N8  &kp DE_N9  &kp KP_MULTIPLY &kp DE_HASH  &kp C_AL_CALC RIGHT_ACTIVATE_TOP
+&kp KP_DIVIDE &kp DE_DOT    &kp DE_N4  &kp DE_N5  &kp DE_N6  &kp KP_PLUS     &kp BSPC     &kp DE_EQUAL  RIGHT_ACTIVATE_MIDDLE(XXX)
+&kp DE_EURO   &kp DE_COMMA  &kp DE_N1  &kp DE_N2  &kp DE_N3  &kp KP_MINUS                               RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
+                                       &kp TAB    &kp DE_N0  &mt LSHFT KP_ENTER                         XXX  XXX  XXX
             >;
         };
 
@@ -163,10 +163,10 @@ ___ ___              ___       ___ ___ ___                  ___ ___         ___ 
             display-name = "num_r";
             // the number keys are not mirrored, only the symbol keys
             bindings = <
-XXX  LEFT_ACTIVATE_TOP         &kp C_AL_CALC &kp DE_EQUAL &kp KP_MULTIPLY &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_COLON  &caret_nd
-XXX  LEFT_ACTIVATE_MIDDLE      &kp DE_HASH   &kp BSPC     &kp KP_PLUS     &kp DE_N4 &kp DE_N5 &kp DE_N6 &kp DE_DOT    &kp TAB
-XXX  LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A))                   &kp KP_DIVIDE   &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp KP_MINUS  &kp DE_EURO
-                 XXX    XXX    XXX                        &kp KP_ENTER    &kp DE_N0 &kp DE_COMMA
+XXX  LEFT_ACTIVATE_TOP         &kp C_AL_CALC &kp DE_HASH &kp KP_MULTIPLY    &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_COLON  &caret_nd
+XXX  LEFT_ACTIVATE_MIDDLE      &kp DE_EQUAL  &kp BSPC    &kp KP_PLUS        &kp DE_N4 &kp DE_N5 &kp DE_N6 &kp DE_DOT    &kp KP_DIVIDE
+XXX  LEFT_ACTIVATE_BOTTOM(&kp LC(DE_A))                  &kp KP_MINUS       &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp DE_COMMA  &kp DE_EURO
+                 XXX    XXX    XXX                       &mt RSHFT KP_ENTER &kp DE_N0 &kp TAB
             >;
         };
 
@@ -195,7 +195,7 @@ XXX         LEFT_ACTIVATE_TOP               &kp C_PREV &kp C_NEXT &mkp MB4  &kp 
             display-name = "func";
             bindings = <
 &kp ESC    &kp F12  &kp F7  &kp F8   &kp F9    &kp SS_WIN  &kp MUTE_MIC XXX  RIGHT_ACTIVATE_TOP
-&kp CAPS   &kp F11  &kp F2  &kp F3   &kp F6    &kp SSS_WIN &kp COPILOT  XXX  RIGHT_ACTIVATE_MIDDLE
+&kp CAPS   &kp F11  &kp F2  &kp F3   &kp F6    &kp SSS_WIN &kp COPILOT  XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
 &caps_word &kp F10  &kp F1  &kp F2   &kp F3    &kp CSR_WIN                   RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
                             &kp CUT_ &kp COPY_ &kp PASTE_                    XXX  XXX  XXX   
             >;
@@ -205,7 +205,7 @@ XXX         LEFT_ACTIVATE_TOP               &kp C_PREV &kp C_NEXT &mkp MB4  &kp 
             display-name = "mouse";
             bindings = <
 XXX       &mkp MB3       &msc SCRL_UP    &mmv MOVE_UP   &msc SCRL_DOWN  &msc SCRL_UP    &kp MUTE_MIC XXX  RIGHT_ACTIVATE_TOP
-XXX       &mkp MB2       &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN  XXX          XXX  RIGHT_ACTIVATE_MIDDLE
+XXX       &mkp MB2       &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN  XXX          XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
 &kp LCTRL &msc SCRL_LEFT &msc SCRL_RIGHT &mkp MB5       &mkp MB4        &kp  DEL                          RIGHT_ACTIVATE_BOTTOM(XXX)
                                          &mkp MB2       &mkp MB1        &mkp MB1                          XXX  XXX  XXX
             >;

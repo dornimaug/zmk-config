@@ -101,7 +101,7 @@ layers:
   - {t: '8', s: (}
   - {t: '9', s: )}
   - {t: '*', s: KP}
-  - '='
+  - {t: '#', s: ''''}
   - $$mdi:calculator$$
   - Undo
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -109,14 +109,14 @@ layers:
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - Redo
   - ''
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: /, s: KP}
   - {t: ., s: ':'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
   - {t: +, s: KP}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '#', s: ''''}
+  - '='
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:apple-keyboard-shift$$
   - Alt
@@ -124,20 +124,20 @@ layers:
   - GUI
   - ''
   - €
-  - {t: '-', s: KP}
+  - {t: ',', s: ;}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
   - {t: '3', s: §}
-  - {t: /, s: KP}
+  - {t: '-', s: KP}
   - Esc
   - Paste
   - Copy
   - Cut
   - Ctrl+A
   - ''
-  - {t: ',', s: ;}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '0', s: '='}
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$', s: KP}
   - ''
   - {type: held}
   - ''
@@ -149,7 +149,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
   - $$mdi:calculator$$
-  - '='
+  - {t: '#', s: ''''}
   - {t: '*', s: KP}
   - {t: '7', s: /}
   - {t: '8', s: (}
@@ -162,32 +162,32 @@ layers:
   - Alt
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '#', s: ''''}
+  - '='
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: +, s: KP}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
   - {t: ., s: ':'}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: /, s: KP}
   - ''
   - Ctrl+A
   - Cut
   - Copy
   - Paste
   - Esc
-  - {t: /, s: KP}
+  - {t: '-', s: KP}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
   - {t: '3', s: §}
-  - {t: '-', s: KP}
+  - {t: ',', s: ;}
   - €
   - ''
   - ''
   - {type: held}
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$', s: KP}
   - {t: '0', s: '='}
-  - {t: ',', s: ;}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   symbol:
   - °
   - '@'

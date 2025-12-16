@@ -147,7 +147,7 @@ layers:
   - Num Lock
   - {t: <, s: '>'}
   - '>'
-  - {t: '0', s: '='}
+  - '%'
   - {t: '#', s: ''''}
   - ''
   - ''
@@ -169,7 +169,7 @@ layers:
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - Redo
   - ''
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: /, s: KP}
   - {t: ., s: ':'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
@@ -184,12 +184,12 @@ layers:
   - GUI
   - ''
   - €
-  - {t: '-', s: KP}
+  - {t: ',', s: ;}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
   - {t: '3', s: §}
-  - {t: /, s: KP}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '-', s: KP}
+  - Esc
   - {t: '$$mdi:keyboard-space$$', type: space}
   - ''
   - ''
@@ -202,10 +202,10 @@ layers:
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: AltGr, h: AltGr, s: 1x}
   - {t: ',', s: KP}
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
-  - KP 0
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
-  - {t: ',', s: ;}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '0', s: '='}
+  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$', s: KP}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
   - ''
   - {type: held}
@@ -221,7 +221,7 @@ layers:
   - ''
   - ''
   - {t: '#', s: ''''}
-  - {t: '0', s: '='}
+  - '%'
   - {t: <, s: '>'}
   - '>'
   - Num Lock
@@ -233,7 +233,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - Undo
   - $$mdi:calculator$$
-  - '='
+  - {t: '#', s: ''''}
   - {t: '*', s: KP}
   - {t: '7', s: /}
   - {t: '8', s: (}
@@ -246,14 +246,14 @@ layers:
   - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - {t: '#', s: ''''}
+  - '='
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: +, s: KP}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: '&'}
   - {t: ., s: ':'}
-  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: /, s: KP}
   - ''
   - Ctrl+A
   - Cut
@@ -263,12 +263,12 @@ layers:
   - ''
   - ''
   - {t: '$$mdi:keyboard-space$$', type: space}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: /, s: KP}
+  - Esc
+  - {t: '-', s: KP}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
   - {t: '3', s: §}
-  - {t: '-', s: _}
+  - {t: ',', s: ;}
   - €
   - ''
   - ''
@@ -277,10 +277,10 @@ layers:
   - ''
   - {type: held}
   - ''
-  - {t: ',', s: ;}
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: '$$mdi:keyboard-tab$$', type: tab}
+  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$', s: KP}
   - {t: '0', s: '='}
-  - {t: '$$mdi:keyboard-return$$', s: KP, type: return}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: ',', s: KP}
   - {t: AltGr, h: AltGr, s: 1x}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:apple-keyboard-shift$$', s: '$$mdi:numeric-1$$', type: sym_by_sym}
