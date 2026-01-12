@@ -195,7 +195,7 @@ XXX         LEFT_ACTIVATE_TOP               &kp C_PREV &kp C_NEXT &mkp MB4  &kp 
             display-name = "func";
             bindings = <
 &kp ESC    &kp F12  &kp F7  &kp F8   &kp F9    &kp SS_WIN  &kp MUTE_MIC XXX  RIGHT_ACTIVATE_TOP
-&kp CAPS   &kp F11  &kp F2  &kp F3   &kp F6    &kp SSS_WIN &kp COPILOT  XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
+&kp CAPS   &kp F11  &kp F4  &kp F5   &kp F6    &kp SSS_WIN &kp COPILOT  XXX  RIGHT_ACTIVATE_MIDDLE(XXX)
 &caps_word &kp F10  &kp F1  &kp F2   &kp F3    &kp CSR_WIN                   RIGHT_ACTIVATE_BOTTOM(&kp LC(DE_A))
                             &kp CUT_ &kp COPY_ &kp PASTE_                    XXX  XXX  XXX   
             >;
