@@ -118,11 +118,11 @@
 #define ___ &trans
 
 #define LEFT_ACTIVATE_TOP       &kp REDO_ &kp TAB  &kp RET   &kp SPC    &kp UNDO_
-#define LEFT_ACTIVATE_MIDDLE    &kp LGUI  &kp LCTL &kp LALT  &kp LSHFT  &kp BSPC
+#define LEFT_ACTIVATE_MIDDLE    &kp LGUI  &kp LALT &kp LCTL  &kp LSHFT  &kp BSPC
 #define LEFT_ACTIVATE_BOTTOM(p) p         &kp CUT_ &kp COPY_ &kp PASTE_ &kp ESC
 
 #define RIGHT_ACTIVATE_TOP        &kp UNDO_ &kp SPC    &kp RET    &kp TAB  &kp REDO_ XXX
-#define RIGHT_ACTIVATE_MIDDLE(p)  &kp BSPC  &kp RSHFT  &kp LALT   &kp RCTL &kp RGUI  p
+#define RIGHT_ACTIVATE_MIDDLE(p)  &kp BSPC  &kp RSHFT  &kp RCTL   &kp LALT &kp RGUI  p
 #define RIGHT_ACTIVATE_BOTTOM(p)  &kp ESC   &kp PASTE_ &kp COPY_  &kp CUT_ p         XXX
 
 / {

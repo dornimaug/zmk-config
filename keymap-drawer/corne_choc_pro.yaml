@@ -119,8 +119,8 @@ layers:
   - '='
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:apple-keyboard-shift$$
-  - Alt
   - Ctrl
+  - Alt
   - GUI
   - ''
   - €
@@ -158,8 +158,8 @@ layers:
   - {t: ^, h: non-dead}
   - ''
   - GUI
-  - Ctrl
   - Alt
+  - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - '='
@@ -252,8 +252,8 @@ layers:
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - system
   - GUI
-  - Ctrl
   - Alt
+  - Ctrl
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:backspace-reverse-outline$$
@@ -299,16 +299,16 @@ layers:
   - ''
   - $$mdi:apple-keyboard-caps$$
   - F11
-  - F2
-  - F3
+  - F4
+  - F5
   - F6
   - {t: '$$mdi:monitor-screenshot$$', h: '$$mdi:microsoft-windows$$', s: '$$mdi:select-drag$$', type: sym_by_sym}
   - {t: '$$mdi:robot-confused-outline$$', s: '$$mdi:microsoft-windows$$', type: sym_by_sym}
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:apple-keyboard-shift$$
-  - Alt
   - Ctrl
+  - Alt
   - GUI
   - ''
   - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
@@ -354,8 +354,8 @@ layers:
   - ''
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - $$mdi:apple-keyboard-shift$$
-  - Alt
   - Ctrl
+  - Alt
   - GUI
   - ''
   - Ctrl
