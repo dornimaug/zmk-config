@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: redox}
 layers:
   QWERTZ:
-  - Esc
+  - $$mdi:apple-keyboard-shift$$
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
   - {t: '3', s: §}
@@ -13,7 +13,7 @@ layers:
   - {t: '9', s: )}
   - {t: '0', s: '='}
   - {t: '$$mdi:microphone-off$$', s: '$$mdi:play-pause$$'}
-  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
+  - Esc
   - Q
   - W
   - E
@@ -33,7 +33,7 @@ layers:
   - {t: D, h: Ctrl}
   - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
-  - Esc
+  - {t: '$$mdi:keyboard-return$$', h: Ctrl}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: H, h: AltGr}
   - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
@@ -41,7 +41,7 @@ layers:
   - {t: L, h: Alt}
   - {t: QWERTZ uml, h: QWERTZ uml}
   - {t: '?', h: GUI, s: '"'}
-  - $$mdi:apple-keyboard-shift$$
+  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - Y
   - X
   - C
@@ -56,7 +56,7 @@ layers:
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '-', s: _}
-  - {t: /, h: '$$mdi:apple-keyboard-shift$$', s: \}
+  - {t: /, s: \}
   - Ctrl
   - Alt
   - GUI
@@ -182,7 +182,7 @@ layers:
   - Ctrl
   - Alt
   - GUI
-  - ''
+  - AltGr
   - €
   - {t: ',', s: ;}
   - {t: '1', s: '!'}
@@ -240,7 +240,7 @@ layers:
   - {t: '9', s: )}
   - ':'
   - {t: ^, h: non-dead}
-  - ''
+  - AltGr
   - GUI
   - Alt
   - Ctrl
@@ -314,8 +314,8 @@ layers:
   - {t: '$$mdi:keyboard-tab$$', type: held}
   - '!'
   - /
-  - ':'
   - '='
+  - ':'
   - {t: '#', s: ''''}
   - $$mdi:backspace-reverse-outline$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
@@ -323,7 +323,7 @@ layers:
   - (
   - )
   - '"'
-  - '?'
+  - {t: ., s: ':'}
   - '~'
   - {t: ^, h: non-dead}
   - {t: <, s: '>'}
@@ -338,9 +338,9 @@ layers:
   - \
   - '['
   - ']'
-  - {t: ., s: ':'}
-  - {t: ',', s: ;}
   - _
+  - {t: ',', s: ;}
+  - '?'
   - Ctrl
   - Alt
   - $$mdi:arrow-left-bold$$
@@ -466,7 +466,7 @@ layers:
   - Ctrl
   - Alt
   - GUI
-  - ''
+  - AltGr
   - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - F10
   - F1
@@ -537,7 +537,7 @@ layers:
   - Ctrl
   - Alt
   - GUI
-  - ''
+  - AltGr
   - ''
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}

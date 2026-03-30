@@ -40,7 +40,7 @@
 #define IJ_REPLACE     LC(LS(DE_H))
 #define IJ_OPTIM_IMP   LC(LS(DE_O))
 
-#define MAGIC RC(RA(RS(F12)))
+#define MAGIC RC(LA(RS(F12)))
 
 #endif // KEYMAP_DRAWER
 

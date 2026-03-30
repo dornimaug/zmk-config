@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: corne_choc_pro, layout_name: default_layout}
 layers:
   QWERTZ:
-  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
+  - Esc
   - Q
   - W
   - E
@@ -21,7 +21,7 @@ layers:
   - {t: D, h: Ctrl}
   - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
-  - {t: Esc, h: Ctrl}
+  - {t: '$$mdi:keyboard-return$$', h: Ctrl}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
   - {t: H, h: AltGr}
   - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
@@ -29,7 +29,7 @@ layers:
   - {t: L, h: Alt}
   - {t: QWERTZ uml, h: QWERTZ uml}
   - {t: '?', h: GUI, s: '"'}
-  - $$mdi:apple-keyboard-shift$$
+  - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - Y
   - X
   - C
@@ -40,7 +40,7 @@ layers:
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '-', s: _}
-  - {t: /, h: '$$mdi:apple-keyboard-shift$$', s: \}
+  - {t: /, s: \}
   - {t: symbol, h: symbol}
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', h: num_r}
@@ -122,7 +122,7 @@ layers:
   - Ctrl
   - Alt
   - GUI
-  - ''
+  - AltGr
   - €
   - {t: ',', s: ;}
   - {t: '1', s: '!'}
@@ -156,7 +156,7 @@ layers:
   - {t: '9', s: )}
   - ':'
   - {t: ^, h: non-dead}
-  - ''
+  - AltGr
   - GUI
   - Alt
   - Ctrl
@@ -206,8 +206,8 @@ layers:
   - {t: '$$mdi:keyboard-tab$$', type: held}
   - '!'
   - /
-  - ':'
   - '='
+  - ':'
   - {t: '#', s: ''''}
   - $$mdi:backspace-reverse-outline$$
   - {t: '$$mdi:backspace-outline$$', type: backspace}
@@ -215,7 +215,7 @@ layers:
   - (
   - )
   - '"'
-  - '?'
+  - {t: ., s: ':'}
   - '~'
   - {t: ^, h: non-dead}
   - {t: <, s: '>'}
@@ -226,9 +226,9 @@ layers:
   - \
   - '['
   - ']'
-  - {t: ., s: ':'}
-  - {t: ',', s: ;}
   - _
+  - {t: ',', s: ;}
+  - '?'
   - {t: '$$mdi:keyboard-return$$', type: held alternate}
   - {t: '$$mdi:keyboard-space$$', h: Ctrl}
   - {t: '$$mdi:backspace-outline$$', type: backspace}
@@ -310,7 +310,7 @@ layers:
   - Ctrl
   - Alt
   - GUI
-  - ''
+  - AltGr
   - {t: Word, s: '$$mdi:apple-keyboard-caps$$'}
   - F10
   - F1
@@ -357,7 +357,7 @@ layers:
   - Ctrl
   - Alt
   - GUI
-  - ''
+  - AltGr
   - Ctrl
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-left$$', type: sym_by_sym}
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-right$$', type: sym_by_sym}
