@@ -565,8 +565,8 @@ svg.keymap {
 <g transform="translate(555, 209) rotate(-12.0)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:keyboard-space"/>
-<a href="#num_l">
-<text x="0" y="24" class="key hold layer-activator">num_l</text>
+<a href="#num_r">
+<text x="0" y="24" class="key hold layer-activator">num_r</text>
 </a></g>
 <g transform="translate(616, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -917,6 +917,7 @@ svg.keymap {
 </g>
 <g transform="translate(812, 49)" class="key keypos-13">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Esc</text>
 </g>
 <g transform="translate(28, 105)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1011,7 +1012,7 @@ svg.keymap {
 </g>
 <g transform="translate(532, 153)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Esc</text>
+<use href="#mdi:backspace-reverse-outline" xlink:href="#mdi:backspace-reverse-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-reverse-outline"/>
 </g>
 <g transform="translate(588, 147)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1052,8 +1053,8 @@ svg.keymap {
 <g transform="translate(490, 215) rotate(-24.0)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
 </g>
-<g transform="translate(555, 209) rotate(-12.0)" class="key held keypos-44">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(555, 209) rotate(-12.0)" class="key keypos-44">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 </g>
 <g transform="translate(616, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1071,6 +1072,7 @@ svg.keymap {
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Esc</text>
 </g>
 <g transform="translate(84, 49)" class="key keypos-1">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1215,7 +1217,7 @@ svg.keymap {
 </g>
 <g transform="translate(308, 153)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Esc</text>
+<use href="#mdi:backspace-reverse-outline" xlink:href="#mdi:backspace-reverse-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-reverse-outline"/>
 </g>
 <g transform="translate(532, 153)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1261,10 +1263,10 @@ svg.keymap {
 <use href="#mdi:apple-keyboard-shift" xlink:href="#mdi:apple-keyboard-shift" x="-8" y="23" height="15" width="15.0" class="key hold glyph mdi:apple-keyboard-shift"/>
 <text x="0" y="-38" class="key shifted">KP</text>
 </g>
-<g transform="translate(555, 209) rotate(-12.0)" class="key keypos-44">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">0</text>
-<text x="0" y="-24" class="key shifted">=</text>
+<g transform="translate(555, 209) rotate(-12.0)" class="key held alternate keypos-44">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held alternate"/>
+<text x="0" y="0" class="key held alternate tap">0</text>
+<text x="0" y="-24" class="key held alternate shifted">=</text>
 </g>
 <g transform="translate(616, 203)" class="key tab keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key tab"/>
@@ -1486,6 +1488,7 @@ svg.keymap {
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Esc</text>
 </g>
 <g transform="translate(84, 49)" class="key keypos-1">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1626,7 +1629,7 @@ svg.keymap {
 </g>
 <g transform="translate(308, 153)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Esc</text>
+<use href="#mdi:backspace-reverse-outline" xlink:href="#mdi:backspace-reverse-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-reverse-outline"/>
 </g>
 <g transform="translate(532, 153)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1742,6 +1745,7 @@ svg.keymap {
 </g>
 <g transform="translate(812, 49)" class="key keypos-13">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Esc</text>
 </g>
 <g transform="translate(28, 105)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1830,7 +1834,7 @@ svg.keymap {
 </g>
 <g transform="translate(532, 153)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Esc</text>
+<use href="#mdi:backspace-reverse-outline" xlink:href="#mdi:backspace-reverse-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-reverse-outline"/>
 </g>
 <g transform="translate(588, 147)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1937,6 +1941,7 @@ svg.keymap {
 </g>
 <g transform="translate(812, 49)" class="key keypos-13">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Esc</text>
 </g>
 <g transform="translate(28, 105)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2025,7 +2030,7 @@ svg.keymap {
 </g>
 <g transform="translate(532, 153)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Esc</text>
+<use href="#mdi:backspace-reverse-outline" xlink:href="#mdi:backspace-reverse-outline" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:backspace-reverse-outline"/>
 </g>
 <g transform="translate(588, 147)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -2041,6 +2046,9 @@ svg.keymap {
 </g>
 <g transform="translate(756, 161)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">Ctrl+</tspan><tspan x="0" dy="1.2em">A</tspan>
+</text>
 </g>
 <g transform="translate(812, 161)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>

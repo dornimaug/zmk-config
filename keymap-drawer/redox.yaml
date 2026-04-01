@@ -66,7 +66,7 @@ layers:
   - {t: symbol, h: symbol}
   - {t: '$$mdi:keyboard-tab$$', h: func}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
-  - {t: '$$mdi:keyboard-space$$', h: num_l}
+  - {t: '$$mdi:keyboard-space$$', h: num_r}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$
   - $$mdi:arrow-down-bold$$
@@ -168,7 +168,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - Redo
-  - ''
+  - Esc
   - {t: /, s: KP}
   - {t: ., s: ':'}
   - {t: '4', s: $}
@@ -193,7 +193,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', type: space}
   - ''
   - ''
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - Paste
   - Copy
   - Cut
@@ -208,7 +208,7 @@ layers:
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - ''
   - ''
-  - {type: held}
+  - ''
   - ''
   - ''
   - ''
@@ -226,7 +226,7 @@ layers:
   - '>'
   - Num Lock
   - $$mdi:calculator$$
-  - ''
+  - Esc
   - Redo
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -259,7 +259,7 @@ layers:
   - Cut
   - Copy
   - Paste
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - ''
   - ''
   - {t: '$$mdi:keyboard-space$$', type: space}
@@ -279,7 +279,7 @@ layers:
   - ''
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$', s: KP}
-  - {t: '0', s: '='}
+  - {t: '0', s: '=', type: held alternate}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: ',', s: KP}
   - {t: AltGr, h: AltGr, s: 1x}
@@ -368,7 +368,7 @@ layers:
   - $$mdi:fast-forward$$
   - Pause / Break
   - {t: '$$mdi:backspace-outline$$', type: backspace}
-  - ''
+  - Esc
   - Redo
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -401,7 +401,7 @@ layers:
   - Cut
   - Copy
   - Paste
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - ''
   - ''
   - $$mdi:backspace-reverse-outline$$
@@ -452,7 +452,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - Redo
-  - ''
+  - Esc
   - $$mdi:apple-keyboard-caps$$
   - F11
   - F4
@@ -477,7 +477,7 @@ layers:
   - Redo
   - ''
   - {type: held alternate}
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - Paste
   - Copy
   - Cut
@@ -523,7 +523,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - Redo
-  - ''
+  - Esc
   - ''
   - $$mdi:mouse-right-click-outline$$
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-left-bold$$', type: sym_by_sym}
@@ -548,7 +548,7 @@ layers:
   - {t: MB4, s: '$$mdi:mouse$$'}
   - ''
   - ''
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - Paste
   - Copy
   - Cut

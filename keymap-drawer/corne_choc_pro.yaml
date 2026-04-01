@@ -45,7 +45,7 @@ layers:
   - {t: '$$mdi:apple-keyboard-shift$$', h: navi, s: '$$mdi:numeric-1$$', type: sym_by_sym}
   - {t: '$$mdi:backspace-outline$$', h: num_r}
   - {t: '$$mdi:keyboard-return$$', h: symbol}
-  - {t: '$$mdi:keyboard-space$$', h: num_l}
+  - {t: '$$mdi:keyboard-space$$', h: num_r}
   - {t: '$$mdi:keyboard-tab$$', h: func}
   QWERTZ uml:
   - {t: ▽, type: trans}
@@ -108,7 +108,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - Redo
-  - ''
+  - Esc
   - {t: /, s: KP}
   - {t: ., s: ':'}
   - {t: '4', s: $}
@@ -129,7 +129,7 @@ layers:
   - {t: '2', s: '"'}
   - {t: '3', s: §}
   - {t: '-', s: KP}
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - Paste
   - Copy
   - Cut
@@ -139,10 +139,10 @@ layers:
   - {t: '0', s: '='}
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$', s: KP}
   - ''
-  - {type: held}
+  - ''
   - ''
   num_r:
-  - ''
+  - Esc
   - Redo
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -175,7 +175,7 @@ layers:
   - Cut
   - Copy
   - Paste
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - {t: '-', s: KP}
   - {t: '1', s: '!'}
   - {t: '2', s: '"'}
@@ -186,7 +186,7 @@ layers:
   - ''
   - {type: held}
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$', s: KP}
-  - {t: '0', s: '='}
+  - {t: '0', s: '=', type: held alternate}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   symbol:
   - °
@@ -236,7 +236,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', h: Ctrl}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   navi:
-  - ''
+  - Esc
   - Redo
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -269,7 +269,7 @@ layers:
   - Cut
   - Copy
   - Paste
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - Esc
   - {t: '$$mdi:mouse-scroll-wheel$$', s: '$$mdi:transfer-up$$', type: sym_by_sym}
   - $$mdi:backspace-reverse-outline$$
@@ -296,7 +296,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - Redo
-  - ''
+  - Esc
   - $$mdi:apple-keyboard-caps$$
   - F11
   - F4
@@ -317,7 +317,7 @@ layers:
   - F2
   - F3
   - {t: '$$mdi:monitor-screenshot$$', h: '$$mdi:microsoft-windows$$', s: '$$mdi:video-outline$$', type: sym_by_sym}
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - Paste
   - Copy
   - Cut
@@ -343,7 +343,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:keyboard-tab$$', type: tab}
   - Redo
-  - ''
+  - Esc
   - ''
   - $$mdi:mouse-right-click-outline$$
   - {t: '$$mdi:mouse$$', s: '$$mdi:arrow-left-bold$$', type: sym_by_sym}
@@ -364,11 +364,11 @@ layers:
   - {t: MB5, s: '$$mdi:mouse$$'}
   - {t: MB4, s: '$$mdi:mouse$$'}
   - $$mdi:backspace-reverse-outline$$
-  - Esc
+  - $$mdi:backspace-reverse-outline$$
   - Paste
   - Copy
   - Cut
-  - ''
+  - Ctrl+A
   - ''
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-left-click-outline$$
